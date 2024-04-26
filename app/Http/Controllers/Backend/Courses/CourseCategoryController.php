@@ -10,8 +10,12 @@ use App\Http\Requests\Backend\Course\CourseCategory\UpdateRequest;
 
 use Exception;
 use File;
-class CourseController extends Controller
+
+class CourseCategoryController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $data = CourseCategory::paginate(10);

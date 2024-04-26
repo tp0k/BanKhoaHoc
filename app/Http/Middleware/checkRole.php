@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Session; //custom
 use App\Models\Permission; //custom
 
+
 class checkRole
 {
     /**
