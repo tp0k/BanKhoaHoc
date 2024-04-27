@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Session; //custom
 use App\Models\Permission; //custom
 
-
 class checkRole
 {
     /**
@@ -34,7 +33,7 @@ class checkRole
                     if (Permission::where('role_id', $user->role_id)->where('name', $request->route()->getName())->exists())
                         return $next($request);
                     else {
-                        \Toastr::warning("You don't have permission to access this page");
+                        Toastr::warning("You don't have permission to access this page");
                         return redirect()->back();
                     }
                 }
