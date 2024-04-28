@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', "Instructor's Profile")
+@section('title', "Hồ sơ giảng viên")
 @section('body-attr') style="background-color: #ebebf2;" @endsection
 
 @push('styles')

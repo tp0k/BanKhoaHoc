@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Checkout')
+@section('title', 'Thanh toán')
 @section('body-attr') style="background-color: #ebebf2;" @endsection
 
 @section('content')

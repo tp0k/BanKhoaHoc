@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{{ENV('APP_NAME')}} | @yield('title')</title>
-
+    {{-- <title>{{ENV('APP_NAME')}} | @yield('title')</title> --}}
+    <title>@yield('title') - {{ENV('APP_NAME')}} </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/logovuong.jpg')}}">
     <link rel="stylesheet" href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/style1.css')}}">
 

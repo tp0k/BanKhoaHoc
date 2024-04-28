@@ -1,11 +1,18 @@
+@php
+    $appNameParts = preg_split('/(?=[A-Z])/', env('APP_NAME'), -1, PREG_SPLIT_NO_EMPTY);
+    $firstPart = isset($appNameParts[0]) ? $appNameParts[0] : ''; // Lấy phần đầu tiên của chuỗi
+    $secondPart = isset($appNameParts[1]) ? $appNameParts[1] : ''; // Lấy phần thứ hai của chuỗi
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{ENV('APP_NAME')}} | @yield('title', 'Home')</title>
+    {{-- <title>{{ENV('APP_NAME')}} | @yield('title', 'Home')</title> --}}
+    <title>@yield('title','home') - {{ $firstPart }} {{ $secondPart }}</title>
     <link rel="stylesheet" href="{{asset('frontend/dist/main.css')}}" />
     <link rel="icon" type="image/png" href="{{asset('frontend/dist/images/favicon/favicon1.ico')}}" />
     <link rel="stylesheet" href="{{asset('frontend/fontawesome-free-5.15.4-web/css/all.min.css')}}">

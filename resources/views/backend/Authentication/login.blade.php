@@ -1,5 +1,5 @@
 @extends('backend.layouts.appAuth')
-@section('title', 'Log In')
+@section('title', 'Đăng nhập')
 
 @section('content')
 

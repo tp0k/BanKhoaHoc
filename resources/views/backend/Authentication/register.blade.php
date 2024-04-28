@@ -1,5 +1,5 @@
 @extends('backend.layouts.appAuth')
-@section('title', 'Registraion')
+@section('title', 'Đăng ký nhân viên')
 
 @section('content')
 
@@ -17,7 +17,7 @@
                                     <div class="form-group">
                                         <label><strong>Tên đầy đủ</strong></label>
                                         <input type="text" class="form-control" value="{{old('name')}}" name="name"
-                                            id="name" placeholder="Enter your Full Name">
+                                            id="name" placeholder="Nhập họ tên của bạn">
                                         @if($errors->has('name'))
                                         <small class="d-block text-danger">{{$errors->first('name')}}</small>
                                         @endif
@@ -25,7 +25,7 @@
                                     <div class="form-group">
                                         <label><strong>Email</strong></label>
                                         <input type="email" class="form-control" value="{{old('email')}}" name="email"
-                                            id="email" placeholder="Enter Email Address">
+                                            id="email" placeholder="Nhập địa chỉ email">
                                         @if($errors->has('email'))
                                         <small class="d-block text-danger">{{$errors->first('email')}}</small>
                                         @endif
@@ -33,7 +33,7 @@
                                     <div class="form-group">
                                         <label><strong>Số điện thoại</strong></label>
                                         <input type="text" class="form-control" value="{{old('contact_en')}}"
-                                            name="contact_en" id="contact_en" placeholder="Enter Contact No">
+                                            name="contact_en" id="contact_en" placeholder="Số điện thoại">
                                         @if($errors->has('contact_en'))
                                         <small class="d-block text-danger">{{$errors->first('contact_en')}}</small>
                                         @endif
@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <label><strong>Mật khẩu</strong></label>
                                         <input type="password" class="form-control" name="password" id="password"
-                                            placeholder="Enter Password">
+                                            placeholder="Nhập mật khẩu">
                                         @if($errors->has('password'))
                                         <small class="d-block text-danger">{{$errors->first('password')}}</small>
                                         @endif
@@ -49,7 +49,7 @@
                                     <div class="form-group">
                                         <label><strong>Nhập lại mật khẩu</strong></label>
                                         <input type="password" class="form-control" name="password_confirmation"
-                                            id="password_confirmation" placeholder="Re-enter Password">
+                                            id="password_confirmation" placeholder="Nhập lại mật khẩu">
                                     </div>
                                     <div class="text-center mt-4">
                                         <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>

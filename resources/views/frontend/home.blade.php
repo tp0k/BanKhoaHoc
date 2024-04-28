@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Home')
+@section('title', 'Trang chủ')
 @section('footer-class') footer--two @endsection
 
 
@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-7 mb-lg-0 order-2 order-lg-0 d-flex align-items-center">
                 <div class="banner-two-start">
-                    <h1 class="font-title--lg">Học, học nữa, học mãi.</h1>
+                    <h1 class="font-title--lg">Học đi đôi với hành.</h1>
                     <p>
                         Ước mơ mà không phấn đấu thì chỉ là hư cấu.
                     </p>

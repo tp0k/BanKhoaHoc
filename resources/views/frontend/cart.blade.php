@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Cart')
+@section('title', 'Giỏ hàng')
 @section('body-attr')style="background-color: #ebebf2;"@endsection
 
 @section('content')

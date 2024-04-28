@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Contact Us')
+@section('title', 'Liên hệ')
 @section('header-attr') class="nav-shadow" @endsection
 
 @section('content')
