@@ -88,6 +88,7 @@
             <div class="container text-center">
                 <h1>Giỏ hàng trống</h1>
                 <h5>Hãy thêm khoá học vào giỏ hàng nào!</h5>
+                <br>
                 <img src="frontend/dist/images/cart/01.jpg">
             </div>
         </section>
