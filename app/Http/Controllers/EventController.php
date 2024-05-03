@@ -92,15 +92,15 @@ class EventController extends Controller
                 $event->image = $imageName;
             }
             if ($event->save()) {
-                $this->notice::success('Data Saved');
+                $this->notice::success('Lưu dữ liệu!');
                 return redirect()->route('event.index');
             } else {
-                $this->notice::error('Please try again');
+                $this->notice::error('Vui lòng thử lại!');
                 return redirect()->back()->withInput();
             }
         } catch (\Exception $e) {
             dd($e);
-            $this->notice::error('Please try again');
+            $this->notice::error('Vui lòng thử lại!');
             return redirect()->back()->withInput();
         }
     }
@@ -112,7 +112,7 @@ class EventController extends Controller
     {
         $data = Event::findOrFail($id);
         if ($data->delete()) {
-            $this->notice::error('Data Deleted!');
+            $this->notice::error('Xoá dữ liệu!');
             return redirect()->back();
         }
     }

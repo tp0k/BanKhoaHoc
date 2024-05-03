@@ -119,7 +119,7 @@ class sslController extends Controller
         $deposit = Payment::where('txnid','=',$input['tran_id'])->orderBy('created_at','desc')->first();
         $student = Student::findOrFail($deposit->student_id);
         $this->setSession($student);
-        return redirect()->route('studentdashboard')->with('danger', 'Payment Cancelled.');
+        return redirect()->route('studentdashboard')->with('danger', 'Huỷ thanh toán.');
     }
 
     
@@ -149,10 +149,10 @@ class sslController extends Controller
                     $enrole->save();
                 }
             }
-            return redirect()->route('studentdashboard')->with('success', 'Payment done!');
+            return redirect()->route('studentdashboard')->with('success', 'Thanh toán thành công!');
         }
         else {
-            return redirect()->route('studentdashboard')->with('danger', 'Please try Again!');
+            return redirect()->route('studentdashboard')->with('danger', 'Vui lòng thử lại!');
         }
     }
     
@@ -163,7 +163,7 @@ class sslController extends Controller
                 'userName' => encryptor('encrypt', $student->name_en),
                 'emailAddress' => encryptor('encrypt', $student->email),
                 'studentLogin' => 1,
-                'image' => $student->image ?? 'No Image Found' 
+                'image' => $student->image ?? 'Không tìm thấy ảnh!' 
             ]
         );
     }

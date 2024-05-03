@@ -91,7 +91,7 @@ class AuthenticationController extends Controller
     public function signOut()
     {
         request()->session()->flush();
-        return redirect('login')->with('danger', 'Đăng xuất thành công');
+        return redirect('login')->with('danger', 'Đăng xuất thành công!');
     }
 
     public function show(User $data)

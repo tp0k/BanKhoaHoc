@@ -28,7 +28,7 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
 
         if (isset($cart[$id])) {
-            $message="You have already added this course in your cart.";
+            $message="Thêm khoá học vào giỏ hàng.";
             return redirect()->back()->with('warning', $message);
             //$cart[$id]['quantity']++;
         } else {
@@ -39,11 +39,11 @@ class CartController extends Controller
                 "old_price" => $course->old_price,
                 "image" => $course->image,
                 "difficulty" => $course->difficulty,
-                "instructor" => $course->instructor ? $course->instructor->name_en : 'Unknown Instructor',
+                "instructor" => $course->instructor ? $course->instructor->name_en : 'Không tìm thấy giảng viên!',
             ];
             session()->put('cart', $cart);
             $this->cart_total();
-            $message="Product added to cart successfully!";
+            $message="Thêm khoá học thành công!";
             return redirect()->back()->with('success', $message);
         }
     }
@@ -57,7 +57,7 @@ class CartController extends Controller
                 session()->put('cart', $cart);
             }
             $this->cart_total();
-            session()->flash('success', 'Product removed successfully');
+            session()->flash('success', 'Xoá khoá học thành công!');
         }
     }
 
@@ -111,6 +111,6 @@ class CartController extends Controller
             );
             session()->put('cart_details', $coupondata);
         }
-        return redirect()->back()->with('success', 'Coupon Applied successfully!');
+        return redirect()->back()->with('success', 'Áp giảm giá thành công!');
     }
 }

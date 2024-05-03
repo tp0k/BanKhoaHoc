@@ -15,9 +15,9 @@
                                 <form action="{{route('register.store')}}" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <label><strong>Tên đầy đủ</strong></label>
+                                        <label><strong>Họ và tên</strong></label>
                                         <input type="text" class="form-control" value="{{old('name')}}" name="name"
-                                            id="name" placeholder="Nhập họ và tên">
+                                            id="name" placeholder="Họ và tên của bạn">
                                         @if($errors->has('name'))
                                         <small class="d-block text-danger">{{$errors->first('name')}}</small>
                                         @endif
@@ -25,7 +25,7 @@
                                     <div class="form-group">
                                         <label><strong>Email</strong></label>
                                         <input type="email" class="form-control" value="{{old('email')}}" name="email"
-                                            id="email" placeholder="Nhập địa chỉ email">
+                                            id="email" placeholder="example@email.com">
                                         @if($errors->has('email'))
                                         <small class="d-block text-danger">{{$errors->first('email')}}</small>
                                         @endif

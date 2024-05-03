@@ -21,17 +21,22 @@ class AuthController extends Controller
     public function signUpStore(SignUpRequest $request,$back_route)
     {
         try {
+            // Kiểm tra mật khẩu có đáp ứng yêu cầu không
+            if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $request->password)) {
+                return redirect()->back()->withInput()->with('danger', 'Mật khẩu không đủ mạnh. Vui lòng nhập lại.');
+            }
+            
             $student = new Student;
             $student->name_en = $request->name;
             $student->email = $request->email;
             $student->password = Hash::make($request->password);
-            if ($student->save()){
-                $this->setSession($student);
-                return redirect()->route($back_route)->with('success', 'Successfully Logged In');
-            }
+            if ($student->save())
+                return redirect('login')->with('success', 'Đăng ký thành công');
+            else
+                return redirect()->back()->withInput()->with('danger', 'Đã xảy ra lỗi. Vui lòng thử lại.');
         } catch (Exception $e) {
-            //dd($e);
-            return redirect()->back()->with('danger', 'Please Try Again');
+            dd($e);
+            return redirect()->back()->withInput()->with('danger', 'Đã xảy ra lỗi. Vui lòng thử lại.');
         }
     }
 
@@ -48,18 +53,18 @@ class AuthController extends Controller
                 if ($student->status == 1) {
                     if (Hash::check($request->password, $student->password)) {
                         $this->setSession($student);
-                        return redirect()->route($back_route)->with('success', 'Successfully Logged In');
+                        return redirect()->route($back_route)->with('success', 'Đăng nhập thành công!');
                     } else
-                        return redirect()->back()->with('error', 'Username or Password is wrong!');
+                        return redirect()->back()->with('error', 'Username hoặc Password không đúng!');
                 } else
-                    return redirect()->back()->with('error', 'You are not an active user! Please contact to Authority');
+                    return redirect()->back()->with('error', 'Bạn không có quyền truy cập trang này. Vui lòng liên hệ cơ quan có thẩm quyền!');
             } else
-                return redirect()->back()->with('error', 'Username or Password is wrong!');
+                return redirect()->back()->with('error', 'Username hoặc Password không đúng!');
 
         
             } catch (Exception $e) {
             //dd($e);
-            return redirect()->back()->with('error', 'Username or Password is wrong!');
+            return redirect()->back()->with('error', 'Username hoặc Password không đúng!');
         }
     }
 
@@ -71,7 +76,7 @@ class AuthController extends Controller
                 'userName' => encryptor('encrypt', $student->name_en),
                 'emailAddress' => encryptor('encrypt', $student->email),
                 'studentLogin' => 1,
-                'image' => $student->image ?? 'No Image Found' 
+                'image' => $student->image ?? 'Không tìm thấy ảnh!' 
             ]
         );
     }
@@ -79,6 +84,6 @@ class AuthController extends Controller
     public function signOut()
     {
         request()->session()->flush();
-        return redirect()->route('studentLogin')->with('danger', 'Succesfully Logged Out');
+        return redirect()->route('studentLogin')->with('danger', 'Đăng xuất thành công!');
     }
 }

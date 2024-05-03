@@ -38,11 +38,11 @@ class ProfileController extends Controller
             }
             if ($data->save()) {
                 $this->setSession($data);
-                return redirect()->back()->with('success', 'Your Changes Have been Saved');
+                return redirect()->back()->with('success', 'Thay đổi của bạn đã được lưu!');
             }
         } catch (\Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Something went wrong. Please try again');
+            return redirect()->back()->withInput()->with('error', 'Một số lỗi đã xảy ra. Vui lòng thử lại!');
         }
     }
 
@@ -53,7 +53,7 @@ class ProfileController extends Controller
 
             // Validate current password
             if (!Hash::check($request->current_password, $data->password)) {
-                return redirect()->back()->with('error', 'Current password is incorrect.');
+                return redirect()->back()->with('error', 'Mật khẩu không chính xác.');
             }
             // Proceed with password change
             $data->password = Hash::make($request->password);
@@ -61,11 +61,11 @@ class ProfileController extends Controller
 
             if ($data->save()) {
                 $this->setSession($data);
-                return redirect()->back()->with('success', 'Password Have been Changed');
+                return redirect()->back()->with('success', 'Mật khẩu đã được thay đổi.');
             }
         } catch (\Exception $e) {
             // dd($e); 
-            return redirect()->back()->withInput()->with('error', 'Something went wrong. Please try again');
+            return redirect()->back()->withInput()->with('error', 'Một số lỗi đã xảy ra. Vui lòng thử lại!');
         }
     }
 
@@ -77,7 +77,7 @@ class ProfileController extends Controller
                 'userName' => encryptor('encrypt', $student->name_en),
                 'emailAddress' => encryptor('encrypt', $student->email),
                 'studentLogin' => 1,
-                'image' => $student->image ?? 'No Image Found'
+                'image' => $student->image ?? 'Không tìm thấy ảnh!'
             ]
         );
     }
