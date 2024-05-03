@@ -94,13 +94,13 @@ class ProfileController extends Controller
                 $user->image = $imageName;
                 $user->save();
 
-                return redirect()->back()->with('success', 'Image changed successfully.');
+                return redirect()->back()->with('success', 'Đổi ảnh thành công.');
             } else {
-                return redirect()->back()->with('error', 'Please select a valid image file.');
+                return redirect()->back()->with('error', 'Chọn file ảnh.');
             }
         } catch (\Exception $e) {
             // dd($e);
-            return redirect()->back()->with('error', 'An error occurred. Please try again.');
+            return redirect()->back()->with('error', 'Đã có lỗi xảy ra. Vui long thử lại!');
         }
     }
 }

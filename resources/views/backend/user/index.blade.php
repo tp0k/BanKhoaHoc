@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'User List')
+@section('title', 'Danh sách người dùng')
 
 @push('styles')
 <!-- Datatable -->

@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Đăng ký học viên')
+@section('title', 'Đăng ký')
 @section('header-attr') class="nav-shadow" @endsection
 
 @section('content')

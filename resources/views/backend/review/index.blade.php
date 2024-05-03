@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Review List')
+@section('title', 'Danh sách đánh giá')
 
 @push('styles')
 <!-- Datatable -->

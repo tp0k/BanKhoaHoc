@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Instructor Dashboard') 
+@section('title', 'Dashboard giảng viên') 
 
 @push('styles')
 <link rel="stylesheet" href="{{asset('vendor/jqvmap/css/jqvmap.min.css')}}">

@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Student List')
+@section('title', 'Danh sách học viên')
 
 @push('styles')
 <!-- Datatable -->
@@ -15,14 +15,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Danh sách học sinh</h4>
+                    <h4>Danh sách học viên</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('student.index')}}">Học sinh</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('student.index')}}">Học sinh</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('student.index')}}">Học viên</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('student.index')}}">Học viên</a></li>
                 </ol>
             </div>
         </div>
@@ -92,7 +92,7 @@
                                             </tr>
                                             @empty
                                             <tr>
-                                                <th colspan="7" class="text-center">Không tìm thấy học sinh</th>
+                                                <th colspan="7" class="text-center">Không tìm thấy học viên</th>
                                             </tr>
                                             @endforelse
                                         </tbody>
@@ -160,7 +160,7 @@
                                 <div class="card card-profile">
                                     <div class="card-body pt-2">
                                         <div class="text-center">
-                                            <p class="mt-3 px-4">Không tìm thấy học sinh</p>
+                                            <p class="mt-3 px-4">Không tìm thấy học viên</p>
                                         </div>
                                     </div>
                                 </div>

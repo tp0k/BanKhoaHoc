@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'User Profile')
+@section('title', 'Hồ sơ người dùng')
 
 
 @section('content')
@@ -10,7 +10,7 @@
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
                     <h4>Hi, Chào mừng bạn trở lại!</h4>
-                    <p class="mb-0">Mẫu bảng điều khiển doanh nghiệp</p>
+                    <p class="mb-0">Mẫu dashboard doanh nghiệp</p>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
