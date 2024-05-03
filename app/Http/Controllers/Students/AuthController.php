@@ -25,18 +25,17 @@ class AuthController extends Controller
             if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $request->password)) {
                 return redirect()->back()->withInput()->with('danger', 'Mật khẩu không đủ mạnh. Vui lòng nhập lại.');
             }
-            
             $student = new Student;
             $student->name_en = $request->name;
             $student->email = $request->email;
             $student->password = Hash::make($request->password);
-            if ($student->save())
-                return redirect('login')->with('success', 'Đăng ký thành công');
-            else
-                return redirect()->back()->withInput()->with('danger', 'Đã xảy ra lỗi. Vui lòng thử lại.');
+            if ($student->save()){
+                $this->setSession($student);
+                return redirect()->route($back_route)->with('success', 'Đăng ký thành công!');
+            }
         } catch (Exception $e) {
-            dd($e);
-            return redirect()->back()->withInput()->with('danger', 'Đã xảy ra lỗi. Vui lòng thử lại.');
+            //dd($e);
+            return redirect()->back()->with('danger', 'Vui lòng thử lại!');
         }
     }
 

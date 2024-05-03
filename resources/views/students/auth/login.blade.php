@@ -27,7 +27,7 @@
                                 <a href="forget-password.html" class="text-primary fs-6">Quên mật khẩu</a>
                             </div>
                             <div class="form-alert-input">
-                                <input type="password" placeholder="Type here..." id="password" name="password" />
+                                <input type="password" placeholder="Mật khẩu mới" id="password" name="password" />
                                 <div class="form-alert-icon" onclick="showPassword('password',this);">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
