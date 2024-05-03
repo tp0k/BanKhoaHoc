@@ -295,7 +295,7 @@
         <div class="dlabnav">
         <div class="dlabnav-scroll">
             <ul class="metismenu" id="menu">
-                <li class="nav-label first">Ban giáo viên</li>
+                <li class="nav-label first">Ban giảng viên</li>
                 <li><a class="ai-icon" href="{{route('dashboard')}}" aria-expanded="false">
                         <i class="las la-tachometer-alt"></i> <span class="nav-text">Dashboard</span>
                     </a>
@@ -304,9 +304,9 @@
                         <i class="las la-home"></i><span class="nav-text">Trang chủ</span>
                     </a>
                 </li>
-                <li class="nav-label">Main Menu</li>
+                <li class="nav-label">Menu chính</li>
                 <li><a href="{{route('instructor.index')}}">
-                        <i class="las la-chalkboard-teacher"></i>Danh sách giáo viên
+                        <i class="las la-chalkboard-teacher"></i>Danh sách giảng viên
                     </a>
                 </li>
                 <li><a href="{{route('student.index')}}"><i class="las la-book-reader"></i>Danh sách học viên</a></li>
@@ -374,6 +374,7 @@
 
     @stack('scripts')
     {{-- TOASTER --}}
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
     <script>
@@ -390,8 +391,7 @@
     				toastr.error("{{ Session::get('error') }}");  
     		@endif  
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
-    {!! Toastr::message() !!}
+    {{-- {!! Toastr::message() !!} --}}
 </body>
 
 </html>

@@ -11,13 +11,13 @@
                     <div class="row no-gutters">
                         <div class="col-xl-12">
                             <div class="auth-form">
-                                <h4 class="text-center mb-4">Đăng nhập tài khoản của bạn</h4>
+                                <h4 class="text-center mb-4">Đăng ký tài khoản nhân viên</h4>
                                 <form action="{{route('register.store')}}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <label><strong>Tên đầy đủ</strong></label>
                                         <input type="text" class="form-control" value="{{old('name')}}" name="name"
-                                            id="name" placeholder="Nhập họ tên của bạn">
+                                            id="name" placeholder="Nhập họ và tên">
                                         @if($errors->has('name'))
                                         <small class="d-block text-danger">{{$errors->first('name')}}</small>
                                         @endif
@@ -39,7 +39,10 @@
                                         @endif
                                     </div>
                                     <div class="form-group">
-                                        <label><strong>Mật khẩu</strong></label>
+                                        <label>
+                                            <strong>Mật khẩu</strong>
+                                            <small class="d-block text-muted">Có ít nhất 8 ký tự gồm chữ hoa, thường, số, và ký tự đặc biệt.</small>
+                                        </label>
                                         <input type="password" class="form-control" name="password" id="password"
                                             placeholder="Nhập mật khẩu">
                                         @if($errors->has('password'))

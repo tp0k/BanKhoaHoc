@@ -8,9 +8,10 @@ use App\Models\Role;
 use App\Models\User;
 use App\Http\Requests\Authentication\SignUpRequest;
 use App\Http\Requests\Authentication\SignInRequest;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash; //Dùng để băm mật khẩu trước khi add lên csdl
 use Exception;
 
+//mật khẩu tk admin: admin@gmail.com - Admin@123
 class AuthenticationController extends Controller
 {
     public function signUpForm()
@@ -21,20 +22,24 @@ class AuthenticationController extends Controller
     public function signUpStore(SignUpRequest $request)
     {
         try {
+            // Kiểm tra mật khẩu có đáp ứng yêu cầu không
+            if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $request->password)) {
+                return redirect()->back()->withInput()->with('danger', 'Mật khẩu không đủ mạnh. Vui lòng nhập lại.');
+            }
+    
             $user = new User;
             $user->name_en = $request->name;
             $user->contact_en = $request->contact_en;
             $user->email = $request->email;
-            $user->password = Hash::make($request->password);
+            $user->password = Hash::make($request->password); //Hàm Hash::make dùng để băm mật khẩu trước khi đưa vào csdl
             $user->role_id = 4;
-            // dd($request->all()); 
             if ($user->save())
-                return redirect('login')->with('success', 'Successfully Registered');
+                return redirect('login')->with('success', 'Đăng ký thành công');
             else
-                return redirect('login')->with('danger', 'Please Try Again');
+                return redirect()->back()->withInput()->with('danger', 'Đã xảy ra lỗi. Vui lòng thử lại.');
         } catch (Exception $e) {
             dd($e);
-            return redirect('login')->with('danger', 'Please Try Again');
+            return redirect()->back()->withInput()->with('danger', 'Đã xảy ra lỗi. Vui lòng thử lại.');
         }
     }
 
@@ -51,13 +56,13 @@ class AuthenticationController extends Controller
                 if ($user->status == 1) {
                     if (Hash::check($request->password, $user->password)) {
                         $this->setSession($user);
-                        return redirect()->route('dashboard')->with('success', 'Successfully Logged In');
+                        return redirect()->route('dashboard')->with('success', 'Đăng nhập thành công');
                     } else
-                        return redirect()->route('login')->with('error', 'Username or Password is wrong!');
+                        return redirect()->route('login')->with('error', 'Username hoặc Password không đúng!');
                 } else
-                    return redirect()->route('login')->with('error', 'You are not an active user! Please contact to Authority');
+                    return redirect()->route('login')->with('error', 'Bạn không có quyền truy cập! Vui lòng liên hệ với Cơ quan có thẩm quyền');
             } else
-                return redirect()->route('login')->with('error', 'Username or Password is wrong!');
+                return redirect()->route('login')->with('error', 'Username hoặc Password không đúng!');
             
         } catch (Exception $e) {
             // dd($e);
@@ -77,8 +82,8 @@ class AuthenticationController extends Controller
                 'role' => encryptor('encrypt', $user->role->name),
                 'roleIdentitiy' => encryptor('encrypt', $user->role->identity),
                 'language' => encryptor('encrypt', $user->language),
-                'image' => $user->image ?? 'No Image Found',
-                'instructorImage' => $user?->instructor->image ?? 'No instructorImage Found',
+                'image' => $user->image ?? 'Không tìm thấy ảnh',
+                'instructorImage' => $user?->instructor->image ?? 'Không tìm thấy ảnh giảng viên',
             ]
         );
     }
@@ -86,7 +91,7 @@ class AuthenticationController extends Controller
     public function signOut()
     {
         request()->session()->flush();
-        return redirect('login')->with('danger', 'Succesfully Logged Out');
+        return redirect('login')->with('danger', 'Đăng xuất thành công');
     }
 
     public function show(User $data)

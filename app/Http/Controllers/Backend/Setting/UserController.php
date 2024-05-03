@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Setting;
 
 use App\Http\Controllers\Controller;
+use App\Rules\StrongPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
@@ -10,6 +11,7 @@ use App\Http\Requests\Backend\User\AddNewRequest;
 use App\Http\Requests\Backend\User\UpdateRequest;
 use Exception;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use File;
 
 class UserController extends Controller
@@ -34,6 +36,17 @@ class UserController extends Controller
      */
     public function store(AddNewRequest $request)
     {
+        // Kiểm tra mật khẩu đã nhập có đáp ứng yêu cầu không
+        $validator = Validator::make($request->all(), [
+            'password' => ['required', new StrongPassword],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator->errors()->first('password'));
+        }
+
+
+        // Mật khẩu hợp lệ, tiếp tục xử lý tạo tài khoản
         try {
             $data = new User();
             $data->name_en = $request->userName_en;
@@ -53,12 +66,12 @@ class UserController extends Controller
                 $data->image = $imageName;
             }
             if ($data->save())
-                return redirect()->route('user.index')->with('success', 'Data SAVED');
+                return redirect()->route('user.index')->with('success', 'Đã lưu dữ liệu!');
             else
-                return redirect()->back()->withInput()->with('error', 'Please Try again');
+                return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
         } catch (Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Please try again');
+            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
         }
     }
 
@@ -85,6 +98,11 @@ class UserController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
+        // Kiểm tra mật khẩu có đáp ứng yêu cầu không
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $request->password)) {
+            return redirect()->back()->withInput()->with('danger', 'Mật khẩu không đáp ứng yêu cầu. Vui lòng nhập lại.');
+        }
+
         try {
             $data = User::findOrFail(encryptor('decrypt', $id));
             $data->name_en = $request->userName_en;
@@ -97,8 +115,8 @@ class UserController extends Controller
             $data->full_access = $request->fullAccess;
             $data->status = $request->status;
 
-            if ($request->password)
-                $data->password = Hash::make($request->password);
+            // if ($request->password)
+            //     $data->password = Hash::make($request->password);
 
             if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
@@ -106,12 +124,12 @@ class UserController extends Controller
                 $data->image = $imageName;
             }
             if ($data->save())
-                return redirect()->route('user.index')->with('success', 'Data SAVED');
+                return redirect()->route('user.index')->with('success', 'Đã lưu dữ liệu');
             else
-                return redirect()->back()->withInput()->with('error', 'Please Try again');
+                return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại');
         } catch (Exception $e) {
             dd($e);
-            return redirect()->back()->withInput()->with('error', 'Please try again');
+            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại');
         }
     }
 

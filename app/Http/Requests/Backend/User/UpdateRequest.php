@@ -4,6 +4,7 @@ namespace App\Http\Requests\Backend\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
+use App\Rules\StrongPassword;
 
 class UpdateRequest extends FormRequest
 {
@@ -27,6 +28,8 @@ class UpdateRequest extends FormRequest
             'userName_en' => 'required',
             'contactNumber_en' => 'required|unique:users,contact_en,' . $id,
             'emailAddress' => 'required|unique:users,email,' . $id,
+            'password' => ['nullable', new StrongPassword],
+            // Thêm 'nullable' để cho phép bỏ qua kiểm tra mật khẩu nếu không có mật khẩu mới được cung cấp
         ];
     }
 }

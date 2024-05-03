@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Session; //custom
 use App\Models\Permission;
-
 class checkAuth
 {
     /**

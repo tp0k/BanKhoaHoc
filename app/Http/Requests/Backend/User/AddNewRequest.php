@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Backend\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\StrongPassword;
 
 class AddNewRequest extends FormRequest
 {
@@ -26,6 +27,7 @@ class AddNewRequest extends FormRequest
             'roleId' => 'required|max:2',
             'contactNumber_en' => 'required|unique:users,contact_en',
             'emailAddress' => 'required|unique:users,email',
+            'password' => ['required', 'confirmed', new StrongPassword],
             #'password' => 'required'
         ];
     }
