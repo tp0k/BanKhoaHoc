@@ -11,7 +11,7 @@ use App\Http\Requests\Authentication\SignInRequest;
 use Illuminate\Support\Facades\Hash; //Dùng để băm mật khẩu trước khi add lên csdl
 use Exception;
 
-//mật khẩu tk admin: admin@gmail.com - Admin@123
+//mật khẩu tk superadmin: superadmin@gmail.com - Admin@123
 class AuthenticationController extends Controller
 {
     public function signUpForm()

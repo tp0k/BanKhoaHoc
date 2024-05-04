@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 03, 2024 lúc 06:59 PM
+-- Thời gian đã tạo: Th5 04, 2024 lúc 05:21 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -480,7 +480,7 @@ CREATE TABLE `students` (
   `image` varchar(255) DEFAULT NULL,
   `bio` text DEFAULT NULL,
   `profession` varchar(255) DEFAULT NULL,
-  `nationality` varchar(255) DEFAULT 'Việt Nam',
+  `nationality` varchar(255) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
@@ -500,7 +500,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name_en`, `name_bn`, `contact_en`, `contact_bn`, `email`, `date_of_birth`, `gender`, `image`, `bio`, `profession`, `nationality`, `address`, `city`, `state`, `postcode`, `country`, `status`, `password`, `language`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'thảo', NULL, NULL, NULL, 'thaophuong@gmail.com', NULL, NULL, '5871714755480.jpg', NULL, NULL, 'Việt Nam', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$8W9CVGx7lRk65AIaYckyBuUMOECbnHUxGFK8zfuJaZUrcTIBbLdiu', 'en', NULL, '2024-05-03 09:52:27', '2024-05-03 09:58:00', NULL);
+(1, 'thảo', NULL, NULL, NULL, 'thaophuong@gmail.com', NULL, NULL, '5871714755480.jpg', NULL, NULL, 'Việt Nam', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$8W9CVGx7lRk65AIaYckyBuUMOECbnHUxGFK8zfuJaZUrcTIBbLdiu', 'en', NULL, '2024-05-03 09:52:27', '2024-05-03 09:58:00', NULL),
+(6, 'Phương Thảo', NULL, '0926548935', NULL, 'thao2@gmail.com', NULL, NULL, '7701714789796.jpg', 'Co nhu cau hoc lap trinh basic do chua biet gi', 'học sinh', 'Ha Noi', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$cG1Hflw4Hlpimpx/vBxC8OEOyQyKEUohSUjN.XoUfEyVJ7Uk4MkD6', 'en', NULL, '2024-05-03 10:38:25', '2024-05-03 19:33:06', NULL),
+(9, 'thao3', NULL, NULL, NULL, 'thao3@gmail.com', NULL, NULL, NULL, NULL, NULL, 'Việt Nam', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$91r/77ATYA2Ou4/0twsRbeRpuzIRCMDVWwSqeO33LZhMjiNlNi7S2', 'en', NULL, '2024-05-03 10:42:33', '2024-05-03 10:42:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -552,7 +554,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name_en`, `name_bn`, `email`, `contact_en`, `contact_bn`, `role_id`, `password`, `language`, `image`, `full_access`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `instructor_id`) VALUES
-(1, 'Admin', NULL, 'admin@gmail.com', '0981234566', NULL, 4, '$2y$12$IM6zyqGfzCsvAahk8yecvOPcY1XxfN6vEYceANddVZcg.RxE.TOYa', 'en', NULL, 0, 1, NULL, '2024-05-03 07:51:40', '2024-05-03 07:51:40', NULL, NULL);
+(1, 'SuperAdmin', NULL, 'superadmin@gmail.com', '0981234566', NULL, 1, '$2y$12$IM6zyqGfzCsvAahk8yecvOPcY1XxfN6vEYceANddVZcg.RxE.TOYa', 'en', NULL, 1, 1, NULL, '2024-05-03 07:51:40', '2024-05-03 07:51:40', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -913,7 +915,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `subscriptions`
@@ -925,7 +927,7 @@ ALTER TABLE `subscriptions`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `watchlists`

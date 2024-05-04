@@ -79,7 +79,7 @@
                 <div class="nav" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
-                        aria-selected="true">bảng điều khiển</button>
+                        aria-selected="true">Bảng điều khiển</button>
 
                     <button class="nav-link" id="nav-coursesall-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-coursesall" type="button" role="tab" aria-controls="nav-coursesall"
@@ -118,10 +118,9 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-12 mx-auto text-center">
-                                        <h5 class="font-title--sm">Đầu tư vào sự nghiệp của bạn với chúng tôi</h5>
+                                        <h5 class="font-title--sm">Hãy thêm khoá học bạn mong muốn</h5>
                                         <p class="my-4 font-para--lg">
-                                        Học viện nghiên cứu và đào tạo Công nghệ thông tin. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm...
-                                        </p>
+                                            Hãy là người không ngừng học hỏi, vì thế giới thay đổi nhanh chóng và chỉ những người học hỏi mới có thể theo kịp.                                        </p>
                                         <a href="{{route('searchCourse')}}"
                                             class="button button-md button--primary">Đi thôi!</a>
                                     </div>

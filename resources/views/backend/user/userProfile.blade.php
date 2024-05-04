@@ -67,24 +67,24 @@
                             <div class="text-center mt-4 border-bottom-1 pb-3">
                                 <div class="row">
                                     <div class="col">
-                                        <h3 class="m-b-0">150</h3><span>Follower</span>
+                                        <h3 class="m-b-0">150</h3><span>Theo dõi</span>
                                     </div>
                                     <div class="col">
-                                        <h3 class="m-b-0">140</h3><span>Place Stay</span>
+                                        <h3 class="m-b-0">140</h3><span>Ở lại</span>
                                     </div>
                                     <div class="col">
-                                        <h3 class="m-b-0">45</h3><span>Reviews</span>
+                                        <h3 class="m-b-0">45</h3><span>Đánh giá</span>
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="javascript:void()" class="btn btn-primary px-5 mr-3 mb-4">Follow</a>
-                                    <a href="javascript:void()" class="btn btn-dark px-3 mb-4">Gửi Message</a>
+                                    <a href="javascript:void()" class="btn btn-primary px-5 mr-3 mb-4">Theo dõi</a>
+                                    <a href="javascript:void()" class="btn btn-dark px-3 mb-4">Tin nhắn</a>
                                 </div>
                             </div>
                         </div>
                         <div class="profile-blog pt-3 border-bottom-1 pb-1">
                             <h5 class="text-primary d-inline">Điểm nổi bật hôm nay</h5><a href="javascript:void()"
-                                class="pull-right f-s-16">More</a>
+                                class="pull-right f-s-16">Xem thêm</a>
                             <img src="{{asset('images/profile/1.jpg')}}" alt="" class="img-fluid mt-4 mb-4 w-100">
                             <h4>Chủ đề về thời đại công nghệ</h4>
                             <p>Thời đại công nghệ hiện đại đang trải qua một loạt các tiến bộ và biến đổi đáng kể, 
@@ -195,9 +195,9 @@
                                                 <p>VR và AR đang mở ra cánh cửa cho trải nghiệm tương tác mới trong nhiều lĩnh vực như giải trí, 
                                                     giáo dục, y tế và thương mại điện tử.</p>
                                                 <button class="btn btn-primary mr-3"><span class="mr-3"><i
-                                                            class="fa fa-heart"></i></span>Like</button>
+                                                            class="fa fa-heart"></i></span>Thích</button>
                                                 <button class="btn btn-secondary"><span class="mr-3"><i
-                                                            class="fa fa-reply"></i></span>Reply</button>
+                                                            class="fa fa-reply"></i></span>Bình luận</button>
                                             </div>
                                             <div class="profile-uoloaded-post border-bottom-1 pb-5">
                                                 <img src="{{asset('images/profile/9.jpg')}}" alt="" class="img-fluid">
@@ -207,9 +207,9 @@
                                                 <p>Tự động hóa ngày càng phổ biến trong sản xuất, vận chuyển và các dịch vụ khách hàng. 
                                                 Robot đang được phát triển để thực hiện các nhiệm vụ phức tạp từ vận chuyển hàng hóa đến phẫu thuật y học.</p>
                                                 <button class="btn btn-primary mr-3"><span class="mr-3"><i
-                                                            class="fa fa-heart"></i></span>Like</button>
+                                                            class="fa fa-heart"></i></span>Thích</button>
                                                 <button class="btn btn-secondary"><span class="mr-3"><i
-                                                            class="fa fa-reply"></i></span>Reply</button>
+                                                            class="fa fa-reply"></i></span>Bình luận</button>
                                             </div>
                                             <div class="profile-uoloaded-post pb-5">
                                                 <img src="{{asset('images/profile/8.jpg')}}" alt="" class="img-fluid">
@@ -219,9 +219,9 @@
                                                 <p>Với sự gia tăng của dữ liệu cá nhân trực tuyến, bảo mật thông tin và quyền riêng tư trở thành một vấn đề quan trọng. 
                                                     Các công nghệ bảo mật như mã hóa và xác thực hai yếu tố đang được phát triển để bảo vệ thông tin người dùng.</p>
                                                 <button class="btn btn-primary mr-3"><span class="mr-3"><i
-                                                            class="fa fa-heart"></i></span>Like</button>
+                                                            class="fa fa-heart"></i></span>Thích</button>
                                                 <button class="btn btn-secondary"><span class="mr-3"><i
-                                                            class="fa fa-reply"></i></span>Reply</button>
+                                                            class="fa fa-reply"></i></span>Bình luận</button>
                                             </div>
                                             <div class="text-center mb-2"><a href="javascript:void()"
                                                     class="btn btn-primary">Xem thêm</a>
@@ -239,7 +239,7 @@
                                             </div>
                                         </div>
                                         <div class="profile-skills pt-2 border-bottom-1 pb-2">
-                                            <h4 class="text-primary mb-4">Skills</h4>
+                                            <h4 class="text-primary mb-4">Kĩ năng</h4>
                                             <a href="javascript:void()"
                                                 class="btn btn-outline-dark btn-rounded px-4 my-3 my-sm-0 mr-2 mb-1 m-b-10">Admin</a>
                                             <a href="javascript:void()"
@@ -254,9 +254,9 @@
                                                 class="btn btn-outline-dark btn-rounded px-4 my-3 my-sm-0 mr-2 mb-1 m-b-10">Crypto</a>
                                         </div>
                                         <div class="profile-lang pt-5 border-bottom-1 pb-5">
-                                            <h4 class="text-primary mb-4">Language</h4><a href="javascript:void()"
+                                            <h4 class="text-primary mb-4">Ngôn ngữ</h4><a href="javascript:void()"
                                                 class="text-muted pr-3 f-s-16"><i class="flag-icon flag-icon-us"></i>
-                                                English</a> <a href="javascript:void()"
+                                                Tiếng Anh</a> <a href="javascript:void()"
                                                 class="text-muted pr-3 f-s-16"><i class="flag-icon flag-icon-fr"></i>
                                                 Tiếng Việt</a>
                                             <a href="javascript:void()" class="text-muted pr-3 f-s-16"><i
@@ -277,7 +277,7 @@
                                                     <h5 class="f-w-500">Email <span class="pull-right">:</span>
                                                     </h5>
                                                 </div>
-                                                <div class="col-9"><span>thao@examplel.com</span>
+                                                <div class="col-9"><span>thao@gmail.com</span>
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
@@ -305,7 +305,7 @@
                                             </div>
                                             <div class="row mb-4">
                                                 <div class="col-3">
-                                                    <h5 class="f-w-500">Kinh nghiêmj <span
+                                                    <h5 class="f-w-500">Kinh nghiệm <span
                                                             class="pull-right">:</span></h5>
                                                 </div>
                                                 <div class="col-9"><span>07 năm kinh nghiệm</span>

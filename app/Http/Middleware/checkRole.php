@@ -6,7 +6,8 @@ use Closure;
 use App\Models\User; //custom
 use Illuminate\Http\Request;
 use Session; //custom
-use App\Models\Permission; //custom
+use App\Models\Permission; 
+use Yoeunes\Toastr\Facades\Toastr;//custom
 
 class checkRole
 {
@@ -33,7 +34,7 @@ class checkRole
                     if (Permission::where('role_id', $user->role_id)->where('name', $request->route()->getName())->exists())
                         return $next($request);
                     else {
-                        Toastr::warning("You don't have permission to access this page");
+                        Toastr::warning("Bạn không có quyền truy cập trang này!");
                         return redirect()->back();
                     }
                 }

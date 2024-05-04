@@ -93,17 +93,17 @@
                 <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
                     aria-labelledby="nav-profile-tab">
                     <div class="tab-content__profile">
-                        <div class="tab-content__profile-content">
+                        {{-- <div class="tab-content__profile-content">
                             <div class="about-student">
-                                <h6 class="font-title--card">Về chúng tôi</h6>
+                                <h6 class="font-title--card">Giới thiệu về bản thân</h6>
                                 <p class="font-para--md">
-                                    {{$student_info->bio?$student_info->bio:"Student's Bio"}}
+                                    {{$student_info->bio?$student_info->bio:"Giới thiệu về bản thân"}}
                                 </p>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="tab-content__profile-content">
                             <div class="info-student">
-                                <h6 class="font-title--card">{{$student_info->name_en}}Thuộc về thông tin</h6>
+                                <h6 class="font-title--card">Thông tin về {{$student_info->name_en}}</h6>
                                 <dl class="row my-0 info-student-topic">
                                     <dt class="col-sm-4">
                                         <span>Tên</span>
@@ -122,7 +122,7 @@
                                 </dl>
                                 <dl class="row my-0 info-student-topic">
                                     <dt class="col-sm-4">
-                                        <span>Nghề nghiệp của bạn là gì?</span>
+                                        <span>Nghề nghiệp </span>
                                     </dt>
                                     <dd class="col-sm-8">
                                         <p>{{$student_info->profession?$student_info->profession:'Student'}}</p>
@@ -138,7 +138,7 @@
                                 </dl>
                                 <dl class="row my-0 info-student-topic">
                                     <dt class="col-sm-4">
-                                        <span>Quốc tịch</span>
+                                        <span>Địa chỉ</span>
                                     </dt>
                                     <dd class="col-sm-8">
                                         <p>{{$student_info->nationality}}</p>
@@ -192,15 +192,15 @@
                                                     placeholder="Gõ SĐT" />
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="nationality">Quốc tịch</label>
+                                                <label for="nationality">Địa chỉ</label>
                                                 <input type="text" class="form-control" name="nationality"
                                                     value="{{$student_info->nationality}}"
-                                                    placeholder="Gõ quốc tịch" />
+                                                    placeholder="Địa chỉ của bạn" />
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <label for="bio">Về bạn</label>
+                                                <label for="bio">Giới thiệu</label>
                                                 <textarea name="bio" class="form-control" rows="5"
                                                     placeholder="About Yourself">{{$student_info->bio}}</textarea>
                                             </div>
