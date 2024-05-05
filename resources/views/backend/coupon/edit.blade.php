@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Edit Coupon')
+@section('title', 'Sửa mã giảm giá')
 
 @push('styles')
 <!-- Pick date -->
@@ -19,14 +19,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Sửa voucher</h4>
+                    <h4>Sửa mã giảm giá</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('coupon.index')}}">Voucher</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0);">Sửa voucher</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('coupon.index')}}">Mã giảm giá</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0);">Sửa mã giảm giá</a></li>
                 </ol>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="col-xl-12 col-xxl-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Thông tin voucher</h5>
+                        <h5 class="card-title">Thông tin mã giảm giá</h5>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('coupon.update', $coupon->id) }}" method="post"
@@ -45,7 +45,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Mã voucher</label>
+                                        <label class="form-label">Mã</label>
                                         <input type="text" class="form-control" name="code"
                                             value="{{old('code', $coupon->code)}}">
                                     </div>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Voucher</label>
+                                        <label class="form-label">Giảm giá</label>
                                         <input type="text" class="form-control" name="discount"
                                             value="{{old('discount', $coupon->discount)}}">
                                     </div>
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Có hiệu lực từ</label>
+                                        <label class="form-label">Hiệu lực từ</label>
                                         <input type="text" class="form-control" name="valid_from"
                                             value="{{old('valid_from', $coupon->valid_from)}}">
                                     </div>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Có hiệu lực cho đến khi</label>
+                                        <label class="form-label">Hiệu lực đến</label>
                                         <input type="text" class="form-control" name="valid_until"
                                             value="{{old('valid_until', $coupon->valid_until)}}">
                                     </div>

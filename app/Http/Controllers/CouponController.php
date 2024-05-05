@@ -28,6 +28,9 @@ class CouponController extends Controller
     public function store(Request $request)
     {
         try {
+            if ($request->has('cancel')) {
+                return redirect()->route('coupon.index');
+            }
             $coupon = new Coupon;
             $coupon->code = $request->code;
             $coupon->discount = $request->discount;
@@ -67,6 +70,9 @@ class CouponController extends Controller
     public function update(Request $request, $id)
     {
         try {
+            if ($request->has('cancel')) {
+                return redirect()->route('coupon.index');
+            }
             $coupon = Coupon::findOrFail($id);
             $coupon->code = $request->code;
             $coupon->discount = $request->discount;

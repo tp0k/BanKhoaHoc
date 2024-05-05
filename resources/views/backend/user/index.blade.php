@@ -49,13 +49,13 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Name')}}</th>
+                                                <th>{{__('Tên')}}</th>
                                                 <th>{{__('Email')}}</th>
-                                                <th>{{__('Contact')}}</th>
-                                                <th>{{__('Role')}}</th>
-                                                <th>{{__('Full Access')}}</th>
-                                                <th>{{__('Status')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Liên hệ')}}</th>
+                                                <th>{{__('Quyền')}}</th>
+                                                <th>{{__('Truy cập tất cả')}}</th>
+                                                <th>{{__('Trạng thái')}}</th>
+                                                <th>{{__('Kích hoạt')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -141,7 +141,7 @@
                                                     <strong>{{$d->email}}</strong>
                                                 </li>
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
-                                                    <span class="mb-0">Status :</span>
+                                                    <span class="mb-0">Trạng thái :</span>
                                                     <span class="badge {{$d->status==1?"
                                                         badge-success":"badge-danger"}}">@if($d->status==1){{__('Active')}}
                                                         @else{{__('Inactive')}} @endif</span>

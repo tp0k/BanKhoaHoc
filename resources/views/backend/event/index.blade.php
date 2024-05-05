@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Event List')
+@section('title', 'Danh sách sự kiện')
 
 @push('styles')
 <!-- Datatable -->
@@ -44,12 +44,12 @@
                                     <table id="example3" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th>{{__('#')}}</th>
-                                                <th>{{__('Event Title')}}</th>
-                                                <th>{{__('Topic')}}</th>
-                                                <th>{{__('Location Type')}}</th>
-                                                <th>{{__('Date')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Thứ tự')}}</th>
+                                                <th>{{__('Sự kiện')}}</th>
+                                                <th>{{__('Chủ để')}}</th>
+                                                <th>{{__('Vị trí')}}</th>
+                                                <th>{{__('Ngày')}}</th>
+                                                <th>{{__('Kích hoạt')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

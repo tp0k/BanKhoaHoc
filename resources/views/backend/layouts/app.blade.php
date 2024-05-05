@@ -136,7 +136,7 @@
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" title="Profile Info" href="#" role="button" data-toggle="dropdown">
-                                    <img src="{{asset('public/uploads/users/'.request()->session()->get('image'))}}"
+                                    <img src="{{asset('uploads/users/'.request()->session()->get('image'))}}"
                                         width="20" alt="">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">

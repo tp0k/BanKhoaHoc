@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Add Coupon')
+@section('title', 'Thêm mã giảm giá')
 
 @push('styles')
 <!-- Pick date -->
@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Code mã giảm giá</label>
+                                        <label class="form-label">Mã</label>
                                         <input type="text" class="form-control" name="code"
                                             value="{{old('code')}}">
                                     </div>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Giảm giá</label>
+                                        <label class="form-label">Giảm</label>
                                         <input type="text" class="form-control" name="discount"
                                             value="{{old('discount')}}">
                                     </div>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Có hiệu lực từ</label>
+                                        <label class="form-label">Hiệu lực từ</label>
                                         <input type="date" class="form-control" name="valid_from"
                                             value="{{old('valid_from')}}">
                                     </div>
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Có hiệu lực đến</label>
+                                        <label class="form-label">Hiệu lực đến</label>
                                         <input type="date" class="form-control" name="valid_until"
                                             value="{{old('valid_until')}}">
                                     </div>
@@ -83,8 +83,8 @@
                                     @endif
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                                    <button type="submit" class="btn btn-light">Hủy bỏ</button>
+                                    <button type="submit" name="save" class="btn btn-primary">Lưu</button>
+                                    <button type="submit" name="cancel" class="btn btn-light">Hủy</button>
                                 </div>
                             </div>
                         </form>

@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Add User')
+@section('title', 'Thêm người dùng')
 
 @push('styles')
 <!-- Pick date -->
@@ -50,14 +50,14 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Tên</label>
+                                        <label class="form-label">Họ và tên</label>
                                         <input type="text" class="form-control" name="userName_bn"
                                             value="{{old('userName_bn')}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">SĐT</label>
+                                        <label class="form-label">Số điện thoại</label>
                                         <input type="tel" class="form-control" name="contactNumber_en"
                                             value="{{old('contactNumber_en')}}">
                                     </div>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">SĐT</label>
+                                        <label class="form-label">Số điện thoại</label>
                                         <input type="tel" class="form-control" name="contactNumber_bn"
                                             value="{{old('contactNumber_bn')}}">
                                     </div>
@@ -87,13 +87,13 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Chức vụ</label>
+                                        <label class="form-label">Quyền</label>
                                         <select class="form-control" name="roleId">
                                             @forelse ($role as $r)
                                             <option value="{{$r->id}}" {{old('roleId')==$r->id?'selected':''}}>
                                                 {{$r->name}}</option>
                                             @empty
-                                            <option value="">Không tìm thấy chức vụ</option>
+                                            <option value="">Không tìm thấy quyền</option>
                                             @endforelse
                                         </select>
                                     </div>
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Địa chỉ đầy đủ</label>
+                                        <label class="form-label">Địa chỉ</label>
                                         <select class="form-control" name="fullAccess">
                                             <option value="0" @if(old('fullAccess')==0) selected @endif>Không</option>
                                             <option value="1" @if(old('fullAccess')==1) selected @endif>Có</option>

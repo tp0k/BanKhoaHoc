@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Add Category')
+@section('title', 'Thêm danh mục khoá học')
 
 @push('styles')
 <!-- Pick date -->
@@ -19,14 +19,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Thêm loại hàng</h4>
+                    <h4>Thêm loại khoá học</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('courseCategory.index')}}">Mặt hàng</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('courseCategory.create')}}">Thêm mặt hàng</a>
+                    <li class="breadcrumb-item active"><a href="{{route('courseCategory.index')}}">Khoá học</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('courseCategory.create')}}">Thêm khoá học</a>
                     </li>
                 </ol>
             </div>
@@ -36,7 +36,7 @@
             <div class="col-xl-12 col-xxl-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Thông tin mặt hàng</h5>
+                        <h5 class="card-title">Thông tin khoá học</h5>
                     </div>
                     <div class="card-body">
                         <form action="{{route('courseCategory.store')}}" method="post" enctype="multipart/form-data">

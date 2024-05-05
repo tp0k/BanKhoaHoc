@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Coupon List')
+@section('title', 'Danh sách mã giảm giá')
 
 @push('styles')
 <!-- Datatable -->
@@ -45,11 +45,11 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Coupon Code')}}</th>
-                                                <th>{{__('Discount')}}</th>
-                                                <th>{{__('Valid From')}}</th>
-                                                <th>{{__('Valid Until')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Mã')}}</th>
+                                                <th>{{__('Giảm')}}</th>
+                                                <th>{{__('Hiệu lực từ')}}</th>
+                                                <th>{{__('Hiệu lực đến')}}</th>
+                                                <th>{{__('Kích hoạt')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
