@@ -33,6 +33,7 @@
                 <img class="logo-abbr" src="{{asset('images/logo-white.png')}}" alt="">
                 <img class="logo-compact" src="{{asset('images/d-logo.png')}}" alt="">
                 <img class="brand-title" src="{{asset('images/d-logo.png')}}" alt="">
+                <strong>CNET ACADEMY</strong>
             </a>
 
             <div class="nav-control">

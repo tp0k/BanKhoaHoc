@@ -18,14 +18,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Category List</h4>
+                    <h4>Danh sách danh mục</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('courseCategory.index')}}">Categories</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('courseCategory.index')}}">All Category</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('courseCategory.index')}}">Danh mục</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('courseCategory.index')}}">Tất cả danh mục</a></li>
                 </ol>
             </div>
         </div>
@@ -43,19 +43,19 @@
                     <div id="list-view" class="tab-pane fade active show col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">All Categories List </h4>
-                                <a href="{{route('courseCategory.create')}}" class="btn btn-primary">+ Add new</a>
+                                <h4 class="card-title">Tất cả danh sách danh mục </h4>
+                                <a href="{{route('courseCategory.create')}}" class="btn btn-primary">Thêm mới</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="example3" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th>{{__('#')}}</th>
-                                                <th>{{__('Category Name')}}</th>
-                                                <th>{{__('Status')}}</th>
-                                                <th>{{__('Category Image')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('STT')}}</th>
+                                                <th>{{__('Tên danh mục')}}</th>
+                                                <th>{{__('Trạng thái')}}</th>
+                                                <th>{{__('Ảnh danh mục')}}</th>
+                                                <th>{{__('Tác động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -70,7 +70,7 @@
                                                 </td>
                                                 <td>
                                                     <img class="rounded" width="200" height="100"
-                                                        src="{{asset('public/uploads/courseCategories/'.$d->category_image)}}"
+                                                        src="{{asset('uploads/courseCategories/'.$d->category_image)}}"
                                                         alt="">
                                                 </td>
                                                 <td>

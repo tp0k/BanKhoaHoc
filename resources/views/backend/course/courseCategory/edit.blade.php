@@ -55,14 +55,14 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Status</label>
+                                        <label class="form-label">Trạng thái</label>
                                         <select class="form-control" name="category_status">
                                             <option value="1" @if(old('category_status', $data->category_status)==1)
                                                 selected
-                                                @endif>Active</option>
+                                                @endif>Kích hoạt</option>
                                             <option value="0" @if(old('category_status', $data->category_status)==0)
                                                 selected
-                                                @endif>Inactive</option>
+                                                @endif>Chưa kích hoạt</option>
                                         </select>
                                     </div>
                                 </div>

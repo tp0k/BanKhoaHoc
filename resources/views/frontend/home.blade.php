@@ -1089,7 +1089,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <div class="newsletter-area">
+                {{-- <div class="newsletter-area">
                     <h4>Đăng kí</h4>
                     <p class="mt-2 mb-lg-4 mb-3">
                         Đăng kí
@@ -1102,7 +1102,7 @@
                             </button>
                         </div>
                     </form>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
