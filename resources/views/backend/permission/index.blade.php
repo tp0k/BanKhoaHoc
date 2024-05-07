@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', trans('Permission List'))
+@section('title', trans('Danh sách quyền'))
 
 @push('styles')
 <!-- Datatable -->

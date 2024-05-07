@@ -124,7 +124,7 @@
                                     <div class="form-group">
                                         <label class="form-label">Trạng thái</label>
                                         <select class="form-control" name="status">
-                                            <option value="1" @if(old('status')==1) selected @endif>Đang kích hoạt</option>
+                                            <option value="1" @if(old('status')==1) selected @endif>Kích hoạt</option>
                                             <option value="0" @if(old('status')==0) selected @endif>Chưa kích hoạt</option>
                                         </select>
                                     </div>

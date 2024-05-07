@@ -56,7 +56,7 @@
                 <div class="widget-stat card bg-danger overflow-hidden">
                     <div class="card-header pb-3">
                         <h3 class="card-title text-white">Tổng chi phí</h3>
-                        <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i> 3280$</h5>
+                        <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i> 3.280.000VNĐ</h5>
                     </div>
                     <div class="card-body p-0 mt-1">
                         <span class="peity-line-2" data-width="100%">7,6,8,7,3,8,3,3,6,5,9,2,8</span>
@@ -174,7 +174,7 @@
                                         <th>6</th>
                                         <td>Quản lý thiết kế</td>
                                         <td>Đan Nguyễn</td>
-                                        <td><span class="badge badge-rounded badge-primary">DONE</span></td>
+                                        <td><span class="badge badge-rounded badge-primary">Hoàn thành</span></td>
                                         <td>
                                             <div class="progress">
                                                 <div class="progress-bar" style="width: 70%;" role="progressbar">

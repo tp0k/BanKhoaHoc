@@ -432,7 +432,7 @@
                                             </td>
                                             <td class="py-2">Quang</td>
                                             <td class="py-2">Máy tính</td>
-                                            <td><span class="badge badge-rounded badge-danger">Đang bị khoá</span></td>
+                                            <td><span class="badge badge-rounded badge-danger">Đang khoá</span></td>
                                             <td class="py-2">05/03/2024</td>
                                             <td>
                                                 <a href="edit-student.html" class="btn btn-sm btn-primary"><i

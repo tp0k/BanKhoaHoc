@@ -149,7 +149,7 @@ class sslController extends Controller
                     $enrole->save();
                 }
             }
-            return redirect()->route('studentdashboard')->with('success', 'Thanh toán thành công!');
+            return redirect()->route('studentdashboard')->with('Thành công', 'Thanh toán thành công!');
         }
         else {
             return redirect()->route('studentdashboard')->with('danger', 'Vui lòng thử lại!');

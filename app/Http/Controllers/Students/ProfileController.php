@@ -38,11 +38,11 @@ class ProfileController extends Controller
             }
             if ($data->save()) {
                 $this->setSession($data);
-                return redirect()->back()->with('success', 'Thay đổi của bạn đã được lưu!');
+                return redirect()->back()->with('Thành công', 'Thay đổi của bạn đã được lưu!');
             }
         } catch (\Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Một số lỗi đã xảy ra. Vui lòng thử lại!');
+            return redirect()->back()->withInput()->with('Lỗi', 'Một số lỗi đã xảy ra. Vui lòng thử lại!');
         }
     }
 
@@ -53,7 +53,7 @@ class ProfileController extends Controller
 
             // Validate current password
             if (!Hash::check($request->current_password, $data->password)) {
-                return redirect()->back()->with('error', 'Mật khẩu không chính xác.');
+                return redirect()->back()->with('Lỗi', 'Mật khẩu không chính xác.');
             }
             // Proceed with password change
             $data->password = Hash::make($request->password);
@@ -61,11 +61,11 @@ class ProfileController extends Controller
 
             if ($data->save()) {
                 $this->setSession($data);
-                return redirect()->back()->with('success', 'Mật khẩu đã được thay đổi.');
+                return redirect()->back()->with('Thành công', 'Mật khẩu đã được thay đổi.');
             }
         } catch (\Exception $e) {
             // dd($e); 
-            return redirect()->back()->withInput()->with('error', 'Một số lỗi đã xảy ra. Vui lòng thử lại!');
+            return redirect()->back()->withInput()->with('Lỗi', 'Một số lỗi đã xảy ra. Vui lòng thử lại!');
         }
     }
 
@@ -94,13 +94,13 @@ class ProfileController extends Controller
                 $user->image = $imageName;
                 $user->save();
 
-                return redirect()->back()->with('success', 'Đổi ảnh thành công.');
+                return redirect()->back()->with('Thành công', 'Đổi ảnh thành công.');
             } else {
-                return redirect()->back()->with('error', 'Chọn file ảnh.');
+                return redirect()->back()->with('Lỗi', 'Chọn file ảnh.');
             }
         } catch (\Exception $e) {
             // dd($e);
-            return redirect()->back()->with('error', 'Đã có lỗi xảy ra. Vui long thử lại!');
+            return redirect()->back()->with('Lỗi', 'Đã có lỗi xảy ra. Vui lòng thử lại!');
         }
     }
 }

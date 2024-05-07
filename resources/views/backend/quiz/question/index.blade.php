@@ -51,14 +51,14 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('Quiz')}}</th>
-                                                <th>{{__('Type')}}</th>
-                                                <th>{{__('Question')}}</th>
-                                                <th>{{__('Option A')}}</th>
-                                                <th>{{__('Option B')}}</th>
-                                                <th>{{__('Option C')}}</th>
-                                                <th>{{__('Option D')}}</th>
-                                                <th>{{__('Correct Answer')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Kiểu')}}</th>
+                                                <th>{{__('Câu hỏi')}}</th>
+                                                <th>{{__('Chọn A')}}</th>
+                                                <th>{{__('Chọn B')}}</th>
+                                                <th>{{__('Chọn C')}}</th>
+                                                <th>{{__('Chọn D')}}</th>
+                                                <th>{{__('Câu trả lời đúng')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

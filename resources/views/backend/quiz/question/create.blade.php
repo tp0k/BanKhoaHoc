@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Add Question')
+@section('title', 'Thêm câu hỏi')
 
 @push('styles')
 <!-- Pick date -->

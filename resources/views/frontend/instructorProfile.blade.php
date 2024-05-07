@@ -405,7 +405,7 @@
                                                         <img src="{{asset('frontend/dist/images/icon/book.png')}}"
                                                             alt="location" />
                                                     </div>
-                                                    <span>37 Lesson</span>
+                                                    <span>37 Bài</span>
                                                 </div>
                                                 <div class="clock d-flex align-items-center">
                                                     <div class="icon">

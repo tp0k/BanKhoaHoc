@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Danh sách người dùng')
+@section('title', 'Danh sách tài khoản')
 
 @push('styles')
 <!-- Datatable -->
@@ -55,7 +55,7 @@
                                                 <th>{{__('Quyền')}}</th>
                                                 <th>{{__('Truy cập tất cả')}}</th>
                                                 <th>{{__('Trạng thái')}}</th>
-                                                <th>{{__('Kích hoạt')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

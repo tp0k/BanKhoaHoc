@@ -50,11 +50,11 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Rating')}}</th>
-                                                <th>{{__('Comment')}}</th>
-                                                <th>{{__('Course')}}</th>
-                                                <th>{{__('Student')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Đánh giá')}}</th>
+                                                <th>{{__('Bình luận')}}</th>
+                                                <th>{{__('Khoá học')}}</th>
+                                                <th>{{__('Học viên')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

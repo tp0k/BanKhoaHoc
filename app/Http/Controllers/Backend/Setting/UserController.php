@@ -66,12 +66,12 @@ class UserController extends Controller
                 $data->image = $imageName;
             }
             if ($data->save())
-                return redirect()->route('user.index')->with('success', 'Đã lưu dữ liệu!');
+                return redirect()->route('user.index')->with('Thành công', 'Đã lưu dữ liệu!');
             else
-                return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
+                return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         } catch (Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
+            return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         }
     }
 
@@ -124,12 +124,12 @@ class UserController extends Controller
                 $data->image = $imageName;
             }
             if ($data->save())
-                return redirect()->route('user.index')->with('success', 'Đã lưu dữ liệu');
+                return redirect()->route('user.index')->with('Thành công', 'Đã lưu dữ liệu');
             else
-                return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại');
+                return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại');
         } catch (Exception $e) {
             dd($e);
-            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại');
+            return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại');
         }
     }
 

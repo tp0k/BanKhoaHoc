@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Edit Student')
+@section('title', 'Sửa học viên')
 
 @push('styles')
 <!-- Pick date -->
@@ -51,14 +51,14 @@
                                     <span class="text-danger"> {{ $errors->first('fullName_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Tên</label>
                                         <input type="text" class="form-control" name="fullName_bn"
                                             value="{{old('fullName_bn',$student->name_bn)}}">
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                </div> --}}
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">SĐT</label>
                                         <input type="tel" class="form-control" name="contactNumber_en"
@@ -67,10 +67,10 @@
                                     @if($errors->has('contactNumber_en'))
                                     <span class="text-danger"> {{ $errors->first('contactNumber_en') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">SĐT</label>
+                                        <label class="form-label">Số điện thoại</label>
                                         <input type="tel" class="form-control" name="contactNumber_bn"
                                             value="{{old('contactNumber_bn',$student->contact_bn)}}">
                                     </div>
@@ -90,14 +90,14 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Chức vụ</label>
+                                        <label class="form-label">Quyền</label>
                                         <select class="form-control" name="roleId">
                                             @forelse ($role as $r)
                                             <option value="{{$r->id}}" {{old('roleId', $student->
                                                 role_id)==$r->id?'selected':''}}>
                                                 {{$r->name}}</option>
                                             @empty
-                                            <option value="">Không có chức vụ</option>
+                                            <option value="">Không có quyền</option>
                                             @endforelse
                                         </select>
                                     </div>

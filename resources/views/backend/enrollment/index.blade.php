@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Enrollment List')
+@section('title', 'Danh sách tuyển sinh')
 
 @push('styles')
 <!-- Datatable -->
@@ -15,13 +15,13 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Đăng ký khóa học</h4>
+                    <h4>Tuyển sinh khóa học</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('enrollment.index')}}">Đăng ký khóa học</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('enrollment.index')}}">Tuyển sinh khóa học</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('enrollment.index')}}">Tất cả</a></li>
                 </ol>
             </div>
@@ -33,7 +33,7 @@
                     <div id="list-view" class="tab-pane fade active show col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">All Enrollments List </h4>
+                                <h4 class="card-title">Tất cả danh sách tuyển sinh </h4>
                                 <a href="{{route('enrollment.create')}}" class="btn btn-primary">Thêm mới</a>
                             </div>
                             <div class="card-body">
@@ -42,12 +42,12 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Student Name')}}</th>
-                                                <th>{{__('Course Name')}}</th>
-                                                <th>{{__('Course Image')}}</th>
-                                                <th>{{__('Course Value')}}</th>
-                                                <th>{{__('Enrollment Date')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Tên học viên')}}</th>
+                                                <th>{{__('Tên khoá học')}}</th>
+                                                <th>{{__('Ảnh khoá học')}}</th>
+                                                <th>{{__('Hiệu lực')}}</th>
+                                                <th>{{__('Ngày đăng ký')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

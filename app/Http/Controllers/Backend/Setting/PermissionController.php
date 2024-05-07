@@ -45,10 +45,10 @@ class PermissionController extends Controller
                 $data->name = $permission;
                 $data->save();
             }
-            $this->notice::success('Permission saved');
+            $this->notice::success('Lưu vai trò thành công!');
             return redirect()->route('role.index');
         } catch (Exception $e) {
-            $this->notice::error('Please try again');
+            $this->notice::error('Vui lòng thử lại!');
             dd($e);
             return redirect()->back()->withInput();
         }

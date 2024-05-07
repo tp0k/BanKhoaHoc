@@ -51,10 +51,10 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Question')}}</th>
-                                                <th>{{__('Option')}}</th>
-                                                <th>{{__('Is Correct')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Câu hỏi')}}</th>
+                                                <th>{{__('Lựa chọn')}}</th>
+                                                <th>{{__('Đúng')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

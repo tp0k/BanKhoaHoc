@@ -42,9 +42,9 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Name')}}</th>
-                                                <th>{{__('Identity')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Tên')}}</th>
+                                                <th>{{__('ID')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

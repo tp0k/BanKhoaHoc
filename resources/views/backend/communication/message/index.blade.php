@@ -51,9 +51,9 @@
                                             <tr>
                                                 <th>{{__('#')}}</th>
                                                 <th>{{__('Sender')}}</th>
-                                                <th>{{__('Receiver')}}</th>
-                                                <th>{{__('Message')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Người nhận')}}</th>
+                                                <th>{{__('Nội dung')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

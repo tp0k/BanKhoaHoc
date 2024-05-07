@@ -71,14 +71,14 @@ class InstructorController extends Controller
                 }
                 if ($user->save()) {
                     DB::commit();
-                    $this->notice::success('Successfully saved');
+                    $this->notice::success('Lưu thành công');
                     return redirect()->route('instructor.index');
                 }
             } else
-                return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
+                return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         } catch (Exception $e) {
             dd($e);
-            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
+            return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         }
     }
 
@@ -151,10 +151,10 @@ class InstructorController extends Controller
                     return redirect()->route('instructor.index');
                 }
             }
-            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
+            return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         } catch (Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
+            return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         }
     }
 

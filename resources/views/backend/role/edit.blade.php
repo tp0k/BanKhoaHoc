@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Update Role')
+@section('title', 'Sửa vai trò')
 
 @push('styles')
 <!-- Pick date -->
@@ -23,7 +23,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('role.index')}}">Vai trò</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('role.create')}}">Thêm vai trò</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('role.create')}}">Sửa vai trò</a></li>
                 </ol>
             </div>
         </div>

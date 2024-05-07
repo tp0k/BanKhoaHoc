@@ -51,9 +51,9 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Quiz Title')}}</th>
-                                                <th>{{__('Course')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Chủ đề')}}</th>
+                                                <th>{{__('Khoá học')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

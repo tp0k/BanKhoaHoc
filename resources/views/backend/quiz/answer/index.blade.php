@@ -50,10 +50,10 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Student')}}</th>
-                                                <th>{{__('Question')}}</th>
-                                                <th>{{__('Answer')}}</th>
-                                                <th>{{__('Action')}}</th> 
+                                                <th>{{__('Học viên')}}</th>
+                                                <th>{{__('Câu hỏi')}}</th>
+                                                <th>{{__('Câu trả lời')}}</th>
+                                                <th>{{__('Hành động')}}</th> 
                                             </tr>
                                         </thead>
                                         <tbody>

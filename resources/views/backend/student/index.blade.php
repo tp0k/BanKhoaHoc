@@ -49,13 +49,13 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Name')}}</th>
+                                                <th>{{__('Tên')}}</th>
                                                 <th>{{__('Email')}}</th>
-                                                <th>{{__('Contact')}}</th>
-                                                <th>{{__('Role')}}</th>
-                                                <th>{{__('Gender')}}</th>
-                                                <th>{{__('Status')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Số điện thoại')}}</th>
+                                                <th>{{__('Quyền')}}</th>
+                                                <th>{{__('Giới tính')}}</th>
+                                                <th>{{__('Trạng thái')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -131,7 +131,7 @@
                                             <p class="text-muted">{{$d->role?->name}}</p>
                                             <ul class="list-group mb-3 list-group-flush">
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
-                                                    <span>SĐT :</span>
+                                                    <span>Số điện thoại:</span>
                                                     <strong>{{$d->contact_en}}</strong>
                                                 </li>
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
@@ -150,7 +150,7 @@
                                                 </li>
                                             </ul>
                                             <a class="btn btn-outline-primary btn-rounded mt-3 px-4"
-                                                href="about-student.html">Đọc thêm</a>
+                                                href="about-student.html">Xem thêm</a>
                                         </div>
                                     </div>
                                 </div>

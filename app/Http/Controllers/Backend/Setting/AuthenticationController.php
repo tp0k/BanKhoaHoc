@@ -32,14 +32,15 @@ class AuthenticationController extends Controller
             $user->contact_en = $request->contact_en;
             $user->email = $request->email;
             $user->password = Hash::make($request->password); //Hàm Hash::make dùng để băm mật khẩu trước khi đưa vào csdl
-            $user->role_id = 4;
+            // $user->image = 
+            $user->role_id = 2;
             if ($user->save())
-                return redirect('login')->with('success', 'Đăng ký thành công');
+                return redirect('login')->with('Thành công', 'Đăng ký thành công');
             else
-                return redirect()->back()->withInput()->with('danger', 'Đã xảy ra lỗi. Vui lòng thử lại.');
+                return redirect()->back()->withInput()->with('Nguy hiểm', 'Đã xảy ra lỗi. Vui lòng thử lại.');
         } catch (Exception $e) {
             dd($e);
-            return redirect()->back()->withInput()->with('danger', 'Đã xảy ra lỗi. Vui lòng thử lại.');
+            return redirect()->back()->withInput()->with('Nguy hiểm', 'Đã xảy ra lỗi. Vui lòng thử lại.');
         }
     }
 
@@ -56,17 +57,17 @@ class AuthenticationController extends Controller
                 if ($user->status == 1) {
                     if (Hash::check($request->password, $user->password)) {
                         $this->setSession($user);
-                        return redirect()->route('dashboard')->with('success', 'Đăng nhập thành công');
+                        return redirect()->route('dashboard')->with('Thành công', 'Đăng nhập thành công');
                     } else
-                        return redirect()->route('login')->with('error', 'Username hoặc Password không đúng!');
+                        return redirect()->route('login')->with('Lỗi', 'Username hoặc Password không đúng!');
                 } else
-                    return redirect()->route('login')->with('error', 'Bạn không có quyền truy cập! Vui lòng liên hệ với Cơ quan có thẩm quyền');
+                    return redirect()->route('login')->with('Lỗi', 'Bạn không có quyền truy cập! Vui lòng liên hệ với Cơ quan có thẩm quyền');
             } else
-                return redirect()->route('login')->with('error', 'Username hoặc Password không đúng!');
+                return redirect()->route('login')->with('Lỗi', 'Username hoặc Password không đúng!');
             
         } catch (Exception $e) {
             // dd($e);
-            return redirect()->route('login')->with('error', 'không tìm thấy người dùng');
+            return redirect()->route('login')->with('Lỗi', 'không tìm thấy người dùng');
         }
     }
 
@@ -91,7 +92,8 @@ class AuthenticationController extends Controller
     public function signOut()
     {
         request()->session()->flush();
-        return redirect('login')->with('danger', 'Đăng xuất thành công!');
+        // return redirect('login')->with('danger', 'Đăng xuất thành công!');
+        return redirect('login');
     }
 
     public function show(User $data)

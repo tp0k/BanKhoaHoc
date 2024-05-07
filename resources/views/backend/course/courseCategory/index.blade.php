@@ -51,7 +51,7 @@
                                     <table id="example3" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th>{{__('STT')}}</th>
+                                                <th>{{__('#')}}</th>
                                                 <th>{{__('Tên danh mục')}}</th>
                                                 <th>{{__('Trạng thái')}}</th>
                                                 <th>{{__('Ảnh danh mục')}}</th>
