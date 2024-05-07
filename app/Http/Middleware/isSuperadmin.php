@@ -25,7 +25,7 @@ class isSuperadmin
             if (!$user) {
                 return redirect()->route('logOut');
             } else if (currentUser() != 'superadmin') {
-                return redirect()->back()->with('danger', 'Access Denied');
+                return redirect()->back()->with('Cảnh báo', 'Truy cập bị từ chối');
             } else {
                 return $next($request);
             }

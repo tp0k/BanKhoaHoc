@@ -113,6 +113,6 @@ class CartController extends Controller
             );
             session()->put('cart_details', $coupondata);
         }
-        return redirect()->back()->with('success', 'Áp giảm giá thành công!');
+        return redirect()->back()->with('Thành công', 'Áp voucher thành công!');
     }
 }

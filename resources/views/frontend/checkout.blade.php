@@ -23,7 +23,7 @@
 
         <div class="row">
             <div class="col-lg-6 checkout-area-checkout">
-                <h6 class="checkout-area__label">Kiểm tra lại</h6>
+                <h6 class="checkout-area__label">Kiểm tra</h6>
                 <div class="checkout-tab">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-checkout" role="tabpanel"
