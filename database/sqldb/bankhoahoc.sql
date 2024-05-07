@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 04, 2024 lúc 05:21 AM
+-- Thời gian đã tạo: Th5 07, 2024 lúc 10:29 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -71,6 +71,13 @@ CREATE TABLE `coupons` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `coupons`
+--
+
+INSERT INTO `coupons` (`id`, `code`, `discount`, `valid_from`, `valid_until`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'VIP01', 30.00, '2024-05-05', '2024-08-05', '2024-05-03 20:34:24', '2024-05-03 20:34:59', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -107,6 +114,13 @@ CREATE TABLE `courses` (
   `tag` enum('popular','featured','upcoming') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `courses`
+--
+
+INSERT INTO `courses` (`id`, `title_en`, `title_bn`, `description_en`, `description_bn`, `course_category_id`, `instructor_id`, `type`, `price`, `old_price`, `subscription_price`, `start_from`, `duration`, `lesson`, `prerequisites_en`, `prerequisites_bn`, `difficulty`, `course_code`, `image`, `thumbnail_image`, `thumbnail_video`, `status`, `language`, `created_at`, `updated_at`, `deleted_at`, `tag`) VALUES
+(1, 'Khoá học lập trình Python basic', NULL, 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', NULL, 2, 2, 'paid', 1800000.00, 4000000.00, NULL, '2024-05-24 17:00:00', 1, 8, '> 14 tuổi', NULL, 'beginner', NULL, '6081715068503.jpg', '2701715068503.jpg', 'https://youtu.be/NZj6LI5a9vc?si=tLCsKEG1c3T6H0B4', 0, 'en', '2024-05-07 00:32:02', '2024-05-07 00:55:03', NULL, 'popular');
+
 -- --------------------------------------------------------
 
 --
@@ -122,6 +136,17 @@ CREATE TABLE `course_categories` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `course_categories`
+--
+
+INSERT INTO `course_categories` (`id`, `category_name`, `category_status`, `category_image`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Khoá học lập trình Scratch cho trẻ', 1, '3401714983380.png', '2024-05-06 01:06:10', '2024-05-07 01:02:48', NULL),
+(2, 'Khoá học lập trình Python cho trẻ', 1, '7641714983329.png', '2024-05-06 01:15:29', '2024-05-07 01:03:00', NULL),
+(3, 'Khoá học lập trình web-fullstack', 0, '6641714983492.png', '2024-05-06 01:18:12', '2024-05-07 01:03:21', NULL),
+(4, 'Lập trình mobile app Flutter', 1, '7951714983640.png', '2024-05-06 01:20:40', '2024-05-06 01:21:09', NULL),
+(5, 'Quản trị hệ thống MCSA 2019', 0, '8601714983838.png', '2024-05-06 01:23:58', '2024-05-06 01:23:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -177,6 +202,13 @@ CREATE TABLE `events` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `description`, `location`, `image`, `topic`, `goal`, `hosted_by`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Trải nghiệm khoá học scratch', 'Đây là sự kiện diễn ra thường niên với mục đích mang đến nhưng trải nghiệm tuyệt vời giúp các con hiểu hơn về công nghệ và yêu thích công nghệ hơn.', 'Aeon mall Lê Chân Hải Phòng', '3731714795688.png', 'Chào hè 2024', 'Mang đến nhưng trải nghiệm tuyệt vời giúp các con hiểu hơn về công nghệ và yêu thích công nghệ hơn', 'Học viên công nghệ Cnet', '2024-05-20', '2024-05-03 21:08:08', '2024-05-03 21:08:08', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -205,6 +237,17 @@ CREATE TABLE `instructors` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `instructors`
+--
+
+INSERT INTO `instructors` (`id`, `name_en`, `name_bn`, `contact_en`, `contact_bn`, `email`, `role_id`, `bio`, `title`, `designation`, `image`, `status`, `password`, `language`, `access_block`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(2, 'GS.TS Lê Hoài Bắc', NULL, '0985642133', NULL, 'giangvien1@gmail.com', 3, 'hiện là Trưởng bộ môn Khoa học máy tính. Ông đã lấy được bằng tiến sĩ. Thạc sĩ Công nghệ thông tin, Đại học Khoa học Tự nhiên TP.HCM (HCMUS), ĐHQG-HCM năm 1999. Ông được phong hàm Giáo sư năm 2019. Ông đã đảm nhận nhiều dự án, dự án NAFOSTED của Sở Khoa học & Công nghệ Thành phố Hồ Chí Minh và các dự án của Đại học Quốc gia Thành phố Hồ Chí Minh (ĐHQG-HCM). Ông là tác giả của nhiều bài báo và bài báo khoa học trên các tạp chí quốc tế.', NULL, NULL, 'Giảng viên_GS.TS Lê Hoài Bắc_679.jpg', 1, '$2y$12$rksKv8h6f1vjORKYZ1oxn.u5OoeyneI5CPSkh4surjjurUv5amI3O', 'en', NULL, NULL, '2024-05-06 21:38:48', '2024-05-06 21:38:48', NULL),
+(3, 'PGS.TS Vũ Hải Quân', NULL, '0956432175', NULL, 'giangvien@gmail.com', 3, 'hiện là Giám đốc Đại học Quốc gia TP.HCM (ĐHQG TP.HCM). Vào tháng 2 năm 2005, ông lấy bằng Tiến sĩ. từ Đại học Trento, Ý. Tháng 10 năm 2018, PGS. GS.TS Vũ Hải Quân được Đại học Công nghệ Auckland (AUT) vinh danh danh hiệu Giáo sư danh dự. Ngoài ra, ông còn thực hiện nhiều dự án phần mềm và là tác giả của một số bài báo và bài báo khoa học trên các tạp chí quốc tế.', 'Giảng viên', 'Giảng viên luyện CCNA', 'Giảng viên_PGS.TS Vũ Hải Quân_581.png', 1, '$2y$12$wmSddqdzhSJb0rlQl64Kk.exbPLbgnNqOswYT3K54Wk1fuo.7Wj0S', 'en', NULL, NULL, '2024-05-07 00:02:34', '2024-05-07 00:02:34', NULL),
+(4, 'PGS.TS Hồ Bảo Quốc', NULL, '0965321475', NULL, 'giangvien2@gmail.com', 3, 'hiện là Giảng viên bộ môn Hệ thống thông tin, Khoa Công nghệ thông tin, Trường Đại học Khoa học Tự nhiên TP.HCM (HCMUS). Ông đã lấy được bằng tiến sĩ. Tiến sĩ Khoa học Máy tính tại Đại học Joseph Fourier, Pháp, năm 2004. Ông được phong hàm Phó Giáo sư năm 2015. Ông đã thực hiện nhiều dự án nghiên cứu khoa học và là tác giả của một số bài báo và bài báo khoa học trên các tạp chí quốc tế.', NULL, 'Giảng viên luyện CCNA', 'Giảng viên_PGS.TS Hồ Bảo Quốc_332.jpg', 1, '$2y$12$CLbMzg7eX7gCxt0rXPukTe/GPTIPIDvYdOR93xrWiuMIMRVODyPvO', 'en', NULL, NULL, '2024-05-07 00:03:58', '2024-05-07 00:03:58', NULL),
+(5, 'TS. Nguyễn Hải Minh', NULL, '0965321456', NULL, 'giangvien3@gmail.com', 3, 'hiện đang công tác tại Khoa Khoa học Máy tính. Cô đã lấy được bằng tiến sĩ. Tiến sĩ Khoa học Thông tin của Viện Khoa học và Công nghệ Tiên tiến Nhật Bản (JAIST) năm 2013.', NULL, 'Giảng viên luyện MCSA 2019', 'Giảng viên_TS. Nguyễn Hải Minh_257.jpg', 1, '$2y$12$l3fbKoMll5Je0phGhQBGHeb.QCSd4aDHaYluji.By4PhImGIYskVK', 'en', NULL, NULL, '2024-05-07 00:06:33', '2024-05-07 00:06:33', NULL),
+(6, 'Tạ Thị Phương Thảo', NULL, '0965482137', NULL, 'giangvien4@gmail.com', 3, 'Thạc sỹ công nghệ thông tin, tốt nghiệp đại học DePaul Mỹ năm 2024.', NULL, 'Thực tập sinh', 'Giảng viên_Tạ Thị Phương Thảo_369.jpg', 0, '$2y$12$7BtRGXVlc.d8GZW9QI0gzuFn5u6TuoXUSN8Ah7mVt8kuHtdMI4Nv.', 'en', NULL, NULL, '2024-05-07 00:10:19', '2024-05-07 00:10:19', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -221,6 +264,13 @@ CREATE TABLE `lessons` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lessons`
+--
+
+INSERT INTO `lessons` (`id`, `title`, `course_id`, `description`, `notes`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '[Khóa học lập trình Python basic] - Bài 1: Giới thiệu ngôn ngữ lập trình Python', 1, 'Trong khóa học lập trình python này, chúng ta sẽ sử dụng Python 3.x. Bởi vì Python 2.x là phiên bản cũ và đã được thông báo chính thức là sẽ không còn được phát triển và hỗ trợ sau 2020.', 'Ưu điểm của Python\r\nLà một ngôn ngữ lập trình dành cho người mới bắt đầu.\r\nCú pháp đơn giản, dễ đọc, dễ hiểu và dễ học.\r\nĐa nền tảng.\r\nMiễn phí và là ngôn ngữ mã nguồn mở.\r\nLà ngôn ngữ hướng đối tượng.\r\nKho thư viện hỗ trợ phong phú và đa dạng.\r\nỨng dụng trong nhiều lĩnh vực lập trình khác nhau.\r\nCó khả năng mở rộng, tương thích với các cơ sở dữ liệu và ngôn ngữ khác.\r\nNhược điểm của Python\r\nTốc độ chậm hơn so với các ngôn ngữ C/C++ hay Java.\r\nKhông phải là ngôn ngữ tốt dành cho nền tảng mobile.\r\nPython không phải lựa chọn tốt cho các bài toán cần tối ưu bộ nhớ.\r\nPython có nhiều giới hạn khi làm việc với cơ sở dữ liệu phức tạp.\r\nPython dùng để làm gì?\r\nPhát triển web và các nền tảng cho Internet\r\nPython được sử dụng cho phát triển web theo nhiều cách khác nhau:\r\n\r\nCác framework phát triển web như Django hay Pyramid.\r\nMicro-framework như Flask hay Bottle.\r\nXây dựng CMS với Plone hay django CMS.\r\nCùng với hàng loạt các thư viện đồ sộ hỗ trợ lập trình web, web crawler,…\r\nỨng dụng trong machine learning\r\nPython là ngôn ngữ lập trình phổ biến nhất được sử dụng trong machine learning và thị giác máy tính:\r\n\r\nSciPy là một gói thư viện dành cho toán học, khoa học và kỹ thuật.\r\nPandas là một thư viện dành cho phân tích dữ liệu.\r\nscikit-learn là một thư viện dành cho machine learning\r\n…\r\nLà ngôn ngữ cho mục đích giảng dạy\r\nDo là một ngôn ngữ dễ đọc, dễ hiểu và dễ học. Python là ngôn ngữ đầu tiên mà các lập trình viên tiếp cận. Tuy nhiên, điều này có vẻ không đúng ở Việt Nam chúng ta ^^.\r\n\r\nVà rất nhiều ứng dụng trong các lĩnh vực khác (mình lười trình bày rồi nên liệt kê thôi nhé, chứ không phải ứng dụng nhỏ đâu) bao gồm:\r\n\r\nPhân tích dữ liệu (Data Analysis)\r\nTự động hóa (Automation)\r\nTest tự động (Selenium)\r\nIOT\r\n…', '2024-05-07 00:49:57', '2024-05-07 00:49:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -239,6 +289,13 @@ CREATE TABLE `materials` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `materials`
+--
+
+INSERT INTO `materials` (`id`, `lesson_id`, `title`, `type`, `content`, `content_url`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 'Bài 1: Giới thiệu ngôn ngữ lập trình Python', 'document', '2681715068775.docx', 'https://anandology.com/python-practice-book/index.html', '2024-05-07 00:59:35', '2024-05-07 00:59:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -352,6 +409,237 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `role_id`, `name`, `created_at`, `updated_at`) VALUES
+(51, 2, 'user.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(52, 2, 'user.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(53, 2, 'user.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(54, 2, 'user.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(55, 2, 'user.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(56, 2, 'student.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(57, 2, 'student.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(58, 2, 'student.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(59, 2, 'student.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(60, 2, 'student.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(61, 2, 'instructor.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(62, 2, 'instructor.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(63, 2, 'instructor.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(64, 2, 'instructor.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(65, 2, 'instructor.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(66, 2, 'courseCategory.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(67, 2, 'courseCategory.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(68, 2, 'courseCategory.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(69, 2, 'courseCategory.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(70, 2, 'courseCategory.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(71, 2, 'course.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(72, 2, 'course.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(73, 2, 'course.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(74, 2, 'course.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(75, 2, 'course.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(76, 2, 'material.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(77, 2, 'material.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(78, 2, 'material.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(79, 2, 'material.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(80, 2, 'material.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(81, 2, 'lesson.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(82, 2, 'lesson.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(83, 2, 'lesson.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(84, 2, 'lesson.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(85, 2, 'lesson.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(86, 2, 'event.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(87, 2, 'event.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(88, 2, 'event.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(89, 2, 'event.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(90, 2, 'event.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(91, 2, 'quiz.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(92, 2, 'quiz.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(93, 2, 'quiz.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(94, 2, 'quiz.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(95, 2, 'quiz.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(96, 2, 'question.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(97, 2, 'question.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(98, 2, 'question.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(99, 2, 'question.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(100, 2, 'question.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(101, 2, 'option.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(102, 2, 'option.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(103, 2, 'option.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(104, 2, 'option.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(105, 2, 'option.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(106, 2, 'answer.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(107, 2, 'answer.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(108, 2, 'answer.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(109, 2, 'answer.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(110, 2, 'answer.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(111, 2, 'review.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(112, 2, 'review.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(113, 2, 'review.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(114, 2, 'review.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(115, 2, 'review.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(116, 2, 'discussion.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(117, 2, 'discussion.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(118, 2, 'discussion.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(119, 2, 'discussion.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(120, 2, 'discussion.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(121, 2, 'message.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(122, 2, 'message.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(123, 2, 'message.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(124, 2, 'message.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(125, 2, 'message.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(126, 2, 'coupon.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(127, 2, 'coupon.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(128, 2, 'coupon.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(129, 2, 'coupon.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(130, 2, 'coupon.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(131, 2, 'enrollment.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(132, 2, 'enrollment.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(133, 2, 'enrollment.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(134, 2, 'enrollment.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(135, 2, 'enrollment.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
+(136, 1, 'user.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(137, 1, 'user.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(138, 1, 'user.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(139, 1, 'user.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(140, 1, 'user.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(141, 1, 'role.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(142, 1, 'role.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(143, 1, 'role.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(144, 1, 'role.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(145, 1, 'role.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(146, 1, 'student.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(147, 1, 'student.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(148, 1, 'student.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(149, 1, 'student.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(150, 1, 'student.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(151, 1, 'instructor.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(152, 1, 'instructor.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(153, 1, 'instructor.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(154, 1, 'instructor.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(155, 1, 'instructor.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(156, 1, 'courseCategory.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(157, 1, 'courseCategory.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(158, 1, 'courseCategory.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(159, 1, 'courseCategory.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(160, 1, 'courseCategory.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(161, 1, 'course.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(162, 1, 'course.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(163, 1, 'course.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(164, 1, 'course.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(165, 1, 'course.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(166, 1, 'material.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(167, 1, 'material.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(168, 1, 'material.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(169, 1, 'material.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(170, 1, 'material.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(171, 1, 'lesson.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(172, 1, 'lesson.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(173, 1, 'lesson.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(174, 1, 'lesson.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(175, 1, 'lesson.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(176, 1, 'event.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(177, 1, 'event.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(178, 1, 'event.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(179, 1, 'event.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(180, 1, 'event.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(181, 1, 'quiz.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(182, 1, 'quiz.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(183, 1, 'quiz.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(184, 1, 'quiz.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(185, 1, 'quiz.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(186, 1, 'question.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(187, 1, 'question.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(188, 1, 'question.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(189, 1, 'question.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(190, 1, 'question.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(191, 1, 'option.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(192, 1, 'option.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(193, 1, 'option.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(194, 1, 'option.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(195, 1, 'option.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(196, 1, 'answer.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(197, 1, 'answer.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(198, 1, 'answer.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(199, 1, 'answer.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(200, 1, 'answer.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(201, 1, 'review.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(202, 1, 'review.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(203, 1, 'review.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(204, 1, 'review.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(205, 1, 'review.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(206, 1, 'discussion.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(207, 1, 'discussion.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(208, 1, 'discussion.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(209, 1, 'discussion.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(210, 1, 'discussion.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(211, 1, 'message.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(212, 1, 'message.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(213, 1, 'message.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(214, 1, 'message.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(215, 1, 'message.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(216, 1, 'coupon.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(217, 1, 'coupon.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(218, 1, 'coupon.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(219, 1, 'coupon.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(220, 1, 'coupon.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(221, 1, 'enrollment.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(222, 1, 'enrollment.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(223, 1, 'enrollment.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(224, 1, 'enrollment.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(225, 1, 'enrollment.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(226, 1, 'permission.list', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
+(227, 3, 'user.index', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
+(228, 3, 'user.create', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
+(229, 3, 'user.show', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
+(230, 3, 'user.edit', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
+(231, 3, 'user.destroy', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
+(232, 3, 'student.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(233, 3, 'student.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(234, 3, 'instructor.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(235, 3, 'instructor.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(236, 3, 'courseCategory.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(237, 3, 'courseCategory.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(238, 3, 'course.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(239, 3, 'course.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(240, 3, 'course.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(241, 3, 'material.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(242, 3, 'material.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(243, 3, 'material.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(244, 3, 'material.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(245, 3, 'material.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(246, 3, 'lesson.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(247, 3, 'lesson.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(248, 3, 'lesson.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(249, 3, 'lesson.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(250, 3, 'lesson.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(251, 3, 'quiz.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(252, 3, 'quiz.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(253, 3, 'quiz.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(254, 3, 'quiz.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(255, 3, 'quiz.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(256, 3, 'question.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(257, 3, 'question.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(258, 3, 'question.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(259, 3, 'question.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(260, 3, 'question.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(261, 3, 'option.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(262, 3, 'option.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(263, 3, 'option.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(264, 3, 'option.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(265, 3, 'option.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(266, 3, 'answer.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(267, 3, 'answer.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(268, 3, 'answer.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(269, 3, 'answer.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(270, 3, 'answer.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(271, 3, 'review.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(272, 3, 'review.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(273, 3, 'message.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(274, 3, 'message.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
+(275, 3, 'message.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07');
+
 -- --------------------------------------------------------
 
 --
@@ -459,8 +747,8 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `identity`, `created_at`, `updated_at`) VALUES
 (1, 'Super Admin', 'superadmin', '2024-04-24 12:02:14', NULL),
 (2, 'Admin', 'admin', '2024-04-24 12:02:14', NULL),
-(3, 'Instructor', 'instructor', '2024-04-24 12:02:14', NULL),
-(4, 'Student', 'student', '2024-04-24 12:02:14', NULL);
+(3, 'Giảng viên', 'instructor', '2024-04-24 12:02:14', '2024-05-04 23:47:45'),
+(4, 'Học viên', 'student', '2024-04-24 12:02:14', '2024-05-06 09:29:04');
 
 -- --------------------------------------------------------
 
@@ -500,9 +788,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name_en`, `name_bn`, `contact_en`, `contact_bn`, `email`, `date_of_birth`, `gender`, `image`, `bio`, `profession`, `nationality`, `address`, `city`, `state`, `postcode`, `country`, `status`, `password`, `language`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'thảo', NULL, NULL, NULL, 'thaophuong@gmail.com', NULL, NULL, '5871714755480.jpg', NULL, NULL, 'Việt Nam', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$8W9CVGx7lRk65AIaYckyBuUMOECbnHUxGFK8zfuJaZUrcTIBbLdiu', 'en', NULL, '2024-05-03 09:52:27', '2024-05-03 09:58:00', NULL),
-(6, 'Phương Thảo', NULL, '0926548935', NULL, 'thao2@gmail.com', NULL, NULL, '7701714789796.jpg', 'Co nhu cau hoc lap trinh basic do chua biet gi', 'học sinh', 'Ha Noi', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$cG1Hflw4Hlpimpx/vBxC8OEOyQyKEUohSUjN.XoUfEyVJ7Uk4MkD6', 'en', NULL, '2024-05-03 10:38:25', '2024-05-03 19:33:06', NULL),
-(9, 'thao3', NULL, NULL, NULL, 'thao3@gmail.com', NULL, NULL, NULL, NULL, NULL, 'Việt Nam', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$91r/77ATYA2Ou4/0twsRbeRpuzIRCMDVWwSqeO33LZhMjiNlNi7S2', 'en', NULL, '2024-05-03 10:42:33', '2024-05-03 10:42:33', NULL);
+(11, 'Học sinh', NULL, '0987654321', NULL, 'hocsinh@gmail.com', '2007-06-25', NULL, '3861715070453.jpg', 'Học chuyên Tin tại chuyên Trần Phú', 'học sinh', 'Hải Phòng', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$RYOKrXbLgbk.vPRwmStHK.zXUky0FJ/pvFify6TQqFfmVO.Wjw1zG', 'en', NULL, '2024-05-07 01:27:09', '2024-05-07 01:28:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -554,7 +840,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name_en`, `name_bn`, `email`, `contact_en`, `contact_bn`, `role_id`, `password`, `language`, `image`, `full_access`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `instructor_id`) VALUES
-(1, 'SuperAdmin', NULL, 'superadmin@gmail.com', '0981234566', NULL, 1, '$2y$12$IM6zyqGfzCsvAahk8yecvOPcY1XxfN6vEYceANddVZcg.RxE.TOYa', 'en', NULL, 1, 1, NULL, '2024-05-03 07:51:40', '2024-05-03 07:51:40', NULL, NULL);
+(1, 'SuperAdmin', NULL, 'superadmin@gmail.com', '0981234566', NULL, 1, '$2y$12$IM6zyqGfzCsvAahk8yecvOPcY1XxfN6vEYceANddVZcg.RxE.TOYa', 'en', '8791714876437.jpg', 1, 1, NULL, '2024-05-03 07:51:40', '2024-05-04 19:33:57', NULL, NULL),
+(3, 'admin1', 'Admin1', 'admin1@gmail.com', '0976548934', '0976548934', 2, '$2y$12$N4BCsafhXJBA5gJ36xUo7.sTJGjPmeGk.Sj7nwd4Aqfet7veej3DK', 'en', '9301715013147.png', 0, 1, NULL, '2024-05-04 23:51:59', '2024-05-06 09:37:10', NULL, NULL),
+(5, 'GS.TS Lê Hoài Bắc', NULL, 'giangvien1@gmail.com', '0985642133', NULL, 3, '$2y$12$oN5Eavk285Na1hmW2A8X9uCpEKHhbyFDzWYe0xfF.4prJcy.DikKG', 'en', 'Giảng viên_GS.TS Lê Hoài Bắc_679.jpg', 0, 1, NULL, '2024-05-06 21:38:49', '2024-05-06 21:38:49', NULL, 2),
+(6, 'PGS.TS Vũ Hải Quân', NULL, 'giangvien@gmail.com', '0956432175', NULL, 3, '$2y$12$XS82WMk5ot9HFBTjv9/.qOUqsPl9Pw2aGzf1ZGHOjHOQRu1wxHwly', 'en', 'Giảng viên_PGS.TS Vũ Hải Quân_581.png', 0, 1, NULL, '2024-05-07 00:02:34', '2024-05-07 00:02:34', NULL, 3),
+(7, 'PGS.TS Hồ Bảo Quốc', NULL, 'giangvien2@gmail.com', '0965321475', NULL, 3, '$2y$12$Ad6aB2dr1S0iGaBsKrh65OE0ojpz5QnkfFd3Dkw1eJBqUnyGqX34q', 'en', 'Giảng viên_PGS.TS Hồ Bảo Quốc_332.jpg', 0, 1, NULL, '2024-05-07 00:03:59', '2024-05-07 00:03:59', NULL, 4),
+(8, 'TS. Nguyễn Hải Minh', NULL, 'giangvien3@gmail.com', '0965321456', NULL, 3, '$2y$12$RYTIbZfAD1q6U30HtPDHbuHV4adXZgiioeJ.ILAV2z6OBLIOCz.Ma', 'en', 'Giảng viên_TS. Nguyễn Hải Minh_257.jpg', 0, 1, NULL, '2024-05-07 00:06:33', '2024-05-07 00:06:33', NULL, 5),
+(9, 'Tạ Thị Phương Thảo', NULL, 'giangvien4@gmail.com', '0965482137', NULL, 3, '$2y$12$jEj.HiBvScHtrznxBqyNcO3g2WQ46oDutukVleMPmy82gA71u4dzC', 'en', 'Giảng viên_Tạ Thị Phương Thảo_369.jpg', 0, 0, NULL, '2024-05-07 00:10:19', '2024-05-07 00:10:19', NULL, 6);
 
 -- --------------------------------------------------------
 
@@ -795,19 +1087,19 @@ ALTER TABLE `checkouts`
 -- AUTO_INCREMENT cho bảng `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `course_categories`
 --
 ALTER TABLE `course_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `discussions`
@@ -825,25 +1117,25 @@ ALTER TABLE `enrollments`
 -- AUTO_INCREMENT cho bảng `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `instructors`
 --
 ALTER TABLE `instructors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `materials`
 --
 ALTER TABLE `materials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `messages`
@@ -873,7 +1165,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT cho bảng `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=276;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -909,13 +1201,13 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT cho bảng `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `subscriptions`
@@ -927,7 +1219,7 @@ ALTER TABLE `subscriptions`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `watchlists`
