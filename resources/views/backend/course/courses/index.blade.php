@@ -92,9 +92,9 @@
                                                     @elseif($d->status == 1) badge-danger 
                                                     @elseif($d->status == 2) badge-success 
                                                     @endif">
-                                                        @if($d->status == 0) {{__('Pending')}}
-                                                        @elseif($d->status == 1) {{__('Inactive')}}
-                                                        @elseif($d->status == 2) {{__('Active')}}
+                                                        @if($d->status == 0) {{__('Chưa xử lý')}}
+                                                        @elseif($d->status == 1) {{__('Chưa kích hoạt')}}
+                                                        @elseif($d->status == 2) {{__('Kích hoạt')}}
                                                         @endif
                                                     </span>
                                                 </li>

@@ -30,8 +30,8 @@
                 </h3>
                 <div class="created-by d-flex align-items-center">
                     <div class="created-by-image me-3">
-                        <img src="{{asset('uploads/users/Instructor_Thao.png'.$course->instructor?->image)}}" class="rounded-circle"
-                            alt="Instructor Image" height="75" width="75" />
+                        <img src="{{asset('uploads/users/'.$course->instructor?->image)}}" class="rounded-circle"
+                            alt="Ảnh giảng viên" height="75" width="75" />
                     </div>
                     <div class="created-by-text">
                         <p>Tạo bởi</p>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 <div class="icon-with-date d-flex align-items-lg-center">
                     <div class="icon-with-date-start d-flex align-items-center">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

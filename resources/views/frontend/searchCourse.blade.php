@@ -336,7 +336,7 @@
                                 <li data-value="4" class="option"></li>
                             </ul>
                         </div>
-                        <p>{{$course->count()}} results found.</p>
+                        <p>{{$course->count()}} Kết quả tìm kiếm.</p>
                         <button class="button button-lg button--primary button--primary-filter d-lg-none" id="filter">
                             <span>
                                 <svg width="19" height="16" viewBox="0 0 19 16" fill="none"

@@ -235,7 +235,7 @@
                                     <span class="text-danger"> {{ $errors->first('prerequisites_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Điều kiện tiên quyết</label>
                                         <textarea class="form-control"
@@ -244,7 +244,7 @@
                                     @if($errors->has('prerequisites_bn'))
                                     <span class="text-danger"> {{ $errors->first('prerequisites_bn') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mã khóa học</label>
@@ -318,13 +318,13 @@
                                     <span class="text-danger"> {{ $errors->first('courseTitle_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Tiêu đề</label>
                                         <input type="text" class="form-control" name="courseTitle_bn"
                                             value="{{old('courseTitle_bn',$course->title_bn)}}">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mô tả</label>
@@ -335,7 +335,7 @@
                                     <span class="text-danger"> {{ $errors->first('courseDescription_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mô tả</label>
                                         <textarea class="form-control"
@@ -344,7 +344,7 @@
                                     @if($errors->has('courseDescription_bn'))
                                     <span class="text-danger"> {{ $errors->first('courseDescription_bn') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Danh mục</label>
@@ -364,14 +364,14 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Giáo viên</label>
+                                        <label class="form-label">Giảng viên</label>
                                         <select class="form-control" name="instructorId">
                                             @forelse ($instructor as $i)
                                             <option value="{{$i->id}}" {{old('instructorId', $course->instructor_id) ==
                                                 $i->id?'selected':''}}>
                                                 {{$i->name_en}}</option>
                                             @empty
-                                            <option value="">Không tìm thấy giáo viên</option>
+                                            <option value="">Không tìm thấy giảng viên</option>
                                             @endforelse
                                         </select>
                                     </div>
@@ -391,7 +391,7 @@
                                             </option>
                                             <option value="subscription" @if(old('courseType', $course->type)
                                                 =='subscription' )
-                                                selected @endif>Subscription-based</option>
+                                                selected @endif>Dựa trên đăng ký</option>
                                         </select>
                                     </div>
                                     @if($errors->has('courseType'))
@@ -410,7 +410,7 @@
                                             </option>
                                             <option value="advanced" @if(old('courseDifficulty', $course->
                                                 difficulty)=='advanced' )
-                                                selected @endif>Cao cấp</option>
+                                                selected @endif>Có nền tảng</option>
                                         </select>
                                     </div>
                                     @if($errors->has('courseDifficulty'))

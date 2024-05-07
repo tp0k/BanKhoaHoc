@@ -158,8 +158,8 @@
                                             <p class="font-para--md">{{$pc?->instructor->name_en}}</p>
                                         </a>
                                         <div class="price">
-                                            <span>{{$pc->price?'VNĐ'.$pc->price:'Free'}}</span>
-                                            <del>{{$pc->old_price?'VNĐ'.$pc->old_price:''}}</del>
+                                            <span>{{$pc->price?number_format($pc->price).'VNĐ':'Free'}}</span>
+                                            <del>{{$pc->old_price?number_format($pc->old_price). 'VNĐ':''}}</del>
                                         </div>
                                     </div>
                                     <div class="contentCard-more">
@@ -182,7 +182,7 @@
                                                 <img src="{{asset('frontend/dist/images/icon/book.png')}}"
                                                     alt="location" />
                                             </div>
-                                            <span>{{$pc->lesson?$pc->lesson:0}} Lesson</span>
+                                            <span>{{$pc->lesson?$pc->lesson:0}} Bài giảng</span>
                                         </div>
                                         <div class="clock d-flex align-items-center">
                                             <div class="icon">
