@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Add Course Lesson')
+@section('title', 'Thêm bài giảng')
 
 @push('styles')
 <!-- Pick date -->
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Mô tả bài giảng</label>
+                                        <label class="form-label">Mô tả</label>
                                         <textarea class="form-control" name="lessonDescription"
                                             value="{{old('lessonDescription')}}"></textarea>
                                     </div>

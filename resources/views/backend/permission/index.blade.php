@@ -43,8 +43,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="nav nav-pills mb-3">
-                    <li class="nav-item"><a href="#list-view" data-toggle="tab"
-                            class="nav-link btn-primary mr-1 show active">Trình bày dạng danh sách</a></li>
+                    <li class="nav-item"><a href="#list-view" data-toggle="tab" class="nav-link btn-primary mr-1 show active">Trình bày dạng danh sách</a></li>
                     <li class="nav-item"><a href="javascript:void()" data-toggle="tab" class="nav-link btn-primary">Trình bày dạng ô</a></li>
                 </ul>
             </div>

@@ -101,7 +101,7 @@
                                                 $r->id?'selected':''}}>
                                                 {{$r->name}}</option>
                                             @empty
-                                            <option value="">Không tìm thấy vai trò nào</option>
+                                            <option value="">Không tìm thấy vai trò</option>
                                             @endforelse
                                         </select>
                                     </div>
@@ -114,9 +114,9 @@
                                         <label class="form-label">Toàn quyền truy cập</label>
                                         <select class="form-control" name="fullAccess">
                                             <option value="0" @if(old('fullAccess', $user->full_access)==0) selected
-                                                @endif>No</option>
+                                                @endif>Không</option>
                                             <option value="1" @if(old('fullAccess', $user->full_access)==1) selected
-                                                @endif>Yes</option>
+                                                @endif>Có</option>
                                         </select>
                                     </div>
                                 </div>

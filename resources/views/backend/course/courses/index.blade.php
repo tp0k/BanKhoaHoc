@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Course List')
+@section('title', 'Danh sách khoá học')
 
 @push('styles')
 <!-- Datatable -->
@@ -69,24 +69,24 @@
                                             <ul class="list-group mb-3 list-group-flush">
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
                                                     <span>Khó</span>
-                                                    <strong>{{ $d->difficulty == 'beginner' ? __('Beginner') :
-                                                        ($d->difficulty == 'intermediate' ? __('Intermediate') :
-                                                        __('Advanced')) }}</strong>
+                                                    <strong>{{ $d->difficulty == 'beginner' ? __('Bắt đầu') :
+                                                        ($d->difficulty == 'intermediate' ? __('Trung cấp') :
+                                                        __('Đã có nền tảng')) }}</strong>
                                                 </li>
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
-                                                    <span class="mb-0">Giáo viên :</span>
+                                                    <span class="mb-0">Giáo viên: </span>
                                                     <strong>{{$d->instructor?->name_en}}</strong>
                                                 </li>
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
-                                                    <span class="mb-0">Loại :</span>
+                                                    <span class="mb-0">Loại: </span>
                                                     <strong>{{$d->courseCategory?->category_name}}</strong>
                                                 </li>
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
-                                                    <span class="mb-0">Giá :</span>
-                                                    <strong>{{$d->price?'VNĐ'.$d->price:'Free'}}</strong>
+                                                    <span class="mb-0">Giá: </span>
+                                                    <strong>{{$d->price ? number_format($d->price) . ' VNĐ' : 'Free'}}</strong>
                                                 </li>
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
-                                                    <span class="mb-0">Trạng thái :</span>
+                                                    <span class="mb-0">Trạng thái: </span>
                                                     <span class="badge 
                                                     @if($d->status == 0) badge-warning 
                                                     @elseif($d->status == 1) badge-danger 

@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Add Course')
+@section('title', 'Thêm khoá học')
 
 @push('styles')
 <!-- Pick date -->
@@ -48,13 +48,13 @@
                                     <span class="text-danger"> {{ $errors->first('courseTitle_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Tiêu đề</label>
                                         <input type="text" class="form-control" name="courseTitle_bn"
                                             value="{{old('courseTitle_bn')}}">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mô tả</label>
@@ -64,7 +64,7 @@
                                     <span class="text-danger"> {{ $errors->first('courseDescription_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mô tả</label>
                                         <textarea class="form-control" name="courseDescription_bn"
@@ -73,7 +73,7 @@
                                     @if($errors->has('courseDescription_bn'))
                                     <span class="text-danger"> {{ $errors->first('courseDescription_bn') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Thể loại</label>
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Difficulty</label>
+                                        <label class="form-label">Trình độ</label>
                                         <select class="form-control" name="courseDifficulty">
                                             <option value="beginner" @if(old('courseDifficulty')=='beginner' ) selected
                                                 @endif>Sơ cấp</option>
@@ -204,7 +204,7 @@
                                     <span class="text-danger"> {{ $errors->first('prerequisites_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Điều kiện tiên quyết</label>
                                         <textarea class="form-control" name="prerequisites_bn"
@@ -213,7 +213,7 @@
                                     @if($errors->has('prerequisites_bn'))
                                     <span class="text-danger"> {{ $errors->first('prerequisites_bn') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mã khóa học</label>
@@ -238,8 +238,8 @@
                                         <label class="form-label">Thẻ khóa học</label>
                                         <select class="form-control" name="tag">
                                             <option value="popular" @if(old('tag')=='popular' ) selected @endif>Phổ biến</option>
-                                            <option value="featured" @if(old('tag')=='featured' ) selected @endif>Kết hợp với
-                                            <option value="upcoming" @if(old('tag')=='upcoming' ) selected @endif>Sắp tới sẽ có
+                                            <option value="featured" @if(old('tag')=='featured' ) selected @endif>Đặc sắc
+                                            <option value="upcoming" @if(old('tag')=='upcoming' ) selected @endif>Sắp diễn ra
                                             </option>
                                         </select>
                                     </div>
@@ -266,8 +266,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                                    <button type="submit" class="btn btn-light">Hủy bỏ</button>
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <button type="submit" class="btn btn-light">Hủy</button>
                                 </div>
                             </div>
                         </form>

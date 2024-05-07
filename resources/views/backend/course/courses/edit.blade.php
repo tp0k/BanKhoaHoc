@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Edit Instructor')
+@section('title', 'Sửa khoá học')
 
 @push('styles')
 <!-- Pick date -->
@@ -44,14 +44,14 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label class="form-label">Status</label>
+                                        <label class="form-label">Trạng thái</label>
                                         <select class="form-control" name="status">
                                             <option value="0" @if(old('status',$course->status)==0) Đã chọn
-                                                @endif>Pending</option>
+                                                @endif>Đang chờ</option>
                                             <option value="1" @if(old('status',$course->status)==1) Đã chọn
-                                                @endif>Inactive</option>
+                                                @endif>Không hoạt động</option>
                                             <option value="2" @if(old('status',$course->status)==2) Đã chọn
-                                                @endif>Active</option>
+                                                @endif>Kích hoạt</option>
                                         </select>
                                     </div>
                                 </div>
@@ -111,14 +111,14 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Người hướng dẫn</label>
+                                        <label class="form-label">Giảng viên</label>
                                         <select class="form-control" name="instructorId">
                                             @forelse ($instructor as $i)
                                             <option value="{{$i->id}}" {{old('instructorId', $course->instructor_id) ==
                                                 $i->id?'selected':''}}>
                                                 {{$i->name_en}}</option>
                                             @empty
-                                            <option value="">Không tìm thấy người hướng dẫn</option>
+                                            <option value="">Không tìm thấy giảng viên</option>
                                             @endforelse
                                         </select>
                                     </div>
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Kiểu</label>
+                                        <label class="form-label">Loại</label>
                                         <select class="form-control" name="courseType">
                                             <option value="free" @if(old('courseType', $course->type)=='free' ) selected
                                                 @endif>Miễn phí

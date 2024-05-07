@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Course List')
+@section('title', 'Danh sách khoá học')
 
 @push('styles')
 <!-- Datatable -->
@@ -42,12 +42,12 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Course Name')}}</th>
-                                                <th>{{__('Instructor')}}</th>
-                                                <th>{{__('Category')}}</th>
-                                                <th>{{__('Price')}}</th>
-                                                <th>{{__('Status')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Tên khoá học')}}</th>
+                                                <th>{{__('Giảng viên')}}</th>
+                                                <th>{{__('Danh mục')}}</th>
+                                                <th>{{__('Giá')}}</th>
+                                                <th>{{__('Trạng thái')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -74,7 +74,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{route('course.edit', encryptor('encrypt',$d->id))}}"
-                                                        class="btn btn-sm btn-primary" title="Edit"><i
+                                                        class="btn btn-sm btn-primary" title="Sửa"><i
                                                             class="la la-pencil"></i></a>
                                                     <a href="javascript:void(0);" class="btn btn-sm btn-danger"
                                                         title="Delete" onclick="$('#form{{$d->id}}').submit()"><i

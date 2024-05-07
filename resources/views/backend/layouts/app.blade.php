@@ -136,7 +136,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown header-profile">
-                                <a class="nav-link" title="Profile Info" href="#" role="button" data-toggle="dropdown">
+                                <a class="nav-link" title="Thông tin hồ sơ" href="#" role="button" data-toggle="dropdown">
                                     <img src="{{asset('uploads/users/'.request()->session()->get('image'))}}"
                                         width="20" alt="">
                                 </a>
@@ -247,7 +247,7 @@
                             <span class="nav-text">Giảm giá</span>
                         </a>
                     </li>
-                    {{-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="las la-tasks"></i>
                             <span class="nav-text">Quizzes</span>
                         </a>
@@ -259,7 +259,7 @@
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="las la-star-half-alt"></i>
-                            <span class="nav-text">Reviews</span>
+                            <span class="nav-text">Đánh giá</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{route('review.index')}}"><i class="las la-wave-square"></i>Tất cả đánh giá</a>
@@ -286,39 +286,39 @@
                             <li><a href="javascript:void()"><i class="lab la-gg-circle"></i>Phí đăng ký</a></li>
                             <li><a href="{{route('coupon.index')}}"><i class="las la-tags"></i>Voucher</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
                 </ul>
             </div>
         </div>
         @endif
 
         @if(!fullAccess())
-        <div class="dlabnav">
-        <div class="dlabnav-scroll">
-            <ul class="metismenu" id="menu">
-                <li class="nav-label first">Ban giảng viên</li>
-                <li><a class="ai-icon" href="{{route('dashboard')}}" aria-expanded="false">
-                        <i class="las la-tachometer-alt"></i> <span class="nav-text">Dashboard</span>
-                    </a>
-                </li>
-                <li><a class="ai-icon" href="{{route('home')}}" aria-expanded="false">
-                        <i class="las la-home"></i><span class="nav-text">Trang chủ</span>
-                    </a>
-                </li>
-                <li class="nav-label">Menu chính</li>
-                <li><a href="{{route('instructor.index')}}">
-                        <i class="las la-chalkboard-teacher"></i>Danh sách giảng viên
-                    </a>
-                </li>
-                <li><a href="{{route('student.index')}}"><i class="las la-book-reader"></i>Danh sách học viên</a></li>
-                <li><a href="{{route('course.index')}}"><i class="las la-book-open"></i>Tất cả khóa học</a></li>
-                <li><a href="{{route('lesson.index')}}"><i class="las la-chalkboard"></i>Bài giảng của hóa học </a></li>
-                <li><a href="{{route('material.index')}}"><i class="las la-atom"></i></i>Tài liệu của khóa học</a></li>
-                <li><a href="{{route('coupon.index')}}"><i class="las la-tags"></i>Giảm giá</a></li>
-                <li><a href="{{route('enrollment.index')}}"><i class="las la-bullseye"></i>Tuyển sinh</a></li>
-            </ul>
-        </div>
-        </div>
+            <div class="dlabnav">
+            <div class="dlabnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label">Ban giảng viên</li>
+                    <li><a class="ai-icon" href="{{route('dashboard')}}" aria-expanded="false">
+                            <i class="las la-tachometer-alt"></i> <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a class="ai-icon" href="{{route('home')}}" aria-expanded="false">
+                            <i class="las la-home"></i><span class="nav-text">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="nav-label">Menu chính</li>
+                    <li><a href="{{route('instructor.index')}}">
+                            <i class="las la-chalkboard-teacher"></i>Danh sách giảng viên
+                        </a>
+                    </li>
+                    <li><a href="{{route('student.index')}}"><i class="las la-book-reader"></i>Danh sách học viên</a></li>
+                    <li><a href="{{route('course.index')}}"><i class="las la-book-open"></i>Tất cả khóa học</a></li>
+                    <li><a href="{{route('lesson.index')}}"><i class="las la-chalkboard"></i>Bài giảng của hóa học </a></li>
+                    <li><a href="{{route('material.index')}}"><i class="las la-atom"></i>Tài liệu của khóa học</a></li>
+                    <li><a href="{{route('coupon.index')}}"><i class="las la-tags"></i>Giảm giá</a></li>
+                    <li><a href="{{route('enrollment.index')}}"><i class="las la-bullseye"></i>Tuyển sinh</a></li>
+                </ul>
+            </div>
+            </div>
         @endif
         <!--**********************************
             Sidebar end

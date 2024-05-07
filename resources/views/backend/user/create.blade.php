@@ -38,7 +38,7 @@
                         <form action="{{route('user.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Tên</label>
                                         <input type="text" class="form-control" name="userName_en"
@@ -47,7 +47,7 @@
                                     @if($errors->has('userName_en'))
                                     <span class="text-danger"> {{ $errors->first('userName_en') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Họ và tên</label>
@@ -65,7 +65,7 @@
                                     <span class="text-danger"> {{ $errors->first('contactNumber_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Số điện thoại</label>
                                         <input type="tel" class="form-control" name="contactNumber_bn"
@@ -74,7 +74,7 @@
                                     @if($errors->has('contactNumber_bn'))
                                     <span class="text-danger"> {{ $errors->first('contactNumber_bn') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Email</label>
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Địa chỉ</label>
+                                        <label class="form-label">FullAccess</label>
                                         <select class="form-control" name="fullAccess">
                                             <option value="0" @if(old('fullAccess')==0) selected @endif>Không</option>
                                             <option value="1" @if(old('fullAccess')==1) selected @endif>Có</option>

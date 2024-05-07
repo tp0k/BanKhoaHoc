@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Instructor List')
+@section('title', 'Danh sách giảng viên')
 
 @push('styles')
 <!-- Datatable -->
@@ -15,14 +15,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Danh sách giáo viên</h4>
+                    <h4>Danh sách giảng viên</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('instructor.index')}}">Giáo viên</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('instructor.index')}}">Tất cả giáo viên</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('instructor.index')}}">Giảng viên</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('instructor.index')}}">Tất cả giảng viên</a></li>
                 </ol>
             </div>
         </div>
@@ -40,8 +40,8 @@
                     <div id="list-view" class="tab-pane fade active show col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Danh sách giáo viên </h4>
-                                <a href="{{route('instructor.create')}}" class="btn btn-primary">Thêm giáo viên</a>
+                                <h4 class="card-title">Danh sách giảng viên </h4>
+                                <a href="{{route('instructor.create')}}" class="btn btn-primary">Thêm giảng viên</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -51,7 +51,7 @@
                                                 <th>{{__('#')}}</th>
                                                 <th>{{__('Tên')}}</th>
                                                 <th>{{__('Email')}}</th>
-                                                <th>{{__('SĐT')}}</th>
+                                                <th>{{__('Số điện thoại')}}</th>
                                                 <th>{{__('Chỉ định')}}</th>
                                                 <th>{{__('Trạng thái')}}</th>
                                                 <th>{{__('Hành động')}}</th>

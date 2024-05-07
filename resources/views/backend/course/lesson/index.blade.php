@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Course Lesson List')
+@section('title', 'Danh sách bài giảng')
 
 @push('styles')
 <!-- Datatable -->
@@ -51,9 +51,9 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Title')}}</th>
-                                                <th>{{__('Course')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Tiêu đề')}}</th>
+                                                <th>{{__('Khoá học')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

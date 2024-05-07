@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Course Material List')
+@section('title', 'Danh sách tài liệu')
 
 @push('styles')
 <!-- Datatable -->
@@ -51,12 +51,12 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('#')}}</th>
-                                                <th>{{__('Title')}}</th>
-                                                <th>{{__('Lesson')}}</th>
-                                                <th>{{__('Material Type')}}</th>
-                                                <th>{{__('Content')}}</th>
-                                                <th>{{__('Content Url')}}</th>
-                                                <th>{{__('Action')}}</th>
+                                                <th>{{__('Tiêu đề')}}</th>
+                                                <th>{{__('Bài học')}}</th>
+                                                <th>{{__('Loại tài liệu')}}</th>
+                                                <th>{{__('Nội dung')}}</th>
+                                                <th>{{__('Link nội dung')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -71,7 +71,7 @@
                                                 </td>
                                                 <td>
                                                     <embed
-                                                        src="{{asset('public/uploads/courses/contents/'.$m->content)}}"
+                                                        src="{{asset('uploads/courses/contents/'.$m->content)}}"
                                                         width="200px" height="100px" />
                                                 </td>
                                                 <td>{{$m->content_url}}</td>

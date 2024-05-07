@@ -10,14 +10,13 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $user = User::get();
-        
-        if (fullAccess())
-            return view('backend.adminDashboard'); 
-        else
-        if ($user->role = 'instructor')
+        // $user = User::get(); // collection của các đối tượng user
+        $user = User::first(); // User là đối tượng
+        if (fullAccess()){
+            return view('backend.adminDashboard');
+        }elseif ($user->role == 'instructor'){
             return view('backend.instructorDashboard'); 
-        else
+        }else
             return view('backend.dashboard');
 
         // // $user = User::get();
