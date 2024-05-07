@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-4">
                 <div class="icon-with-date d-flex align-items-lg-center">
                     <div class="icon-with-date-start d-flex align-items-center">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
