@@ -34,12 +34,12 @@ class CheckoutController extends Controller
            $checkout->status = $request->status;
         
             if ($checkout->save())
-                return redirect()->route('instructor.index')->with('success', 'Đã lưu dữ liệu!');
+                return redirect()->route('instructor.index')->with('Thành công', 'Đã lưu dữ liệu!');
             else
-                return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
+                return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         } catch (\Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
+            return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         }
     }
 

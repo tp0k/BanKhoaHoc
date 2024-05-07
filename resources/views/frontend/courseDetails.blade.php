@@ -2294,10 +2294,10 @@
                     <div class="cart">
                         <div class="cart__price">
                             <div class="current-price">
-                                <h3 class="font-title--sm">{{$course->price?'VNĐ  '.$course->price:'Free'}}</h3>
-                                <p><del>{{$course->old_price?'VNĐ  '.$course->old_price:''}}</del></p>
+                                <h3 class="font-title--sm">{{$course->price? number_format($course->price). 'VNĐ':'Free'}}</h3>
                             </div>
                             <div class="current-discount">
+                                <p><del>{{$course->old_price? number_format($course->old_price).'VNĐ':''}}</del></p>
                                 <p class="font-para--md">50% off</p>
                             </div>
                         </div>

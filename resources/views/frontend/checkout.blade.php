@@ -9,8 +9,8 @@
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 align-items-center">
-                <li class="breadcrumb-item"><a href="index.html" class="fs-6 text-secondary">Trang chủ</a></li>
-                <li class="breadcrumb-item active"><a href="checkout.html" class="fs-6 text-secondary">Thanh Toán</a></li>
+                <li class="breadcrumb-item"><a href="#" class="fs-6 text-secondary">Trang chủ</a></li>
+                <li class="breadcrumb-item active"><a href="#" class="fs-6 text-secondary">Thanh Toán</a></li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 
         <div class="row">
             <div class="col-lg-6 checkout-area-checkout">
-                <h6 class="checkout-area__label">Kiểm hàng</h6>
+                <h6 class="checkout-area__label">Kiểm tra lại</h6>
                 <div class="checkout-tab">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-checkout" role="tabpanel"
@@ -37,7 +37,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <button type="submit" class="button button-lg button--primary w-100"> Ấn vào đây để thanh toán
+                                <button type="submit" class="button button-lg button--primary w-100"> Thanh toán
                                 </button>
                             </form>
                         </div>
@@ -65,11 +65,10 @@
                                             <a
                                                 href="{{route('courseDetails', encryptor('encrypt', $id))}}">{{$details['title_en']}}</a>
                                         </h6>
-                                        <p>by {{$details['instructor']}}</p>
+                                        <p>Bởi {{$details['instructor']}}</p>
                                         <div class="price">
-                                            <h6 class="font-para--md">{{$details['price'] ? 'VNĐ' . $details['price'] :
-                                                'Free'}}</h6>
-                                            <p><del>{{$details['old_price'] ? 'VNĐ' . $details['old_price'] : ''}}</del>
+                                            <h6 class="font-para--md">{{$details['price'] ? number_format($details['price']). 'VNĐ':'Free'}}</h6>
+                                            <p><del>{{$details['old_price'] ? number_format($details['old_price']).'VNĐ':''}}</del>
                                             </p>
                                         </div>
                                     </div>
@@ -82,29 +81,28 @@
                         <div class="cart__checkout-process">
                             <ul>
                                 <li>
-                                    <p>Subtotal</p>
-                                    <p>{{'VNĐ' . number_format((float) session('cart_details')['cart_total'] , 2)}}
+                                    <p>Học phí</p>
+                                    <p>{{number_format((float) session('cart_details')['cart_total'] , 2).'VNĐ'}}
                                     </p>
                                     {{-- {{ 'VNĐ' . (session('cart_details') && array_key_exists('cart_total',
                                     session('cart_details')) ? number_format(session('cart_details')['cart_total'], 2) :
                                     '0.00') }} --}}
                                 </li>
                                 <li>
-                                    <p>Coupon Discount ({{session('cart_details')['discount'] ?? 0.00}}%)</p>
-                                    <p>{{'VNĐ' . number_format((float) isset(session('cart_details')['discount_amount']) ?
-                                        session('cart_details')['discount_amount']: 0.00 , 2)}}</p>
+                                    <p>Giảm ({{session('cart_details')['discount'] ?? 0.00}}%)</p>
+                                    <p>{{number_format((float) isset(session('cart_details')['discount_amount']) ?
+                                        session('cart_details')['discount_amount']: 0.00 , 2).'VNĐ'}}</p>
                                 </li>
-                                <li>
-                                    <p>Thuế (15%)</p>
-                                    <p>{{'VNĐ' . number_format((float) session('cart_details')['tax'] , 2)}}</p>
+                                {{-- <li>
+                                    <p>Thuế VAT (15%)</p>
+                                    <p>{{number_format((float) session('cart_details')['tax'] , 2).'VNĐ'}}</p> --}}
                                     {{-- {{ 'VNĐ' . (session('cart_details') && array_key_exists('tax',
                                     session('cart_details')) ? number_format(session('cart_details')['tax'], 2) :
                                     '0.00') }} --}}
-                                </li>
+                                {{-- </li> --}}
                                 <li>
                                     <p class="font-title--card">Tổng:</p>
-                                    <p class="total-price font-title--card">{{'VNĐ' .
-                                        number_format((float)session('cart_details')['total_amount'] , 2)}}</p>
+                                    <p class="total-price font-title--card">{{number_format((float)session('cart_details')['total_amount'] , 2).'VNĐ'}}</p>
                                     {{-- {{ 'VNĐ' . (session('cart_details') && array_key_exists('total_amount',
                                     session('cart_details')) ? number_format(session('cart_details')['total_amount'], 2)
                                     : '0.00') }} --}}
@@ -137,7 +135,7 @@
                                 </div>
                                 <div class="form-element">
                                     <div class="d-flex justify-content-between">
-                                        <label for="password">Password</label>
+                                        <label for="password">Mật khẩu</label>
                                         <a href="forget-password.html" class="text-primary fs-6">Quên mật khẩu</a>
                                     </div>
                                     <div class="form-alert-input">
@@ -234,7 +232,7 @@
                                 <div class="form-element d-flex align-items-center terms">
                                     <input class="checkbox-primary me-1" type="checkbox" id="agree" />
                                     <label for="agree" class="text-secondary mb-0">Lưu thay đổi <a href="#"
-                                            style="text-decoration: underline;">Điều khoản</a> and <a href="#"
+                                            style="text-decoration: underline;">Điều khoản</a> và<a href="#"
                                             style="text-decoration: underline;">Giấy phép bảo mật</a></label>
                                 </div>
                                 <div class="form-element">

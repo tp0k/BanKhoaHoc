@@ -8,8 +8,8 @@
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent mb-0">
-                <li class="breadcrumb-item"><a href="index.html" class="fs-6 text-secondary">Trang chủ</a></li>
-                <li class="breadcrumb-item active"><a href="cart.html" class="fs-6 text-secondary">Giỏ hàng</a></li>
+                <li class="breadcrumb-item"><a href="#" class="fs-6 text-secondary">Trang chủ</a></li>
+                <li class="breadcrumb-item active"><a href="#" class="fs-6 text-secondary">Giỏ hàng</a></li>
             </ol>
         </nav>
     </div>
@@ -37,8 +37,8 @@
                         <p>By <a href="#">{{$details['instructor']}}</a></p>
                         <div class="bottom-wizard d-flex justify-content-between align-items-center">
                             <p>
-                                {{$details['price'] ? 'VNĐ' . $details['price'] : 'Free'}}
-                                <span><del>{{$details['old_price'] ? 'VNĐ' . $details['old_price'] : ''}}</del></span>
+                                {{$details['price'] ? number_format($details['price']).'VNĐ' : 'Free'}}
+                                <span><del>{{$details['old_price'] ? number_format($details['old_price']).'VNĐ' : ''}}</del></span>
                             </p>
                             <div class="trash-icon">
                                 <a href="#" class="remove-from-cart" data-id="{{$id}}">
@@ -55,20 +55,20 @@
                 <h6 class="cart-area__label">Cơ bản</h6>
                 <div class="summery-wizard">
                     <div class="summery-wizard-text pt-0">
-                        <h6>Tổng phụ</h6>
-                        <p> {{'VNĐ' . number_format((float) session('cart_details')['cart_total'] , 2)}}</p>
+                        <h6>Học phí</h6>
+                        <p> {{number_format((float) session('cart_details')['cart_total'], 2) . ' VNĐ'}}</p>
                     </div>
                     <div class="summery-wizard-text">
-                        <h6>Mã giảm giá ({{session('cart_details')['discount'] ?? 0.00}}%)</h6>
-                        <p>{{'VNĐ' . number_format((float) isset(session('cart_details')['discount_amount']) ? session('cart_details')['discount_amount']: 0.00 , 2)}}</p>
+                        <h6>Voucher ({{session('cart_details')['discount'] ?? 0.00}}%)</h6>
+                        <p>{{number_format((float) isset(session('cart_details')['discount_amount']) ? session('cart_details')['discount_amount']: 0.00 , 2).'VNĐ'}}</p>
                     </div>
-                    <div class="summery-wizard-text">
-                        <h6>Thuế (15%)</h6>
-                        <p> {{'VNĐ' . number_format((float) session('cart_details')['tax'] , 2)}}</p>
-                    </div>
+                    {{-- <div class="summery-wizard-text">
+                        <h6>Thuế VAT (15%)</h6>
+                        <p> {{number_format((float) session('cart_details')['tax'] , 2).'VNĐ'}}</p>
+                    </div> --}}
                     <div class="total-wizard">
                         <h6 class="font-title--card">Tổng:</h6>
-                        <p class="font-title--card">{{'VNĐ' . number_format((float) session('cart_details')['total_amount'] , 2)}}</p>
+                        <p class="font-title--card">{{number_format((float) session('cart_details')['total_amount'] , 2).'VNĐ'}}</p>
                     </div>
                     <form action="{{route('coupon_check')}}" method="post">
                         @csrf

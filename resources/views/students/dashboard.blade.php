@@ -113,7 +113,8 @@
                 {{-- Profile Info --}}
                 <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
                     aria-labelledby="nav-profile-tab">
-                    <div class="tab-content__profile">
+                    {{-- <div class="tab-content__profile"> --}}
+                    <div>
                         <section class="section section--bg-white calltoaction">
                             <div class="container">
                                 <div class="row">
