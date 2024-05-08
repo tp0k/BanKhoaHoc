@@ -47,7 +47,7 @@ class sslController extends Controller
         $post_data['success_url'] =action([sslController::class, 'notify']);//action ('User\DsslController@notify');
         $post_data['fail_url'] =  action([sslController::class, 'cancel']);//action('User\DsslController@cancle');
         $post_data['cancel_url'] =  action([sslController::class, 'cancel']);//action('User\DsslController@cancle');
-        # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE
+        # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # TẮT HIỂN THỊ TẤT CẢ CÓ SẴN
         
         
         # CUSTOMER INFORMATION
@@ -62,13 +62,13 @@ class sslController extends Controller
         $post_data['cus_fax'] = $user->contact_en;
         
         
-        # REQUEST SEND TO SSLCOMMERZ
-        //if($settings->ssl_sandbox_check == 1){
-            $direct_api_url = "https://sandbox.sslcommerz.com/gwprocess/v3/api.php";
+        # YÊU CẦU GỬI ĐẾN SSLCOMMERZ
+        // if($settings->ssl_sandbox_check == 1){
+        //     $direct_api_url = "https://sandbox.sslcommerz.com/gwprocess/v3/api.php";
+        // }
+        // else{
+        $direct_api_url = "https://securepay.sslcommerz.com/gwprocess/v3/api.php";
         //}
-        //else{
-        //$direct_api_url = "https://securepay.sslcommerz.com/gwprocess/v3/api.php";
-       // }
 
 
         $handle = curl_init();
@@ -78,7 +78,7 @@ class sslController extends Controller
         curl_setopt($handle, CURLOPT_POST, 1 );
         curl_setopt($handle, CURLOPT_POSTFIELDS, $post_data);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, FALSE); # KEEP IT FALSE IF YOU RUN FROM LOCAL PC
+        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, FALSE); # GIỮ NẾU BẠN CHẠY TỪ PC ĐỊA PHƯƠNG
         
         
         $content = curl_exec($handle );
@@ -93,7 +93,7 @@ class sslController extends Controller
             $sslcommerzResponse = $content;
         } else {
             curl_close( $handle);
-            return redirect()->back()->with('unsuccess',"FAILED TO CONNECT WITH SSLCOMMERZ API");
+            return redirect()->back()->with('Không thành công',"KHÔNG KẾT NỐI VỚI API SSLCOMMERZ");
             exit;
         }
         
@@ -108,7 +108,7 @@ class sslController extends Controller
             # header("Location: ". $sslcz['GatewayPageURL']);
             exit;
         } else {
-            return redirect()->back()->with('unsuccess',"JSON Data parsing error!");
+            return redirect()->back()->with('Không thành công',"Lỗi phân tích cú pháp dữ liệu JSON!");
         }
 
     }
@@ -119,7 +119,7 @@ class sslController extends Controller
         $deposit = Payment::where('txnid','=',$input['tran_id'])->orderBy('created_at','desc')->first();
         $student = Student::findOrFail($deposit->student_id);
         $this->setSession($student);
-        return redirect()->route('studentdashboard')->with('danger', 'Huỷ thanh toán.');
+        return redirect()->route('studentdashboard')->with('Cảnh báo', 'Huỷ thanh toán.');
     }
 
     
@@ -152,7 +152,7 @@ class sslController extends Controller
             return redirect()->route('studentdashboard')->with('Thành công', 'Thanh toán thành công!');
         }
         else {
-            return redirect()->route('studentdashboard')->with('danger', 'Vui lòng thử lại!');
+            return redirect()->route('studentdashboard')->with('Cảnh báo', 'Vui lòng thử lại!');
         }
     }
     

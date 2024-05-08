@@ -23,7 +23,7 @@
 
         <div class="row">
             <div class="col-lg-6 checkout-area-checkout">
-                <h6 class="checkout-area__label">Kiểm tra</h6>
+                <h6 class="checkout-area__label">Phương thức thanh toán</h6>
                 <div class="checkout-tab">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-checkout" role="tabpanel"
@@ -32,9 +32,38 @@
                                 @csrf
                                 <div class="mb-4">
                                     <div class="ps-0 ">
-                                        <label class="text-danger"> *
-                                            Vui lòng kiểm lại trước khi thanh toán
+                                        <label class="text-danger"> 
+                                            <h4>* Vui lòng chọn phương thức thanh toán</h4>
                                         </label>
+                                    </div>
+                                </div>
+                                <!-- phương thức thanh toán -->
+                                <div class="mb-3">
+                                    <input type="radio" id="credit_card" name="payment_method" value="credit_card">
+                                    <label for="credit_card">Thẻ tín dụng</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="radio" id="bank_transfer" name="payment_method" value="bank_transfer">
+                                    <label for="bank_transfer">Chuyển khoản ngân hàng</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="radio" id="e_wallet" name="payment_method" value="e_wallet">
+                                    <label for="e_wallet">Ví điện tử</label>
+                                    <div id="e_wallet_options" style="display: none;">
+                                        <div class="ewallet-option">
+                                            <input type="radio" id="momo" name="e_wallet_provider" value="momo">
+                                            <label for="momo">Momo</label>
+                                        </div>
+                                        <div class="ewallet-option">
+                                            <input type="radio" id="vnpay" name="e_wallet_provider" value="vnpay">
+                                            <label for="vnpay">VNPay</label>
+                                        </div>
+                                        <div class="ewallet-option">
+                                            <input type="radio" id="zalopay" name="e_wallet_provider" value="zalopay">
+                                            <label for="zalopay">ZaloPay</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="button button-lg button--primary w-100"> Thanh toán
@@ -46,7 +75,7 @@
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
                 <div class="checkout-area-summery">
-                    <h6 class="checkout-area__label">Cơ bản</h6>
+                    <h6 class="checkout-area__label">Khoá học đăng ký</h6>
 
                     <div class="cart">
                         <div class="cart__includes-info cart__includes-info--bordertop-0">
@@ -265,5 +294,30 @@
         $('.signin').toggle();
         $('.signup').toggle();
     }
+     // Lấy tất cả các radio input của phương thức thanh toán
+     var paymentMethods = document.querySelectorAll('input[name="payment_method"]');
+    // Lặp qua từng radio input và thêm sự kiện change
+    paymentMethods.forEach(function(paymentMethod) {
+        paymentMethod.addEventListener('change', function() {
+            // Nếu radio input được chọn là e_wallet, hiển thị các phương thức thanh toán qua ví điện tử
+            if (this.value === 'e_wallet') {
+                document.getElementById('e_wallet_options').style.display = 'block';
+            } else {
+                // Nếu không, ẩn các phương thức thanh toán qua ví điện tử
+                document.getElementById('e_wallet_options').style.display = 'none';
+                // Đặt các radio input của ví điện tử về trạng thái không chọn
+                var eWalletProviders = document.querySelectorAll('input[name="e_wallet_provider"]');
+                eWalletProviders.forEach(function(provider) {
+                    provider.checked = false;
+                });
+            }
+        });
+    });
 </script>
+<style>
+    .ewallet-option {
+        display: inline-block;
+        margin-right: 20px; /* Khoảng cách giữa các ví điện tử */
+    }
+</style>
 @endpush
