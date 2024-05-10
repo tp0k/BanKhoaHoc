@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Danh sách tài liệu')
+@section('title', 'Danh sách Tư liệu')
 
 @push('styles')
 <!-- Datatable -->
@@ -15,14 +15,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Danh sách tài liệu</h4>
+                    <h4>Danh sách Tư liệu</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('material.index')}}">Tài liệu</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('material.index')}}">Tất cả tài liệu</a>
+                    <li class="breadcrumb-item active"><a href="{{route('material.index')}}">Tư liệu</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('material.index')}}">Tất cả Tư liệu</a>
                     </li>
                 </ol>
             </div>
@@ -42,7 +42,7 @@
                     <div id="list-view" class="tab-pane fade active show col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Danh sách tất cả tài liệu </h4>
+                                <h4 class="card-title">Danh sách tất cả tư liệu </h4>
                                 <a href="{{route('material.create')}}" class="btn btn-primary">Thêm mới</a>
                             </div>
                             <div class="card-body">
@@ -53,7 +53,7 @@
                                                 <th>{{__('#')}}</th>
                                                 <th>{{__('Tiêu đề')}}</th>
                                                 <th>{{__('Bài học')}}</th>
-                                                <th>{{__('Loại tài liệu')}}</th>
+                                                <th>{{__('Loại tư liệu')}}</th>
                                                 <th>{{__('Nội dung')}}</th>
                                                 <th>{{__('Link nội dung')}}</th>
                                                 <th>{{__('Hành động')}}</th>
@@ -92,7 +92,7 @@
                                             </tr>
                                             @empty
                                             <tr>
-                                                <th colspan="6" class="text-center">Không tìm thấy tài liệu</th>
+                                                <th colspan="6" class="text-center">Không tìm thấy tư liệu</th>
                                             </tr>
                                             @endforelse
                                         </tbody>

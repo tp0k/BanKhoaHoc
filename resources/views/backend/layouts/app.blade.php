@@ -229,7 +229,7 @@
                             <li><a href="{{route('courseList')}}"><i class="las la-school"></i>Môn học</a></li>
                             <li><a href="{{route('course.index')}}"><i class="las la-book-open"></i>Tất cả khóa học</a></li>
                             <li><a href="{{route('lesson.index')}}"><i class="las la-chalkboard"></i>Bài giảng</a></li>
-                            <li><a href="{{route('material.index')}}"><i class="las la-atom"></i></i>Tài liệu</a></li>
+                            <li><a href="{{route('material.index')}}"><i class="las la-atom"></i></i>Tư liệu</a></li>
                         </ul>
                     </li>
                     <li><a class="" href="{{route('enrollment.index')}}" aria-expanded="false">
@@ -313,7 +313,7 @@
                     <li><a href="{{route('student.index')}}"><i class="las la-book-reader"></i>Danh sách học viên</a></li>
                     <li><a href="{{route('course.index')}}"><i class="las la-book-open"></i>Tất cả khóa học</a></li>
                     <li><a href="{{route('lesson.index')}}"><i class="las la-chalkboard"></i>Bài giảng của hóa học </a></li>
-                    <li><a href="{{route('material.index')}}"><i class="las la-atom"></i>Tài liệu của khóa học</a></li>
+                    <li><a href="{{route('material.index')}}"><i class="las la-atom"></i>Tư liệu của khóa học</a></li>
                     <li><a href="{{route('coupon.index')}}"><i class="las la-tags"></i>Giảm giá</a></li>
                     <li><a href="{{route('enrollment.index')}}"><i class="las la-bullseye"></i>Tuyển sinh</a></li>
                 </ul>
