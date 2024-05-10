@@ -83,7 +83,7 @@
                     </div>
                     <div class="contact-feature-text">
                         <h6>Email</h6>
-                        <h5>cnetacademy@gmail.com</h5>
+                        <p>cnetacademy@gmail.com</p>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                     </div>
                     <div class="contact-feature-text">
                         <h6>Số điện thoại</h6>
-                        <h5>0946 075 166 | 0836 666 956</h5>
+                        <p>0946 075 166 | 0836 666 956</p>
                     </div>
                 </div>
                 <img src="{{asset('frontend/dist/images/shape/dots/dots-img-03.png')}}" alt="Shape"
