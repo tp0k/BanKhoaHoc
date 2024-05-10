@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Students\VnpayController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Setting\AuthenticationController as auth;
 use App\Http\Controllers\Backend\Setting\UserController as user;
@@ -96,6 +97,8 @@ Route::middleware(['checkstudent'])->prefix('students')->group(function () {
 
     // ssl Routes
     Route::post('/payment/ssl/submit', [sslcz::class, 'store'])->name('payment.ssl.submit');
+    //vnpay
+    Route::post('/payment/vnpay/submit', [VnpayController::class, 'submit'])->name('payment.vnpay.submit');
 });
 
 // frontend pages

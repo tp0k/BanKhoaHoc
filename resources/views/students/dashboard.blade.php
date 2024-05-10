@@ -9,7 +9,7 @@
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent mb-0">
-                <li class="breadcrumb-item"><a href="index.html" class="fs-6 text-secondary">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#" class="fs-6 text-secondary">Trang chủ</a></li>
                 <li class="breadcrumb-item fs-6 text-secondary" aria-current="page">Hồ sơ của bạn</li>
             </ol>
         </nav>
@@ -491,7 +491,7 @@
                                                          {{$data->instructor}}</a>
                                                     </p>
                                                 </div>
-                                                <p class="ms-2">{{$data->price?('৳'.$data->price):'Free'}}</p>
+                                                <p class="ms-2">{{ $data->price ? number_format($data->price) . ' VNĐ' : 'Free' }}</p>
                                             </div>
                                         </div>
                                         @endforeach
