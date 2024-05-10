@@ -64,7 +64,7 @@
     style="background-image: url({{asset('frontend/dist/images/contact/bg.png')}});">
     <div class="container">
         <div class="row">
-            <h2 class="font-title--md text-center">BẤM VÀO ĐÂY!!!!!!!!!!</h2>
+            <h2 class="font-title--md text-center">Hãy cho chúng tôi biết nếu bạn có thắc mắc!</h2>
             <div class="col-lg-5 pe-lg-4 position-relative mb-4 mb-lg-0">
                 <div class="contact-feature d-flex align-items-center">
                     <div class="contact-feature-icon primary-bg">
@@ -83,7 +83,7 @@
                     </div>
                     <div class="contact-feature-text">
                         <h6>Email</h6>
-                        <h5>cnetacademy@gmail.com</h5>
+                        <p>cnetacademy@gmail.com</p>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                     </div>
                     <div class="contact-feature-text">
                         <h6>Số điện thoại</h6>
-                        <h5>0946 075 166 | 0836 666 956</h5>
+                        <p>0946 075 166 | 0836 666 956</p>
                     </div>
                 </div>
                 <img src="{{asset('frontend/dist/images/shape/dots/dots-img-03.png')}}" alt="Shape"

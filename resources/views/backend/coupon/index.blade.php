@@ -49,7 +49,7 @@
                                                 <th>{{__('Giảm')}}</th>
                                                 <th>{{__('Hiệu lực từ')}}</th>
                                                 <th>{{__('Hiệu lực đến')}}</th>
-                                                <th>{{__('Kích hoạt')}}</th>
+                                                <th>{{__('Hành động')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 10, 2024 lúc 12:24 PM
+-- Thời gian đã tạo: Th5 10, 2024 lúc 07:56 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -59,9 +59,7 @@ CREATE TABLE `checkouts` (
 --
 
 INSERT INTO `checkouts` (`id`, `cart_data`, `student_id`, `txnid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjE4OTAwMCwidG90YWxfYW1vdW50IjoxNDQ5MDAwfX0=', 11, 'SSLCZ_TXN_663a275d6904f', 0, '2024-05-07 06:06:37', '2024-05-07 06:06:37', NULL),
-(13, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJ0YXgiOjE4MDAwMCwidG90YWxfYW1vdW50IjoxODAwMDAwfX0=', 11, 'SSLCZ_TXN_663b4988875a3', 0, '2024-05-08 02:44:40', '2024-05-08 02:44:40', NULL),
-(14, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJ0YXgiOjE4MDAwMCwidG90YWxfYW1vdW50IjoxODAwMDAwfX0=', 11, 'SSLCZ_TXN_663dd5f794098', 0, '2024-05-10 01:08:23', '2024-05-10 01:08:23', NULL);
+(1, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjE4OTAwMCwidG90YWxfYW1vdW50IjoxNDQ5MDAwfX0=', 11, 'SSLCZ_TXN_663a275d6904f', 0, '2024-05-07 06:06:37', '2024-05-07 06:06:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -85,7 +83,9 @@ CREATE TABLE `coupons` (
 --
 
 INSERT INTO `coupons` (`id`, `code`, `discount`, `valid_from`, `valid_until`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'VIP01', 30.00, '2024-05-05', '2024-08-05', '2024-05-03 20:34:24', '2024-05-03 20:34:59', NULL);
+(1, 'VIP01', 30.00, '2024-05-05', '2024-08-05', '2024-05-03 20:34:24', '2024-05-03 20:34:59', NULL),
+(2, 'Chaohe2024', 30.00, '2024-05-20', '2024-06-20', '2024-05-10 09:23:30', '2024-05-10 09:23:30', NULL),
+(3, 'VP2', 10.00, '2024-05-10', '2024-07-10', '2024-05-10 09:24:09', '2024-05-10 09:24:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -128,8 +128,8 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `title_en`, `title_bn`, `description_en`, `description_bn`, `course_category_id`, `instructor_id`, `type`, `price`, `old_price`, `subscription_price`, `start_from`, `duration`, `lesson`, `prerequisites_en`, `prerequisites_bn`, `difficulty`, `course_code`, `image`, `thumbnail_image`, `thumbnail_video`, `status`, `language`, `created_at`, `updated_at`, `deleted_at`, `tag`) VALUES
-(1, 'Khoá học lập trình Python basic', NULL, 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', NULL, 2, 2, 'paid', 1800000.00, 4000000.00, NULL, NULL, 2, 8, '> 14 tuổi', NULL, 'beginner', '1', '7661715333923.jpg', '8331715334658.jpg', NULL, 2, 'en', '2024-05-07 00:32:02', '2024-05-10 03:20:33', NULL, 'popular'),
-(2, 'Khoá học lập trình Python basic', NULL, '👨‍🏫 1. Lập Trình Web cơ Bản\r\n👨‍🏫 2. Toán Logic - Toán tư duy cơ bản\r\n👨‍🏫 3. Lập Trình Python Cơ Bản đến Nâng cao\r\n👨‍🏫 4. Lập Trình Game Cơ Bản\r\n👨‍🏫 5. Lập trình Data Science - Phân tích dữ liệu Cơ Bản\r\n👨‍🏫 6. Lập Trình AI - Trí Tuệ Nhân Tạo Cơ Bản\r\n\r\nTrong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart\r\n\r\nThuật ngữ tiếng anh đã giải thích:\r\n\r\nConditional statement, assignment statement, comparison statement, assign, indentation, inconsistent, tab, space, and, variable, flowchart, logic, if, else, age, select, draw, choose, test, import, random, string, integer, built-in, function, class, concatenate, input, output, input validation, wrong input.\r\n\r\nNếu thấy mình nói quá nhanh hay có gì khó hiểu, các bạn nhớ bình luận bên dưới nha :)) \r\n\r\nMình mong clip này sẽ có ích với các bạn mới học lập trình.', NULL, 2, 4, 'paid', 1800000.00, 4000000.00, NULL, NULL, 1, 8, '>=14 tuổi', NULL, 'beginner', NULL, '9361715336061.png', '4471715336061.jpg', 'https://youtu.be/HyovJpkPSfY?si=I_w4WYahbqQTOwsX', 2, 'en', '2024-05-10 02:49:04', '2024-05-10 03:20:45', NULL, 'popular');
+(1, 'Khoá học lập trình Python basic', NULL, 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', NULL, 2, 2, 'paid', 1800000.00, 4000000.00, NULL, NULL, 2, 8, '> 14 tuổi', NULL, 'beginner', '1', '9621715357011.png', '8331715334658.jpg', 'https://www.youtube.com/watch?v=oFgg7K2tpfk', 2, 'en', '2024-05-07 00:32:02', '2024-05-10 10:35:37', NULL, 'popular'),
+(3, 'Khởi đầu đam mê - lập trình Scratch', NULL, 'Session 1: Tổng quan về Scratch\r\n\r\nSession 2: Giới thiệu một số nhóm lệnh Scratch cơ bản\r\n\r\nSession 3: Khối nếu-thì, biến số và truyền nhận tin\r\n\r\nSession 4: Trò chơi săn khủng long và bước nhảy không gian\r\n\r\nSession 5: Trò chơi hứng táo\r\n\r\nSession 6: Xây dựng trò chơi Flappy Bird\r\n\r\nSession 7: Xây dựng trò chơi đua xe\r\n\r\nSession 8: Dự án - Trò chơi bảo vệ biển đảo\r\n\r\nTất cả các hoạt động Học viên đều được hướng dẫn chi tiết từng bước. Mỗi chủ điểm đều có hình ảnh minh họa. Mục tiêu của khóa học không chỉ là hướng dẫn, mà còn là đưa ra thử thách giúp Học viên thể hiện khả năng sáng tạo và thiết kế trò chơi - ứng dụng của chính mình.', NULL, 1, 6, 'paid', 1800000.00, 4000000.00, NULL, NULL, 1, 8, '8 - 13 tuổi', NULL, 'beginner', NULL, '2801715357794.png', '6771715357794.png', 'https://www.youtube.com/watch?v=47yIB4nPTLI', 2, 'en', '2024-05-10 09:15:55', '2024-05-10 09:28:05', NULL, 'popular');
 
 -- --------------------------------------------------------
 
@@ -280,7 +280,9 @@ CREATE TABLE `lessons` (
 --
 
 INSERT INTO `lessons` (`id`, `title`, `course_id`, `description`, `notes`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '[Khóa học lập trình Python basic] - Bài 1: Giới thiệu ngôn ngữ lập trình Python', 1, 'Trong khóa học lập trình python này, chúng ta sẽ sử dụng Python 3.x. Bởi vì Python 2.x là phiên bản cũ và đã được thông báo chính thức là sẽ không còn được phát triển và hỗ trợ sau 2020.', 'Ưu điểm của Python\r\nLà một ngôn ngữ lập trình dành cho người mới bắt đầu.\r\nCú pháp đơn giản, dễ đọc, dễ hiểu và dễ học.\r\nĐa nền tảng.\r\nMiễn phí và là ngôn ngữ mã nguồn mở.\r\nLà ngôn ngữ hướng đối tượng.\r\nKho thư viện hỗ trợ phong phú và đa dạng.\r\nỨng dụng trong nhiều lĩnh vực lập trình khác nhau.\r\nCó khả năng mở rộng, tương thích với các cơ sở dữ liệu và ngôn ngữ khác.\r\nNhược điểm của Python\r\nTốc độ chậm hơn so với các ngôn ngữ C/C++ hay Java.\r\nKhông phải là ngôn ngữ tốt dành cho nền tảng mobile.\r\nPython không phải lựa chọn tốt cho các bài toán cần tối ưu bộ nhớ.\r\nPython có nhiều giới hạn khi làm việc với cơ sở dữ liệu phức tạp.\r\nPython dùng để làm gì?\r\nPhát triển web và các nền tảng cho Internet\r\nPython được sử dụng cho phát triển web theo nhiều cách khác nhau:\r\n\r\nCác framework phát triển web như Django hay Pyramid.\r\nMicro-framework như Flask hay Bottle.\r\nXây dựng CMS với Plone hay django CMS.\r\nCùng với hàng loạt các thư viện đồ sộ hỗ trợ lập trình web, web crawler,…\r\nỨng dụng trong machine learning\r\nPython là ngôn ngữ lập trình phổ biến nhất được sử dụng trong machine learning và thị giác máy tính:\r\n\r\nSciPy là một gói thư viện dành cho toán học, khoa học và kỹ thuật.\r\nPandas là một thư viện dành cho phân tích dữ liệu.\r\nscikit-learn là một thư viện dành cho machine learning\r\n…\r\nLà ngôn ngữ cho mục đích giảng dạy\r\nDo là một ngôn ngữ dễ đọc, dễ hiểu và dễ học. Python là ngôn ngữ đầu tiên mà các lập trình viên tiếp cận. Tuy nhiên, điều này có vẻ không đúng ở Việt Nam chúng ta ^^.\r\n\r\nVà rất nhiều ứng dụng trong các lĩnh vực khác (mình lười trình bày rồi nên liệt kê thôi nhé, chứ không phải ứng dụng nhỏ đâu) bao gồm:\r\n\r\nPhân tích dữ liệu (Data Analysis)\r\nTự động hóa (Automation)\r\nTest tự động (Selenium)\r\nIOT\r\n…', '2024-05-07 00:49:57', '2024-05-07 00:49:57', NULL);
+(1, '[Khóa học lập trình Python basic] - Bài 1: Giới thiệu ngôn ngữ lập trình Python', 1, 'Trong khóa học lập trình python này, chúng ta sẽ sử dụng Python 3.x. Bởi vì Python 2.x là phiên bản cũ và đã được thông báo chính thức là sẽ không còn được phát triển và hỗ trợ sau 2020.', 'Ưu điểm của Python\r\nLà một ngôn ngữ lập trình dành cho người mới bắt đầu.\r\nCú pháp đơn giản, dễ đọc, dễ hiểu và dễ học.\r\nĐa nền tảng.\r\nMiễn phí và là ngôn ngữ mã nguồn mở.\r\nLà ngôn ngữ hướng đối tượng.\r\nKho thư viện hỗ trợ phong phú và đa dạng.\r\nỨng dụng trong nhiều lĩnh vực lập trình khác nhau.\r\nCó khả năng mở rộng, tương thích với các cơ sở dữ liệu và ngôn ngữ khác.\r\nNhược điểm của Python\r\nTốc độ chậm hơn so với các ngôn ngữ C/C++ hay Java.\r\nKhông phải là ngôn ngữ tốt dành cho nền tảng mobile.\r\nPython không phải lựa chọn tốt cho các bài toán cần tối ưu bộ nhớ.\r\nPython có nhiều giới hạn khi làm việc với cơ sở dữ liệu phức tạp.\r\nPython dùng để làm gì?\r\nPhát triển web và các nền tảng cho Internet\r\nPython được sử dụng cho phát triển web theo nhiều cách khác nhau:\r\n\r\nCác framework phát triển web như Django hay Pyramid.\r\nMicro-framework như Flask hay Bottle.\r\nXây dựng CMS với Plone hay django CMS.\r\nCùng với hàng loạt các thư viện đồ sộ hỗ trợ lập trình web, web crawler,…\r\nỨng dụng trong machine learning\r\nPython là ngôn ngữ lập trình phổ biến nhất được sử dụng trong machine learning và thị giác máy tính:\r\n\r\nSciPy là một gói thư viện dành cho toán học, khoa học và kỹ thuật.\r\nPandas là một thư viện dành cho phân tích dữ liệu.\r\nscikit-learn là một thư viện dành cho machine learning\r\n…\r\nLà ngôn ngữ cho mục đích giảng dạy\r\nDo là một ngôn ngữ dễ đọc, dễ hiểu và dễ học. Python là ngôn ngữ đầu tiên mà các lập trình viên tiếp cận. Tuy nhiên, điều này có vẻ không đúng ở Việt Nam chúng ta ^^.\r\n\r\nVà rất nhiều ứng dụng trong các lĩnh vực khác (mình lười trình bày rồi nên liệt kê thôi nhé, chứ không phải ứng dụng nhỏ đâu) bao gồm:\r\n\r\nPhân tích dữ liệu (Data Analysis)\r\nTự động hóa (Automation)\r\nTest tự động (Selenium)\r\nIOT\r\n…', '2024-05-07 00:49:57', '2024-05-07 00:49:57', NULL),
+(2, '[Khóa học lập trình Python basic] - Bài 2:  Game Đấm Lá Kéo', 1, '👨‍🏫 1. Lập Trình Web cơ Bản\r\n👨‍🏫 2. Toán Logic - Toán tư duy cơ bản\r\n👨‍🏫 3. Lập Trình Python Cơ Bản đến Nâng cao\r\n👨‍🏫 4. Lập Trình Game Cơ Bản\r\n👨‍🏫 5. Lập trình Data Science - Phân tích dữ liệu Cơ Bản\r\n👨‍🏫 6. Lập Trình AI - Trí Tuệ Nhân Tạo Cơ Bản\r\n\r\nTrong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart\r\n\r\nThuật ngữ tiếng anh đã giải thích:\r\n\r\nConditional statement, assignment statement, comparison statement, assign, indentation, inconsistent, tab, space, and, variable, flowchart, logic, if, else, age, select, draw, choose, test, import, random, string, integer, built-in, function, class, concatenate, input, output, input validation, wrong input.', 'Trong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart', '2024-05-10 08:25:31', '2024-05-10 08:25:31', NULL),
+(3, '[Khóa học lập trình Scratch cơ bản] - Bài 1: Làm quen với Scratch', 3, 'Khoá học “KHỞI ĐẦU ĐAM MÊ - LẬP TRÌNH SCRATCH” tại Học viện công nghệ CNET - Hải Phòng, trực quan và sinh động sẽ trang bị cho Học viên trẻ kiến thức cơ bản về lập trình, khơi dậy niềm đam mê với công nghệ.\r\n\r\nCác hoạt động được thiết kế trên Scratch sẽ rất đơn giản và thú vị. Scratch là một trang web và ứng dụng giúp Học viên xây dựng và chia sẻ trò chơi của mình với các lập trình viên nhí khác trên toàn thế giới. Một trong những điều tuyệt vời của Scratch là Học viên không cần biết về máy tính quá nhiều. Với Scratch, Học viên chỉ cần làm các thao tác kéo-thả để lập trình và xây dựng những trò chơi của riêng mình.\r\n\r\nCó rất nhiều ngôn ngữ lập trình trên thế giới như Python, Java, C++, PHP… Tuy nhiên, Scratch là một ngôn ngữ lập trình độc nhất trên thế giới, bởi nó được thiết kế để dành riêng cho trẻ làm quen với lập trình game và ứng dụng học tập, từ các nhà nghiên cứu của Học viện công nghệ Massachusetts (MIT).\r\n\r\nScratch là ngôn ngữ lập trình được khuyên dùng cho những người mới bắt đầu, đặc biệt là trẻ em vì nó có những ưu điểm sau:\r\n\r\nThân thiện với trẻ em\r\nChỉ cần thao tác kéo-thả để lập trình mà không cần đánh mã lệnh\r\nThiết kế và chia sẻ trò chơi nhanh chóng\r\nCó thể thấy mã lập trình của các trò chơi \r\nBao gồm nhiều loại âm thanh, hình ảnh, phông nền\r\nMiễn phí - không yêu cầu chi phí bản quyền', 'THỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 8 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', '2024-05-10 09:18:50', '2024-05-10 09:18:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -305,7 +307,9 @@ CREATE TABLE `materials` (
 --
 
 INSERT INTO `materials` (`id`, `lesson_id`, `title`, `type`, `content`, `content_url`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'Bài 1: Giới thiệu ngôn ngữ lập trình Python', 'video', '2681715068775.docx', 'https://toidicode.com/python-co-ban', '2024-05-07 00:59:35', '2024-05-10 02:12:11', NULL);
+(3, 1, 'Bài 1: Giới thiệu ngôn ngữ lập trình Python', 'video', '5331715356832.mp4', NULL, '2024-05-10 08:57:18', '2024-05-10 09:00:32', NULL),
+(4, 2, 'Bài 2: Game Đấm Lá Kéo', 'video', '5211715356928.mp4', NULL, '2024-05-10 09:02:08', '2024-05-10 09:02:08', NULL),
+(5, 3, 'Bài 1: Làm quen với Scratch', 'video', '1371715358138.mp4', NULL, '2024-05-10 09:22:18', '2024-05-10 09:22:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -340,7 +344,7 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(1, '2024_04_14_000001_create_personal_access_tokens_table', 1),
 (2, '2024_04_24_184449_create_roles_table', 1),
 (3, '2024_04_24_184553_create_instructors_table', 1),
 (4, '2024_04_24_184622_create_users_table', 1),
@@ -410,7 +414,8 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `student_id`, `currency`, `currency_code`, `amount`, `currency_value`, `method`, `txnid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(14, 11, 'BDT', 'BDT', 1800000.00, 1.00, 'SSLCommerz', 'SSLCZ_TXN_663dd5f794098', 0, '2024-05-10 01:08:23', '2024-05-10 01:08:23', NULL);
+(14, 11, 'BDT', 'BDT', 1800000.00, 1.00, 'SSLCommerz', 'SSLCZ_TXN_663dd5f794098', 0, '2024-05-10 01:08:23', '2024-05-10 01:08:23', NULL),
+(15, 11, 'BDT', 'BDT', 1800000.00, 1.00, 'SSLCommerz', 'SSLCZ_TXN_663e5cdd46a6d', 0, '2024-05-10 10:43:57', '2024-05-10 10:43:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -1099,19 +1104,19 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT cho bảng `checkouts`
 --
 ALTER TABLE `checkouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `course_categories`
@@ -1147,13 +1152,13 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT cho bảng `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `materials`
 --
 ALTER TABLE `materials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `messages`
@@ -1177,7 +1182,7 @@ ALTER TABLE `options`
 -- AUTO_INCREMENT cho bảng `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
