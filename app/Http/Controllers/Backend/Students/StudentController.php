@@ -55,12 +55,12 @@ class StudentController extends Controller
                 $student->image = $imageName;
             }
             if ($student->save())
-                return redirect()->route('student.index')->with('success', 'Data Saved');
+                return redirect()->route('student.index')->with('Thành công', 'Lưu dữ liệu');
             else
-                return redirect()->back()->withInput()->with('error', 'Please try again');
+                return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         } catch (Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Please try again');
+            return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         }
     }
 
@@ -110,12 +110,12 @@ class StudentController extends Controller
                 $student->image = $imageName;
             }
             if ($student->save())
-                return redirect()->route('student.index')->with('success', 'Data Saved');
+                return redirect()->route('student.index')->with('Thành công', 'Lưu dữ liệu');
             else
-                return redirect()->back()->withInput()->with('error', 'Please try again');
+                return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         } catch (Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Please try again');
+            return redirect()->back()->withInput()->with('Lỗi', 'Vui lòng thử lại!');
         }
     }
 

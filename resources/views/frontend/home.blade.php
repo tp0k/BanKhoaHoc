@@ -230,8 +230,8 @@
                                             <p class="font-para--md">{{$dc?->instructor->name_en}}</p>
                                         </a>
                                         <div class="price">
-                                            <span>{{$dc->price?'VNĐ'.$dc->price:'Free'}}</span>
-                                            <del>{{$dc->old_price?'VNĐ'.$dc->old_price:''}}</del>
+                                            <span>{{$dc->price?$dc->price.'VNĐ':'Free'}}</span>
+                                            <del>{{$dc->old_price?$dc->old_price.'VNĐ':''}}</del>
                                         </div>
                                     </div>
                                     <div class="contentCard-more">

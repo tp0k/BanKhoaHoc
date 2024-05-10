@@ -172,8 +172,10 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <label for="emailAddress">Email</label>
+                                                {{-- <input type="email" name="emailAddress" class="form-control"
+                                                        value="{{$student_info->email}}" placeholder="Email của bạn" /> --}}
                                                 <input type="email" name="emailAddress" class="form-control"
-                                                    value="{{$student_info->email}}" placeholder="Gõ email của bạn" />
+                                                    value="{{$student_info->email}}" placeholder="Email của bạn" readonly/>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -198,13 +200,13 @@
                                                     placeholder="Địa chỉ của bạn" />
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <div class="col-12">
                                                 <label for="bio">Giới thiệu</label>
                                                 <textarea name="bio" class="form-control" rows="5"
                                                     placeholder="About Yourself">{{$student_info->bio}}</textarea>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="d-flex justify-content-lg-end justify-content-center mt-2">
                                             <button class="button button-lg button--primary" type="submit">Lưu thay đổi</button>
                                         </div>

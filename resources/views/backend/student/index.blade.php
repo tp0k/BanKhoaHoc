@@ -22,7 +22,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('student.index')}}">Học viên</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('student.index')}}">Học viên</a></li>
+                    {{-- <li class="breadcrumb-item active"><a href="{{route('student.index')}}">Học viên</a></li> --}}
                 </ol>
             </div>
         </div>
@@ -67,9 +67,9 @@
                                                 <td>{{$d->email}}</td>
                                                 <td>{{$d->contact_en}}</td>
                                                 <td>{{$d->role?->name}}</td>
-                                                <td>
+                                                {{-- <td>
                                                    {{ $d->gender == 'male' ? __('Male') : ($d->gender == 'female' ? __('Female') : __('Other')) }}
-                                                </td>
+                                                </td> --}}
                                                 <td>
                                                     <span class="badge {{$d->status==1?"
                                                         badge-success":"badge-danger"}}">@if($d->status==1){{__('Active')}}
@@ -138,10 +138,10 @@
                                                     <span class="mb-0">Email :</span>
                                                     <strong>{{$d->email}}</strong>
                                                 </li>
-                                                <li class="list-group-item px-0 d-flex justify-content-between">
+                                                {{-- <li class="list-group-item px-0 d-flex justify-content-between">
                                                     <span class="mb-0">Giới tính :</span>
                                                     <strong>{{$d->gender}}</strong>
-                                                </li>
+                                                </li> --}}
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
                                                     <span class="mb-0">Trạng thái :</span>
                                                     <span class="badge {{$d->status==1?"

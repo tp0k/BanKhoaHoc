@@ -154,7 +154,7 @@
                                     <span class="text-danger"> {{ $errors->first('courseOldPrice') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Giá</label>
                                         <input type="number" class="form-control" name="subscription_price"
@@ -163,7 +163,7 @@
                                     @if($errors->has('subscription_price'))
                                     <span class="text-danger"> {{ $errors->first('subscription_price') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Bắt đầu từ</label>
@@ -244,7 +244,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Trạng thái</label> 
                                         <select class="form-control" name="status">
@@ -252,7 +252,7 @@
                                             <option value="0" @if(old('status')==0) selected @endif>Chưa kích hoạt</option>
                                         </select>
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <label class="form-label">Ảnh</label>
                                     <div class="form-group fallback w-100">

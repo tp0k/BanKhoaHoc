@@ -65,13 +65,13 @@
                                     <span class="text-danger"> {{ $errors->first('courseTitle_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Tiêu đề </label>
                                         <input type="text" class="form-control" name="courseTitle_bn"
                                             value="{{old('courseTitle_bn',$course->title_bn)}}">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mô tả</label>
@@ -82,7 +82,7 @@
                                     <span class="text-danger"> {{ $errors->first('courseDescription_en') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mô tả</label>
                                         <textarea class="form-control"
@@ -91,7 +91,7 @@
                                     @if($errors->has('courseDescription_bn'))
                                     <span class="text-danger"> {{ $errors->first('courseDescription_bn') }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Thể loại</label>
@@ -183,7 +183,7 @@
                                     <span class="text-danger"> {{ $errors->first('courseOldPrice') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Giá</label>
                                         <input type="number" class="form-control" name="subscription_price"
@@ -193,7 +193,7 @@
                                     <span class="text-danger"> {{ $errors->first('subscription_price',
                                         $course->subscription_price) }}</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Bắt đầu từ</label>
@@ -253,6 +253,15 @@
                                     </div>
                                     @if($errors->has('course_code'))
                                     <span class="text-danger"> {{ $errors->first('course_code') }}</span>
+                                    @endif
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">URL video</label>
+                                        <input type="text" class="form-control" name="thumbnail_video" value="{{old('thumbnail_video')}}">
+                                    </div>
+                                    @if($errors->has('thumbnail_video'))
+                                    <span class="text-danger"> {{ $errors->first('thumbnail_video') }}</span>
                                     @endif
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 08, 2024 lúc 09:29 AM
+-- Thời gian đã tạo: Th5 10, 2024 lúc 12:24 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -60,17 +60,8 @@ CREATE TABLE `checkouts` (
 
 INSERT INTO `checkouts` (`id`, `cart_data`, `student_id`, `txnid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjE4OTAwMCwidG90YWxfYW1vdW50IjoxNDQ5MDAwfX0=', 11, 'SSLCZ_TXN_663a275d6904f', 0, '2024-05-07 06:06:37', '2024-05-07 06:06:37', NULL),
-(2, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjE4OTAwMCwidG90YWxfYW1vdW50IjoxNDQ5MDAwfX0=', 11, 'SSLCZ_TXN_663a27619e9a0', 0, '2024-05-07 06:06:41', '2024-05-07 06:06:41', NULL),
-(3, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjE4OTAwMCwidG90YWxfYW1vdW50IjoxNDQ5MDAwfX0=', 11, 'SSLCZ_TXN_663a27b90e6f3', 0, '2024-05-07 06:08:09', '2024-05-07 06:08:09', NULL),
-(4, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjE4OTAwMCwidG90YWxfYW1vdW50IjoxNDQ5MDAwfX0=', 11, 'SSLCZ_TXN_663a2aa2deefc', 0, '2024-05-07 06:20:34', '2024-05-07 06:20:34', NULL),
-(5, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjEyNjAwMCwidG90YWxfYW1vdW50IjoxMjYwMDAwfX0=', 11, 'SSLCZ_TXN_663a5c23beb00', 0, '2024-05-07 09:51:47', '2024-05-07 09:51:47', NULL),
-(6, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjEyNjAwMCwidG90YWxfYW1vdW50IjoxMjYwMDAwfX0=', 11, 'SSLCZ_TXN_663a5c26d984c', 0, '2024-05-07 09:51:50', '2024-05-07 09:51:50', NULL),
-(7, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjEyNjAwMCwidG90YWxfYW1vdW50IjoxMjYwMDAwfX0=', 11, 'SSLCZ_TXN_663a5c2958a08', 0, '2024-05-07 09:51:53', '2024-05-07 09:51:53', NULL),
-(8, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjEyNjAwMCwidG90YWxfYW1vdW50IjoxMjYwMDAwfX0=', 11, 'SSLCZ_TXN_663a5de422b36', 0, '2024-05-07 09:59:16', '2024-05-07 09:59:16', NULL),
-(9, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjEyNjAwMCwidG90YWxfYW1vdW50IjoxMjYwMDAwfX0=', 11, 'SSLCZ_TXN_663a5f8135423', 0, '2024-05-07 10:06:09', '2024-05-07 10:06:09', NULL),
-(10, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjEyNjAwMCwidG90YWxfYW1vdW50IjoxMjYwMDAwfX0=', 11, 'SSLCZ_TXN_663a5fa74bb78', 0, '2024-05-07 10:06:47', '2024-05-07 10:06:47', NULL),
-(11, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjEyNjAwMCwidG90YWxfYW1vdW50IjoxMjYwMDAwfX0=', 11, 'SSLCZ_TXN_663a6085d8cbe', 0, '2024-05-07 10:10:29', '2024-05-07 10:10:29', NULL),
-(12, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjEyNjAwMCwidG90YWxfYW1vdW50IjoxMjYwMDAwfX0=', 11, 'SSLCZ_TXN_663a639c4500c', 0, '2024-05-07 10:23:40', '2024-05-07 10:23:40', NULL);
+(13, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJ0YXgiOjE4MDAwMCwidG90YWxfYW1vdW50IjoxODAwMDAwfX0=', 11, 'SSLCZ_TXN_663b4988875a3', 0, '2024-05-08 02:44:40', '2024-05-08 02:44:40', NULL),
+(14, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJ0YXgiOjE4MDAwMCwidG90YWxfYW1vdW50IjoxODAwMDAwfX0=', 11, 'SSLCZ_TXN_663dd5f794098', 0, '2024-05-10 01:08:23', '2024-05-10 01:08:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -137,7 +128,8 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `title_en`, `title_bn`, `description_en`, `description_bn`, `course_category_id`, `instructor_id`, `type`, `price`, `old_price`, `subscription_price`, `start_from`, `duration`, `lesson`, `prerequisites_en`, `prerequisites_bn`, `difficulty`, `course_code`, `image`, `thumbnail_image`, `thumbnail_video`, `status`, `language`, `created_at`, `updated_at`, `deleted_at`, `tag`) VALUES
-(1, 'Khoá học lập trình Python basic', NULL, 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', NULL, 2, 2, 'paid', 1800000.00, 4000000.00, NULL, '2024-05-24 17:00:00', 1, 8, '> 14 tuổi', NULL, 'beginner', NULL, '6081715068503.jpg', '2701715068503.jpg', 'https://youtu.be/NZj6LI5a9vc?si=tLCsKEG1c3T6H0B4', 0, 'en', '2024-05-07 00:32:02', '2024-05-07 00:55:03', NULL, 'popular');
+(1, 'Khoá học lập trình Python basic', NULL, 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', NULL, 2, 2, 'paid', 1800000.00, 4000000.00, NULL, NULL, 2, 8, '> 14 tuổi', NULL, 'beginner', '1', '7661715333923.jpg', '8331715334658.jpg', NULL, 2, 'en', '2024-05-07 00:32:02', '2024-05-10 03:20:33', NULL, 'popular'),
+(2, 'Khoá học lập trình Python basic', NULL, '👨‍🏫 1. Lập Trình Web cơ Bản\r\n👨‍🏫 2. Toán Logic - Toán tư duy cơ bản\r\n👨‍🏫 3. Lập Trình Python Cơ Bản đến Nâng cao\r\n👨‍🏫 4. Lập Trình Game Cơ Bản\r\n👨‍🏫 5. Lập trình Data Science - Phân tích dữ liệu Cơ Bản\r\n👨‍🏫 6. Lập Trình AI - Trí Tuệ Nhân Tạo Cơ Bản\r\n\r\nTrong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart\r\n\r\nThuật ngữ tiếng anh đã giải thích:\r\n\r\nConditional statement, assignment statement, comparison statement, assign, indentation, inconsistent, tab, space, and, variable, flowchart, logic, if, else, age, select, draw, choose, test, import, random, string, integer, built-in, function, class, concatenate, input, output, input validation, wrong input.\r\n\r\nNếu thấy mình nói quá nhanh hay có gì khó hiểu, các bạn nhớ bình luận bên dưới nha :)) \r\n\r\nMình mong clip này sẽ có ích với các bạn mới học lập trình.', NULL, 2, 4, 'paid', 1800000.00, 4000000.00, NULL, NULL, 1, 8, '>=14 tuổi', NULL, 'beginner', NULL, '9361715336061.png', '4471715336061.jpg', 'https://youtu.be/HyovJpkPSfY?si=I_w4WYahbqQTOwsX', 2, 'en', '2024-05-10 02:49:04', '2024-05-10 03:20:45', NULL, 'popular');
 
 -- --------------------------------------------------------
 
@@ -313,7 +305,7 @@ CREATE TABLE `materials` (
 --
 
 INSERT INTO `materials` (`id`, `lesson_id`, `title`, `type`, `content`, `content_url`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'Bài 1: Giới thiệu ngôn ngữ lập trình Python', 'document', '2681715068775.docx', 'https://anandology.com/python-practice-book/index.html', '2024-05-07 00:59:35', '2024-05-07 00:59:35', NULL);
+(1, 1, 'Bài 1: Giới thiệu ngôn ngữ lập trình Python', 'video', '2681715068775.docx', 'https://toidicode.com/python-co-ban', '2024-05-07 00:59:35', '2024-05-10 02:12:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -418,7 +410,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `student_id`, `currency`, `currency_code`, `amount`, `currency_value`, `method`, `txnid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(9, 11, 'BDT', 'BDT', 1260000.00, 1.00, 'SSLCommerz', 'SSLCZ_TXN_663a5f8135423', 0, '2024-05-07 10:06:09', '2024-05-07 10:06:09', NULL);
+(14, 11, 'BDT', 'BDT', 1800000.00, 1.00, 'SSLCommerz', 'SSLCZ_TXN_663dd5f794098', 0, '2024-05-10 01:08:23', '2024-05-10 01:08:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -813,7 +805,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name_en`, `name_bn`, `contact_en`, `contact_bn`, `email`, `date_of_birth`, `gender`, `image`, `bio`, `profession`, `nationality`, `address`, `city`, `state`, `postcode`, `country`, `status`, `password`, `language`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(11, 'Học sinh', NULL, '0987654321', NULL, 'hocsinh@gmail.com', '2007-06-25', NULL, '3861715070453.jpg', 'Học chuyên Tin tại chuyên Trần Phú', 'học sinh', 'Hải Phòng', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$RYOKrXbLgbk.vPRwmStHK.zXUky0FJ/pvFify6TQqFfmVO.Wjw1zG', 'en', NULL, '2024-05-07 01:27:09', '2024-05-07 01:28:46', NULL);
+(11, 'Học sinh', NULL, '0987654321', NULL, 'hocsinh@gmail.com', '2007-06-25', NULL, '3861715070453.jpg', 'Học chuyên Tin tại chuyên Trần Phú', 'học sinh', 'Hải Phòng', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$RYOKrXbLgbk.vPRwmStHK.zXUky0FJ/pvFify6TQqFfmVO.Wjw1zG', 'en', NULL, '2024-05-07 01:27:09', '2024-05-07 01:28:46', NULL),
+(12, 'Học sinh 2', NULL, '0986543217', NULL, 'hocsinh2@gmail.com', '2007-06-05', NULL, '5741715327921.png', 'Có nhu cầu học lập trình để chuẩn bị vào đại học', 'học sinh', 'Hà Nội', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$H9L2/vZ6TooSQJsK5QQkuuQ0lEgQKaz2JrEk6jUwpo8kNWVPDEDny', 'en', NULL, '2024-05-10 00:56:29', '2024-05-10 00:59:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -1106,7 +1099,7 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT cho bảng `checkouts`
 --
 ALTER TABLE `checkouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `coupons`
@@ -1118,7 +1111,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT cho bảng `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `course_categories`
@@ -1184,7 +1177,7 @@ ALTER TABLE `options`
 -- AUTO_INCREMENT cho bảng `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
@@ -1232,7 +1225,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `subscriptions`
