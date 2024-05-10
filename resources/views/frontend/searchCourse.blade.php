@@ -90,7 +90,7 @@
                                     </div>
                                     @empty
                                     @endforelse
-                                    <button type="submit" class="btn btn-primary">Bộ lọc</button>
+                                    <button type="submit" class="btn btn-primary">Lọc</button>
                                 </form>
                             </div>
                         </div>
@@ -389,8 +389,19 @@
                                         <p class="font-para--md">{{$c->instructor?->name_en}}</p>
                                     </a>
                                     <div class="price">
-                                        <span>{{$c->price==null?'Free':'VNĐ'.$c->price}}</span>
-                                        <del>{{$c->old_price?'VNĐ'.$c->old_price:''}}</del>
+                                        {{-- <span>{{$c->price==null?'Free':'VNĐ'.$c->price}}</span>
+                                        <del>{{$c->old_price?'VNĐ'.$c->old_price:''}}</del> --}}
+                                        <span>
+                                            @if($c->price == null)
+                                                Free
+                                            @else
+                                                {{ number_format($c->price) }} VNĐ
+                                            @endif
+                                        </span>
+                                        @if($c->old_price)
+                                            <del><br>{{ number_format($c->old_price) }} VNĐ</del>
+                                        @endif
+                                        
                                     </div>
                                 </div>
                                 <div class="contentCard-more">

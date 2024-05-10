@@ -57,7 +57,7 @@
                                             <option value="{{$l->id}}" {{old('lessonId')==$l->id?'selected':''}}>
                                                 {{$l->title}}</option>
                                             @empty
-                                            <option value="">Không tìm thấy bài giảng nào</option>
+                                            <option value="">Không tìm thấy bài giảng</option>
                                             @endforelse
                                         </select>
                                     </div>

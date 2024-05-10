@@ -64,7 +64,7 @@
     style="background-image: url({{asset('frontend/dist/images/contact/bg.png')}});">
     <div class="container">
         <div class="row">
-            <h2 class="font-title--md text-center">BẤM VÀO ĐÂY!!!!!!!!!!</h2>
+            <h2 class="font-title--md text-center">Hãy cho chúng tôi biết nếu bạn có thắc mắc!</h2>
             <div class="col-lg-5 pe-lg-4 position-relative mb-4 mb-lg-0">
                 <div class="contact-feature d-flex align-items-center">
                     <div class="contact-feature-icon primary-bg">
