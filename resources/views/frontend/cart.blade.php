@@ -22,7 +22,7 @@
         @if (session('cart'))
         <div class="row">
             <div class="col-lg-8">
-                <h6 class="cart-area__label">{{count(session('cart', []))}} Các khóa học trong giỏ hàng</h6>
+                <h6 class="cart-area__label">{{count(session('cart', []))}}  khóa học trong giỏ hàng</h6>
                 @php $total = 0 @endphp
                 @if (session('cart'))
                 @foreach (session('cart') as $id => $details)

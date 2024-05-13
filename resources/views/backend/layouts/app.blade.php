@@ -59,10 +59,10 @@
                                     <i class="mdi mdi-magnify"></i>
                                 </span>
                                 <div class="dropdown-menu p-0 m-0">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Search"
-                                            aria-label="Search">
-                                    </form>
+                                    <form action="{{route('search1Course')}}" method="get">
+                                        <input class="form-control" type="search" placeholder="Tìm kiếm khóa học"
+                                            aria-label="Search" name="keyword">
+                                    </form> 
                                 </div>
                             </div>
                         </div>
