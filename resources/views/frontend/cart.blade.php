@@ -8,8 +8,8 @@
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent mb-0">
-                <li class="breadcrumb-item"><a href="#" class="fs-6 text-secondary">Trang chủ</a></li>
-                <li class="breadcrumb-item active"><a href="#" class="fs-6 text-secondary">Giỏ hàng</a></li>
+                <li class="breadcrumb-item"><a href="/home" class="fs-6 text-secondary">Trang chủ</a></li>
+                <li class="breadcrumb-item active"><a href="/cart" class="fs-6 text-secondary">Giỏ hàng</a></li>
             </ol>
         </nav>
     </div>
@@ -52,7 +52,7 @@
                 @endif
             </div>
             <div class="col-lg-4">
-                <h6 class="cart-area__label">Cơ bản</h6>
+                <h6 class="cart-area__label">Học phí</h6>
                 <div class="summery-wizard">
                     <div class="summery-wizard-text pt-0">
                         <h6>Học phí</h6>

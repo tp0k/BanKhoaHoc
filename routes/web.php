@@ -34,7 +34,7 @@ use App\Http\Controllers\Students\AuthController as sauth;
 use App\Http\Controllers\Students\DashboardController as studashboard;
 use App\Http\Controllers\Students\ProfileController as stu_profile;
 use App\Http\Controllers\Students\sslController as sslcz;
-
+use App\Http\Controllers\Students\VnpayController as vnpay;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -96,9 +96,9 @@ Route::middleware(['checkstudent'])->prefix('students')->group(function () {
     Route::post('/change-image', [stu_profile::class, 'changeImage'])->name('change_image');
 
     // ssl Routes
-    Route::post('/payment/ssl/submit', [sslcz::class, 'store'])->name('payment.ssl.submit');
+    //Route::post('/payment/ssl/submit', [sslcz::class, 'store'])->name('payment.ssl.submit');
     //vnpay
-    Route::post('/payment/vnpay/submit', [VnpayController::class, 'submit'])->name('payment.vnpay.submit');
+    Route::post('/payment/vnpay/submit', [VnpayController::class, 'store'])->name('payment.vnpay.submit');
 });
 
 // frontend pages

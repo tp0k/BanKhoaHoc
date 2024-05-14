@@ -9,8 +9,8 @@
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 align-items-center">
-                <li class="breadcrumb-item"><a href="#" class="fs-6 text-secondary">Trang chủ</a></li>
-                <li class="breadcrumb-item active"><a href="#" class="fs-6 text-secondary">Thanh Toán</a></li>
+                <li class="breadcrumb-item"><a href="/home" class="fs-6 text-secondary">Trang chủ</a></li>
+                <li class="breadcrumb-item active"><a href="/checkout" class="fs-6 text-secondary">Thanh Toán</a></li>
             </ol>
         </nav>
     </div>
@@ -28,7 +28,7 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-checkout" role="tabpanel"
                             aria-labelledby="pills-checkout-tab">
-                            <form action="{{route('payment.ssl.submit')}}" method="post">
+                            <form action="{{route('payment.vnpay.submit')}}" method="post">
                                 @csrf
                                 <div class="mb-4">
                                     <div class="ps-0 ">
@@ -60,13 +60,9 @@
                                             <input type="radio" id="vnpay" name="e_wallet_provider" value="vnpay">
                                             <label for="vnpay">VNPay</label>
                                         </div>
-                                        <div class="ewallet-option">
-                                            <input type="radio" id="zalopay" name="e_wallet_provider" value="zalopay">
-                                            <label for="zalopay">ZaloPay</label>
-                                        </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="button button-lg button--primary w-100"> Thanh toán
+                                <button type="submit" name="redirect" class="button button-lg button--primary w-100"> Thanh toán vnpay
                                 </button>
                             </form>
                         </div>
