@@ -105,7 +105,7 @@
                                 <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
                                 <div class="overlay-content">
                                     <div>
-                                        <input type="text" placeholder="Search.." name="search" />
+                                        <input type="text" placeholder="Tìm kiếm khóa học.." name="search" />
                                         <button type="button">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none" stroke="#ffff" stroke-width="2"

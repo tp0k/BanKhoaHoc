@@ -32,7 +32,7 @@
                 <div class="event-search-bar">
                     <form action="#">
                         <div class="form-input-group">
-                            <input type="text" class="form-control" placeholder="Search Course..." />
+                            <input type="text" class="form-control" placeholder="Tìm kiếm khóa học..." />
                             <button class="button button-lg button--primary" type="submit" id="button-addon2">
                                 Tìm kiếm
                             </button>
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Search by Level  -->
+                    {{-- <!-- Search by Level  -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="levelAcc">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -318,9 +318,9 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
-            </div>
+            </div> 
 
             <div class="col-lg-8">
                 <div class="event-search-results">

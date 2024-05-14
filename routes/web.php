@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\Communication\MessageController as message;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchCourseController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CheckoutController as checkout;
 use App\Http\Controllers\CouponController as coupon;
 use App\Http\Controllers\WatchCourseController as watchCourse;
@@ -105,6 +106,8 @@ Route::middleware(['checkstudent'])->prefix('students')->group(function () {
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('searchCourse', [SearchCourseController::class, 'index'])->name('searchCourse'); 
+//Route::get('searchCourse', [SearchCourseController::class, 'search'])->name('searchCourse'); 
+Route::get('search1Course', [SearchController::class, 'search'])->name('search1Course');
 Route::get('courseDetails/{id}', [course::class, 'frontShow'])->name('courseDetails');
 Route::get('watchCourse/{id}', [watchCourse::class, 'watchCourse'])->name('watchCourse');
 Route::get('instructorProfile/{id}', [instructor::class, 'frontShow'])->name('instructorProfile');

@@ -35,7 +35,11 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="row">
-                            @forelse ($course as $d)
+                            @php
+                            $course1 = $course1 ?? \App\Models\Course::all();
+                            @endphp
+                            @forelse ($course1 as $d)
+                            {{-- @forelse ($course as $d) --}}
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="card card-profile">
                                     <div class="card-header justify-content-end pb-0">
@@ -99,8 +103,12 @@
                                                     </span>
                                                 </li>
                                             </ul>
-                                            <a class="btn btn-outline-primary btn-rounded mt-3 px-4"
-                                                href="about-student.html">Xem thêm</a>
+                                            {{-- <a class="btn btn-outline-primary btn-rounded mt-3 px-4"
+                                                href="about-student.html">Xem thêm thông tin</a> --}}
+                                                
+                                                <a class="btn btn-outline-primary btn-rounded mt-3 px-4"
+                                                    href="{{route('courseDetails', ['id' => encryptor('encrypt', $d->id)])}}">Xem thêm thông tin</a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +129,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
