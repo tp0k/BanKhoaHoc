@@ -7,20 +7,20 @@
             <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
             <meta name="description" content="">
             <meta name="author" content="">
-            <title>Mua khoá học</title>
+            <title>VNPAY DEMO</title>
             <!-- Bootstrap core CSS -->
-            <link href="assets/vnpay/bootstrap.min.css" rel="stylesheet"/>
+            <link href="{{asset('vnpay/bootstrap.min.css')}}" rel="stylesheet"/>
             <!-- Custom styles for this template -->
-            <link href="assets/vnpay/jumbotron-narrow.css" rel="stylesheet">  
-            <script src="assets/vnpay/jquery-1.11.3.min.js"></script>
+            <link href="{{asset('vnpay/jumbotron-narrow.css')}}" rel="stylesheet">  
+            <script src="{{asset('vnpay/jquery-1.11.3.min.js')}}"></script>
         </head>
 
         <body>
         <div class="container">
             <div class="header clearfix">
-                <h3 class="text-muted">Thanh toán qua VNPAY</h3>
+                <h3 class="text-muted">VNPAY DEMO</h3>
             </div>
-            <h3>Tạo đơn hàng mới</h3>
+            <h3>Tạo giao dịch mới</h3>
             <form action="{{route('payment.vnpay.submit')}}" method="post">
                 @csrf
                 <div class="form-group">
@@ -83,15 +83,15 @@
             </div> 
             <link  rel="stylesheet" href="http://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.css">
             <script src="http://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js">
-                // function pay() {
-                // window.location.href = "/vnpay_php/vnpay_pay.php";
-                // }
-                // function querydr() {
-                // window.location.href = "/vnpay_php/vnpay_querydr.php";
-                // }
-                // function refund() {
-                // window.location.href = "/vnpay_php/vnpay_refund.php";
-                // }
+                function pay() {
+                window.location.href = "/vnpay_php/vnpay_pay.php";
+                }
+                function querydr() {
+                window.location.href = "/vnpay_php/vnpay_querydr.php";
+                }
+                function refund() {
+                window.location.href = "/vnpay_php/vnpay_refund.php";
+                }
             </script>
         </body>
     </html>

@@ -30,7 +30,7 @@ class EnrollmentController extends Controller
     public function store(Request $request)
     {
         try {
-            $enrollmen = new Enrollmen;
+            $enrollmen = new Enrollment;
             $enrollmen->quiz_id = $request->quizId;
             $enrollmen->type = $request->questionType;
             $enrollmen->content = $request->questionContent;

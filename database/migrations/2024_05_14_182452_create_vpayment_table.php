@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vnpay_payment', function (Blueprint $table) {
+        Schema::create('vpayment', function (Blueprint $table) {
+            $table->id();
             $table->integer('transaction_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->float('amount')->nullable()->comment('Số tiền thanh toán');
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->string('code_vnpay', 255)->nullable()->comment('Mã giao dịch vnpay');
             $table->string('code_bank', 255)->nullable()->comment('Mã ngân hàng');
             $table->dateTime('time')->nullable()->comment('Thời điểm giao dịch');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vnpay_payment');
+        Schema::dropIfExists('vpayment');
     }
 };
