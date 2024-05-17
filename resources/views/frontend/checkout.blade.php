@@ -65,7 +65,7 @@
                                 </div>
                                 {{-- <button type="submit" name="redirect" class="button button-lg button--primary w-100"> Thanh toán
                                 </button> --}}
-                                <button type="submit" name="payment" class="button button-lg button--primary w-100"> Thanh toán
+                                <button type="submit" name="payment" value="2" class="button button-lg button--primary w-100"> Thanh toán
                                 </button>
                             </form>
                         </div>

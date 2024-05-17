@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
-use App\Models\Payment;
 use App\Models\Enrollment;
 use App\Models\Checkout;
 use App\Models\Transaction;
@@ -139,6 +138,6 @@ class VnpayController extends Controller
 
     
     public function vnpay_return(Request $request){
-        //  dd($request->toArray());
+         dd($request->toArray());
     }    
 }
