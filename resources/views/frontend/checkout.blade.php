@@ -29,7 +29,7 @@
                         <div class="tab-pane fade show active" id="pills-checkout" role="tabpanel"
                             aria-labelledby="pills-checkout-tab">
                             {{-- <form action="{{route('payment.ssl.submit')}}" method="post"> --}}
-                            <form action="{{route('payment.vnpay.submit')}}" method="post">
+                            <form action="{{route('payment.vnpay.payment')}}" method="post">
                                 @csrf
                                 <div class="mb-4">
                                     <div class="ps-0 ">
@@ -63,9 +63,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" name="redirect" class="button button-lg button--primary w-100"> Thanh toán
-                                </button>
-                                <button type="submit" value="2" name="payment" class="button button-lg button--primary w-100"> Thanh toán vnpay
+                                {{-- <button type="submit" name="redirect" class="button button-lg button--primary w-100"> Thanh toán
+                                </button> --}}
+                                <button type="submit" name="payment" class="button button-lg button--primary w-100"> Thanh toán
                                 </button>
                             </form>
                         </div>

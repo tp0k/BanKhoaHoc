@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="totoal-hours">
                                     <i class="far fa-clock text-danger"></i>
-                                    <span>{{$course->duration?$course->duration:0}} giờ</span>
+                                    <span>{{$course->duration?$course->duration:0}} tháng</span>
                                 </div>
                             </div>
                         </div>

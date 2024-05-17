@@ -7,7 +7,7 @@
             <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
             <meta name="description" content="">
             <meta name="author" content="">
-            <title>VNPAY DEMO</title>
+            <title>XÁC NHẬN THANH TOÁN VNPAY</title>
             <!-- Bootstrap core CSS -->
             <link href="{{asset('vnpay/bootstrap.min.css')}}" rel="stylesheet"/>
             <!-- Custom styles for this template -->
@@ -18,7 +18,7 @@
         <body>
         <div class="container">
             <div class="header clearfix">
-                <h3 class="text-muted">VNPAY DEMO</h3>
+                <h3 class="text-muted">XÁC NHẬN THANH TOÁN VNPAY</h3>
             </div>
             <h3>Tạo giao dịch mới</h3>
             <form action="{{route('payment.vnpay.submit')}}" method="post">
@@ -82,16 +82,6 @@
                 </footer>
             </div> 
             <link  rel="stylesheet" href="http://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.css">
-            <script src="http://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js">
-                function pay() {
-                window.location.href = "/vnpay_php/vnpay_pay.php";
-                }
-                function querydr() {
-                window.location.href = "/vnpay_php/vnpay_querydr.php";
-                }
-                function refund() {
-                window.location.href = "/vnpay_php/vnpay_refund.php";
-                }
-            </script>
+            <script src="http://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js"></script>
         </body>
     </html>

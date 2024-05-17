@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Tên</label>
+                                        <label class="form-label">Tên học viên</label>
                                         <input type="text" class="form-control" name="fullName_en"
                                             value="{{old('fullName_en')}}">
                                     </div>
@@ -48,77 +48,15 @@
                                     <span class="text-danger"> {{ $errors->first('fullName_en') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Tên</label>
-                                        <input type="text" class="form-control" name="fullName_bn"
-                                            value="{{old('fullName_bn')}}">
-                                    </div>
-                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Số điện thoại</label>
-                                        <input type="tel" class="form-control" name="contactNumber_en"
-                                            value="{{old('contactNumber_en')}}">
+                                        <label class="form-label">Tên khoá học</label>
+                                        <input type="text" class="form-control" name="fullName_en"
+                                            value="{{old('fullName_en')}}">
                                     </div>
-                                    @if($errors->has('contactNumber_en'))
-                                    <span class="text-danger"> {{ $errors->first('contactNumber_en') }}</span>
+                                    @if($errors->has('fullName_en'))
+                                    <span class="text-danger"> {{ $errors->first('fullName_en') }}</span>
                                     @endif
-                                </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Số điện thoại</label>
-                                        <input type="tel" class="form-control" name="contactNumber_bn"
-                                            value="{{old('contactNumber_bn')}}">
-                                    </div>
-                                    @if($errors->has('contactNumber_bn'))
-                                    <span class="text-danger"> {{ $errors->first('contactNumber_bn') }}</span>
-                                    @endif
-                                </div> --}}
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" name="emailAddress"
-                                            value="{{old('emailAddress')}}">
-                                    </div>
-                                    @if($errors->has('emailAddress'))
-                                    <span class="text-danger"> {{ $errors->first('emailAddress') }}</span>
-                                    @endif
-                                </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Chức vụ</label>
-                                        <select class="form-control" name="roleId">
-                                            @forelse ($role as $r)
-                                            <option value="{{$r->id}}" {{old('roleId')==$r->id?'selected':''}}>
-                                                {{$r->name}}</option>
-                                            @empty
-                                            <option value="">Không có chức vụ</option>
-                                            @endforelse
-                                        </select>
-                                    </div>
-                                    @if($errors->has('roleId'))
-                                    <span class="text-danger"> {{ $errors->first('roleId') }}</span>
-                                    @endif
-                                </div> --}}
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Ngày sinh</label>
-                                        <input type="date" name="birthDate" value="{{old('birthDate')}}" class="form-control" id="">
-                                    </div>
-                                    @if($errors->has('birthDate'))
-                                    <span class="text-danger"> {{ $errors->first('birthDate') }}</span>
-                                    @endif
-                                </div> 
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Giới tính</label>
-                                        <select class="form-control" name="gender">
-                                            <option value="male" @if(old('gender')=='male') selected @endif>Nam</option>
-                                            <option value="female" @if(old('gender')=='female') selected @endif>Nữ</option>
-                                            <option value="other" @if(old('gender')=='other') selected @endif>Không muốn trả lời</option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
@@ -129,17 +67,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Mật khẩu</label>
-                                        <input type="password" class="form-control" name="password">
-                                    </div>
-                                    @if($errors->has('password'))
-                                    <span class="text-danger"> {{ $errors->first('password') }}</span>
-                                    @endif
-                                </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <label class="form-label">Ảnh</label>
+                                    <label class="form-label">Ảnh khoá học</label>
                                     <div class="form-group fallback w-100">
                                         <input type="file" class="dropify" data-default-file="" name="image">
                                     </div>

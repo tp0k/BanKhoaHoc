@@ -29,29 +29,29 @@ class EnrollmentController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $enrollmen = new Enrollment;
-            $enrollmen->quiz_id = $request->quizId;
-            $enrollmen->type = $request->questionType;
-            $enrollmen->content = $request->questionContent;
-            $enrollmen->option_a = $request->optionA;
-            $enrollmen->option_b = $request->optionB;
-            $enrollmen->option_c = $request->optionC;
-            $enrollmen->option_d = $request->optionD;
-            $enrollmen->correct_answer = $request->correctAnswer;
+        // try {
+        //     $enrollmen = new Enrollment;
+        //     $enrollmen->quiz_id = $request->quizId;
+        //     $enrollmen->type = $request->questionType;
+        //     $enrollmen->content = $request->questionContent;
+        //     $enrollmen->option_a = $request->optionA;
+        //     $enrollmen->option_b = $request->optionB;
+        //     $enrollmen->option_c = $request->optionC;
+        //     $enrollmen->option_d = $request->optionD;
+        //     $enrollmen->correct_answer = $request->correctAnswer;
 
-            if ($enrollmen->save()) {
-                $this->notice::success('Data Saved');
-                return redirect()->route('question.index');
-            } else {
-                $this->notice::error('Please try again');
-                return redirect()->back()->withInput();
-            }
-        } catch (Exception $e) {
-            dd($e);
-            $this->notice::error('Please try again');
-            return redirect()->back()->withInput();
-        }
+        //     if ($enrollmen->save()) {
+        //         $this->notice::success('Data Saved');
+        //         return redirect()->route('question.index');
+        //     } else {
+        //         $this->notice::error('Please try again');
+        //         return redirect()->back()->withInput();
+        //     }
+        // } catch (Exception $e) {
+        //     dd($e);
+        //     $this->notice::error('Please try again');
+        //     return redirect()->back()->withInput();
+        // }
     }
 
     /**
