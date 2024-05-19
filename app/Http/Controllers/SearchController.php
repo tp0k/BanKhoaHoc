@@ -13,9 +13,12 @@ class SearchController extends Controller
     if (!empty($keyword)) {
         $course1 = Course::where('title_en', 'like', "%$keyword%")
             ->orWhere('description_en', 'like', "%$keyword%")
-            ->get();
+            ->orWhereHas('instructor', function ($subquery) use ($keyword) {
+                $subquery->where('name_en', 'like', "%$keyword%");
+            })
+            ->get();}
     return view('backend.course.courses.index', compact('course1'));
-}
+
 }}
 
 

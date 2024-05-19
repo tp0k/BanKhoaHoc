@@ -30,9 +30,9 @@
         <div class="row">
             <div class="col-lg-9 mx-auto">
                 <div class="event-search-bar">
-                    <form action="#">
+                    <form action="{{ route('searchCourse') }}" method="get">
                         <div class="form-input-group">
-                            <input type="text" class="form-control" placeholder="Tìm kiếm khóa học..." />
+                            <input type="text" class="form-control" placeholder="Tìm kiếm khóa học..." name="keywordf">
                             <button class="button button-lg button--primary" type="submit" id="button-addon2">
                                 Tìm kiếm
                             </button>
