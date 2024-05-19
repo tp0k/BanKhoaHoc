@@ -7,10 +7,13 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Course;
 use App\Models\Enrollment;
 use App\Models\Checkout;
 use App\Models\Transaction;
-use Mail;
+use App\Models\Vpayment;
+use  Illuminate\Support\Facades\Mail;
+use Exception;
 
 class VnpayController extends Controller
 {
@@ -45,17 +48,17 @@ class VnpayController extends Controller
             $transactionID = Transaction::insertGetId($data);
             if ($transactionID){
                 $shopping = Checkout::content();
-
-                foreach ($shopping as $key => $item){
+                
+                foreach ($shopping as $key => $course){
                     
                     //Lưu chi tiết đơn hàng
                     Checkout::insert([
                         'od_transacsion_id' => $transactionID,
-                        'od_product_id' => $item->id,
+                        'od_product_id' => $course->id,
                         // 'od_sale' => $item->option->sale,
-                        'od_price' => $item->price,
+                        'od_price' => $course->price,
                     ]);
-
+                    
                     //Tăng pay (số lượt mua)
                     // \DB::table('course')
                     // ->where('id', $item->id)
@@ -138,6 +141,82 @@ class VnpayController extends Controller
 
     
     public function vnpay_return(Request $request){
-         dd($request->toArray());
+        // dd($request->toArray());
+        if(session()->has('info_custormer') && $request->vnp_ResponseCode == ('00')){
+            \DB::beginTransaction();
+            
+            // try{
+                $vnpayData = $request->all();
+                
+                $data = session()->get('info_custormer');
+                //dd($data);
+                $transactionID = Transaction::insertGetId($data);
+                //dd($transactionID);
+                if($transactionID){
+                    $shopping = \Cart::content() ;
+                    dd($shopping);
+                    foreach ($shopping as $key => $course){
+                    
+                        //Lưu chi tiết đơn hàng
+                        \Payment::insert([
+                            'od_transacsion_id' => $transactionID,
+                            'od_course_id' => $course->id,
+                            // 'od_sale' => $item->option->sale,
+                            'od_price' => $course->price,
+                        ]);
+    
+                        //Tăng pay (số lượt mua)
+                        // \DB::table('course')
+                        // ->where('id', $item->id)
+                        // ->increment("course_pay");
+                    }
+
+                    $dataPayment = [
+                        'transaction_id' => $transactionID,
+                        'transaction_code' => $vnpayData['vnp_TxnRef'],
+                        'user_id' => $data['tst_user_id'],
+                        'amount' => $data['tst_total_amount'],
+                        'note' => $vnpayData['vnp_OrderInfo'],
+                        'vnp_response_code' => $vnpayData['vnp_ResponseCode'],
+                        'code_vnpay' => $vnpayData['vnp_TransactionNo'],
+                        'code_bank' => $vnpayData['vnp_BankCode'],
+                        'p_time' => date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate'])),
+                    ];
+                    
+                    dd($dataPayment);
+                    $vpayment = new Vpayment();
+                    $vpayment->transaction_id = $transactionID;
+                    $vpayment->transaction_code = $vnpayData['vnp_TxnRef'];
+                    $vpayment->user_id = $data['tst_user_id'];
+                    $vpayment->amount = $data['tst_total_amount'];
+                    $vpayment->note = $vnpayData['vnp_OrderInfo'];
+                    $vpayment->vnp_response_code = $vnpayData['vnp_ResponseCode'];
+                    $vpayment->code_vnpay = $vnpayData['vnp_TransactionNo'];
+                    $vpayment->code_bank = $vnpayData['vnp_BankCode'];
+                    $vpayment->p_time = date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate']));
+                    $vpayment->save();
+
+                    //Vpayment::insert($dataPayment);
+                    
+                }
+
+                \Session::flash('toastr', [
+                    'type' => 'success',
+                    'message' => 'Đăng ký thành công!'
+                ]);
+                // \Cart::destroy();
+                \DB::commit();
+                return view('frontend/vnpay/vnpay_return', compact('vnpayData'));
+
+            // } 
+            // catch (\Exception $exeption){
+    //             \session::flash('toastr', [
+    //                 'type' => 'error',
+    //                 'message' => 'Đã xảy ra lỗi không thể thanh toán!'
+    //             ]);
+    //             \DB::rollBack();
+    //             // return redirect()->to('/');
+            // }
+        }
     }    
 }
