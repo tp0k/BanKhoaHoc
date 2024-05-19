@@ -13,11 +13,25 @@ class SearchCourseController extends Controller
         
         $category = CourseCategory::get();
         $selectedCategories = $request->input('categories', []);
-
-        $course = Course::where('status', 2)->when($selectedCategories, function ($query) use ($selectedCategories) {
-                $query->whereIn('course_category_id', $selectedCategories);
-            })->get();
-
+#mới sửa
+        // $course = Course::where('status', 2)->when($selectedCategories, function ($query) use ($selectedCategories) {
+        //         $query->whereIn('course_category_id', $selectedCategories);
+        //     })->get();
+        
+        $keywordf = $request->input('keywordf', '');
+        $course = Course::where('status', 2)
+        ->when($selectedCategories, function ($query) use ($selectedCategories) {
+            $query->whereIn('course_category_id', $selectedCategories);
+        })
+        ->when($keywordf, function ($query) use ($keywordf) {
+            $query->where('title_en', 'like', "%$keywordf%")
+                ->orWhere('description_en', 'like', "%$keywordf%")
+                ->orWhereHas('instructor', function ($subquery) use ($keywordf) {
+                    $subquery->where('name_en', 'like', "%$keywordf%");
+                });
+        })
+        ->get();
+#
             
 
         $allCourse = Course::where('status', 2)->get();

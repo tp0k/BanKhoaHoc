@@ -15,7 +15,7 @@
                     <p>
                         Ước mơ mà không phấn đấu thì chỉ là hư cấu.
                     </p>
-                    <form>
+                    {{-- <form>
                         <div class="banner-input">
                             <div class="main-input">
                                 <input type="text" placeholder="Bạn muốn học gì..." />
@@ -30,7 +30,7 @@
                                 <button class="button button-lg button--primary">Tìm kiếm</button>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
                 </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-0">
