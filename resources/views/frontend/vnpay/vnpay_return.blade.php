@@ -18,7 +18,7 @@
         <!--Begin display -->
         <div class="container">
             <div class="header clearfix">
-                <h3 class="text-muted">PHẢN HỒI VNPAY</h3>
+                <h3 class="text-muted">HOÁ ĐƠN VNPAY</h3>
             </div>
             <div class="table-responsive">
                 <div class="form-group">
@@ -33,11 +33,15 @@
                 </div>  
                 <div class="form-group">
                     <label >Nội dung thanh toán:</label>
-                    <label>{{$vnpayData['vnp_OrderInfo'] }}></label>
+                    <label>{{$vnpayData['vnp_OrderInfo'] }}</label>
+                </div> 
+                <div class="form-group">
+                    <label >Mã khoá học đăng ký:</label>
+                    <label>{{$vnpayData['vnp_OrderInfo'] }}</label>
                 </div> 
                 <div class="form-group">
                     <label >Mã phản hồi (vnp_ResponseCode):</label>
-                    <label>{{$vnpayData['vnp_ResponseCode']}}></label>
+                    <label>{{$vnpayData['vnp_ResponseCode']}}</label>
                 </div> 
                 <div class="form-group">
                     <label >Mã GD Tại VNPAY:</label>
@@ -48,13 +52,12 @@
                     <label>{{$vnpayData['vnp_BankCode'] }}</label>
                 </div> 
                 <div class="form-group">
-                    <label >Thời gian thanh toán: {{data('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate']))}}</label>
-                    <label></label>
+                    <label >Thời gian thanh toán: {{date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate']))}}</label>
                 </div> 
                 <div class="form-group">
                     <label >Kết quả: Giao dịch thành công!</label>
                     <br>
-                    <a href="{{round('/')}}">
+                    <a href="{{route('home')}}">
                         <button>Quay lại</button>
                     </a>
                 </div> 

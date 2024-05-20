@@ -10,6 +10,7 @@ use App\Models\Student;
 use App\Models\Course;
 use App\Models\Enrollment;
 use App\Models\Checkout;
+use App\Models\Cart;
 use App\Models\Transaction;
 use App\Models\Vpayment;
 use  Illuminate\Support\Facades\Mail;
@@ -47,7 +48,9 @@ class VnpayController extends Controller
             $data['tst_code'] = rand(1,10000);
             $transactionID = Transaction::insertGetId($data);
             if ($transactionID){
-                $shopping = Checkout::content();
+                $cart = new Cart(); // Tạo một thể hiện của lớp Cart
+                $cart_details=array('cart'=>session('cart'),'cart_details'=>session('cart_details'));
+                $shopping = $cart->content(); // Lấy nội dung giỏ hàng
                 
                 foreach ($shopping as $key => $course){
                     
@@ -145,7 +148,7 @@ class VnpayController extends Controller
         if(session()->has('info_custormer') && $request->vnp_ResponseCode == ('00')){
             \DB::beginTransaction();
             
-            // try{
+            try{
                 $vnpayData = $request->all();
                 
                 $data = session()->get('info_custormer');
@@ -153,8 +156,10 @@ class VnpayController extends Controller
                 $transactionID = Transaction::insertGetId($data);
                 //dd($transactionID);
                 if($transactionID){
-                    $shopping = \Cart::content() ;
-                    dd($shopping);
+                    $cart = new Cart(); // Tạo một thể hiện của lớp Cart
+                    $shopping = $cart->content(); // Lấy nội dung giỏ hàng
+                    // dd($shopping);
+                    
                     foreach ($shopping as $key => $course){
                     
                         //Lưu chi tiết đơn hàng
@@ -183,7 +188,7 @@ class VnpayController extends Controller
                         'p_time' => date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate'])),
                     ];
                     
-                    dd($dataPayment);
+                    // dd($dataPayment);
                     $vpayment = new Vpayment();
                     $vpayment->transaction_id = $transactionID;
                     $vpayment->transaction_code = $vnpayData['vnp_TxnRef'];
@@ -196,7 +201,7 @@ class VnpayController extends Controller
                     $vpayment->p_time = date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate']));
                     $vpayment->save();
 
-                    //Vpayment::insert($dataPayment);
+                    // Vpayment::insert($dataPayment);
                     
                 }
 
@@ -208,15 +213,15 @@ class VnpayController extends Controller
                 \DB::commit();
                 return view('frontend/vnpay/vnpay_return', compact('vnpayData'));
 
-            // } 
-            // catch (\Exception $exeption){
-    //             \session::flash('toastr', [
-    //                 'type' => 'error',
-    //                 'message' => 'Đã xảy ra lỗi không thể thanh toán!'
-    //             ]);
-    //             \DB::rollBack();
-    //             // return redirect()->to('/');
-            // }
+            } 
+            catch (\Exception $exeption){
+                \session::flash('toastr', [
+                    'type' => 'error',
+                    'message' => 'Đã xảy ra lỗi không thể thanh toán!'
+                ]);
+                \DB::rollBack();
+                // return redirect()->to('/');
+            }
         }
     }    
 }

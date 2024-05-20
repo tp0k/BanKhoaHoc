@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 10, 2024 lúc 07:56 PM
+-- Thời gian đã tạo: Th5 20, 2024 lúc 06:33 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -40,6 +40,21 @@ CREATE TABLE `answers` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `course_id` bigint(20) UNSIGNED NOT NULL,
+  `student_id` bigint(20) UNSIGNED NOT NULL,
+  `price` decimal(8,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `checkouts`
 --
 
@@ -53,13 +68,6 @@ CREATE TABLE `checkouts` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `checkouts`
---
-
-INSERT INTO `checkouts` (`id`, `cart_data`, `student_id`, `txnid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'eyJjYXJ0Ijp7IjEiOnsidGl0bGVfZW4iOiJLaG9cdTAwZTEgaFx1MWVjZGMgbFx1MWVhZHAgdHJcdTAwZWNuaCBQeXRob24gYmFzaWMiLCJxdWFudGl0eSI6MSwicHJpY2UiOiIxODAwMDAwLjAwIiwib2xkX3ByaWNlIjoiNDAwMDAwMC4wMCIsImltYWdlIjoiNjA4MTcxNTA2ODUwMy5qcGciLCJkaWZmaWN1bHR5IjoiYmVnaW5uZXIiLCJpbnN0cnVjdG9yIjoiR1MuVFMgTFx1MDBlYSBIb1x1MDBlMGkgQlx1MWVhZmMifX0sImNhcnRfZGV0YWlscyI6eyJjYXJ0X3RvdGFsIjoxODAwMDAwLCJjb3Vwb25fY29kZSI6IlZJUDAxIiwiZGlzY291bnQiOiIzMC4wMCIsImRpc2NvdW50X2Ftb3VudCI6NTQwMDAwLCJ0YXgiOjE4OTAwMCwidG90YWxfYW1vdW50IjoxNDQ5MDAwfX0=', 11, 'SSLCZ_TXN_663a275d6904f', 0, '2024-05-07 06:06:37', '2024-05-07 06:06:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -129,7 +137,8 @@ CREATE TABLE `courses` (
 
 INSERT INTO `courses` (`id`, `title_en`, `title_bn`, `description_en`, `description_bn`, `course_category_id`, `instructor_id`, `type`, `price`, `old_price`, `subscription_price`, `start_from`, `duration`, `lesson`, `prerequisites_en`, `prerequisites_bn`, `difficulty`, `course_code`, `image`, `thumbnail_image`, `thumbnail_video`, `status`, `language`, `created_at`, `updated_at`, `deleted_at`, `tag`) VALUES
 (1, 'Khoá học lập trình Python basic', NULL, 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', NULL, 2, 2, 'paid', 1800000.00, 4000000.00, NULL, NULL, 2, 8, '> 14 tuổi', NULL, 'beginner', '1', '9621715357011.png', '8331715334658.jpg', 'https://www.youtube.com/watch?v=oFgg7K2tpfk', 2, 'en', '2024-05-07 00:32:02', '2024-05-10 10:35:37', NULL, 'popular'),
-(3, 'Khởi đầu đam mê - lập trình Scratch', NULL, 'Session 1: Tổng quan về Scratch\r\n\r\nSession 2: Giới thiệu một số nhóm lệnh Scratch cơ bản\r\n\r\nSession 3: Khối nếu-thì, biến số và truyền nhận tin\r\n\r\nSession 4: Trò chơi săn khủng long và bước nhảy không gian\r\n\r\nSession 5: Trò chơi hứng táo\r\n\r\nSession 6: Xây dựng trò chơi Flappy Bird\r\n\r\nSession 7: Xây dựng trò chơi đua xe\r\n\r\nSession 8: Dự án - Trò chơi bảo vệ biển đảo\r\n\r\nTất cả các hoạt động Học viên đều được hướng dẫn chi tiết từng bước. Mỗi chủ điểm đều có hình ảnh minh họa. Mục tiêu của khóa học không chỉ là hướng dẫn, mà còn là đưa ra thử thách giúp Học viên thể hiện khả năng sáng tạo và thiết kế trò chơi - ứng dụng của chính mình.', NULL, 1, 6, 'paid', 1800000.00, 4000000.00, NULL, NULL, 1, 8, '8 - 13 tuổi', NULL, 'beginner', NULL, '2801715357794.png', '6771715357794.png', 'https://www.youtube.com/watch?v=47yIB4nPTLI', 2, 'en', '2024-05-10 09:15:55', '2024-05-10 09:28:05', NULL, 'popular');
+(3, 'Khởi đầu đam mê - lập trình Scratch', NULL, 'Session 1: Tổng quan về Scratch\r\n\r\nSession 2: Giới thiệu một số nhóm lệnh Scratch cơ bản\r\n\r\nSession 3: Khối nếu-thì, biến số và truyền nhận tin\r\n\r\nSession 4: Trò chơi săn khủng long và bước nhảy không gian\r\n\r\nSession 5: Trò chơi hứng táo\r\n\r\nSession 6: Xây dựng trò chơi Flappy Bird\r\n\r\nSession 7: Xây dựng trò chơi đua xe\r\n\r\nSession 8: Dự án - Trò chơi bảo vệ biển đảo\r\n\r\nTất cả các hoạt động Học viên đều được hướng dẫn chi tiết từng bước. Mỗi chủ điểm đều có hình ảnh minh họa. Mục tiêu của khóa học không chỉ là hướng dẫn, mà còn là đưa ra thử thách giúp Học viên thể hiện khả năng sáng tạo và thiết kế trò chơi - ứng dụng của chính mình.', NULL, 1, 6, 'paid', 1800000.00, 4000000.00, NULL, NULL, 1, 8, '8 - 13 tuổi', NULL, 'beginner', NULL, '2801715357794.png', '6771715357794.png', 'https://www.youtube.com/watch?v=47yIB4nPTLI', 2, 'en', '2024-05-10 09:15:55', '2024-05-10 09:28:05', NULL, 'popular'),
+(4, 'Khoá học lập trình web fullstack', NULL, 'Khoá học lập trình web fullstack dành cho các bạn đã có chút nền tảng về lập trình, định hướng tay ngang sang lập trình web thì khoá học này là dành cho bạn!', NULL, 3, 4, 'paid', 4400000.00, 9000000.00, NULL, NULL, 3, 24, 'đã có chút nền tảng về lập trình', NULL, 'advanced', NULL, '3061716054820.jpg', '2981716054821.jpg', 'https://www.youtube.com/watch?v=T1BpaUpLzzA', 0, 'en', '2024-05-18 10:53:41', '2024-05-18 10:54:59', NULL, 'upcoming');
 
 -- --------------------------------------------------------
 
@@ -344,7 +353,7 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2024_04_14_000001_create_personal_access_tokens_table', 1),
+(1, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (2, '2024_04_24_184449_create_roles_table', 1),
 (3, '2024_04_24_184553_create_instructors_table', 1),
 (4, '2024_04_24_184622_create_users_table', 1),
@@ -370,7 +379,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2024_04_24_185831_create_watchlists_table', 1),
 (25, '2024_04_24_185926_add_tag_to_courses_table', 1),
 (26, '2024_04_24_190001_add_column_to_user_table', 2),
-(27, '2024_04_24_190036_create_events_table', 2);
+(27, '2024_04_24_190036_create_events_table', 2),
+(28, '2024_05_12_173448_create_vnpay_payment_table', 3),
+(29, '2024_05_13_165325_create_vnpay_payment_table', 4),
+(30, '2024_05_14_182125_create_vpayment_table', 5),
+(31, '2024_05_14_182452_create_vpayment_table', 6),
+(32, '2024_05_17_045655_create_transactions_table', 7);
 
 -- --------------------------------------------------------
 
@@ -396,10 +410,10 @@ CREATE TABLE `options` (
 
 CREATE TABLE `payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `student_id` bigint(20) DEFAULT NULL,
-  `currency` varchar(255) DEFAULT NULL,
+  `od_transacsion_id` bigint(20) DEFAULT NULL,
+  `od_course_id` varchar(255) DEFAULT NULL,
   `currency_code` varchar(255) DEFAULT NULL,
-  `amount` decimal(10,2) DEFAULT NULL,
+  `od_price` decimal(10,2) DEFAULT NULL,
   `currency_value` decimal(10,2) DEFAULT NULL,
   `method` varchar(255) DEFAULT NULL,
   `txnid` varchar(255) DEFAULT NULL,
@@ -408,14 +422,6 @@ CREATE TABLE `payments` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `payments`
---
-
-INSERT INTO `payments` (`id`, `student_id`, `currency`, `currency_code`, `amount`, `currency_value`, `method`, `txnid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(14, 11, 'BDT', 'BDT', 1800000.00, 1.00, 'SSLCommerz', 'SSLCZ_TXN_663dd5f794098', 0, '2024-05-10 01:08:23', '2024-05-10 01:08:23', NULL),
-(15, 11, 'BDT', 'BDT', 1800000.00, 1.00, 'SSLCommerz', 'SSLCZ_TXN_663e5cdd46a6d', 0, '2024-05-10 10:43:57', '2024-05-10 10:43:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -612,55 +618,59 @@ INSERT INTO `permissions` (`id`, `role_id`, `name`, `created_at`, `updated_at`) 
 (224, 1, 'enrollment.edit', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
 (225, 1, 'enrollment.destroy', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
 (226, 1, 'permission.list', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
-(227, 3, 'user.index', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
-(228, 3, 'user.create', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
-(229, 3, 'user.show', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
-(230, 3, 'user.edit', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
-(231, 3, 'user.destroy', '2024-05-06 23:53:06', '2024-05-06 23:53:06'),
-(232, 3, 'student.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(233, 3, 'student.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(234, 3, 'instructor.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(235, 3, 'instructor.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(236, 3, 'courseCategory.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(237, 3, 'courseCategory.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(238, 3, 'course.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(239, 3, 'course.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(240, 3, 'course.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(241, 3, 'material.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(242, 3, 'material.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(243, 3, 'material.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(244, 3, 'material.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(245, 3, 'material.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(246, 3, 'lesson.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(247, 3, 'lesson.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(248, 3, 'lesson.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(249, 3, 'lesson.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(250, 3, 'lesson.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(251, 3, 'quiz.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(252, 3, 'quiz.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(253, 3, 'quiz.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(254, 3, 'quiz.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(255, 3, 'quiz.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(256, 3, 'question.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(257, 3, 'question.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(258, 3, 'question.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(259, 3, 'question.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(260, 3, 'question.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(261, 3, 'option.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(262, 3, 'option.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(263, 3, 'option.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(264, 3, 'option.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(265, 3, 'option.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(266, 3, 'answer.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(267, 3, 'answer.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(268, 3, 'answer.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(269, 3, 'answer.edit', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(270, 3, 'answer.destroy', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(271, 3, 'review.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(272, 3, 'review.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(273, 3, 'message.index', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(274, 3, 'message.create', '2024-05-06 23:53:07', '2024-05-06 23:53:07'),
-(275, 3, 'message.show', '2024-05-06 23:53:07', '2024-05-06 23:53:07');
+(276, 3, 'user.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(277, 3, 'user.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(278, 3, 'user.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(279, 3, 'user.edit', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(280, 3, 'user.destroy', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(281, 3, 'student.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(282, 3, 'student.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(283, 3, 'instructor.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(284, 3, 'instructor.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(285, 3, 'courseCategory.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(286, 3, 'courseCategory.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(287, 3, 'course.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(288, 3, 'course.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(289, 3, 'material.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(290, 3, 'material.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(291, 3, 'material.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(292, 3, 'material.edit', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(293, 3, 'material.destroy', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(294, 3, 'lesson.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(295, 3, 'lesson.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(296, 3, 'lesson.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(297, 3, 'lesson.edit', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(298, 3, 'lesson.destroy', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(299, 3, 'event.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(300, 3, 'event.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(301, 3, 'quiz.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(302, 3, 'quiz.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(303, 3, 'quiz.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(304, 3, 'quiz.edit', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(305, 3, 'quiz.destroy', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(306, 3, 'question.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(307, 3, 'question.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(308, 3, 'question.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(309, 3, 'question.edit', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(310, 3, 'question.destroy', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(311, 3, 'option.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(312, 3, 'option.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(313, 3, 'option.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(314, 3, 'option.edit', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(315, 3, 'option.destroy', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(316, 3, 'answer.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(317, 3, 'answer.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(318, 3, 'answer.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(319, 3, 'answer.edit', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(320, 3, 'answer.destroy', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(321, 3, 'review.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(322, 3, 'review.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(323, 3, 'discussion.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(324, 3, 'discussion.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(325, 3, 'discussion.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(326, 3, 'message.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(327, 3, 'message.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(328, 3, 'message.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46');
 
 -- --------------------------------------------------------
 
@@ -835,6 +845,47 @@ CREATE TABLE `subscriptions` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `payment_method` varchar(255) DEFAULT NULL,
+  `tst_user_id` int(11) DEFAULT NULL,
+  `tst_total_amount` bigint(20) DEFAULT NULL COMMENT 'Số tiền thanh toán',
+  `e_wallet_provider` varchar(255) DEFAULT NULL COMMENT 'Thanh toán qua',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `payment_method`, `tst_user_id`, `tst_total_amount`, `e_wallet_provider`, `created_at`, `updated_at`) VALUES
+(24, 'e_wallet', 11, 2520000, 'vnpay', '2024-05-17 09:53:30', NULL),
+(66, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 08:39:14', NULL),
+(75, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:18:55', NULL),
+(92, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:18:55', NULL),
+(93, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:18:55', NULL),
+(94, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
+(95, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
+(96, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
+(97, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
+(98, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
+(99, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
+(100, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 11:10:12', NULL),
+(101, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 11:10:12', NULL),
+(102, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 11:10:12', NULL),
+(103, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 11:10:12', NULL),
+(104, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-20 01:15:53', NULL),
+(105, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-20 01:15:53', NULL),
+(106, 'e_wallet', 11, 3600000, 'vnpay', '2024-05-20 01:21:55', NULL),
+(107, 'e_wallet', 11, 3600000, 'vnpay', '2024-05-20 01:21:55', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `users`
 --
 
@@ -874,6 +925,36 @@ INSERT INTO `users` (`id`, `name_en`, `name_bn`, `email`, `contact_en`, `contact
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `vpayments`
+--
+
+CREATE TABLE `vpayments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `amount` bigint(20) DEFAULT NULL COMMENT 'Số tiền thanh toán',
+  `transaction_code` varchar(20) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL COMMENT 'Nội dung thanh toán',
+  `vnp_response_code` varchar(255) DEFAULT NULL,
+  `code_vnpay` varchar(255) DEFAULT NULL COMMENT 'Mã giao dịch vnpay',
+  `code_bank` varchar(255) DEFAULT NULL COMMENT 'Mã ngân hàng',
+  `p_time` datetime DEFAULT NULL COMMENT 'Thời điểm giao dịch',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `vpayments`
+--
+
+INSERT INTO `vpayments` (`id`, `transaction_id`, `user_id`, `amount`, `transaction_code`, `note`, `vnp_response_code`, `code_vnpay`, `code_bank`, `p_time`, `created_at`, `updated_at`) VALUES
+(4, 92, 11, 1800000, '7048', 'scratch', '00', '14421046', 'NCB', '2024-05-20 00:21:00', '2024-05-19 10:45:47', '2024-05-19 10:45:47'),
+(5, 93, 11, 1800000, '7048', 'scratch', '00', '14421046', 'NCB', '2024-05-20 00:21:00', '2024-05-19 10:46:59', '2024-05-19 10:46:59'),
+(13, 103, 11, 1800000, '5074', 'scratch', '00', '14421067', 'NCB', '2024-05-20 01:14:00', '2024-05-19 11:32:55', '2024-05-19 11:32:55');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `watchlists`
 --
 
@@ -899,6 +980,14 @@ ALTER TABLE `answers`
   ADD PRIMARY KEY (`id`),
   ADD KEY `answers_student_id_index` (`student_id`),
   ADD KEY `answers_question_id_index` (`question_id`);
+
+--
+-- Chỉ mục cho bảng `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `carts_course_id_foreign` (`course_id`),
+  ADD KEY `student_id` (`student_id`);
 
 --
 -- Chỉ mục cho bảng `checkouts`
@@ -1070,6 +1159,12 @@ ALTER TABLE `subscriptions`
   ADD KEY `subscriptions_course_id_index` (`course_id`);
 
 --
+-- Chỉ mục cho bảng `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -1079,6 +1174,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_contact_bn_unique` (`contact_bn`),
   ADD KEY `users_role_id_index` (`role_id`),
   ADD KEY `users_instructor_id_index` (`instructor_id`);
+
+--
+-- Chỉ mục cho bảng `vpayments`
+--
+ALTER TABLE `vpayments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `watchlists`
@@ -1101,10 +1202,16 @@ ALTER TABLE `answers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `checkouts`
 --
 ALTER TABLE `checkouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `coupons`
@@ -1116,7 +1223,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT cho bảng `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `course_categories`
@@ -1170,7 +1277,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `options`
@@ -1182,13 +1289,13 @@ ALTER TABLE `options`
 -- AUTO_INCREMENT cho bảng `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=276;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -1239,10 +1346,22 @@ ALTER TABLE `subscriptions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+
+--
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT cho bảng `vpayments`
+--
+ALTER TABLE `vpayments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `watchlists`
@@ -1260,6 +1379,12 @@ ALTER TABLE `watchlists`
 ALTER TABLE `answers`
   ADD CONSTRAINT `answers_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `answers_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `carts`
+--
+ALTER TABLE `carts`
+  ADD CONSTRAINT `carts_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `courses`

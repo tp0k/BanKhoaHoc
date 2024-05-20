@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Coupon;
 use App\Models\CourseCategory;
+use App\Models\Student;
+use Illuminate\Support\Facades\Auth; 
 
 class CartController extends Controller
 {
@@ -26,11 +28,9 @@ class CartController extends Controller
         $course = Course::findOrFail($id);
 
         $cart = session()->get('cart', []);
-
         if (isset($cart[$id])) {
             $message="Thêm khoá học vào giỏ hàng.";
             return redirect()->back()->with('warning', $message);
-            //$cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
                 "title_en" => $course->title_en,
@@ -46,7 +46,7 @@ class CartController extends Controller
             $message="Thêm khoá học thành công!";
             return redirect()->back()->with('Thành công', $message);
         }
-    }
+    }   
 
     public function remove(Request $request)
     {

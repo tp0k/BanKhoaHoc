@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('payment_method')->nullable();
             $table->integer('tst_user_id')->nullable();
-            $table->Bigfloat('tst_total_amount')->nullable()->comment('Số tiền thanh toán');
+            $table->decimal('tst_total_amount', 8, 2)->nullable()->comment('Số tiền thanh toán');
             $table->string('e_wallet_provider')->nullable()->comment('Thanh toán qua');
             $table->string('tst_code')->nullable();
             $table->timestamps();
