@@ -42,15 +42,15 @@
                     <ul class="hero__content-location">
                         <li>
                             <span><i class="fas fa-map-marker-alt fa-2x"></i></span>
+                            <p> Lý Tự Trọng - Hồng Bàng - Hải Phòng</p>
+                        </li>
+                        <li>
+                            {{-- <span><i class="fas fa-map-marker-alt fa-2x"></i></span>
                             <p>Hải Phòng</p>
                         </li>
                         <li>
                             <span><i class="fas fa-map-marker-alt fa-2x"></i></span>
-                            <p>Hải Phòng</p>
-                        </li>
-                        <li>
-                            <span><i class="fas fa-map-marker-alt fa-2x"></i></span>
-                            <p>Hải Phòng</p>
+                            <p>Hải Phòng</p> --}}
                         </li>
                     </ul>
                 </div>

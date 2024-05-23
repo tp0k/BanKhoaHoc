@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- Banner Starts Here -->
-<section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
+ {{-- <section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mb-lg-0 order-2 order-lg-0 d-flex align-items-center">
@@ -14,7 +14,7 @@
                     <h1 class="font-title--lg">Học đi đôi với hành.</h1>
                     <p>
                         Ước mơ mà không phấn đấu thì chỉ là hư cấu.
-                    </p>
+                    </p>  --}}
                     {{-- <form>
                         <div class="banner-input">
                             <div class="main-input">
@@ -30,8 +30,8 @@
                                 <button class="button button-lg button--primary">Tìm kiếm</button>
                             </div>
                         </div>
-                    </form> --}}
-                </div>
+//                    </form> --}}
+                 {{-- </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-0">
                 <div class="main-banner-end">
@@ -41,12 +41,105 @@
             </div>
         </div>
     </div>
-</section>
+</section>  --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 80%;
+    height: 80%;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+    .carousel-control-prev {
+    left: 80%;
+}
+.carousel-control-next {
+    right: 80%;
+}
+.carousel-item {
+    transition: transform 3.6s ease-in-out;
+}
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+    transition: opacity 3.6s;
+}
 
+  </style>
+</head>
+<body>
+
+ <main role="main">
+
+      <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide d-block mx-auto position-relative" src="/images/banner/flutterct.png" alt="First slide">
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <h1>Lập trình Flutter</h1>
+                <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=flutter">Đăng ký ngay</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="second-slide d-block mx-auto position-relative" src="/images/banner/pythonct.jpg" alt="Second slide">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Lập trình Python</h1>
+                <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=python" role="button">Đăng ký ngay</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="third-slide d-block mx-auto position-relative" src="/images/banner/web2.png" alt="Third slide">
+            <div class="container">
+              <div class="carousel-caption text-right">
+                <h1>Lập trình Web</h1>
+                <p>Học bổng 50% cho học viên đăng ký nhanh nhất.</p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=web" role="button">Đăng ký ngay</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+       
+      </div>
+  
+      </body>
+      </html>
 <!-- Browse Categories Starts Here -->
 <section class="section browse-categories">
     <div class="container">
-        <h2 class="font-title--md text-center mb-0">Khóa học nổi bật</h2>
+        <h2 class="font-title--md text-center mb-0">Môn học</h2>
         <div class="browse-categories__wrapper position-relative">
             <div class="categories--box">
                 @forelse ($category as $cat)
@@ -141,9 +234,14 @@
                         @forelse ($popularCourses as $pc)
                         <div class="col-xl-4 col-md-6">
                             <div class="contentCard contentCard--course">
-                                <div class="contentCard-top">
-                                    <a href="#"><img src="{{asset('uploads/courses/'.$pc->image)}}" alt="images"
+                                {{-- <div class="contentCard-top">
+                                    <a href=""><img src="{{asset('uploads/courses/'.$pc->image)}}" alt="images"
                                             class="img-fluid" /></a>
+                                </div> --}}
+                                <div class="contentCard-top">
+                                    <a href="{{route('courseDetails', ['id' => encryptor('encrypt', $pc->id)]) }}">
+                                        <img src="{{ asset('uploads/courses/'.$pc->image) }}" alt="images" class="img-fluid" />
+                                    </a>
                                 </div>
                                 <div class="contentCard-bottom">
                                     <h5>
@@ -497,7 +595,7 @@
 {{-- Why You'll Learn With Eduguard --}}
 <section class="section feature section section--bg-offwhite-one">
     <div class="container">
-        <h2 class="font-title--md text-center">Tại sao bạn nên học ở CNET</h2>
+        <h2 class="font-title--md text-center">Tại sao bạn nên đặt niềm tin ở CNET?</h2>
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <div class="cardFeature">
@@ -513,9 +611,9 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </div>
-                    <h5 class="font-title--xs">250k khóa học online</h5>
+                    <h5 class="font-title--xs">Hàng ngàn bài giảng</h5>
                     <p>
-                        CNET học viện CNET.
+                        6,3 triệu học sinh trên khắp 63 tỉnh thành đã và đang tin tưởng theo học.
                     </p>
                 </div>
             </div>
@@ -543,7 +641,7 @@
                     </div>
                     <h5 class="font-title--xs">Giảng viên cấp cao</h5>
                     <p>
-                        Giảng viên cấp cao.
+                        500+ giáo viên và chuyên gia giáo dục giàu kinh nghiệm.
                     </p>
                 </div>
             </div>
@@ -561,7 +659,7 @@
                     </div>
                     <h5 class="font-title--xs">Truy cập trọn đời</h5>
                     <p>
-                        Truy cập trọn đời.
+                        Các khóa học có thời hạn vĩnh viễn. Bạn có thể học bất cứ lúc nào!
                     </p>
                 </div>
             </div>
@@ -576,8 +674,8 @@
             <div class="col-lg-6 order-2 order-lg-0">
                 <div class="learning-rules-starts">
                     <h2 class="font-title--md">
-                        Học đơn giản <br class="d-none d-md-block" />
-                        Các bước để học
+                        Bạn còn chần chừ gì nữa? <br class="d-none d-md-block" />
+                        Cùng bắt đầu nào!
                     </h2>
                     <div class="learning-rules__wrapper">
                         <div class="learning-rules-item">
@@ -585,7 +683,7 @@
                             <div class="item-text">
                                 <h6>Xây dựng con đường học vấn của bạn.</h6>
                                 <p>
-                                    Xây dựng con đường học vấn của bạn.
+                                    Học với những lộ trình hợp lý do CNET dày công xây dựng.
                                 </p>
                             </div>
                         </div>
@@ -594,21 +692,21 @@
                             <div class="item-text">
                                 <h6>Tìm thấy phương pháp học tốt nhất.</h6>
                                 <p>
-                                    Tìm thấy phương pháp học tốt nhất.
+                                    Học bằng bất cứ phương pháp nào, miễn là nó hiệu quả với bạn.
                                 </p>
                             </div>
                         </div>
                         <div class="learning-rules-item">
                             <div class="item-number"><span>03.</span></div>
                             <div class="item-text">
-                                <h6>Và trở thành chuyên gia trong lĩnh vực của bạn.</h6>
+                                <h6>Trở thành chuyên gia trong lĩnh vực của bạn.</h6>
                                 <p>
-                                    Và trở thành chuyên gia trong lĩnh vực của bạn.
+                                    Và gặt hái vô số thành công!
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="button button-lg button--primary">Bắt đầu học</a>
+                    <a href="http://127.0.0.1:8000/searchCourse" class="button button-lg button--primary">Bắt đầu học</a>
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-0">
@@ -645,7 +743,7 @@
         <div class="testimonial testimonial--one testimonial__slider--one">
             <div class="testimonial__item">
                 <p>
-                    “Em yêu CNET chỉ 4 ngày xuân, hạ, thu, đông.“
+                    “Cô Thảo lớp Python cơ bản dạy có hệ thống, truyền đạt cho học sinh nhiều kiến thức. Bài giảng của cô sinh động, rất dễ hiểu. “
                 </p>
                 <div class="testimonial__user-wrapper d-flex justify-content-between">
                     <div class="testimonial__user d-flex align-items-center">
@@ -708,7 +806,7 @@
             </div>
             <div class="testimonial__item">
                 <p>
-                    “Em yêu CNET chỉ 3 ngày.“
+                    “Cô Minh lớp Scratch dạy dễ hiểu, kỹ và sâu. Cô vui tính và dạy kỹ các kỹ năng”.
                 </p>
                 <div class="testimonial__user-wrapper d-flex justify-content-between">
                     <div class="testimonial__user d-flex align-items-center">
@@ -771,7 +869,7 @@
             </div>
             <div class="testimonial__item">
                 <p>
-                    “Em yêu CNET chỉ 1 ngày, đó là ngày mai.“
+                    “Thầy Bắc dạy dễ hiểu, tỉ mỉ, những gì chưa hiểu thì thầy giảng hiểu thì thôi”
                 </p>
                 <div class="testimonial__user-wrapper d-flex justify-content-between">
                     <div class="testimonial__user d-flex align-items-center">
@@ -845,10 +943,10 @@
         <div class="row mb-40">
             <div class="col-lg-6 mx-auto text-center brands-area-two-heading">
                 <h4>
-                    Làm việc với hơn 30,000+ Trường Trung học & Trường Đại học.
+                    Làm việc với hơn 500+ Trường Trung học & Trường Đại học và các cơ sở giáo dục uy tín.
                 </h4>
                 <p>
-                    Truyền thông thường nhắc tên em như đại minh tinh.
+                    Nằm trong TOP các nền tảng giáo dục online tại Việt Nam.
                 </p>
             </div>
         </div>
@@ -890,7 +988,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 position-relative">
-                <section id="instructor_section"><h3 class="text-center mb-40 font-title--md" >GẶP NHỮNG GIẢNG VIÊN XỊN NHẤT</h3></section>
+                <h3 class="text-center mb-40 font-title--md">Giáo viên tiêu biểu</h3>
                 <div class="ourinstructor__wrapper mt-lg-5 mt-0">
                     <div class="ourinstructor-active">
                         @forelse ($instructor as $i)
