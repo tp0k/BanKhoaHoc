@@ -890,7 +890,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 position-relative">
-                <h3 class="text-center mb-40 font-title--md">GẶP NHỮNG GIẢNG VIÊN XỊN NHẤT</h3>
+                <section id="instructor_section"><h3 class="text-center mb-40 font-title--md" >GẶP NHỮNG GIẢNG VIÊN XỊN NHẤT</h3></section>
                 <div class="ourinstructor__wrapper mt-lg-5 mt-0">
                     <div class="ourinstructor-active">
                         @forelse ($instructor as $i)

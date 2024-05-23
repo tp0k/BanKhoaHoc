@@ -30518,9 +30518,9 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -30536,19 +30536,19 @@ body {
 }
 
 .instructor-course-info-courses .text {
-  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .instructor-course-info-courses .text h6,
 .instructor-course-info-courses .text .h6 {
   color: #42414b !important;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .instructor-course-info-courses .text p {
   color: #8f8fa3 !important;
-  font-size: 12px !important;
+  font-size: 25px !important;
 }
 
 .instructor-info p {
