@@ -51,7 +51,7 @@
                             </div>
                             <div class="enrolled-courses-text">
                                 <h6 class="font-title--xs">{{$enrollment?$enrollment->count():0}}</h6>
-                                <p class="fs-6 mt-1">Các khóa học đã đăng ký</p>
+                                <p class="fs-6 mt-1">Khóa học đã đăng ký</p>
                             </div>
                         </div>
                         <div class="completed-courses">
@@ -68,7 +68,7 @@
                             </div>
                             <div class="completed-courses-text">
                                 <h5 class="font-title--xs">0</h5>
-                                <p class="fs-6 mt-1">Các khóa học đã hoàn thành</p>
+                                <p class="fs-6 mt-1">Khóa học đã hoàn thành</p>
                             </div>
                         </div>
                     </div>

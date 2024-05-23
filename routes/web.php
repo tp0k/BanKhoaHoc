@@ -103,9 +103,6 @@ Route::middleware(['checkstudent'])->prefix('students')->group(function () {
 
     Route::post('/payment/vnpay/submit', [VnpayController::class, 'store'])->name('payment.vnpay.submit');
     Route::get('/vnpay/vnpay_return', [VnpayController::class, 'vnpay_return'])->name('vnpay.return');
-    // Route::get('/vnpay/index', function () {
-    //     return view('frontend.vnpay.index');
-    // });
 });
 
 // frontend pages

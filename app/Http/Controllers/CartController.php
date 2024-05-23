@@ -116,4 +116,13 @@ class CartController extends Controller
         }
         return redirect()->back()->with('Thành công', 'Áp voucher thành công!');
     }
+
+    public function content()
+    {
+        // Lấy dữ liệu giỏ hàng từ session
+        $cart = session()->get('cart', []);
+
+        // Trả về dữ liệu giỏ hàng
+        return $cart;
+    }
 }
