@@ -37,6 +37,7 @@ class VnpayController extends Controller
         $data['tst_total_amount'] = $total_amount = session('cart_details')['total_amount'];
         $data['created_at'] = Carbon::now();
         $transactionID = Transaction::insertGetId($data);
+        session(['transaction_id' => $transactionID]);
 
         if($request->payment == 2){
             $totalAmount = session('cart_details')['total_amount'];
@@ -149,17 +150,18 @@ class VnpayController extends Controller
             
             try{
                 $vnpayData = $request->all();
-                
+
                 $data = session()->get('info_custormer');
                 //
-                $transactionID = Transaction::insertGetId($data);
+                $transactionID = session('transaction_id');
                 //
                 if($transactionID){
-                    $cart = new Cart(); // Tạo một thể hiện của lớp Cart
+                    // $cart = new Cart(); // Tạo một thể hiện của lớp Cart
                     // $shopping = $cart->content(); // Lấy nội dung giỏ hàng
                     $cartData = session('cart');
                     // $courseIDs = [$cartData]; // Mảng chứa ID của các khóa học trong giỏ hàng
                     $courseIDs = array_keys($cartData);
+                    $p_time = date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate']));
                     // dd($shopping);
                     
                     // foreach ($shopping as $key => $course){
@@ -185,25 +187,26 @@ class VnpayController extends Controller
                         'vnp_response_code' => $vnpayData['vnp_ResponseCode'],
                         'code_vnpay' => $vnpayData['vnp_TransactionNo'],
                         'code_bank' => $vnpayData['vnp_BankCode'],
-                        'p_time' => date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate'])),
+                        'p_time' => $p_time,
                     ];
                     //
                     // dd($dataPayment);
-                    Vpayment::insert($dataPayment);
-                    // Gọi phương thức để lưu dữ liệu vào cơ sở dữ liệu của Enrollment
-                    // $this->enrollmentController->storeVnpayData($vnpayData);                    
+                    Vpayment::insert($dataPayment); 
+                    // Sử dụng DI để inject EnrollmentController
+                    $enrollmentController = app()->make(EnrollmentController::class);
+                    $enrollmentController->store($transactionID, $courseIDs, $data['tst_user_id'], $p_time);        
                 }
                 
                 \Session::flash('toastr', [
                     'type' => 'success',
                     'message' => 'Đăng ký thành công!'
                 ]);
-                //  // Gọi phương thức để lưu dữ liệu vào cơ sở dữ liệu của Enrollment
-                // $this->enrollmentController->storeVnpayData($vnpayData);
-                // // dd($courseIDs);
+
                 //Xoá dữ liệu trong giỏ hàng sau khi thanh toán thành công
                 session()->forget('cart');
+            
                 DB::commit();
+                session(['tran_id' => $transactionID]);
                 return view('frontend/vnpay/vnpay_return', compact('vnpayData','courseIDs'));
                               
 
@@ -217,24 +220,5 @@ class VnpayController extends Controller
                 return redirect()->to('/');
             }
         }
-    }   
-    
-    // public function handlePayment(Request $request)
-    // {
-    //     try {
-    //         // Lấy thông tin từ request
-    //         $studentId = Auth::id(); // ID của học viên đã đăng nhập
-    //         $courseIds = array_keys(session('cart')); // ID của các khoá học trong giỏ hàng
-    //         $enrollmentDate = Carbon::now(); // Ngày hiện tại là ngày đăng ký
-
-    //         // Gọi phương thức để lưu thông tin đăng ký vào bảng Enrollment
-    //         $enrollmentController = new EnrollmentController();
-    //         $enrollmentController->storeEnrollment($studentId, $courseIds, $enrollmentDate);
-    //         // Tiếp tục xử lý logic thanh toán hoặc điều hướng người dùng nếu cần
-
-    //     } catch (Exception $e) {
-    //         // Xử lý ngoại lệ nếu có
-    //         return redirect()->back()->with('error', 'Đã xảy ra lỗi khi đăng ký khoá học: ' . $e->getMessage());
-    //     }
-    // }
+    }
 }

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
 use App\Models\Enrollment;
+use App\Models\Vpayment;
+
 
 class EnrollmentController extends Controller
 {
@@ -27,31 +29,37 @@ class EnrollmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store($transactionID, $courseIDs, $userID, $p_time)
     {
-        // try {
-        //     $enrollmen = new Enrollment;
-        //     $enrollmen->quiz_id = $request->quizId;
-        //     $enrollmen->type = $request->questionType;
-        //     $enrollmen->content = $request->questionContent;
-        //     $enrollmen->option_a = $request->optionA;
-        //     $enrollmen->option_b = $request->optionB;
-        //     $enrollmen->option_c = $request->optionC;
-        //     $enrollmen->option_d = $request->optionD;
-        //     $enrollmen->correct_answer = $request->correctAnswer;
-
-        //     if ($enrollmen->save()) {
-        //         $this->notice::success('Data Saved');
-        //         return redirect()->route('question.index');
-        //     } else {
-        //         $this->notice::error('Please try again');
-        //         return redirect()->back()->withInput();
-        //     }
-        // } catch (Exception $e) {
-        //     dd($e);
-        //     $this->notice::error('Please try again');
-        //     return redirect()->back()->withInput();
-        // }
+        try {
+            // Lấy thông tin từ bảng Vpayment theo transactionID
+            $payment = Vpayment::where('transaction_id', $transactionID)->first();
+    
+            if($payment){
+                // Tạo mảng để lưu các thông tin cần thiết cho mỗi khóa học
+                // $enrollments = [];
+                $enrollments[] = [
+                    'student_id' => $userID,
+                    'payment_id' => $transactionID,
+                    'course_id' => implode(',', $courseIDs),
+                    'enrollment_date' => $p_time,
+                ];
+    
+                // Thêm các enrollment vào bảng enrollment
+                Enrollment::insert($enrollments);
+            } else {
+                // Xử lý trường hợp không tìm thấy dữ liệu từ bảng vpayment
+                \Session::flash('toastr', [
+                    'type' => 'error',
+                    'message' => 'Không tìm thấy dữ liệu từ bảng Vpayment'
+                ]);
+            }
+        } catch (Exception $e) {
+            \Session::flash('toastr', [
+                'type' => 'error',
+                'message' => 'Đã xảy ra lỗi khi thêm dữ liệu vào bảng Enrollment: ' . $e->getMessage()
+            ]);
+        }
     }
 
     /**

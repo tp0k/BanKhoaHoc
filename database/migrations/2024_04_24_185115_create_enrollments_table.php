@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('student_id')->index();
-            $table->unsignedBigInteger('course_id')->index();
+            $table->integer('transaction_id')->index();
+            $table->string('course_id')->nullable();
             $table->timestamp('enrollment_date')->default(now());
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreign('payment_id')->references('id')->on('vpayment')->onDelete('cascade');
         });
     }
 
