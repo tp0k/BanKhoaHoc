@@ -9,10 +9,10 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html" class="fs-6 text-secondary">Trang chủ</a>
+                    <a href="http://127.0.0.1:8000/" class="fs-6 text-secondary">Trang chủ</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a href="about.html" class="fs-6 text-secondary">Về chúng tôi</a>
+                    <a href="http://127.0.0.1:8000/about" class="fs-6 text-secondary">Về chúng tôi</a>
                 </li>
             </ol>
         </nav>

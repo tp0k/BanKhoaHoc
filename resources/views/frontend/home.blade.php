@@ -988,7 +988,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 position-relative">
-                <h3 class="text-center mb-40 font-title--md">Giáo viên tiêu biểu</h3>
+                <section id="instructor_section"><h3 class="text-center mb-40 font-title--md" >Giáo viên tiêu biểu</h3></section>
                 <div class="ourinstructor__wrapper mt-lg-5 mt-0">
                     <div class="ourinstructor-active">
                         @forelse ($instructor as $i)
@@ -997,7 +997,7 @@
                                 <img src="{{asset('uploads/users/'.$i->image)}}" alt="Mentor image" />
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a href="#" tabindex="0">
+                                        {{-- <a href="#" tabindex="0">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -1056,7 +1056,7 @@
                                                     fill="#25252E"></path>
                                             </svg>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                             <div class="mentor__title">
