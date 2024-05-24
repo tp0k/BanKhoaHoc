@@ -92,22 +92,22 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide d-block mx-auto position-relative" src="/images/banner/flutterct.png" alt="First slide">
+            <img class="first-slide d-block mx-auto position-relative" src="/images/banner/pythonct.jpg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h1>Lập trình Flutter</h1>
+                <h1>Lập trình Python</h1>
                 <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=flutter">Đăng ký ngay</a></p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=python">Đăng ký ngay</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="second-slide d-block mx-auto position-relative" src="/images/banner/pythonct.jpg" alt="Second slide">
+            <img class="second-slide d-block mx-auto position-relative" src="/images/banner/flutterct.png" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Lập trình Python</h1>
+                <h1>Lập trình Flutter</h1>
                 <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=python" role="button">Đăng ký ngay</a></p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=flutter" role="button">Đăng ký ngay</a></p>
               </div>
             </div>
           </div>
@@ -1207,7 +1207,6 @@
 </section>
 
 @endsection
-
 @push('scripts')
 
 <script>
