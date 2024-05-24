@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 20, 2024 lúc 06:33 PM
+-- Thời gian đã tạo: Th5 24, 2024 lúc 08:21 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -35,21 +35,6 @@ CREATE TABLE `answers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `carts`
---
-
-CREATE TABLE `carts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `course_id` bigint(20) UNSIGNED NOT NULL,
-  `student_id` bigint(20) UNSIGNED NOT NULL,
-  `price` decimal(8,2) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -193,12 +178,20 @@ CREATE TABLE `discussions` (
 CREATE TABLE `enrollments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `student_id` bigint(20) UNSIGNED NOT NULL,
-  `course_id` bigint(20) UNSIGNED NOT NULL,
-  `enrollment_date` timestamp NOT NULL DEFAULT '2024-04-24 12:02:14',
+  `payment_id` int(11) NOT NULL,
+  `course_id` varchar(255) DEFAULT NULL,
+  `enrollment_date` datetime NOT NULL DEFAULT '2024-04-24 19:02:14',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `enrollments`
+--
+
+INSERT INTO `enrollments` (`id`, `student_id`, `payment_id`, `course_id`, `enrollment_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(7, 12, 437, '1,3', '2024-05-25 01:19:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -384,7 +377,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (29, '2024_05_13_165325_create_vnpay_payment_table', 4),
 (30, '2024_05_14_182125_create_vpayment_table', 5),
 (31, '2024_05_14_182452_create_vpayment_table', 6),
-(32, '2024_05_17_045655_create_transactions_table', 7);
+(32, '2024_05_17_045655_create_transactions_table', 7),
+(33, '2024_05_19_161309_create_carts_table', 8),
+(34, '2024_05_20_173852_create_orders_table', 8);
 
 -- --------------------------------------------------------
 
@@ -405,13 +400,28 @@ CREATE TABLE `options` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `od_transacsion_id` varchar(255) NOT NULL,
+  `od_course_id` varchar(255) NOT NULL,
+  `od_price` decimal(8,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `payments`
 --
 
 CREATE TABLE `payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `od_transacsion_id` bigint(20) DEFAULT NULL,
-  `od_course_id` varchar(255) DEFAULT NULL,
+  `student_id` bigint(20) DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
   `currency_code` varchar(255) DEFAULT NULL,
   `od_price` decimal(10,2) DEFAULT NULL,
   `currency_value` decimal(10,2) DEFAULT NULL,
@@ -863,25 +873,15 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`id`, `payment_method`, `tst_user_id`, `tst_total_amount`, `e_wallet_provider`, `created_at`, `updated_at`) VALUES
-(24, 'e_wallet', 11, 2520000, 'vnpay', '2024-05-17 09:53:30', NULL),
-(66, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 08:39:14', NULL),
-(75, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:18:55', NULL),
-(92, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:18:55', NULL),
-(93, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:18:55', NULL),
-(94, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
-(95, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
-(96, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
-(97, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
-(98, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
-(99, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 10:48:28', NULL),
-(100, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 11:10:12', NULL),
-(101, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 11:10:12', NULL),
-(102, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 11:10:12', NULL),
-(103, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-19 11:10:12', NULL),
-(104, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-20 01:15:53', NULL),
-(105, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-20 01:15:53', NULL),
-(106, 'e_wallet', 11, 3600000, 'vnpay', '2024-05-20 01:21:55', NULL),
-(107, 'e_wallet', 11, 3600000, 'vnpay', '2024-05-20 01:21:55', NULL);
+(429, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 10:14:36', NULL),
+(430, 'e_wallet', 12, 1800000, 'vnpay', '2024-05-24 10:42:14', NULL),
+(431, 'e_wallet', 12, 1800000, 'vnpay', '2024-05-24 10:48:02', NULL),
+(432, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 10:52:53', NULL),
+(433, 'e_wallet', 12, 1800000, 'vnpay', '2024-05-24 10:54:40', NULL),
+(434, 'e_wallet', 12, 1800000, 'vnpay', '2024-05-24 10:55:42', NULL),
+(435, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 10:56:43', NULL),
+(436, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 11:11:42', NULL),
+(437, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 11:18:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -932,6 +932,7 @@ CREATE TABLE `vpayments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `transaction_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
+  `course_ids` varchar(255) DEFAULT NULL,
   `amount` bigint(20) DEFAULT NULL COMMENT 'Số tiền thanh toán',
   `transaction_code` varchar(20) DEFAULT NULL,
   `note` varchar(255) DEFAULT NULL COMMENT 'Nội dung thanh toán',
@@ -947,10 +948,16 @@ CREATE TABLE `vpayments` (
 -- Đang đổ dữ liệu cho bảng `vpayments`
 --
 
-INSERT INTO `vpayments` (`id`, `transaction_id`, `user_id`, `amount`, `transaction_code`, `note`, `vnp_response_code`, `code_vnpay`, `code_bank`, `p_time`, `created_at`, `updated_at`) VALUES
-(4, 92, 11, 1800000, '7048', 'scratch', '00', '14421046', 'NCB', '2024-05-20 00:21:00', '2024-05-19 10:45:47', '2024-05-19 10:45:47'),
-(5, 93, 11, 1800000, '7048', 'scratch', '00', '14421046', 'NCB', '2024-05-20 00:21:00', '2024-05-19 10:46:59', '2024-05-19 10:46:59'),
-(13, 103, 11, 1800000, '5074', 'scratch', '00', '14421067', 'NCB', '2024-05-20 01:14:00', '2024-05-19 11:32:55', '2024-05-19 11:32:55');
+INSERT INTO `vpayments` (`id`, `transaction_id`, `user_id`, `course_ids`, `amount`, `transaction_code`, `note`, `vnp_response_code`, `code_vnpay`, `code_bank`, `p_time`, `created_at`, `updated_at`) VALUES
+(123, 429, 12, '1,3', 3600000, '135', 'a', '00', '14428741', 'NCB', '2024-05-25 00:15:00', NULL, NULL),
+(124, 430, 12, '3', 1800000, '2872', '3', '00', '14428762', 'NCB', '2024-05-25 00:42:00', NULL, NULL),
+(125, 431, 12, '3', 1800000, '6690', 'r', '00', '14428768', 'NCB', '2024-05-25 00:48:00', NULL, NULL),
+(126, 432, 12, '3,1', 3600000, '1106', 'b', '00', '14428772', 'NCB', '2024-05-25 00:53:00', NULL, NULL),
+(127, 433, 12, '1', 1800000, '7325', 'a', '00', '14428773', 'NCB', '2024-05-25 00:55:00', NULL, NULL),
+(128, 434, 12, '1', 1800000, '1026', 'a', '00', '14428775', 'NCB', '2024-05-25 00:56:00', NULL, NULL),
+(129, 435, 12, '1,3', 3600000, '9081', 'a', '00', '14428776', 'NCB', '2024-05-25 00:57:00', NULL, NULL),
+(130, 436, 12, '1,3', 3600000, '8362', 'b', '00', '14428788', 'NCB', '2024-05-25 01:14:00', NULL, NULL),
+(131, 437, 12, '1,3', 3600000, '8827', 'g', '00', '14428790', 'NCB', '2024-05-25 01:19:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -980,14 +987,6 @@ ALTER TABLE `answers`
   ADD PRIMARY KEY (`id`),
   ADD KEY `answers_student_id_index` (`student_id`),
   ADD KEY `answers_question_id_index` (`question_id`);
-
---
--- Chỉ mục cho bảng `carts`
---
-ALTER TABLE `carts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `carts_course_id_foreign` (`course_id`),
-  ADD KEY `student_id` (`student_id`);
 
 --
 -- Chỉ mục cho bảng `checkouts`
@@ -1030,7 +1029,7 @@ ALTER TABLE `discussions`
 ALTER TABLE `enrollments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `enrollments_student_id_index` (`student_id`),
-  ADD KEY `enrollments_course_id_index` (`course_id`);
+  ADD KEY `payment_id` (`payment_id`);
 
 --
 -- Chỉ mục cho bảng `events`
@@ -1082,6 +1081,12 @@ ALTER TABLE `migrations`
 ALTER TABLE `options`
   ADD PRIMARY KEY (`id`),
   ADD KEY `options_question_id_index` (`question_id`);
+
+--
+-- Chỉ mục cho bảng `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `payments`
@@ -1202,12 +1207,6 @@ ALTER TABLE `answers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `carts`
---
-ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `checkouts`
 --
 ALTER TABLE `checkouts`
@@ -1241,7 +1240,7 @@ ALTER TABLE `discussions`
 -- AUTO_INCREMENT cho bảng `enrollments`
 --
 ALTER TABLE `enrollments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `events`
@@ -1277,12 +1276,18 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT cho bảng `options`
 --
 ALTER TABLE `options`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `orders`
+--
+ALTER TABLE `orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1349,7 +1354,7 @@ ALTER TABLE `subscriptions`
 -- AUTO_INCREMENT cho bảng `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=438;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -1361,7 +1366,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `vpayments`
 --
 ALTER TABLE `vpayments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT cho bảng `watchlists`
@@ -1381,12 +1386,6 @@ ALTER TABLE `answers`
   ADD CONSTRAINT `answers_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `carts`
---
-ALTER TABLE `carts`
-  ADD CONSTRAINT `carts_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
-
---
 -- Các ràng buộc cho bảng `courses`
 --
 ALTER TABLE `courses`
@@ -1404,7 +1403,6 @@ ALTER TABLE `discussions`
 -- Các ràng buộc cho bảng `enrollments`
 --
 ALTER TABLE `enrollments`
-  ADD CONSTRAINT `enrollments_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `enrollments_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
 
 --
