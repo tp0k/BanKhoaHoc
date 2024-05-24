@@ -309,8 +309,8 @@
                         <p>
                         CNET Academy - Học viện nghiên cứu và đào tạo Công nghệ thông tin tại thành phố Hải Phòng. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm, lập trình mobile
                         </p>
-                        <div class="footer__wrapper_social d-none d-lg-block">
-                            <ul>
+                     <div class="footer__wrapper_social d-none d-lg-block">
+                            {{-- <ul>
                                 <li>
                                     <a href="#">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
@@ -361,9 +361,9 @@
                                                 fill="white"></path>
                                         </svg>
                                     </a>
-                                </li>
+                                </li>  --}}
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.facebook.com/cnetacademy">
                                         <svg width="9" height="18" viewBox="0 0 9 18" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -380,10 +380,10 @@
                     <div class="footer__list">
                         <h6>Công ty</h6>
                         <ul>
-                            <li><a href="about.html">Về chúng tôi</a></li>
-                            <li><a href="course-search.html">Khoá học</a></li>
-                            <li><a href="#">Sự nghiệp</a></li>
-                            <li><a href="#">Chứng chỉ</a></li>
+                            <li><a href="http://127.0.0.1:8000/about">Về chúng tôi</a></li>
+                            <li><a href="http://127.0.0.1:8000/searchCourse">Khoá học</a></li>
+                            {{-- <li><a href="#">Sự nghiệp</a></li>
+                            <li><a href="#">Chứng chỉ</a></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -391,10 +391,10 @@
                     <div class="footer__list">
                         <h6>Trợ giúp</h6>
                         <ul>
-                            <li><a href="#">Giúp &amp; Trợ giúp </a></li>
-                            <li><a href="#">Chính sách bảo mật</a></li>
-                            <li><a href="faq.html">FAQs</a></li>
-                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="http://127.0.0.1:8000/contact">Giúp &amp; Trợ giúp </a></li>
+                            {{-- <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="faq.html">FAQs</a></li> --}}
+                            <li><a href="http://127.0.0.1:8000/contact">Liên hệ</a></li>
                         </ul>
                     </div>
                 </div>
@@ -403,9 +403,9 @@
                         <h6>Liên kết</h6>
                         <ul>
                             <li><a href="event-search.html">Sự kiện</a></li>
-                            <li><a href="become-instructor.html">Người hướng dẫn</a></li>
-                            <li><a href="#">Quan hệ đối tác</a></li>
-                            <li><a href="#">Tải ứng dụng</a></li>
+                            {{-- <li><a href="become-instructor.html">Người hướng dẫn</a></li> --}}
+                            {{-- <li><a href="#">Quan hệ đối tác</a></li>
+                            <li><a href="#">Tải ứng dụng</a></li> --}}
                         </ul>
                     </div>
                 </div>

@@ -9,10 +9,10 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html" class="fs-6 text-secondary">Trang chủ</a>
+                    <a href="http://127.0.0.1:8000/" class="fs-6 text-secondary">Trang chủ</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a href="about.html" class="fs-6 text-secondary">Về chúng tôi</a>
+                    <a href="http://127.0.0.1:8000/about" class="fs-6 text-secondary">Về chúng tôi</a>
                 </li>
             </ol>
         </nav>
@@ -43,7 +43,7 @@
                     CNET Academy - Học viện nghiên cứu và đào tạo Công nghệ thông tin tại thành phố Hải Phòng. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm, lập trình mobile
                     </p>
                     <p class="text-secondary">
-                    Học viện nghiên cứu và đào tạo Công nghệ thông tin. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm...
+                        Nếu bạn muốn biết về kiến thức công nghệ mới nhất, CNET là nơi bạn nên tìm kiếm.
                     </p>
                 </div>
             </div>
@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="about-feature dark-feature">
-                    <h5 class="text-white font-title--sm">Chúng tôi ai</h5>
+                    <h5 class="text-white font-title--sm">Chúng tôi là ai</h5>
                     <p class="text-lowblack">
                     CNET Academy - Học viện nghiên cứu và đào tạo Công nghệ thông tin tại thành phố Hải Phòng. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm, lập trình mobile
                     </p>
@@ -68,7 +68,7 @@
                 <div class="about-feature">
                     <h5 class="font-title--sm">Sứ mệnh</h5>
                     <p class="text-secondary">
-                    Học viện nghiên cứu và đào tạo Công nghệ thông tin. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm...
+                    Phổ cập kiến thức Công nghệ thông tin, giúp người dân Việt Nam không bị tụt hậu so với thế giới, tiến tới có những công ty công nghệ lớn tại Việt Nam.
                     </p>
                 </div>
             </div>
@@ -85,10 +85,10 @@
                 <div class="col-lg-6 mx-auto text-center">
                     <div class="brands__titleContent">
                         <h5 class="mb-2 dark-text font-title--sm">
-                        Hơn 30.000 trường học và đại học đang học cùng chúng tôi.
+                            Làm việc với hơn 500+ Trường Trung học & Trường Đại học và các cơ sở giáo dục uy tín.
                         </h5>
                         <p class="font-para--lg">
-                        Học viện nghiên cứu và đào tạo Công nghệ thông tin. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm...
+                            Nằm trong TOP các nền tảng giáo dục online tại Việt Nam.
                         </p>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 position-relative">
-                <h2 class="text-center mb-40 font-title--md">Gặp gỡ người hướng dẫn tốt nhất của chúng tôi</h2>
+                <h2 class="text-center mb-40 font-title--md">Giáo Viên Tiêu Biểu</h2>
                 <div class="ourinstructor__wrapper mt-lg-5 mt-0">
                     <div class="ourinstructor-active">
                         <div class="mentor">
