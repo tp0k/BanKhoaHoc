@@ -64,11 +64,13 @@
     top: 50%;
     transform: translateY(-50%);
   }
-    .carousel-control-prev {
+    .carousel-control-next {
     left: 80%;
+    right: auto
 }
-.carousel-control-next {
+.carousel-control-prev {
     right: 80%;
+    left: auto
 }
 .carousel-item {
     transition: transform 3.6s ease-in-out;
