@@ -47,6 +47,27 @@
         .dropdown.active .dropdown-content {
             display: block;
         }
+        /* nút lên đầu trang */
+#myBtn {
+display: none;
+position: fixed;
+bottom: 60px;
+right: 10px;
+z-index: 99;
+border: none;
+outline: none;
+background-color: #fff;
+border: 2px solid #ccc;
+color: white;
+cursor: pointer;
+border-radius: 30px;
+opacity: 0.7;
+}
+ 
+#myBtn:hover {
+background-color: #f1f1f1;
+}
+
     </style>
     @stack('styles')
 
@@ -147,6 +168,26 @@
                         @endif
                     </div>
                 </div>
+<div class ="buttonuptotop">
+                <button id="myBtn" title="Lên đầu trang"><img src='/images/lendautrang.png' title='lên đầu trang' width='60px'/></button>
+                <script>
+                window.onscroll = function() {scrollFunction()};
+                function scrollFunction() {
+                 
+                if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                document.getElementById("myBtn").style.display = "block";
+                } else {
+                document.getElementById("myBtn").style.display = "none";
+                }
+                }
+                 
+                document.getElementById('myBtn').addEventListener("click", function(){
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+                });
+
+                </script>    
+</div>
 
                 {{-- Mobile Navbar --}}
                 <div class="navbar-mobile">
@@ -484,7 +525,7 @@
                     <div class="footer__bottom_copyright">
                         <p>© 2024 - Cnet. Đã đăng ký Bản quyền</p>
                     </div>
-                    <div class="footer__bottom_topbutton">
+                    {{-- <div class="footer__bottom_topbutton">
                         <a href="#">
                             Lên đầu trang
                             <div class="icon ms-2">
@@ -495,7 +536,7 @@
                                 </svg>
                             </div>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
