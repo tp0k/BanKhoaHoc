@@ -282,9 +282,9 @@
                             <span class="nav-text">Thanh toán</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="javascript:void()"><i class="las la-money-bill"></i>Học phí</a></li>
+                            <li><a href="{{route('fee.index')}}"><i class="las la-money-bill"></i>Thống kê học phí</a></li>
                             <li><a href="javascript:void()"><i class="lab la-gg-circle"></i>Phí đăng ký</a></li>
-                            <li><a href="{{route('coupon.index')}}"><i class="las la-tags"></i>Voucher</a></li>
+                            <li><a href="{{route('coupon.index')}}"><i class="las la-tags"></i>Mã giảm giá</a></li>
                         </ul>
                     </li>
                 </ul>

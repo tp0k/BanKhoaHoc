@@ -109,7 +109,6 @@ Route::middleware(['checkstudent'])->prefix('students')->group(function () {
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('searchCourse', [SearchCourseController::class, 'index'])->name('searchCourse'); 
-//Route::get('searchCourse', [SearchCourseController::class, 'search'])->name('searchCourse'); 
 Route::get('search1Course', [SearchController::class, 'search'])->name('search1Course');
 Route::get('courseDetails/{id}', [course::class, 'frontShow'])->name('courseDetails');
 Route::get('watchCourse/{id}', [watchCourse::class, 'watchCourse'])->name('watchCourse');
@@ -138,3 +137,6 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
+
+//fee
+Route::get('/backend/fee', function () {return view('backend.fee.index');})->name('fee.index');
