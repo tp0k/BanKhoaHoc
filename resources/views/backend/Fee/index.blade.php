@@ -56,7 +56,7 @@
                                         </thead>
                                         <tbody>
                             @php
-                            $vnpayment = DB::table('vpayments')->get()
+                            $vnpayment = DB::table('vpayments')->orderBy('p_time', 'desc')->get()
                             @endphp
                                             @forelse ($vnpayment as $c)
                                             <tr>
