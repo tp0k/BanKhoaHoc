@@ -350,6 +350,7 @@ background-color: #f1f1f1;
                         <p>
                         CNET Academy - Học viện nghiên cứu và đào tạo Công nghệ thông tin tại thành phố Hải Phòng. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm, lập trình mobile
                         </p>
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcnetacademy&tabs=timeline&width=400&height=140&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                      <div class="footer__wrapper_social d-none d-lg-block">
                             {{-- <ul>
                                 <li>
@@ -403,7 +404,7 @@ background-color: #f1f1f1;
                                         </svg>
                                     </a>
                                 </li>  --}}
-                                <li>
+                                {{-- <li>
                                     <a href="https://www.facebook.com/cnetacademy">
                                         <svg width="9" height="18" viewBox="0 0 9 18" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -412,7 +413,7 @@ background-color: #f1f1f1;
                                                 fill="white"></path>
                                         </svg>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -428,17 +429,17 @@ background-color: #f1f1f1;
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-4 col-6">
+                {{-- <div class="col-lg-2 col-sm-4 col-6">
                     <div class="footer__list">
                         <h6>Trợ giúp</h6>
                         <ul>
                             <li><a href="http://127.0.0.1:8000/contact">Giúp &amp; Trợ giúp </a></li>
-                            {{-- <li><a href="#">Chính sách bảo mật</a></li>
-                            <li><a href="faq.html">FAQs</a></li> --}}
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="faq.html">FAQs</a></li>
                             <li><a href="http://127.0.0.1:8000/contact">Liên hệ</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-2 col-sm-4 col-6">
                     <div class="footer__list">
                         <h6>Liên kết</h6>
@@ -450,6 +451,7 @@ background-color: #f1f1f1;
                         </ul>
                     </div>
                 </div>
+
                 <div class="col-12 d-block d-lg-none">
                     <div class="footer__wrapper_social d-flex my-4">
                         <ul>
