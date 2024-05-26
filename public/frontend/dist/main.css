@@ -32963,3 +32963,8 @@ body {
 .text-button a {
   margin-bottom: 30px;
 }
+.gray-box {
+  background-color: #ffffff;
+  height: 75px;
+  width: 100%;
+}
