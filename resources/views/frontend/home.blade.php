@@ -55,29 +55,30 @@
   <style>
   /* Make the image fully responsive */
   .carousel-inner img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
   }
   .carousel-control-prev,
   .carousel-control-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    
   }
-    .carousel-control-next {
+    /* .carousel-control-next {
     left: 80%;
     right: auto
 }
 .carousel-control-prev {
     right: 80%;
     left: auto
-}
+} */
 .carousel-item {
-    transition: transform 3.6s ease-in-out;
+    /* transition: transform 3.6s ease-in-out forwards; */
 }
-.carousel-fade .active.carousel-item-start,
-.carousel-fade .active.carousel-item-end {
-    transition: opacity 3.6s;
+.carousel-slide .active.carousel-item-start,
+.carousel-slide .active.carousel-item-end {
+    /* transition: opacity 3.6s; */
 }
 
   </style>
@@ -86,7 +87,7 @@
 
  <main role="main">
 
-      <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2000">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -94,27 +95,27 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide d-block mx-auto position-relative" src="/images/banner/pythonct.jpg" alt="First slide">
+            <img class="first-slide d-block mx-auto position-relative" src="/images/banner/flutter.jpg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
                 <h1>Lập trình Python</h1>
                 <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=python">Đăng ký ngay</a></p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=flutter">Đăng ký ngay</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="second-slide d-block mx-auto position-relative" src="/images/banner/flutterct.png" alt="Second slide">
+            <img class="second-slide d-block mx-auto position-relative" src="/images/banner/python.jpg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
                 <h1>Lập trình Flutter</h1>
                 <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=flutter" role="button">Đăng ký ngay</a></p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=python" role="button">Đăng ký ngay</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="third-slide d-block mx-auto position-relative" src="/images/banner/web2.png" alt="Third slide">
+            <img class="third-slide d-block mx-auto position-relative" src="/images/banner/web.jpg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-right">
                 <h1>Lập trình Web</h1>
