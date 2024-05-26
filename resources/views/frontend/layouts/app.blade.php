@@ -47,6 +47,27 @@
         .dropdown.active .dropdown-content {
             display: block;
         }
+        /* nút lên đầu trang */
+#myBtn {
+display: none;
+position: fixed;
+bottom: 60px;
+right: 10px;
+z-index: 99;
+border: none;
+outline: none;
+background-color: #fff;
+border: 2px solid #ccc;
+color: white;
+cursor: pointer;
+border-radius: 30px;
+opacity: 0.7;
+}
+ 
+#myBtn:hover {
+background-color: #f1f1f1;
+}
+
     </style>
     @stack('styles')
 
@@ -135,7 +156,7 @@
                                 <img src="{{asset('uploads/students/'.request()->session()->get('image'))}}"
                                     alt="Student Profile" height="48" width="48"/>
                             </a>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" style="position: relative; z-index: 9999;">
                                 <a href="{{route('student_profile')}}">Thông tin học viên</a>
                                 <a href="{{route('studentdashboard')}}">Bảng tin học viên</a>
                                 <a href="{{route('studentlogOut')}}" class="text-danger">Đăng xuất</a>
@@ -147,6 +168,26 @@
                         @endif
                     </div>
                 </div>
+<div class ="buttonuptotop">
+                <button id="myBtn" title="Lên đầu trang"><img src='/images/lendautrang.png' title='lên đầu trang' width='60px'/></button>
+                <script>
+                window.onscroll = function() {scrollFunction()};
+                function scrollFunction() {
+                 
+                if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                document.getElementById("myBtn").style.display = "block";
+                } else {
+                document.getElementById("myBtn").style.display = "none";
+                }
+                }
+                 
+                document.getElementById('myBtn').addEventListener("click", function(){
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+                });
+
+                </script>    
+</div>
 
                 {{-- Mobile Navbar --}}
                 <div class="navbar-mobile">
@@ -309,6 +350,7 @@
                         <p>
                         CNET Academy - Học viện nghiên cứu và đào tạo Công nghệ thông tin tại thành phố Hải Phòng. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm, lập trình mobile
                         </p>
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcnetacademy&tabs=timeline&width=400&height=140&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                      <div class="footer__wrapper_social d-none d-lg-block">
                             {{-- <ul>
                                 <li>
@@ -362,7 +404,7 @@
                                         </svg>
                                     </a>
                                 </li>  --}}
-                                <li>
+                                {{-- <li>
                                     <a href="https://www.facebook.com/cnetacademy">
                                         <svg width="9" height="18" viewBox="0 0 9 18" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -371,7 +413,7 @@
                                                 fill="white"></path>
                                         </svg>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -387,17 +429,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-4 col-6">
+                {{-- <div class="col-lg-2 col-sm-4 col-6">
                     <div class="footer__list">
                         <h6>Trợ giúp</h6>
                         <ul>
                             <li><a href="http://127.0.0.1:8000/contact">Giúp &amp; Trợ giúp </a></li>
-                            {{-- <li><a href="#">Chính sách bảo mật</a></li>
-                            <li><a href="faq.html">FAQs</a></li> --}}
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="faq.html">FAQs</a></li>
                             <li><a href="http://127.0.0.1:8000/contact">Liên hệ</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-2 col-sm-4 col-6">
                     <div class="footer__list">
                         <h6>Liên kết</h6>
@@ -409,6 +451,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="col-12 d-block d-lg-none">
                     <div class="footer__wrapper_social d-flex my-4">
                         <ul>
@@ -484,7 +527,7 @@
                     <div class="footer__bottom_copyright">
                         <p>© 2024 - Cnet. Đã đăng ký Bản quyền</p>
                     </div>
-                    <div class="footer__bottom_topbutton">
+                    {{-- <div class="footer__bottom_topbutton">
                         <a href="#">
                             Lên đầu trang
                             <div class="icon ms-2">
@@ -495,7 +538,7 @@
                                 </svg>
                             </div>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

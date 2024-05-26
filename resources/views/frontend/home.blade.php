@@ -45,41 +45,40 @@
 {{-- <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <style>
-    /* Make the image fully responsive */
-        .carousel-inner img {
-            width: 80%;
-            height: 80%;
-        }
-        .carousel-control-prev,
-        .carousel-control-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .carousel-control-next {
-            left: 80%;
-            right: auto;
-        }
-        .carousel-control-prev {
-            right: auto;
-            left: auto;
-        }
-        .carousel-item {
-            transition: transform 3s ease-in-out;
-        }
-        .carousel-fade .active.carousel-item-start,
-        .carousel-fade .active.carousel-item-end {
-            transition: opacity 2s;
-        }
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 80%;
+    height: 80%;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+    .carousel-control-next {
+    left: 80%;
+    right: auto
+}
+.carousel-control-prev {
+    right: 80%;
+    left: auto
+}
+.carousel-item {
+    transition: transform 3.6s ease-in-out;
+}
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+    transition: opacity 3.6s;
+}
 
     </style>
 </head>
@@ -87,7 +86,7 @@
 
  <main role="main">
 
-      <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2000">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -95,27 +94,27 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide d-block mx-auto position-relative" src="/images/banner/pythonct.jpg" alt="First slide">
+            <img class="first-slide d-block mx-auto position-relative" src="/images/banner/flutter.jpg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
                 <h1>Lập trình Python</h1>
                 <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=python">Đăng ký ngay</a></p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=flutter">Đăng ký ngay</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="second-slide d-block mx-auto position-relative" src="/images/banner/flutterct.png" alt="Second slide">
+            <img class="second-slide d-block mx-auto position-relative" src="/images/banner/python.jpg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
                 <h1>Lập trình Flutter</h1>
                 <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=flutter" role="button">Đăng ký ngay</a></p>
+                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=python" role="button">Đăng ký ngay</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="third-slide d-block mx-auto position-relative" src="/images/banner/web2.png" alt="Third slide">
+            <img class="third-slide d-block mx-auto position-relative" src="/images/banner/web.jpg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-right">
                 <h1>Lập trình Web</h1>
@@ -188,7 +187,7 @@
                     <div class="main-heading">
                         <h3 class="font-title--md">Khóa học nổi bật</h3>
                     </div>
-                    <div class="nav-button featured-popular-courses-tabs">
+                    {{-- <div class="nav-button featured-popular-courses-tabs">
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active ps-0" id="pills-all-tab" data-bs-toggle="pill"
@@ -226,7 +225,7 @@
                                 </button>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -306,7 +305,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 text-center">
-                            <a href="{{route('searchCourse')}}" class="button button-lg button--primary">Khóa học</a>
+                            <a href="{{route('searchCourse')}}" class="button button-lg button--primary">Chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -997,6 +996,8 @@
                         @forelse ($instructor as $i)
                         <div class="mentor">
                             <div class="mentor__img">
+                                <a href="{{route('instructorProfile', encryptor('encrypt', $i->id))}}" tabindex="0">
+                                {{-- <a href="{{route('instructorProfile', ['id' => $i->id])}}" target="_blank"> --}}
                                 <img src="{{asset('uploads/users/'.$i->image)}}" alt="Mentor image" />
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
@@ -1156,7 +1157,7 @@
                             Trở thành Giảng viên.
                         </p>
                         <div class="text-center">
-                            <a href="become-instructor.html" class="green-btn">Ứng tuyển Giảng viên</a>
+                            <a href="https://docs.google.com/forms/d/1fPyH5Zu95iKeB6Yxl4lz0_h2W7eTQ9nE0FIpIkl1ihc/" class="green-btn">Ứng tuyển Giảng viên</a>
                         </div>
                     </div>
                 </div>
@@ -1173,7 +1174,7 @@
                             Trở thành học viên.
                         </p>
                         <div class="text-center">
-                            <a href="#" class="green-btn">Trở thành học viên</a>
+                            <a href="https://docs.google.com/forms/d/1FVugcCtxzs6BvBma74DN7ZPF2VjF03s186u5VhuAvdA/" class="green-btn">Trở thành học viên</a>
                         </div>
                     </div>
                 </div>

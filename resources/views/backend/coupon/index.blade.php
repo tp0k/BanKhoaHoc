@@ -25,7 +25,6 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('coupon.index')}}">Mã giảm giá</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('coupon.index')}}">Tất cả mã giảm giá</a></li>
                 </ol>
             </div>
         </div>
@@ -77,7 +76,7 @@
                                             </tr>
                                             @empty
                                             <tr>
-                                                <th colspan="7" class="text-center">Không có voucher nào</th>
+                                                <th colspan="7" class="text-center">Không có mã giảm giá nào</th>
                                             </tr>
                                             @endforelse
                                         </tbody>
