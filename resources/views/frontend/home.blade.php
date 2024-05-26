@@ -73,13 +73,13 @@
     right: 80%;
     left: auto
 } */
-.carousel-item {
-    /* transition: transform 3.6s ease-in-out forwards; */
+/*.carousel-item {
+    transition: transform 3.6s ease-in-out forwards;
 }
 .carousel-slide .active.carousel-item-start,
 .carousel-slide .active.carousel-item-end {
-    /* transition: opacity 3.6s; */
-}
+    transition: opacity 3.6s;
+}*/
 
   </style>
 </head>
@@ -188,7 +188,7 @@
                     <div class="main-heading">
                         <h3 class="font-title--md">Khóa học nổi bật</h3>
                     </div>
-                    <div class="nav-button featured-popular-courses-tabs">
+                    {{-- <div class="nav-button featured-popular-courses-tabs">
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active ps-0" id="pills-all-tab" data-bs-toggle="pill"
@@ -226,7 +226,7 @@
                                 </button>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -306,7 +306,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 text-center">
-                            <a href="{{route('searchCourse')}}" class="button button-lg button--primary">Khóa học</a>
+                            <a href="{{route('searchCourse')}}" class="button button-lg button--primary">Chi tiết</a>
                         </div>
                     </div>
                 </div>
