@@ -47,6 +47,7 @@
         .dropdown.active .dropdown-content {
             display: block;
         }
+
         /* nút lên đầu trang */
 #myBtn {
 display: none;
@@ -77,7 +78,9 @@ background-color: #f1f1f1;
 
     <!-- Header Starts Here -->
     <header @yield('header-attr')>
-        <nav class="navbar navbar-expand-xl navbar-light bg-transparent">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-light">
+        {{-- style="background-color: white; position: fixed; top: 0; left: 0; width: 100%;" --}}
+        {{-- <nav class="navbar navbar-expand-xl navbar-light bg-transparent"> --}}
             <div class="container">
                 <!-- Logo -->
                 <a class="navbar-brand" href="{{route('home')}}">

@@ -9,6 +9,7 @@
 @section('content')
 <!-- Breadcrumb Starts Here -->
 <div class="event-sub-section event-sub-section--spaceY eventsearch-sub-section">
+    {{-- <div class="gray-box"></div> --}}
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent p-0 mb-0">
@@ -90,7 +91,7 @@
                                     </div>
                                     @empty
                                     @endforelse
-                                    <button type="submit" class="btn btn-primary">Lọc</button>
+                                    <button type="submit" class="button button--primary">Lọc</button>
                                 </form>
                             </div>
                         </div>

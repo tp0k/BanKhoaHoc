@@ -22,6 +22,7 @@
 
 <!-- About Intro Starts Here -->
 <section class="about-intro section">
+    <div class="gray-box"></div>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 position-relative mt-4 mt-lg-0" style="z-index: 0;">

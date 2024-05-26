@@ -18,6 +18,7 @@
 
 <!-- Students Info area Starts Here -->
 <section class="section students-info">
+    <div class="gray-box"></div>
     <div class="container">
         <div class="students-info-intro">
             <!-- profile Details   -->

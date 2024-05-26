@@ -18,6 +18,7 @@
 
 <!-- Cart Section Starts Here -->
 <section class="section cart-area pb-0">
+    <div class="gray-box"></div>
     <div class="container">
         @if (session('cart'))
         <div class="row">

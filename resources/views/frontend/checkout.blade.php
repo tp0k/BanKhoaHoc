@@ -18,6 +18,7 @@
 
 <!-- Checkout Area Starts Here -->
 <section class="section checkout-area">
+    <div class="gray-box"></div>
     <div class="container">
         @if(request()->session()->get('studentLogin'))
 

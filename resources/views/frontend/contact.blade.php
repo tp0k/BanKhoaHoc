@@ -19,6 +19,7 @@
 
 <!-- Contact Hero Area Starts Here -->
 <section class="section section--bg-white hero hero--one">
+    <div class="gray-box"></div>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">

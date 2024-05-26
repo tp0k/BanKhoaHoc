@@ -54,10 +54,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <style>
   /* Make the image fully responsive */
+
   .carousel-inner img {
     width: 100%;
     height: 100%;
   }
+
   .carousel-control-prev,
   .carousel-control-next {
     position: absolute;
@@ -65,26 +67,10 @@
     transform: translateY(-50%);
     
   }
-    /* .carousel-control-next {
-    left: 80%;
-    right: auto
-}
-.carousel-control-prev {
-    right: 80%;
-    left: auto
-} */
-/*.carousel-item {
-    transition: transform 3.6s ease-in-out forwards;
-}
-.carousel-slide .active.carousel-item-start,
-.carousel-slide .active.carousel-item-end {
-    transition: opacity 3.6s;
-}*/
-
   </style>
 </head>
 <body>
-
+    <div class="gray-box"></div>
  <main role="main">
 
       <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
@@ -740,7 +726,7 @@
     <div class="container about-services-area">
         <div class="row">
             <div class="col-lg-6 text-center mx-auto">
-                <h2 class="font-title--md">Học viên nói gì về chúng tôi</h2>
+                <h2 class="font-title--md">Lắng nghe và chia sẻ</h2>
             </div>
         </div>
         <div class="testimonial testimonial--one testimonial__slider--one">
@@ -1091,7 +1077,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="font-title--md">Sự kiện gần nhất</h3>
+                <h3 class="font-title--md">Tin tức</h3>
             </div>
         </div>
         <div class="row">
