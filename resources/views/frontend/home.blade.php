@@ -1158,7 +1158,7 @@
                             Trở thành Giảng viên.
                         </p>
                         <div class="text-center">
-                            <a href="become-instructor.html" class="green-btn">Ứng tuyển Giảng viên</a>
+                            <a href="https://docs.google.com/forms/d/1fPyH5Zu95iKeB6Yxl4lz0_h2W7eTQ9nE0FIpIkl1ihc/" class="green-btn">Ứng tuyển Giảng viên</a>
                         </div>
                     </div>
                 </div>
@@ -1175,7 +1175,7 @@
                             Trở thành học viên.
                         </p>
                         <div class="text-center">
-                            <a href="#" class="green-btn">Trở thành học viên</a>
+                            <a href="https://docs.google.com/forms/d/1FVugcCtxzs6BvBma74DN7ZPF2VjF03s186u5VhuAvdA/" class="green-btn">Trở thành học viên</a>
                         </div>
                     </div>
                 </div>
