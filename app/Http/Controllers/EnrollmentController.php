@@ -37,13 +37,15 @@ class EnrollmentController extends Controller
     
             if($payment){
                 // Tạo mảng để lưu các thông tin cần thiết cho mỗi khóa học
-                // $enrollments = [];
-                $enrollments[] = [
-                    'student_id' => $userID,
-                    'payment_id' => $transactionID,
-                    'course_id' => implode(',', $courseIDs),
-                    'enrollment_date' => $p_time,
-                ];
+                $enrollments = [];
+                foreach ($courseIDs as $courseID) {
+                    $enrollments[] = [
+                        'student_id' => $userID,
+                        'payment_id' => $transactionID,
+                        'course_id' => $courseID,
+                        'enrollment_date' => $p_time,
+                    ];
+                }
     
                 // Thêm các enrollment vào bảng enrollment
                 Enrollment::insert($enrollments);

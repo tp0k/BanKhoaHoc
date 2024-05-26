@@ -13,12 +13,15 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('vnpay/jumbotron-narrow.css') }}" rel="stylesheet">  
     <script src="{{ asset('vnpay/jquery-1.11.3.min.js') }}"></script>
+    <link rel="stylesheet" href="{{asset('frontend/fontawesome-free-5.15.4-web/css/all.min.css')}}">
+    @stack('styles')
 </head>
 <body>
     <!--Begin display -->
     <div class="container">
         <div class="header clearfix">
-            <h3 class="text-muted">HOÁ ĐƠN VNPAY</h3>
+
+            <h3 class="text-muted" style="text-align: center">HOÁ ĐƠN</h3>
         </div>
         <div class="table-responsive">
             <div class="form-group">
@@ -26,7 +29,7 @@
                 <label>{{ $vnpayData['vnp_TxnRef'] }}</label>
             </div>    
             <div class="form-group">
-                <label>Số tiền:</label>
+                <label>Tổng tiền:</label>
                 <label>{{ number_format($vnpayData['vnp_Amount'] / 100, 0, ',', '.') }}</label>
             </div>  
             <div class="form-group">
@@ -39,12 +42,12 @@
                     <label>{{ implode(', ', $courseIDs) }}</label>
                 @endif
             </div> 
-            <div class="form-group">
-                <label>Mã phản hồi (vnp_ResponseCode):</label>
+            {{-- <div class="form-group">
+                <label>Mã phản hồi:</label>
                 <label>{{ $vnpayData['vnp_ResponseCode'] }}</label>
-            </div> 
+            </div>  --}}
             <div class="form-group">
-                <label>Mã GD Tại VNPAY:</label>
+                <label>Mã giao dịch Tại VNPAY:</label>
                 <label>{{ $vnpayData['vnp_TransactionNo'] }}</label>
             </div> 
             <div class="form-group">

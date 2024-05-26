@@ -92,13 +92,13 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Người hướng dẫn</label>
+                                        <label class="form-label">Giảng viên</label>
                                         <select class="form-control" name="instructorId">
                                             @forelse ($instructor as $i)
                                             <option value="{{$i->id}}" {{old('instructorId')==$i->id?'selected':''}}>
                                                 {{$i->name_en}}</option>
                                             @empty
-                                            <option value="">Không tìm thấy người hướng dẫn</option>
+                                            <option value="">Không tìm thấy giảng viên</option>
                                             @endforelse
                                         </select>
                                     </div>
@@ -129,7 +129,7 @@
                                                 selected @endif>Trung cấp
                                             </option>
                                             <option value="advanced" @if(old('courseDifficulty')=='advanced' ) selected
-                                                @endif>Cao cấp
+                                                @endif>Có nền tảng
                                             </option>
                                         </select>
                                     </div>
@@ -204,16 +204,6 @@
                                     <span class="text-danger"> {{ $errors->first('prerequisites_en') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Điều kiện tiên quyết</label>
-                                        <textarea class="form-control" name="prerequisites_bn"
-                                            value="{{old('prerequisites_bn')}}"></textarea>
-                                    </div>
-                                    @if($errors->has('prerequisites_bn'))
-                                    <span class="text-danger"> {{ $errors->first('prerequisites_bn') }}</span>
-                                    @endif
-                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mã khóa học</label>

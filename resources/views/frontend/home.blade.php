@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- Banner Starts Here -->
- {{-- <section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
+ <section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mb-lg-0 order-2 order-lg-0 d-flex align-items-center">
@@ -14,8 +14,8 @@
                     <h1 class="font-title--lg">Học đi đôi với hành.</h1>
                     <p>
                         Ước mơ mà không phấn đấu thì chỉ là hư cấu.
-                    </p>  --}}
-                    {{-- <form>
+                    </p> 
+                    <form>
                         <div class="banner-input">
                             <div class="main-input">
                                 <input type="text" placeholder="Bạn muốn học gì..." />
@@ -30,8 +30,8 @@
                                 <button class="button button-lg button--primary">Tìm kiếm</button>
                             </div>
                         </div>
-//                    </form> --}}
-                 {{-- </div>
+                   </form>
+                </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-0">
                 <div class="main-banner-end">
@@ -41,8 +41,8 @@
             </div>
         </div>
     </div>
-</section>  --}}
-<!DOCTYPE html>
+</section> 
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
@@ -56,8 +56,8 @@
   /* Make the image fully responsive */
 
   .carousel-inner img {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
   }
 
   .carousel-control-prev,
@@ -65,9 +65,28 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    
   }
+<<<<<<< HEAD
   </style>
+=======
+    .carousel-control-next {
+    left: 80%;
+    right: auto
+}
+.carousel-control-prev {
+    right: 80%;
+    left: auto
+}
+.carousel-item {
+    transition: transform 3.6s ease-in-out;
+}
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+    transition: opacity 3.6s;
+}
+
+    </style>
+>>>>>>> 196b3f335e7ac20abebb9552823b33398a808efe
 </head>
 <body>
     <div class="gray-box"></div>
@@ -123,8 +142,8 @@
        
       </div>
   
-      </body>
-      </html>
+    </body>
+</html> --}}
 <!-- Browse Categories Starts Here -->
 <section class="section browse-categories">
     <div class="container">
