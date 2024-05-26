@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- Banner Starts Here -->
- {{-- <section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
+ <section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mb-lg-0 order-2 order-lg-0 d-flex align-items-center">
@@ -14,8 +14,8 @@
                     <h1 class="font-title--lg">Học đi đôi với hành.</h1>
                     <p>
                         Ước mơ mà không phấn đấu thì chỉ là hư cấu.
-                    </p>  --}}
-                    {{-- <form>
+                    </p> 
+                    <form>
                         <div class="banner-input">
                             <div class="main-input">
                                 <input type="text" placeholder="Bạn muốn học gì..." />
@@ -30,8 +30,8 @@
                                 <button class="button button-lg button--primary">Tìm kiếm</button>
                             </div>
                         </div>
-//                    </form> --}}
-                 {{-- </div>
+                   </form>
+                </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-0">
                 <div class="main-banner-end">
@@ -41,46 +41,47 @@
             </div>
         </div>
     </div>
-</section>  --}}
-<!DOCTYPE html>
+</section> 
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <style>
-  /* Make the image fully responsive */
-  .carousel-inner img {
-    width: 80%;
-    height: 80%;
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-    .carousel-control-next {
-    left: 80%;
-    right: auto
-}
-.carousel-control-prev {
-    right: 80%;
-    left: auto
-}
-.carousel-item {
-    transition: transform 3.6s ease-in-out;
-}
-.carousel-fade .active.carousel-item-start,
-.carousel-fade .active.carousel-item-end {
-    transition: opacity 3.6s;
-}
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  </style>
+    <style>
+    /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 80%;
+            height: 80%;
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .carousel-control-next {
+            left: 80%;
+            right: auto;
+        }
+        .carousel-control-prev {
+            right: auto;
+            left: auto;
+        }
+        .carousel-item {
+            transition: transform 3s ease-in-out;
+        }
+        .carousel-fade .active.carousel-item-start,
+        .carousel-fade .active.carousel-item-end {
+            transition: opacity 2s;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -136,8 +137,8 @@
        
       </div>
   
-      </body>
-      </html>
+    </body>
+</html> --}}
 <!-- Browse Categories Starts Here -->
 <section class="section browse-categories">
     <div class="container">

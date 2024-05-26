@@ -77,11 +77,11 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{route('about')}}">Về chúng tôi</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8081/">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
                                 Sự kiện
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('contact')}}">Liên hệ</a>
                         </li>

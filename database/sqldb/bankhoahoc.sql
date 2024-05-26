@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 24, 2024 lúc 08:21 PM
+-- Thời gian đã tạo: Th5 26, 2024 lúc 07:04 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -123,7 +123,8 @@ CREATE TABLE `courses` (
 INSERT INTO `courses` (`id`, `title_en`, `title_bn`, `description_en`, `description_bn`, `course_category_id`, `instructor_id`, `type`, `price`, `old_price`, `subscription_price`, `start_from`, `duration`, `lesson`, `prerequisites_en`, `prerequisites_bn`, `difficulty`, `course_code`, `image`, `thumbnail_image`, `thumbnail_video`, `status`, `language`, `created_at`, `updated_at`, `deleted_at`, `tag`) VALUES
 (1, 'Khoá học lập trình Python basic', NULL, 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', NULL, 2, 2, 'paid', 1800000.00, 4000000.00, NULL, NULL, 2, 8, '> 14 tuổi', NULL, 'beginner', '1', '9621715357011.png', '8331715334658.jpg', 'https://www.youtube.com/watch?v=oFgg7K2tpfk', 2, 'en', '2024-05-07 00:32:02', '2024-05-10 10:35:37', NULL, 'popular'),
 (3, 'Khởi đầu đam mê - lập trình Scratch', NULL, 'Session 1: Tổng quan về Scratch\r\n\r\nSession 2: Giới thiệu một số nhóm lệnh Scratch cơ bản\r\n\r\nSession 3: Khối nếu-thì, biến số và truyền nhận tin\r\n\r\nSession 4: Trò chơi săn khủng long và bước nhảy không gian\r\n\r\nSession 5: Trò chơi hứng táo\r\n\r\nSession 6: Xây dựng trò chơi Flappy Bird\r\n\r\nSession 7: Xây dựng trò chơi đua xe\r\n\r\nSession 8: Dự án - Trò chơi bảo vệ biển đảo\r\n\r\nTất cả các hoạt động Học viên đều được hướng dẫn chi tiết từng bước. Mỗi chủ điểm đều có hình ảnh minh họa. Mục tiêu của khóa học không chỉ là hướng dẫn, mà còn là đưa ra thử thách giúp Học viên thể hiện khả năng sáng tạo và thiết kế trò chơi - ứng dụng của chính mình.', NULL, 1, 6, 'paid', 1800000.00, 4000000.00, NULL, NULL, 1, 8, '8 - 13 tuổi', NULL, 'beginner', NULL, '2801715357794.png', '6771715357794.png', 'https://www.youtube.com/watch?v=47yIB4nPTLI', 2, 'en', '2024-05-10 09:15:55', '2024-05-10 09:28:05', NULL, 'popular'),
-(4, 'Khoá học lập trình web fullstack', NULL, 'Khoá học lập trình web fullstack dành cho các bạn đã có chút nền tảng về lập trình, định hướng tay ngang sang lập trình web thì khoá học này là dành cho bạn!', NULL, 3, 4, 'paid', 4400000.00, 9000000.00, NULL, NULL, 3, 24, 'đã có chút nền tảng về lập trình', NULL, 'advanced', NULL, '3061716054820.jpg', '2981716054821.jpg', 'https://www.youtube.com/watch?v=T1BpaUpLzzA', 0, 'en', '2024-05-18 10:53:41', '2024-05-18 10:54:59', NULL, 'upcoming');
+(4, 'Khoá học lập trình web fullstack', NULL, 'Khoá học lập trình web fullstack dành cho các bạn đã có chút nền tảng về lập trình, định hướng tay ngang sang lập trình web thì khoá học này là dành cho bạn!', NULL, 3, 4, 'paid', 4400000.00, 9000000.00, NULL, NULL, 3, 24, 'đã có chút nền tảng về lập trình', NULL, 'advanced', NULL, '3061716054820.jpg', '2981716054821.jpg', 'https://www.youtube.com/watch?v=T1BpaUpLzzA', 2, 'en', '2024-05-18 10:53:41', '2024-05-25 21:22:42', NULL, 'upcoming'),
+(5, 'Khóa học lập trình mobile app', NULL, 'KHÓA HỌC LẬP TRÌNH MOBILE APP dành cho tất cả các bạn muốn học từ căn bản đến nâng cao để trở thành một lập trình viên mobile app với nền tảng công cụ Flutter của Google.\r\nFlutter là gì? Nó có ưu điểm vượt trội ra sao để làm một ứng dụng mobile?\r\n\r\nFlutter được phát triển nhằm giải quyết bài toán thường gặp trong mobile là Fast Development và Native Performance. Nếu như React Native chỉ đảm bảo Fast Development và code native thuần chỉ đảm bảo Native Performance thì Flutter làm được cả 2 điều trên.\r\nLà một bộ SDK đa nền tảng, các ứng dụng Flutter có thể hoạt động trên cả iOS và Android. Nó như một thủ thuật khôn khéo để tương thích được với framework UI trên cả hai hệ điều hành này. Các ứng dụng này không biên dịch trực tiếp với các ứng dụng native của Android và iOS.\r\nBẠN SẼ HỌC ĐƯỢC GÌ?\r\n\r\nNắm vững kiến thức lập trình Flutter từ cơ bản đến nâng cao.\r\nThực hành lập trình ứng dụng Flutter như hướng dẫn trong khóa học.\r\nHọc viên có thể tự làm project cá nhân, ứng tuyển công việc thực tập, lập trình viên Flutter sau khi học xong.\r\nHọc viên có thể tự làm app bằng Flutter để đưa lên kho ứng dụng CHPlay Android, AppStore iOS.\r\nNỘI DUNG: Khóa học lập trình mobile app Flutter trang bị cho Học viên đầy đủ kiến thức, kỹ năng để có thể lập trình tạo ra một mobile app hoàn chỉnh. Bao gồm các buổi học sau:\r\n\r\nBuổi 1 - Setup flutter; Giới thiệu Flutter, Dart\r\nBuổi 2 - Lập trình Dart cơ bản - Null Safety, từ khóa late\r\nBuổi 3 - Functions with Named Parameters, Optinal Parameters\r\nBuổi 4 - StatelessWidget, StatefulWidget; một số UI cơ bản\r\nBuổi 5 - UI cơ bản trong Flutter (tiếp) - Flexible, Expanded, Stack, TextField\r\nBuổi 6 - Navigator, Routes - Chuyển màn hình\r\nBuổi 7 - Ôn tập Flutter Widget, ListView\r\nBuổi 8 - Flexible, Expanded, Stack Widget\r\nBuổi 9 - Future, async, await; Call http requests; Làm app Chat bằng Flutter và Socket.io\r\nBuổi 10 - Thực hành code UI flow cơ bản (Order List)\r\nBuổi 11 - BuildContext và InheritedWidget, Drawer Menu\r\nBuổi 12 & 13 - State management, Provider, BLoc pattern\r\nBuổi 14 - BLoC pattern cơ bản và ứng dụng\r\nBuổi 15 - SharedPreference , SQLite Database trong Flutter\r\nBuổi 16 - Thực hành tích hợp SQLite trong app Flutter\r\n\r\nVà các buổi học thực hành, làm bài tập lớn, làm đồ án kết thúc khóa.\r\n\r\nHọc kết hợp lý thuyết với thực hành ngay tại lớp. Kết thúc khóa học, Học viên làm đồ án tốt nghiệp và đăng ký tài khoản upload đồ án lên kho ứng dụng mobile.', NULL, 4, 5, 'subscription', 4400000.00, 10000000.00, NULL, NULL, 3, 16, 'KHÓA HỌC PHÙ HỢP VỚI AI?\r\n\r\nKhóa học được xây dựng từ cơ bản nhất đến nâng cao, cho phép cả những bạn chưa biết gì về lập trình có thể tiếp cận học tập. Tuy nhiên, để thuận lợi nhất, bạn cần có kiến thức cơ bản về Công nghệ thông tin, kỹ năng sử dụng máy tính, và một chiếc laptop đủ tốt.\r\n\r\nSinh viên ngành Công nghệ thông tin muốn học nâng cao kỹ năng lập trình mobile app\r\nCác bạn đang học hay vừa tốt nghiệp PTTH muốn tìm hiểu định hướng nghề nghiệp\r\nNgười đã đi làm muốn mở rộng kiến thức, kỹ năng, hay chuyển đổi nghề nghiệp', NULL, 'advanced', NULL, '2301716653958.jpg', '6731716653958.jpg', 'https://youtu.be/Hadc-GBPsmY?si=AfEeZQCpFYT0cw-v', 2, 'en', '2024-05-25 09:19:18', '2024-05-25 21:22:25', NULL, 'popular');
 
 -- --------------------------------------------------------
 
@@ -191,7 +192,7 @@ CREATE TABLE `enrollments` (
 --
 
 INSERT INTO `enrollments` (`id`, `student_id`, `payment_id`, `course_id`, `enrollment_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(7, 12, 437, '1,3', '2024-05-25 01:19:00', NULL, NULL, NULL);
+(13, 11, 446, '5', '2024-05-26 10:33:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `description`, `location`, `image`, `topic`, `goal`, `hosted_by`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Trải nghiệm khoá học scratch', 'Đây là sự kiện diễn ra thường niên với mục đích mang đến nhưng trải nghiệm tuyệt vời giúp các con hiểu hơn về công nghệ và yêu thích công nghệ hơn.', 'Aeon mall Lê Chân Hải Phòng', '3731714795688.png', 'Chào hè 2024', 'Mang đến nhưng trải nghiệm tuyệt vời giúp các con hiểu hơn về công nghệ và yêu thích công nghệ hơn', 'Học viên công nghệ Cnet', '2024-05-20', '2024-05-03 21:08:08', '2024-05-03 21:08:08', NULL);
+(1, 'Trải nghiệm khoá học scratch', 'Đây là sự kiện diễn ra thường niên với mục đích mang đến nhưng trải nghiệm tuyệt vời giúp các con hiểu hơn về công nghệ và yêu thích công nghệ hơn.', 'Aeon mall Lê Chân Hải Phòng', '5951716654395.jpg', 'Chào hè 2024', 'Mang đến nhưng trải nghiệm tuyệt vời giúp các con hiểu hơn về công nghệ và yêu thích công nghệ hơn', 'Học viên công nghệ Cnet', '2024-05-20', '2024-05-03 21:08:08', '2024-05-25 09:26:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -730,11 +731,34 @@ CREATE TABLE `questions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `quiz_id` bigint(20) UNSIGNED NOT NULL,
   `content` text NOT NULL,
+  `option_a` varchar(255) DEFAULT NULL,
+  `option_b` varchar(255) DEFAULT NULL,
+  `option_c` varchar(255) DEFAULT NULL,
+  `option_d` varchar(255) DEFAULT NULL,
+  `correct_answer` varchar(255) DEFAULT NULL,
   `type` enum('multiple_choice','true_false','short_answer') NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `questions`
+--
+
+INSERT INTO `questions` (`id`, `quiz_id`, `content`, `option_a`, `option_b`, `option_c`, `option_d`, `correct_answer`, `type`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 'Python là ngôn ngữ lập trình nào?', 'Java', 'C++', 'Python', 'JavaScript', 'c', 'multiple_choice', '2024-05-25 21:39:21', '2024-05-25 21:39:21', NULL),
+(2, 1, 'Trong Python, phương thức nào được sử dụng để nhận đầu vào từ người dùng?', 'input()', 'get_input()', 'user_input()', 'read_input()', 'a', 'multiple_choice', '2024-05-25 21:41:00', '2024-05-25 21:41:00', NULL),
+(3, 1, 'Đâu là cách đơn giản nhất để tạo một list rỗng trong Python?', 'list()', '[]', 'new_list()', 'empty_list()', 'b', 'multiple_choice', '2024-05-25 21:41:31', '2024-05-25 21:41:31', NULL),
+(4, 1, 'Hàm print() trong Python được sử dụng để làm gì?', 'Nhận đầu vào từ người dùng', 'Hiển thị thông điệp trên màn hình', 'Thực hiện phép tính toán', 'Tạo một list rỗng', 'b', 'multiple_choice', '2024-05-25 21:42:06', '2024-05-25 21:42:06', NULL),
+(5, 1, 'Trong Python, để in ra giá trị của biến x, bạn sử dụng lệnh nào?', 'print(x)', 'display(x)', 'echo(x)', 'show(x)', 'a', 'multiple_choice', '2024-05-25 21:42:43', '2024-05-25 21:42:43', NULL),
+(6, 1, 'Trong Python, để tạo một chuỗi (string) rỗng, bạn sử dụng cú pháp nào?', 'empty_string = \"\"', 'empty_string = \'\'', 'empty_string = str()', 'empty_string = str(\"\")', 'a', 'multiple_choice', '2024-05-25 21:43:24', '2024-05-25 21:43:24', NULL),
+(7, 1, 'Trong Python, 3 + 4 * 5 sẽ trả về giá trị là bao nhiêu?', '35', '23', '19', '25', 'd', 'multiple_choice', '2024-05-25 21:43:55', '2024-05-25 21:43:55', NULL),
+(8, 1, 'Trong Python, lệnh x = 5 có ý nghĩa gì?', 'Khai báo một biến có tên là x và gán giá trị là 5.', 'So sánh giá trị của biến x với 5.', 'Thực hiện phép tính 5 * x.', 'In ra giá trị của biến x.', 'a', 'multiple_choice', '2024-05-25 21:46:45', '2024-05-25 21:46:45', NULL),
+(9, 1, 'Đâu là cách đúng để khai báo một tuple trong Python?', 'tuple = (1, 2, 3)', 'tuple = [1, 2, 3]', 'tuple = {1, 2, 3}', 'tuple = \"1, 2, 3\"', 'a', 'multiple_choice', '2024-05-25 21:47:17', '2024-05-25 21:47:17', NULL),
+(10, 1, 'Trong Python, hàm len() được sử dụng để làm gì?', 'Lấy độ dài của một chuỗi (string) hoặc danh sách (list).', 'Chuyển đổi một chuỗi (string) thành chữ thường.', 'Lấy phần nguyên của một số.', 'Thực hiện phép tính lên hai số.', 'a', 'multiple_choice', '2024-05-25 21:58:34', '2024-05-25 21:58:34', NULL),
+(11, 2, 'Trong Python, phép toán 2 ** 3 trả về kết quả là bao nhiêu?', '8', '6', '5', '9', 'a', 'multiple_choice', '2024-05-25 21:59:15', '2024-05-25 21:59:15', NULL),
+(12, 2, 'Trong Python, để lấy giá trị của phần tử thứ hai từ danh sách my_list, bạn sử dụng cú pháp nào?', 'my_list[2]', 'my_list(2)', 'my_list[1]', 'my_list.get(2)', 'c', 'multiple_choice', '2024-05-25 22:00:24', '2024-05-25 22:00:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -750,6 +774,17 @@ CREATE TABLE `quizzes` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `quizzes`
+--
+
+INSERT INTO `quizzes` (`id`, `course_id`, `title`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 'Bài tập 1', '2024-05-25 21:23:55', '2024-05-25 21:47:39', NULL),
+(2, 1, 'Bài tập 2', '2024-05-25 21:47:50', '2024-05-25 21:47:50', NULL),
+(3, 1, 'Bài tập 3', '2024-05-25 21:48:01', '2024-05-25 21:48:01', NULL),
+(4, 1, 'Bài tập 4', '2024-05-25 21:48:12', '2024-05-25 21:48:12', NULL),
+(6, 1, 'Bài tập 5', '2024-05-25 21:48:40', '2024-05-25 21:48:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -881,7 +916,21 @@ INSERT INTO `transactions` (`id`, `payment_method`, `tst_user_id`, `tst_total_am
 (434, 'e_wallet', 12, 1800000, 'vnpay', '2024-05-24 10:55:42', NULL),
 (435, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 10:56:43', NULL),
 (436, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 11:11:42', NULL),
-(437, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 11:18:44', NULL);
+(437, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-24 11:18:44', NULL),
+(438, 'e_wallet', 11, 4400000, 'vnpay', '2024-05-25 09:35:21', NULL),
+(439, 'e_wallet', 11, 1800000, 'vnpay', '2024-05-25 10:43:44', NULL),
+(440, 'e_wallet', 12, 6200000, 'vnpay', '2024-05-25 20:02:10', NULL),
+(441, 'e_wallet', 12, 6200000, 'vnpay', '2024-05-25 20:06:09', NULL),
+(442, 'e_wallet', 12, 4400000, 'vnpay', '2024-05-25 20:11:46', NULL),
+(443, 'e_wallet', 11, 6200000, 'vnpay', '2024-05-25 20:23:13', NULL),
+(444, 'e_wallet', 11, 6200000, 'vnpay', '2024-05-25 20:26:50', NULL),
+(445, 'e_wallet', 11, 4340000, 'vnpay', '2024-05-25 20:31:57', NULL),
+(446, 'e_wallet', 11, 4340000, 'vnpay', '2024-05-25 20:32:37', NULL),
+(447, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-25 20:38:20', NULL),
+(448, 'e_wallet', 12, 3600000, 'vnpay', '2024-05-25 20:43:01', NULL),
+(449, 'e_wallet', 12, 4400000, 'vnpay', '2024-05-25 20:54:23', NULL),
+(450, 'e_wallet', 12, 4400000, 'vnpay', '2024-05-25 21:00:31', NULL),
+(451, 'e_wallet', 12, 1800000, 'vnpay', '2024-05-25 21:14:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -957,7 +1006,18 @@ INSERT INTO `vpayments` (`id`, `transaction_id`, `user_id`, `course_ids`, `amoun
 (128, 434, 12, '1', 1800000, '1026', 'a', '00', '14428775', 'NCB', '2024-05-25 00:56:00', NULL, NULL),
 (129, 435, 12, '1,3', 3600000, '9081', 'a', '00', '14428776', 'NCB', '2024-05-25 00:57:00', NULL, NULL),
 (130, 436, 12, '1,3', 3600000, '8362', 'b', '00', '14428788', 'NCB', '2024-05-25 01:14:00', NULL, NULL),
-(131, 437, 12, '1,3', 3600000, '8827', 'g', '00', '14428790', 'NCB', '2024-05-25 01:19:00', NULL, NULL);
+(131, 437, 12, '1,3', 3600000, '8827', 'g', '00', '14428790', 'NCB', '2024-05-25 01:19:00', NULL, NULL),
+(132, 438, 11, '5', 4400000, '8079', 'app', '00', '14429743', 'NCB', '2024-05-25 23:36:00', NULL, NULL),
+(133, 439, 11, '1', 1800000, '248', 'python', '00', '14429790', 'NCB', '2024-05-26 00:44:00', NULL, NULL),
+(134, 440, 12, '3,5', 6200000, '2968', 'aa', '00', '14429909', 'NCB', '2024-05-26 10:03:00', NULL, NULL),
+(135, 442, 12, '5', 4400000, '7534', 'app', '00', '14429913', 'NCB', '2024-05-26 10:12:00', NULL, NULL),
+(136, 443, 11, '3,5', 6200000, '4133', 'thanh toán khoá học', '00', '14429923', 'NCB', '2024-05-26 10:25:00', NULL, NULL),
+(137, 444, 11, '3,5', 6200000, '1843', 'thanh toán khoá học', '00', '14429926', 'NCB', '2024-05-26 10:27:00', NULL, NULL),
+(138, 446, 11, '3,5', 4340000, '2915', 'Thanh toán khoá học', '00', '14429931', 'NCB', '2024-05-26 10:33:00', NULL, NULL),
+(139, 448, 12, '1,3', 3600000, '3176', 'Thanh toán khoá học', '00', '14429946', 'NCB', '2024-05-26 10:46:00', NULL, NULL),
+(140, 449, 12, '5', 4400000, '4487', 'thanh toán khoá app', '00', '14429953', 'NCB', '2024-05-26 10:54:00', NULL, NULL),
+(141, 450, 12, '5', 4400000, '5199', 'test', '00', '14429964', 'NCB', '2024-05-26 11:01:00', NULL, NULL),
+(142, 451, 12, '1', 1800000, '372', 'python', '00', '14429974', 'NCB', '2024-05-26 11:15:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1222,7 +1282,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT cho bảng `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `course_categories`
@@ -1240,7 +1300,7 @@ ALTER TABLE `discussions`
 -- AUTO_INCREMENT cho bảng `enrollments`
 --
 ALTER TABLE `enrollments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `events`
@@ -1318,13 +1378,13 @@ ALTER TABLE `progress`
 -- AUTO_INCREMENT cho bảng `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `reviews`
@@ -1354,7 +1414,7 @@ ALTER TABLE `subscriptions`
 -- AUTO_INCREMENT cho bảng `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=438;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=452;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -1366,7 +1426,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `vpayments`
 --
 ALTER TABLE `vpayments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT cho bảng `watchlists`

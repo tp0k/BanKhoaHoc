@@ -31,7 +31,7 @@
                     <label for="order_desc">Nội dung thanh toán</label>
                     <textarea class="form-control" id="order_desc" name="order_desc" cols="20" rows="2" placeholder="Nội dung thanh toán" required></textarea>
                 </div>
-                <div class="form-group" required>
+                {{-- <div class="form-group" required>
                     <label for="bank_code">Ngân hàng</label>
                     <select name="bank_code" id="bank_code" class="form-control">
                         <option value="">Không chọn</option>
@@ -63,7 +63,7 @@
                         <option value="BIDV">Ngân hàng BIDV</option>
                         <option value="VISA">Thanh toán qua thẻ VISA/MASTER</option>
                     </select>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label for="language">Ngôn ngữ</label>
                     <select name="language" id="language" class="form-control">
