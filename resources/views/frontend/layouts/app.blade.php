@@ -156,7 +156,7 @@ background-color: #f1f1f1;
                                 <img src="{{asset('uploads/students/'.request()->session()->get('image'))}}"
                                     alt="Student Profile" height="48" width="48"/>
                             </a>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" style="position: relative; z-index: 9999;">
                                 <a href="{{route('student_profile')}}">Thông tin học viên</a>
                                 <a href="{{route('studentdashboard')}}">Bảng tin học viên</a>
                                 <a href="{{route('studentlogOut')}}" class="text-danger">Đăng xuất</a>
