@@ -2306,7 +2306,7 @@
                             <p class="time-left text-center"><span>5 giờ</span> để duy trì mức giá này</p>
                             @if ($enrollment)
                                 <!-- Nếu học sinh đã đăng ký khoá học, hiển thị nút "Vào học ngay" -->
-                                <form action="{{ route('watchCourse', $course->id) }}" method="GET">
+                                <form action="{{route('watchCourse', encryptor('encrypt', $course->id))}}">
                                     <button type="submit" class="button button-lg button--primary-outline mt-3 w-100">Vào học ngay</button>
                                 </form>
                             @else

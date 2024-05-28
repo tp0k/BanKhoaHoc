@@ -160,7 +160,7 @@
                                         </div>
                                     </div>
                                     <a class="button button-md button--primary-outline w-100 my-3"
-                                        href="{{route('watchCourse', encryptor('encrypt', $a->course?->id))}}">Các khóa học đang được xem</a>
+                                        href="{{route('watchCourse', encryptor('encrypt', $a->course?->id))}}">Vào học ngay</a>
                                     <div class="contentCard-watch--progress">
                                         <span class="percentage" style="width: 43%;"></span>
                                     </div>
