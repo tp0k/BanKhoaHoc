@@ -1,12 +1,55 @@
 @extends('frontend.layouts.app')
 @section('title', 'Trang chủ')
-@section('footer-class') footer--two @endsection
-
+@section('footer-class', 'footer--two')
 
 @section('content')
+<div id="slide">
+    <div class="gray-box"></div>
+    <div class="owl-carousel owl-theme">
+        <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
+        <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="">
+        <picture>
+            {{-- <source class="owl-lazy" media="(min-width: 650px)" data-srcset="/images/banner/flutter.jpg"> --}}
+            <source class="owl-lazy" data-srcset="/images/banner/flutter.jpg">
+                {{-- <source class="owl-lazy" media="(min-width: 350px)" data-srcset="https://placehold.it/350x250&text=3-medium"> --}}
+            <source class="owl-lazy" data-srcset="/images/banner/flutter.jpg">
+            {{-- <img class="owl-lazy" data-src="https://placehold.it/350x250&text=3-fallback" alt=""> --}}
+            <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="">
+        </picture>
+        {{-- <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
+        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=5" alt="">
+        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=6" alt="">
+        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=7" alt="">
+        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=8" alt="">
+        <img class="owl-lazy" data-src="https://placehold.it/350x400&text=9" alt="">
+        <img class="owl-lazy" data-src="https://placehold.it/350x400&text=10" alt="">
+        <img class="owl-lazy" data-src="https://placehold.it/350x450&text=11" alt=""> --}}
+    </div>
+</div>
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('frontend/dist/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/dist/owl.theme.default.min.css') }}">
+@endpush
+
+@push('scripts')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{{ asset('frontend/dist/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                items: 1,
+                lazyLoad: true,
+                loop: true,
+                margin: 10
+            });
+        });
+    </script>
+@endpush
+
 
 <!-- Banner Starts Here -->
- <section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
+ {{-- <section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mb-lg-0 order-2 order-lg-0 d-flex align-items-center">
@@ -41,7 +84,7 @@
             </div>
         </div>
     </div>
-</section> 
+</section>  --}}
 {{-- <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +109,6 @@
     top: 50%;
     transform: translateY(-50%);
   }
-<<<<<<< HEAD
   </style>
 =======
     .carousel-control-next {
@@ -144,6 +186,7 @@
   
     </body>
 </html> --}}
+
 <!-- Browse Categories Starts Here -->
 <section class="section browse-categories">
     <div class="container">
@@ -676,7 +719,7 @@
 </section>
 
 <!--  Learning Rules Starts Here -->
-<section class="section learning-rules">
+{{-- <section class="section learning-rules">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 order-2 order-lg-0">
@@ -738,7 +781,7 @@
             class="img-fluid shape-01" />
         <img src="{{asset('frontend/dist/images/shape/l02.png')}}" alt="shape" class="img-fluid shape-02" />
     </div>
-</section>
+</section> --}}
 
 <!--  About Services Starts Here -->
 <section class="section about-services section section--bg-offgradient">
