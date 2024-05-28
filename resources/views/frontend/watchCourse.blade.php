@@ -83,11 +83,11 @@
                                 <button class="nav-link active" id="nav-ldescrip-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-ldescrip" type="button" role="tab" aria-controls="nav-ldescrip"
                                     aria-selected="true">
-                                    Mô tả Video
+                                    Mô tả
                                 </button>
                                 <button class="nav-link" id="nav-lnotes-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-lnotes" type="button" role="tab" aria-controls="nav-lnotes"
-                                    aria-selected="false">Chú thích Video</button>
+                                    aria-selected="false">Chú thích</button>
                                 <button class="nav-link" id="nav-lcomments-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-lcomments" type="button" role="tab"
                                     aria-controls="nav-lcomments" aria-selected="false">Bình luận</button>
@@ -96,7 +96,7 @@
                                     aria-controls="nav-loverview" aria-selected="false">Tổng quan về khoá học</button>
                                 <button class="nav-link" id="nav-linstruc-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-linstruc" type="button" role="tab" aria-controls="nav-linstruc"
-                                    aria-selected="false">Giáo viên</button>
+                                    aria-selected="false">Giảng viên</button>
                             </div>
                         </nav>
                         <div class="tab-content course-description-start-content-tabitem" id="nav-tabContent">
@@ -119,7 +119,6 @@
                                         <div class="course-notes-item">
                                             <p>
                                                 Học viện công nghệ CNET là một mảng dịch vụ của Ztech thành lập vào năm 2017, là trung tâm đào tạo, nghiên cứu Công nghệ thông tin tại thành phố Hải Phòng, với các khóa học Quản trị mạng, Quản trị hệ thống, Lập trình web, Lập trình phần mềm, Lập trình mobile... là nơi đào tạo kiến thức, kỹ năng cần thiết năng cao về ảnh công nghệ thông tin tại Hải Phòng.
-
                                             </p>
                                         </div>
                                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Courses;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use App\Http\Requests\Backend\Course\Courses\AddNewRequest;
 use App\Http\Requests\Backend\Course\Courses\UpdateRequest;
@@ -13,7 +14,8 @@ use App\Models\Lesson;
 use App\Models\Material;
 
 use Exception;
-use File; 
+use File;
+use Illuminate\Support\Facades\Auth; 
 class CourseController extends Controller
 {
     public function index()
@@ -89,11 +91,12 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
-    {
-        // 
-    }
 
+     public function show($id)
+    {
+    // 
+    }
+    
     public function frontShow($id)
     {
         $course = Course::findOrFail(encryptor('decrypt', $id));
@@ -152,12 +155,12 @@ class CourseController extends Controller
                 $course->thumbnail_image = $thumbnailImageName;
             }
             if ($course->save())
-                return redirect()->route('course.index')->with('success', 'Data Saved');
+                return redirect()->route('course.index')->with('success', 'Lưu dữ liệu');
             else
-                return redirect()->back()->withInput()->with('error', 'Please try again');
+                return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
         } catch (Exception $e) {
             // dd($e);
-            return redirect()->back()->withInput()->with('error', 'Please try again');
+            return redirect()->back()->withInput()->with('error', 'Vui lòng thử lại!');
         }
     }
 

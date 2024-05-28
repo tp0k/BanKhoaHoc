@@ -2304,12 +2304,20 @@
                         </div>
                         <div class="cart__checkout-process">
                             <p class="time-left text-center"><span>5 giờ</span> để duy trì mức giá này</p>
-                            <form action="#">
-                                <a href="{{route('add.to.cart', $course->id)}}"
-                                    class="text-white button button-lg button--primary w-100">Thêm vào giỏ hàng</a>
-                                <a href="{{route('checkout')}}"
-                                    class="button button-lg button--primary-outline mt-3 w-100">Mua ngay</a>
-                            </form>
+                            @if ($enrollment)
+                                <!-- Nếu học sinh đã đăng ký khoá học, hiển thị nút "Vào học ngay" -->
+                                <form action="{{route('watchCourse', encryptor('encrypt', $course->id))}}">
+                                    <button type="submit" class="button button-lg button--primary-outline mt-3 w-100">Vào học ngay</button>
+                                </form>
+                            @else
+                                <!-- Nếu học sinh chưa đăng ký khoá học, hiển thị nút "Thêm vào giỏ hàng" hoặc "Mua ngay" -->
+                                <form action="{{ route('add.to.cart', $course->id) }}" method="GET">
+                                    <button type="submit" class="button button-lg button--primary-outline mt-3 w-100">Thêm vào giỏ hàng</button>
+                                </form>
+                                <form action="{{ route('checkout') }}" method="GET">
+                                    <button type="submit" class="button button-lg button--primary-outline mt-3 w-100">Mua ngay</button>
+                                </form>
+                            @endif
                         </div>
                         <div class="cart__includes-info">
                             <h6 class="font-title--card">Khóa học bao gồm:</h6>
