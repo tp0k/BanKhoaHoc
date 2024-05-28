@@ -351,8 +351,9 @@ background-color: #f1f1f1;
                                 class="img-fluid" />
                         </div>
                         <p>
-                        CNET Academy - Học viện nghiên cứu và đào tạo Công nghệ thông tin tại thành phố Hải Phòng. Quản trị mạng, quản trị hệ thống, lập trình, phát triển phần mềm, lập trình mobile
+                        CNET Academy - Học viện nghiên cứu và đào tạo Công nghệ thông tin tại thành phố Hải Phòng.
                         </p>
+                        
                         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcnetacademy&tabs=timeline&width=400&height=140&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                      <div class="footer__wrapper_social d-none d-lg-block">
                             {{-- <ul>
@@ -406,8 +407,8 @@ background-color: #f1f1f1;
                                                 fill="white"></path>
                                         </svg>
                                     </a>
-                                </li>  --}}
-                                {{-- <li>
+                                </li> 
+                                <li>
                                     <a href="https://www.facebook.com/cnetacademy">
                                         <svg width="9" height="18" viewBox="0 0 9 18" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -416,45 +417,50 @@ background-color: #f1f1f1;
                                                 fill="white"></path>
                                         </svg>
                                     </a>
-                                </li> --}}
-                            </ul>
+                                </li>
+                            </ul> --}}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-4 col-6">
                     <div class="footer__list">
-                        <h6>Công ty</h6>
+                        <h6>Danh mục</h6>
                         <ul>
                             <li><a href="http://127.0.0.1:8000/about">Về chúng tôi</a></li>
                             <li><a href="http://127.0.0.1:8000/searchCourse">Khoá học</a></li>
-                            {{-- <li><a href="#">Sự nghiệp</a></li>
+                            <li><a href="event-search.html">Sự kiện</a></li>
+                            {{-- <li><a href="http://127.0.0.1:8000/contact">Liên hệ</a></li>
+                            <li><a href="#">Sự nghiệp</a></li>
                             <li><a href="#">Chứng chỉ</a></li> --}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-6">
+                    <div class="footer__list">
+                        <h6>Thông tin liên hệ</h6>
+                        <ul>
+                            <li style="color: #f1f1f1"><a>Email: cnetacademy@gmail.com</a></li>
+                            <li style="color: #f1f1f1"><a>Số điện thoại: 0946 075 166 | 0836 666 956</a></li>
+                            <li style="color: #f1f1f1"><a>
+                                Địa chỉ: Tầng 4, toà nhà 22 
+                            </a></li>
+                            <li style="color: #f1f1f1"><a>
+                            Lý Tự Trọng - Hồng Bàng - Hải Phòng
+                        </a></li>
                         </ul>
                     </div>
                 </div>
                 {{-- <div class="col-lg-2 col-sm-4 col-6">
                     <div class="footer__list">
-                        <h6>Trợ giúp</h6>
-                        <ul>
-                            <li><a href="http://127.0.0.1:8000/contact">Giúp &amp; Trợ giúp </a></li>
-                            <li><a href="#">Chính sách bảo mật</a></li>
-                            <li><a href="faq.html">FAQs</a></li>
-                            <li><a href="http://127.0.0.1:8000/contact">Liên hệ</a></li>
-                        </ul>
-                    </div>
-                </div> --}}
-                <div class="col-lg-2 col-sm-4 col-6">
-                    <div class="footer__list">
                         <h6>Liên kết</h6>
                         <ul>
                             <li><a href="event-search.html">Sự kiện</a></li>
-                            {{-- <li><a href="become-instructor.html">Người hướng dẫn</a></li> --}}
-                            {{-- <li><a href="#">Quan hệ đối tác</a></li>
-                            <li><a href="#">Tải ứng dụng</a></li> --}}
+                            <li><a href="become-instructor.html">Người hướng dẫn</a></li> 
+                            <li><a href="#">Quan hệ đối tác</a></li>
+                            <li><a href="#">Tải ứng dụng</a></li>
                         </ul>
                     </div>
-                </div>
-
+                </div> --}}
                 <div class="col-12 d-block d-lg-none">
                     <div class="footer__wrapper_social d-flex my-4">
                         <ul>
@@ -530,7 +536,7 @@ background-color: #f1f1f1;
                     <div class="footer__bottom_copyright">
                         <p>© 2024 - Cnet. Đã đăng ký Bản quyền</p>
                     </div>
-                    {{-- <div class="footer__bottom_topbutton">
+                    <div class="footer__bottom_topbutton">
                         <a href="#">
                             Lên đầu trang
                             <div class="icon ms-2">
@@ -541,7 +547,7 @@ background-color: #f1f1f1;
                                 </svg>
                             </div>
                         </a>
-                    </div> --}}
+                    </div> 
                 </div>
             </div>
         </div>
