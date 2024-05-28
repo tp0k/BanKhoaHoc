@@ -1,3 +1,9 @@
+@php
+    $appNameParts = preg_split('/(?=[A-Z])/', env('APP_NAME'), -1, PREG_SPLIT_NO_EMPTY);
+    $firstPart = isset($appNameParts[0]) ? $appNameParts[0] : ''; // Lấy phần đầu tiên của chuỗi
+    $secondPart = isset($appNameParts[1]) ? $appNameParts[1] : ''; // Lấy phần thứ hai của chuỗi
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +11,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{ENV('APP_NAME')}} | @yield('title', 'Xem khoá học')</title>
+    <title>@yield('title','Xem khoá học') - {{ $firstPart }} {{ $secondPart }}</title>
     <link rel="stylesheet" href="{{asset('frontend/src/scss/vendors/plugin/css/video-js.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/src/scss/vendors/plugin/css/star-rating-svg.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/dist/main.css')}}" />
-    <link rel="icon" type="image/png" href="{{asset('frontend/dist/images/favicon/favicon.png')}}" />
+    <link rel="icon" type="image/png" href="{{asset('frontend/dist/images/favicon/favicon1.ico')}}" />
     <link rel="stylesheet" href="{{asset('frontend/fontawesome-free-5.15.4-web/css/all.min.css')}}">
     <style>
         .vjs-poster {
@@ -28,7 +34,7 @@
             <div class="coursedescription-header">
                 <div class="coursedescription-header-start">
                     <a class="logo-image" href="{{route('home')}}">
-                        <img src="{{asset('frontend/dist/images/logo/logo.png')}}" alt="Logo" />
+                        <img src="{{asset('images\logo.png')}}" alt="Logo" class="img-fluid" />
                     </a>
                     <div class="topic-info">
                         <div class="topic-info-arrow">
@@ -37,7 +43,7 @@
                             </a>
                         </div>
                         <div class="topic-info-text">
-                            <h6 class="font-title--xs"><a href="#">{{$course->title_en}}</a></h6>
+                            <h6 class="font-title--xs"><a href="{{route('courseDetails', encryptor('encrypt', $course->id))}}">{{$course->title_en}}</a></h6>
                             <div class="lesson-hours">
                                 <div class="book-lesson">
                                     <i class="fas fa-book-open text-primary"></i>
@@ -105,9 +111,37 @@
                                 aria-labelledby="nav-ldescrip-tab">
                                 <div class="lesson-description">
                                     <p>
-                                        Học viện công nghệ CNET là một mảng dịch vụ của Ztech thành lập vào năm 2017, là trung tâm đào tạo, nghiên cứu Công nghệ thông tin tại thành phố Hải Phòng, với các khóa học Quản trị mạng, Quản trị hệ thống, Lập trình web, Lập trình phần mềm, Lập trình mobile... là nơi đào tạo kiến thức, kỹ năng cần thiết năng cao về ảnh công nghệ thông tin tại Hải Phòng.
-                                        Kiểm tra danh mục đầu tư của tôi: <a
-                                            href="#">https://bit.ly/2OZkYCo</a>
+                                        <p>
+                                            Khóa học "Trở thành lập trình viên Python tương lai" cho trẻ tại Hải Phòng giúp 
+                                            học viên tiếp cận với lập trình chuyên nghiệp qua ngôn ngữ Python. 
+                                            Từ đó giúp các bạn tìm hiểu sâu hơn về những câu lệnh và sáng tạo ra những sản phẩm 
+                                            lập trình có tính ứng dụng cao.
+                                        </p>
+                                        <br>
+                                        <h5>Lập trình là gì?</h5>
+                                        <p>
+                                            Lập trình là viết các câu lệnh để đưa chỉ dẫn cho máy tính hoạt động, một chuỗi các câu lệnh được gọi là chương trình. 
+                                            Những chương trình này điều khiển mọi thứ từ điện thoại thông minh đến tên lửa vũ trụ.
+                                            <br>
+                                            Để viết một chương trình máy tính, bạn cần biến các chỉ dẫn của mình thành các câu lệnh rõ ràng, 
+                                            và phải diễn đạt bằng ngôn ngữ mà máy tính có thể hiểu được.
+                                        </p>
+                                        <br>
+                                        <h5>Vì sao học và sử dụng Python?</h5>
+                                        <p>
+                                            Python là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. 
+                                            Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.
+                                            <br>
+                                            Rất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. 
+                                            Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.
+                                            <br>
+                                            Để khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. 
+                                            Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học 
+                                            <b>“Trở thành lập trình viên Python tương lai”</b> tại Học viện công nghệ CNET. 
+                                            Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình 
+                                            đầu tiên cho tới các trò chơi do chính bạn tạo ra. 
+                                            Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.
+                                        </p>
                                     </p>
                                 </div>
                                 <!-- Lesson Description Ends Here -->
@@ -117,9 +151,19 @@
                                 <div class="course-notes-area">
                                     <div class="course-notes">
                                         <div class="course-notes-item">
-                                            <p>
-                                                Học viện công nghệ CNET là một mảng dịch vụ của Ztech thành lập vào năm 2017, là trung tâm đào tạo, nghiên cứu Công nghệ thông tin tại thành phố Hải Phòng, với các khóa học Quản trị mạng, Quản trị hệ thống, Lập trình web, Lập trình phần mềm, Lập trình mobile... là nơi đào tạo kiến thức, kỹ năng cần thiết năng cao về ảnh công nghệ thông tin tại Hải Phòng.
-                                            </p>
+                                            <h5>Nội dung khoá học</h5>
+                                            <ul class="bullet-list">
+                                                <li>Giới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số</li>
+                                                <li>Biến số, ra quyết định, Giải thuật,</li>
+                                                <li>Trò chơi dự đoán</li>
+                                                <li>Vòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách</li>
+                                                <li>Từ điển, tin tức mã hóa</li>
+                                                <li>Công cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác</li>
+                                                <li>Trò chơi dò bom, Trò chơi vợt và bóng</li>
+                                                <li>Tải Python, quản lý tập tin, Gỡ lỗi</li>
+                                                <li>Cửa sổ nào, Xem nhanh mã lệnh</li>
+                                                <li>Bảng chú giải</li>
+                                            </ul> 
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +177,7 @@
                                         <h6 class="font-title--card">Thêm một bình luận công khai</h6>
                                         <form action="#">
                                             <label for="comment">Bình luận</label>
-                                            <textarea class="form-control" id="comment" placeholder="Add a Public Comment"></textarea>
+                                            <textarea class="form-control" id="comment" placeholder="Thêm bình luận"></textarea>
                                             <button type="submit" class="button button-md button--primary float-end">Đăng bình luận</button>
                                         </form>
                                     </div>

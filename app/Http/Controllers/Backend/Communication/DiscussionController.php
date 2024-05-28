@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Communication;
 
 use App\Http\Controllers\Controller;
 use App\Models\Discussion;
+use Egulias\EmailValidator\Parser\Comment;
 use Illuminate\Http\Request;
 
 class DiscussionController extends Controller
@@ -13,7 +14,6 @@ class DiscussionController extends Controller
         $discussion = Discussion::paginate(10);
         return view('backend.communication.discussion.index', compact('discussion')); 
     }
-
     /**
      * Show the form for creating a new resource.
      */

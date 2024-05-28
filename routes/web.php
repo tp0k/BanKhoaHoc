@@ -36,8 +36,6 @@ use App\Http\Controllers\EventController as event;
 use App\Http\Controllers\Students\AuthController as sauth;
 use App\Http\Controllers\Students\DashboardController as studashboard;
 use App\Http\Controllers\Students\ProfileController as stu_profile;
-use App\Http\Controllers\Students\sslController as sslcz;
-use App\Http\Controllers\Students\VnpayController as vnpay;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -113,7 +111,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('searchCourse', [SearchCourseController::class, 'index'])->name('searchCourse'); 
 Route::get('search1Course', [SearchController::class, 'search'])->name('search1Course');
 // Route::get('courseDetails/{id}', [course::class, 'frontShow'])->name('courseDetails');
-Route::get('courseDetails/{id}', [sCourseController::class, 'Show'])->middleware('checkstudent')->name('courseDetails');;
+Route::get('courseDetails/{id}', [sCourseController::class, 'Show'])->middleware('checkstudent')->name('courseDetails');
 Route::get('watchCourse/{id}', [watchCourse::class, 'watchCourse'])->name('watchCourse');
 Route::get('instructorProfile/{id}', [instructor::class, 'frontShow'])->name('instructorProfile');
 Route::get('checkout', [checkout::class, 'index'])->name('checkout');
@@ -129,10 +127,6 @@ Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remo
 // Coupon
 Route::post('coupon_check', [CartController::class, 'coupon_check'])->name('coupon_check');
 
-/* ssl payment */
-// Route::post('/payment/ssl/notify', [sslcz::class, 'notify'])->name('payment.ssl.notify');
-// Route::post('/payment/ssl/cancel', [sslcz::class, 'cancel'])->name('payment.ssl.cancel');
-
 Route::get('/about', function () {
     return view('frontend.about');
 })->name('about');
@@ -143,3 +137,4 @@ Route::get('/contact', function () {
 
 //fee
 Route::get('/backend/fee', function () {return view('backend.fee.index');})->name('fee.index');
+

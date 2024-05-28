@@ -9,7 +9,6 @@
 @section('content')
 <!-- Breadcrumb Starts Here -->
 <section class="section event-sub-section">
-    <div class="gray-box"></div>
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent p-0 mb-0">
