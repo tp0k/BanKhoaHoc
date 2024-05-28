@@ -25,12 +25,11 @@ class SearchCourseController extends Controller
                 ->orWhereHas('instructor', function ($subquery) use ($keywordf) {
                     $subquery->where('name_en', 'like', "%$keywordf%");
                 });
-        });
-    })
+            });
+        })
         ->get();
         $allCourse = Course::where('status', 2)->get();
 
         return view('frontend.searchCourse', compact('course', 'category', 'selectedCategories', 'allCourse'));
     }
-
 }

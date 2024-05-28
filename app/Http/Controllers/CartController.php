@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Coupon;
@@ -27,6 +28,16 @@ class CartController extends Controller
     {
         $course = Course::findOrFail($id);
 
+        // $userId = Auth::id();
+        // if ($userId) {
+        //     // Nếu người dùng đã đăng nhập, kiểm tra xem họ đã đăng ký khóa học này hay chưa
+        //     if (Enrollment::isEnrolled($id, $userId)) {
+        //         // Nếu đã đăng ký, trả về thông báo lỗi
+        //         $message = "Bạn đã sở hữu khóa học này, không thể thêm vào giỏ hàng.";
+        //         return redirect()->back()->with('warning', $message);
+        //     }
+        // }
+            // Tiếp tục thêm vào giỏ hàng
         $cart = session()->get('cart', []);
         if (isset($cart[$id])) {
             $message="Thêm khoá học vào giỏ hàng.";
@@ -46,7 +57,7 @@ class CartController extends Controller
             $message="Thêm khoá học thành công!";
             return redirect()->back()->with('Thành công', $message);
         }
-    }   
+    } 
 
     public function remove(Request $request)
     {
@@ -115,14 +126,5 @@ class CartController extends Controller
             session()->put('cart_details', $coupondata);
         }
         return redirect()->back()->with('Thành công', 'Áp voucher thành công!');
-    }
-
-    public function content()
-    {
-        // Lấy dữ liệu giỏ hàng từ session
-        $cart = session()->get('cart', []);
-
-        // Trả về dữ liệu giỏ hàng
-        return $cart;
     }
 }
