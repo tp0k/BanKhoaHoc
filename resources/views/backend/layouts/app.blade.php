@@ -1,3 +1,9 @@
+@php
+    $appNameParts = preg_split('/(?=[A-Z])/', env('APP_NAME'), -1, PREG_SPLIT_NO_EMPTY);
+    $firstPart = isset($appNameParts[0]) ? $appNameParts[0] : ''; // Lấy phần đầu tiên của chuỗi
+    $secondPart = isset($appNameParts[1]) ? $appNameParts[1] : ''; // Lấy phần thứ hai của chuỗi
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{str_replace('_','_', app()->getLocale())}}">
 
@@ -7,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     {{-- <title>{{ENV('APP_NAME')}} | @yield('title')</title> --}}
-    <title>@yield('title') - {{ENV('APP_NAME')}} </title>
+    <title>@yield('title','Dashboard') - {{ $firstPart }} {{ $secondPart }}</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/logovuong.jpg')}}">
     <link rel="stylesheet" href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">

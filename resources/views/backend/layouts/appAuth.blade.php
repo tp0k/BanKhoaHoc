@@ -3,6 +3,7 @@
     $firstPart = isset($appNameParts[0]) ? $appNameParts[0] : ''; // Lấy phần đầu tiên của chuỗi
     $secondPart = isset($appNameParts[1]) ? $appNameParts[1] : ''; // Lấy phần thứ hai của chuỗi
 @endphp
+
 <!DOCTYPE html>
 <html lang="{{str_replace('_','_', app()->getLocale())}}" class="h-100">
 
