@@ -31,6 +31,7 @@ use App\Http\Controllers\WatchCourseController as watchCourse;
 use App\Http\Controllers\LessonController as lesson;
 use App\Http\Controllers\EnrollmentController as enrollment;
 use App\Http\Controllers\EventController as event;
+use App\Http\Controllers\CommentController;
 
 /* students */
 use App\Http\Controllers\Students\AuthController as sauth;
@@ -139,3 +140,5 @@ Route::get('/contact', function () {
 //fee
 Route::get('/backend/fee', function () {return view('backend.fee.index');})->name('fee.index');
 
+//comment
+Route::post('/comment', [CommentController::class, 'store']);

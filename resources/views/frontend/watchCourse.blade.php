@@ -169,92 +169,51 @@
                                 </div>
                                 <!-- Course Notes Ends Here -->
                             </div>
-                            <!-- Lesson Comments Starts Here -->
+                            <!-- bình luận bắt đầu từ đây -->
                             <div class="tab-pane fade" id="nav-lcomments" role="tabpanel"
                                 aria-labelledby="nav-lcomments-tab">
                                 <div class="lesson-comments">
                                     <div class="feedback-comment pt-0 ps-0 pe-0">
                                         <h6 class="font-title--card">Thêm một bình luận công khai</h6>
-                                        <form action="#">
+                                        <form action="/comment" method="POST">
+                                            @csrf
                                             <label for="comment">Bình luận</label>
-                                            <textarea class="form-control" id="comment" placeholder="Thêm bình luận"></textarea>
+                                            <textarea class="form-control" id="comment"  name="comment" placeholder="Thêm bình luận"></textarea>
+                                            <input type="hidden" name="course_id" value="{{ $course->id }}">
                                             <button type="submit" class="button button-md button--primary float-end">Đăng bình luận</button>
                                         </form>
                                     </div>
+                                    @php
+                                    $comment = DB::table('comments')->where('course_id',$course->id)
+                                    ->join('students', 'comments.student_id', '=', 'students.id')
+                                    ->orderBy('comments.created_at', 'desc')
+                                    ->get()
+                                    @endphp
+
+                                    {{-- HIển thị bình luận --}}
                                     <div class="students-feedback pt-0 ps-0 pe-0 pb-0 mb-0">
                                         <div class="students-feedback-heading">
-                                            <h5 class="font-title--card">Bình luận <span>(57,685)</span></h5>
+                                            <h5 class="font-title--card">Bình luận <span>({{$comment->count();}})</span></h5>
                                         </div>
+                                        @foreach ($comment as $c)
                                         <div class="students-feedback-item">
                                             <div class="feedback-rating">
                                                 <div class="feedback-rating-start">
                                                     <div class="image">
-                                                        <img src="{{asset('frontend/dist/images/ellipse/user.jpg')}}" alt="Image" />
+                                                        <img src="{{asset('uploads/students/' .$c->image)}}" alt="Image" />
                                                     </div>
                                                     <div class="text">
-                                                        <h6><a href="#">Thảo</a></h6>
-                                                        <p>1 giờ trước</p>
+                                                        <h6>
+                                                            <a href="#">{{$c->name_en}}</a></h6>
+                                                        <p>{{$c->created_at}}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p>
-                                                Học viện công nghệ CNET là một mảng dịch vụ của Ztech thành lập vào năm 2017, là trung tâm đào tạo, nghiên cứu Công nghệ thông tin tại thành phố Hải Phòng, với các khóa học Quản trị mạng, Quản trị hệ thống, Lập trình web, Lập trình phần mềm, Lập trình mobile... là nơi đào tạo kiến thức, kỹ năng cần thiết năng cao về ảnh công nghệ thông tin tại Hải Phòng.
-
-                                            </p>
+                                            <p>{{$c->content}}</p>
                                         </div>
-                                        <div class="students-feedback-item">
-                                            <div class="feedback-rating">
-                                                <div class="feedback-rating-start">
-                                                    <div class="image">
-                                                        <img src="{{asset('frontend/dist/images/ellipse/1.png')}}" alt="Image" />
-                                                    </div>
-                                                    <div class="text">
-                                                        <h6><a href="#">Lan</a></h6>
-                                                        <p>2 giờ trước</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Học viện công nghệ CNET là một mảng dịch vụ của Ztech thành lập vào năm 2017, là trung tâm đào tạo, nghiên cứu Công nghệ thông tin tại thành phố Hải Phòng, với các khóa học Quản trị mạng, Quản trị hệ thống, Lập trình web, Lập trình phần mềm, Lập trình mobile... là nơi đào tạo kiến thức, kỹ năng cần thiết năng cao về ảnh công nghệ thông tin tại Hải Phòng.
-
-                                            </p>
-                                        </div>
-                                        <div class="students-feedback-item">
-                                            <div class="feedback-rating">
-                                                <div class="feedback-rating-start">
-                                                    <div class="image">
-                                                        <img src="{{asset('frontend/dist/images/ellipse/2.png')}}" alt="Image" />
-                                                    </div>
-                                                    <div class="text">
-                                                        <h6><a href="#">Dan</a></h6>
-                                                        <p>1 ngày trước</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                khoá học rất hay và bổ ích
-                                            </p>
-                                        </div>
-                                        <div class="students-feedback-item border-0">
-                                            <div class="feedback-rating">
-                                                <div class="feedback-rating-start">
-                                                    <div class="image">
-                                                        <img src="{{asset('frontend/dist/images/ellipse/3.png')}}" alt="Image" />
-                                                    </div>
-                                                    <div class="text">
-                                                        <h6><a href="#">Dele To</a></h6>
-                                                        <p>1 ngày trước</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                            khoá học rất hay và bổ ích
-                                            </p>
-                                        </div>
-                                        <button class="button button-md button--primary-outline">Tải thêm</button>
-                                    </div>
-                                </div>
-                                <!-- Lesson Comments Ends Here -->
+                                        @endforeach
+                                        
+                                <!-- hết bình luận -->
                             </div>
                             <!-- Course Overview Starts Here -->
                             <div class="tab-pane fade" id="nav-loverview" role="tabpanel"

@@ -11,6 +11,7 @@ use App\Http\Requests\Students\Auth\SignInRequest;
 use Illuminate\Support\Facades\Hash;
 use Exception;
 
+
 class AuthController extends Controller
 {
     public function signUpForm()
@@ -52,6 +53,7 @@ class AuthController extends Controller
                 if ($student->status == 1) {
                     if (Hash::check($request->password, $student->password)) {
                         $this->setSession($student);
+                        session(['id' => $student->id]);
                         return redirect()->route($back_route)->with('success', 'Đăng nhập thành công!');
                     } else
                         return redirect()->back()->with('error', 'Username hoặc Password không đúng!');
