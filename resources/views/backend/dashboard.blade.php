@@ -13,7 +13,7 @@
                     <div class="widget-stat card bg-primary overflow-hidden">
                         <div class="card-header">
                             <h3 class="card-title text-white">Tổng học viên</h3>
-                            <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i> 422</h5>
+                            <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i> {{ $totalStudents }}</h5>
                         </div>
                         <div class="card-body text-center mt-3">
                             <div class="ico-sparkline">
@@ -51,8 +51,8 @@
                 <div class="col-xl-3 col-xxl-3 col-sm-6">
                     <div class="widget-stat card bg-danger overflow-hidden">
                         <div class="card-header pb-3">
-                            <h3 class="card-title text-white">Học phí</h3>
-                            <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i> 3.299.000VNĐ</h5>
+                            <h3 class="card-title text-white">Doanh thu</h3>
+                            <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i> {{ $totalPayments }}</h5>
                         </div>
                         <div class="card-body p-0 mt-1">
                             <span class="peity-line-2" data-width="100%">7,6,8,7,3,8,3,3,6,5,9,2,8</span>

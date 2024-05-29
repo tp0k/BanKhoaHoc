@@ -54,6 +54,7 @@ Route::get('/logout', [auth::class, 'signOut'])->name('logOut');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [dashboard::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [dashboard::class, 'dashboard'])->name('dashboard');
     Route::get('userProfile', [auth::class, 'show'])->name('userProfile');
 });
 
