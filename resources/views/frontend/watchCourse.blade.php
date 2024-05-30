@@ -86,17 +86,9 @@
                         <h5 class="font-title--sm material-title">{{$course->title_en}}</h5>
                         <nav class="course-description-start-content-tab">
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-ldescrip-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-ldescrip" type="button" role="tab" aria-controls="nav-ldescrip"
-                                    aria-selected="true">
-                                    Mô tả
-                                </button>
-                                <button class="nav-link" id="nav-lnotes-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-lnotes" type="button" role="tab" aria-controls="nav-lnotes"
-                                    aria-selected="false">Chú thích</button>
-                                <button class="nav-link" id="nav-lcomments-tab" data-bs-toggle="tab"
+                                <button class="nav-link active" id="nav-lcomments-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-lcomments" type="button" role="tab"
-                                    aria-controls="nav-lcomments" aria-selected="false">Bình luận</button>
+                                    aria-controls="nav-lcomments" aria-selected="true">Bình luận</button>
                                 <button class="nav-link" id="nav-loverview-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-loverview" type="button" role="tab"
                                     aria-controls="nav-loverview" aria-selected="false">Tổng quan về khoá học</button>
@@ -106,71 +98,9 @@
                             </div>
                         </nav>
                         <div class="tab-content course-description-start-content-tabitem" id="nav-tabContent">
-                            <!-- Lesson Description Starts Here -->
-                            <div class="tab-pane fade show active" id="nav-ldescrip" role="tabpanel"
-                                aria-labelledby="nav-ldescrip-tab">
-                                <div class="lesson-description">
-                                    <p>
-                                        <p>
-                                            Khóa học "Trở thành lập trình viên Python tương lai" cho trẻ tại Hải Phòng giúp 
-                                            học viên tiếp cận với lập trình chuyên nghiệp qua ngôn ngữ Python. 
-                                            Từ đó giúp các bạn tìm hiểu sâu hơn về những câu lệnh và sáng tạo ra những sản phẩm 
-                                            lập trình có tính ứng dụng cao.
-                                        </p>
-                                        <br>
-                                        <h5>Lập trình là gì?</h5>
-                                        <p>
-                                            Lập trình là viết các câu lệnh để đưa chỉ dẫn cho máy tính hoạt động, một chuỗi các câu lệnh được gọi là chương trình. 
-                                            Những chương trình này điều khiển mọi thứ từ điện thoại thông minh đến tên lửa vũ trụ.
-                                            <br>
-                                            Để viết một chương trình máy tính, bạn cần biến các chỉ dẫn của mình thành các câu lệnh rõ ràng, 
-                                            và phải diễn đạt bằng ngôn ngữ mà máy tính có thể hiểu được.
-                                        </p>
-                                        <br>
-                                        <h5>Vì sao học và sử dụng Python?</h5>
-                                        <p>
-                                            Python là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. 
-                                            Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.
-                                            <br>
-                                            Rất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. 
-                                            Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.
-                                            <br>
-                                            Để khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. 
-                                            Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học 
-                                            <b>“Trở thành lập trình viên Python tương lai”</b> tại Học viện công nghệ CNET. 
-                                            Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình 
-                                            đầu tiên cho tới các trò chơi do chính bạn tạo ra. 
-                                            Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.
-                                        </p>
-                                    </p>
-                                </div>
-                                <!-- Lesson Description Ends Here -->
-                            </div>
-                            <!-- Course Notes Starts Here -->
-                            <div class="tab-pane fade" id="nav-lnotes" role="tabpanel" aria-labelledby="nav-lnotes-tab">
-                                <div class="course-notes-area">
-                                    <div class="course-notes">
-                                        <div class="course-notes-item">
-                                            <h5>Nội dung khoá học</h5>
-                                            <ul class="bullet-list">
-                                                <li>Giới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số</li>
-                                                <li>Biến số, ra quyết định, Giải thuật,</li>
-                                                <li>Trò chơi dự đoán</li>
-                                                <li>Vòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách</li>
-                                                <li>Từ điển, tin tức mã hóa</li>
-                                                <li>Công cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác</li>
-                                                <li>Trò chơi dò bom, Trò chơi vợt và bóng</li>
-                                                <li>Tải Python, quản lý tập tin, Gỡ lỗi</li>
-                                                <li>Cửa sổ nào, Xem nhanh mã lệnh</li>
-                                                <li>Bảng chú giải</li>
-                                            </ul> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Course Notes Ends Here -->
-                            </div>
+                           
                             <!-- bình luận bắt đầu từ đây -->
-                            <div class="tab-pane fade" id="nav-lcomments" role="tabpanel"
+                            <div class="tab-pane fade show active" id="nav-lcomments" role="tabpanel"
                                 aria-labelledby="nav-lcomments-tab">
                                 <div class="lesson-comments">
                                     <div class="feedback-comment pt-0 ps-0 pe-0">
@@ -212,9 +142,10 @@
                                             <p>{{$c->content}}</p>
                                         </div>
                                         @endforeach
-                                        
-                                <!-- hết bình luận -->
+                                    </div>        
+                                </div>
                             </div>
+                             <!-- hết bình luận -->
                             <!-- Course Overview Starts Here -->
                             <div class="tab-pane fade" id="nav-loverview" role="tabpanel"
                                 aria-labelledby="nav-loverview-tab">
@@ -251,7 +182,7 @@
                                                             {{$course?->instructor?->name_en}}</a></h6>
                                                     <p>{{$course?->instructor?->designation}}</p>
                                                     <div class="d-flex align-items-center instructor-text-bottom">
-                                                        <div class="d-flex align-items-center ratings-icon">
+                                                        {{-- <div class="d-flex align-items-center ratings-icon">
                                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -261,7 +192,7 @@
                                                                 </path>
                                                             </svg>
                                                             <p>Đánh giá 4.9 sao</p>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="d-flex align-items-center ratings-icon">
                                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -277,7 +208,8 @@
                                                                 </path>
                                                             </svg>
 
-                                                            <p>4 khoá học</p>
+                                                            <div class="text text-center"><p> </p><p>{{$course?->instructor?->courses()->where('status', 2)->count()}}</p></div>
+                                                            <div class="text text-center"><p>Khóa học</p></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -369,7 +301,7 @@
                 <div class="modal-footer border-0">
                     <form action="#" class="w-100">
                         <label for="messages">Tin nhắn</label>
-                        <textarea id="messages" placeholder="How is your to feeling taking these course?"
+                        <textarea id="messages" placeholder="Hãy để lại đánh giá của bạn về khóa học"
                             class="w-100"></textarea>
                         <button type="submit" class="button button-md button--primary w-100">Gửi</button>
                     </form>
