@@ -32,4 +32,24 @@ class SearchCourseController extends Controller
 
         return view('frontend.searchCourse', compact('course', 'category', 'selectedCategories', 'allCourse'));
     }
+    public function search2Course(Request $request) {
+        $categoryId = $request->input('course_category_id'); // Lấy ID danh mục từ URL
+        $categories = CourseCategory::all(); // Lấy tất cả danh mục để hiển thị trong filter
+        $selectedCategories = $request->input('categories', []);
+        
+        if ($categoryId) {
+            $courses = Course::where('course_category_id', $categoryId)->get(); // Lọc theo ID danh mục
+        } elseif ($selectedCategories) {
+            $courses = Course::whereIn('course_category_id', $selectedCategories)->get();
+        } else {
+            $courses = Course::all();
+        }
+        
+        return view('frontend.searchCourse', [
+            'course' => $courses,
+            'category' => $categories,
+            'selectedCategories' => $selectedCategories,
+            'allCourse' => Course::all()
+        ]);
+    }
 }
