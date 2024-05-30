@@ -2313,9 +2313,11 @@
                                 <form action="{{ route('add.to.cart', $course->id) }}" method="GET">
                                     <button type="submit" class="button button-lg button--primary-outline mt-3 w-100">Thêm vào giỏ hàng</button>
                                 </form>
-                                <form action="{{ route('checkout') }}" method="GET">
+                                <form action="{{ route('add.to.cart', $course->id) }}" method="GET">
+                                    <input type="hidden" name="checkout" value="1">
                                     <button type="submit" class="button button-lg button--primary-outline mt-3 w-100">Mua ngay</button>
                                 </form>
+
                             @endif
                         </div>
                         <div class="cart__includes-info">
@@ -2349,7 +2351,7 @@
                             </ul>
                         </div>
                         <div class="cart__share-content">
-                            <h6 class="font-title--card">Chia sẻ khoá học này</h6>
+                            {{-- <h6 class="font-title--card">Chia sẻ khoá học này</h6>
                             <ul class="social-icons social-icons--outline">
                                 <li>
                                     <a href="#">
@@ -2413,7 +2415,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

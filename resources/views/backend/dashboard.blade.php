@@ -54,9 +54,9 @@
                             <h3 class="card-title text-white">Tổng doanh thu</h3>
                             <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i> {{ $totalPayments }}</h5>
                         </div>
-                        <div class="card-body p-0 mt-1">
+                        {{-- <div class="card-body p-0 mt-1">
                             <span class="peity-line-2" data-width="100%">7,6,8,7,3,8,3,3,6,5,9,2,8</span>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-xl-6 col-xxl-6 col-sm-6">

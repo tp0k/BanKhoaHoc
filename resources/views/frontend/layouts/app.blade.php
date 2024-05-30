@@ -536,18 +536,6 @@ background-color: #f1f1f1;
                     <div class="footer__bottom_copyright">
                         <p>© 2024 - Cnet. Đã đăng ký Bản quyền</p>
                     </div>
-                    <div class="footer__bottom_topbutton">
-                        <a href="#">
-                            Lên đầu trang
-                            <div class="icon ms-2">
-                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 5L5 1L1 5" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg>
-                            </div>
-                        </a>
-                    </div> 
                 </div>
             </div>
         </div>
