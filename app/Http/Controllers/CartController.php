@@ -23,41 +23,85 @@ class CartController extends Controller
     {
         return view('frontend.cart'); 
     }
-
-    public function addToCart($id)
+    public function addToCart(Request $request, $id)
     {
+        // Tìm khóa học dựa trên id
         $course = Course::findOrFail($id);
 
-        // $userId = Auth::id();
-        // if ($userId) {
-        //     // Nếu người dùng đã đăng nhập, kiểm tra xem họ đã đăng ký khóa học này hay chưa
-        //     if (Enrollment::isEnrolled($id, $userId)) {
-        //         // Nếu đã đăng ký, trả về thông báo lỗi
-        //         $message = "Bạn đã sở hữu khóa học này, không thể thêm vào giỏ hàng.";
-        //         return redirect()->back()->with('warning', $message);
-        //     }
-        // }
-            // Tiếp tục thêm vào giỏ hàng
+        // Lấy giỏ hàng từ session
         $cart = session()->get('cart', []);
-        if (isset($cart[$id])) {
-            $message="Thêm khoá học vào giỏ hàng.";
-            return redirect()->back()->with('warning', $message);
-        } else {
-            $cart[$id] = [
-                "title_en" => $course->title_en,
-                "quantity" => 1,
-                "price" => $course->price,
-                "old_price" => $course->old_price,
-                "image" => $course->image,
-                "difficulty" => $course->difficulty,
-                "instructor" => $course->instructor ? $course->instructor->name_en : 'Không tìm thấy giảng viên!',
-            ];
-            session()->put('cart', $cart);
-            $this->cart_total();
-            $message="Thêm khoá học thành công!";
-            return redirect()->back()->with('Thành công', $message);
+
+        // Thêm thông tin của khóa học vào giỏ hàng
+        $cart[$id] = [
+            "title_en" => $course->title_en,
+            "quantity" => 1,
+            "price" => $course->price,
+            "old_price" => $course->old_price,
+            "image" => $course->image,
+            "difficulty" => $course->difficulty,
+            "instructor" => $course->instructor ? $course->instructor->name_en : 'Không tìm thấy giảng viên!',
+        ];
+        
+        // Lưu giỏ hàng vào session
+        session()->put('cart', $cart);
+
+        // Tính toán học phí và cập nhật session 'cart_details'
+        $this->cart_total();
+
+        // Nếu người dùng nhấn vào nút "Mua ngay", thêm thông tin khoá học vào session 'course_to_buy' và chuyển hướng đến trang thanh toán
+        if ($request->has('checkout')) {
+            session()->put('course_to_buy', $cart[$id]);
+            return redirect()->route('checkout');
         }
-    } 
+
+        // Nếu người dùng nhấn vào nút "Thêm vào giỏ hàng", chuyển hướng về trang trước đó
+        $message = "Thêm khóa học vào giỏ hàng thành công!";
+        return redirect()->back()->with('success', $message);
+    }
+
+
+
+
+
+
+
+
+
+
+    // public function addToCart($id)
+    // {
+    //     $course = Course::findOrFail($id);
+
+    //     // $userId = Auth::id();
+    //     // if ($userId) {
+    //     //     // Nếu người dùng đã đăng nhập, kiểm tra xem họ đã đăng ký khóa học này hay chưa
+    //     //     if (Enrollment::isEnrolled($id, $userId)) {
+    //     //         // Nếu đã đăng ký, trả về thông báo lỗi
+    //     //         $message = "Bạn đã sở hữu khóa học này, không thể thêm vào giỏ hàng.";
+    //     //         return redirect()->back()->with('warning', $message);
+    //     //     }
+    //     // }
+    //         // Tiếp tục thêm vào giỏ hàng
+    //     $cart = session()->get('cart', []);
+    //     if (isset($cart[$id])) {
+    //         $message="Thêm khoá học vào giỏ hàng.";
+    //         return redirect()->back()->with('warning', $message);
+    //     } else {
+    //         $cart[$id] = [
+    //             "title_en" => $course->title_en,
+    //             "quantity" => 1,
+    //             "price" => $course->price,
+    //             "old_price" => $course->old_price,
+    //             "image" => $course->image,
+    //             "difficulty" => $course->difficulty,
+    //             "instructor" => $course->instructor ? $course->instructor->name_en : 'Không tìm thấy giảng viên!',
+    //         ];
+    //         session()->put('cart', $cart);
+    //         $this->cart_total();
+    //         $message="Thêm khoá học thành công!";
+    //         return redirect()->back()->with('Thành công', $message);
+    //     }
+    // } 
 
     public function remove(Request $request)
     {
@@ -99,8 +143,6 @@ class CartController extends Controller
             $cart_data=array('cart_total'=>$total,'tax'=>($total*0.1),'total_amount'=>($total));
             session()->put('cart_details', $cart_data);
         }
-
-        
     }
 
     public function coupon_check(Request $request){
