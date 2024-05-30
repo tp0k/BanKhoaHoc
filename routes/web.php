@@ -139,6 +139,11 @@ Route::get('/contact', function () {
 
 //fee
 Route::get('/backend/fee', function () {return view('backend.fee.index');})->name('fee.index');
-
+//backend
+Route::get('courseDetails_Admin/{id}', function ($id) {
+    $id = encryptor('decrypt', $id);
+    $course = \App\Models\Course::findOrFail($id);
+    return view('backend.course.courses.courseDetails', compact('course'));
+})->name('courseDetails_Admin');
 //comment
 Route::post('/comment', [CommentController::class, 'store']);

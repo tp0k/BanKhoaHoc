@@ -107,7 +107,7 @@
                                                 href="about-student.html">Xem thêm thông tin</a> --}}
                                                 
                                                 <a class="btn btn-outline-primary btn-rounded mt-3 px-4"
-                                                    href="{{route('courseDetails', ['id' => encryptor('encrypt', $d->id)])}}">Xem thêm thông tin</a>
+                                                    href="{{route('courseDetails_Admin', ['id' => encryptor('encrypt', $d->id)])}}">Xem thêm thông tin</a>
                                             
                                         </div>
                                     </div>
