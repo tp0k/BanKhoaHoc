@@ -1,5 +1,5 @@
 <?php
-// use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Crypt;
 function encryptor($action, $string)
 {
     $output = false;

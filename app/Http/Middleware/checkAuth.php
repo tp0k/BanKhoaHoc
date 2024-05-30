@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Session; //custom
+use Illuminate\Support\Facades\Session; 
 use App\Models\Permission;
 class checkAuth
 {

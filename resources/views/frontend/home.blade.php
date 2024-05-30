@@ -85,107 +85,6 @@
         </div>
     </div>
 </section>  --}}
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <style>
-  /* Make the image fully responsive */
-
-  .carousel-inner img {
-    width: 80%;
-    height: 80%;
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  </style>
-=======
-    .carousel-control-next {
-    left: 80%;
-    right: auto
-}
-.carousel-control-prev {
-    right: 80%;
-    left: auto
-}
-.carousel-item {
-    transition: transform 3.6s ease-in-out;
-}
-.carousel-fade .active.carousel-item-start,
-.carousel-fade .active.carousel-item-end {
-    transition: opacity 3.6s;
-}
-
-    </style>
->>>>>>> 196b3f335e7ac20abebb9552823b33398a808efe
-</head>
-<body>
-    <div class="gray-box"></div>
- <main role="main">
-
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="first-slide d-block mx-auto position-relative" src="/images/banner/flutter.jpg" alt="First slide">
-            <div class="container">
-              <div class="carousel-caption text-left">
-                <h1>Lập trình Python</h1>
-                <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=flutter">Đăng ký ngay</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="second-slide d-block mx-auto position-relative" src="/images/banner/python.jpg" alt="Second slide">
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Lập trình Flutter</h1>
-                <p>Giảm ngay 1 triệu học phí cho 100 học viên nhanh nhất</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=python" role="button">Đăng ký ngay</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="third-slide d-block mx-auto position-relative" src="/images/banner/web.jpg" alt="Third slide">
-            <div class="container">
-              <div class="carousel-caption text-right">
-                <h1>Lập trình Web</h1>
-                <p>Học bổng 50% cho học viên đăng ký nhanh nhất.</p>
-                <p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/searchCourse?keywordf=web" role="button">Đăng ký ngay</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-       
-      </div>
-  
-    </body>
-</html> --}}
 
 <!-- Browse Categories Starts Here -->
 <section class="section browse-categories">
@@ -201,8 +100,9 @@
                 <div class="browse-categories-item default-item-one mb-2">
                     <div class="browse-categories-item-icon">
                         <div class="categories-one default-categories">
-                            <img src="{{asset('uploads/courseCategories/'.$cat->category_image)}}"
-                                class="rounded-circle" width="80" height="80" alt="">
+                            <a href="{{ route('search2Course', ['course_category_id' => $cat->id]) }}">
+                                <img src="{{asset('uploads/courseCategories/'.$cat->category_image)}}" class="rounded-circle" width="80" height="80" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="browse-categories-item-text">

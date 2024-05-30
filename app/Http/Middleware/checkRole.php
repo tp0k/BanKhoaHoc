@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use App\Models\User; //custom
 use Illuminate\Http\Request;
-use Session; //custom
+use Illuminate\Support\Facades\Session; //custom
 use App\Models\Permission; 
 use Yoeunes\Toastr\Facades\Toastr;//custom
 

@@ -5,8 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Student;
-use Session; //custom
-use App\Models\Permission; //custom
+use Illuminate\Support\Facades\Session;
 
 class checkStudent
 {
@@ -17,7 +16,7 @@ class checkStudent
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::has('userId') || Session::has('userId') == null) {
+        if (!Session::has('userId')) {
             return redirect()->route('studentlogOut');
         } else {
             $user = Student::where('status', 1)->where('id', currentUserId())->exists();
