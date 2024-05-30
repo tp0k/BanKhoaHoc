@@ -63,7 +63,7 @@
                         <div id="categoryCollapse" class="accordion-collapse collapse show"
                             aria-labelledby="categoryAcc" data-bs-parent="#sidebarFilter">
                             <div class="accordion-body">
-                                <form action="{{route('searchCourse')}}" method="get">
+                                <form action="{{route('search2Course')}}" method="get">
                                     @csrf
                                     <div class="accordion-body__item">
                                         <div class="check-box">
@@ -81,8 +81,8 @@
                                     @endphp
                                     <div class="accordion-body__item">
                                         <div class="check-box">
-                                            <input type="checkbox" class="checkbox-primary" name="categories[]" value="{{ $cat->id }}" {{ in_array($cat->id,
-                                            (array)$selectedCategories) ? 'checked' : '' }}>
+                                            <input type="checkbox" class="checkbox-primary" name="categories[]" value="{{ $cat->id }}" 
+                                                {{ in_array($cat->id, (array)$selectedCategories) ? 'checked' : '' }}>
                                             <label> {{$cat->category_name}} </label>
                                         </div>
                                         <p class="check-details">
@@ -373,64 +373,52 @@
                     <div class="col-md-6 mb-4">
                         <div class="contentCard contentCard--course">
                             <div class="contentCard-top">
-                                <a href="{{route('courseDetails', encryptor('encrypt', $c->id))}}"><img
-                                        src="{{asset('uploads/courses/'.$c->image)}}" alt="images"
-                                        class="img-fluid" /></a>
+                                <a href="{{route('courseDetails', encryptor('encrypt', $c->id))}}">
+                                    <img src="{{asset('uploads/courses/'.$c->image)}}" alt="images" class="img-fluid" />
+                                </a>
                             </div>
                             <div class="contentCard-bottom">
                                 <h5>
-                                    <a href="{{route('courseDetails', ['id' => encryptor('encrypt', $c->id)])}}"
-                                        class="font-title--card">{{$c->title_en}}</a>
+                                    <a href="{{route('courseDetails', ['id' => encryptor('encrypt', $c->id)])}}" class="font-title--card">{{$c->title_en}}</a>
                                 </h5>
                                 <div class="contentCard-info d-flex align-items-center justify-content-between">
-                                    <a href="{{route('instructorProfile', encryptor('encrypt', $c->instructor?->id))}}"
-                                        class="contentCard-user d-flex align-items-center">
-                                        <img src="{{asset('uploads/users/'.$c->instructor?->image)}}"
-                                            alt="Instructor Image" class="rounded-circle" height="34" width="34" />
+                                    <a href="{{route('instructorProfile', encryptor('encrypt', $c->instructor?->id))}}" class="contentCard-user d-flex align-items-center">
+                                        <img src="{{asset('uploads/users/'.$c->instructor?->image)}}" alt="Instructor Image" class="rounded-circle" height="34" width="34" />
                                         <p class="font-para--md">{{$c->instructor?->name_en}}</p>
                                     </a>
                                     <div class="price">
-                                        {{-- <span>{{$c->price==null?'Free':'VNĐ'.$c->price}}</span>
-                                        <del>{{$c->old_price?'VNĐ'.$c->old_price:''}}</del> --}}
-                                        <span>
-                                            @if($c->price == null)
-                                                Free
-                                            @else
-                                                {{ number_format($c->price) }} VNĐ
-                                            @endif
-                                        </span>
+                                        @if($c->price == null)
+                                            Free
+                                        @else
+                                            {{ number_format($c->price) }} VNĐ
+                                        @endif
                                         @if($c->old_price)
                                             <del><br>{{ number_format($c->old_price) }} VNĐ</del>
                                         @endif
-                                        
                                     </div>
                                 </div>
                                 <div class="contentCard-more">
                                     <div class="d-flex align-items-center">
                                         <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/star.png')}}"
-                                                alt="star" />
+                                            <img src="{{asset('frontend/dist/images/icon/star.png')}}" alt="star" />
                                         </div>
                                         <span>4.5</span>
                                     </div>
                                     <div class="eye d-flex align-items-center">
                                         <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/eye.png')}}"
-                                                alt="eye" />
+                                            <img src="{{asset('frontend/dist/images/icon/eye.png')}}" alt="eye" />
                                         </div>
                                         <span>24,517</span>
                                     </div>
                                     <div class="book d-flex align-items-center">
                                         <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/book.png')}}"
-                                                alt="location" />
+                                            <img src="{{asset('frontend/dist/images/icon/book.png')}}" alt="location" />
                                         </div>
                                         <span>{{$c->lesson}} bài</span>
                                     </div>
                                     <div class="clock d-flex align-items-center">
                                         <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/Clock.png')}}"
-                                                alt="clock" />
+                                            <img src="{{asset('frontend/dist/images/icon/Clock.png')}}" alt="clock" />
                                         </div>
                                         <span>{{$c->duration}} giờ</span>
                                     </div>
