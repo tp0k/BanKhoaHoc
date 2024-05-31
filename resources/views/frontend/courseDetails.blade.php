@@ -2491,7 +2491,7 @@
                                 @empty
                                 <div class="col-xl-4 col-md-6">
                                     <div class="contentCard contentCard--course">
-                                        <h3>Không có khóa học khả dụng</h3>
+                                        <h3>Không có khóa học liên quan!</h3>
                                     </div>
                                 </div>
                                 @endforelse
