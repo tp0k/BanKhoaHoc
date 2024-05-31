@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 30, 2024 lúc 04:33 PM
+-- Thời gian đã tạo: Th5 31, 2024 lúc 08:34 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -374,7 +374,7 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(1, '2023_12_14_000001_create_personal_access_tokens_table', 1),
 (2, '2024_04_24_184449_create_roles_table', 1),
 (3, '2024_04_24_184553_create_instructors_table', 1),
 (4, '2024_04_24_184622_create_users_table', 1),
@@ -408,7 +408,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (32, '2024_05_17_045655_create_transactions_table', 7),
 (33, '2024_05_19_161309_create_carts_table', 8),
 (34, '2024_05_20_173852_create_orders_table', 8),
-(35, '2024_05_28_173638_create_comment_table', 9);
+(35, '2024_05_28_173638_create_comment_table', 9),
+(36, '2024_05_31_162113_update_reviews_table', 10);
 
 -- --------------------------------------------------------
 
@@ -825,11 +826,18 @@ CREATE TABLE `reviews` (
   `student_id` bigint(20) UNSIGNED NOT NULL,
   `course_id` bigint(20) UNSIGNED NOT NULL,
   `rating` int(11) NOT NULL,
-  `comment` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `student_id`, `course_id`, `rating`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 11, 5, 5, '2024-05-31 10:37:14', '2024-05-31 10:37:14', NULL),
+(2, 12, 1, 4, '2024-05-31 11:30:39', '2024-05-31 11:30:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -1382,7 +1390,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `options`
@@ -1436,7 +1444,7 @@ ALTER TABLE `quizzes`
 -- AUTO_INCREMENT cho bảng `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
