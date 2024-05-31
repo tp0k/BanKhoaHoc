@@ -18,6 +18,26 @@
     <link rel="icon" type="image/png" href="{{asset('frontend/dist/images/favicon/favicon1.ico')}}" />
     <link rel="stylesheet" href="{{asset('frontend/fontawesome-free-5.15.4-web/css/all.min.css')}}">
     <style>
+        @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+/*reset css*/
+div,label{margin:0;padding:0;}
+body{margin:20px;}
+h1{font-size:1.5em;margin:10px;}
+/****** Style Star Rating Widget *****/
+#rating{border:none;float:left;}
+#rating>input{display:none;}/*ẩn input radio - vì chúng ta đã có label là GUI*/
+#rating>label:before{margin:5px;font-size:1.25em;font-family:FontAwesome;display:inline-block;content:"\f005";}/*1 ngôi sao*/
+#rating>.half:before{content:"\f089";position:absolute;}/*0.5 ngôi sao*/
+#rating>label{color:#ddd;float:right;}/*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+/*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+#rating>input:checked~label,
+#rating:not(:checked)>label:hover, 
+#rating:not(:checked)>label:hover~label{color:#FFD700;}
+/* Hover vào các sao phía trước ngôi sao đã chọn*/
+#rating>input:checked+label:hover,
+#rating>input:checked~label:hover,
+#rating>label:hover~input:checked~label,
+#rating>input:checked~label:hover~label{color:#FFED85;}
         .vjs-poster {
             width: 100%;
             background-size: cover;
@@ -86,17 +106,9 @@
                         <h5 class="font-title--sm material-title">{{$course->title_en}}</h5>
                         <nav class="course-description-start-content-tab">
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-ldescrip-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-ldescrip" type="button" role="tab" aria-controls="nav-ldescrip"
-                                    aria-selected="true">
-                                    Mô tả
-                                </button>
-                                <button class="nav-link" id="nav-lnotes-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-lnotes" type="button" role="tab" aria-controls="nav-lnotes"
-                                    aria-selected="false">Chú thích</button>
-                                <button class="nav-link" id="nav-lcomments-tab" data-bs-toggle="tab"
+                                <button class="nav-link active" id="nav-lcomments-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-lcomments" type="button" role="tab"
-                                    aria-controls="nav-lcomments" aria-selected="false">Bình luận</button>
+                                    aria-controls="nav-lcomments" aria-selected="true">Bình luận</button>
                                 <button class="nav-link" id="nav-loverview-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-loverview" type="button" role="tab"
                                     aria-controls="nav-loverview" aria-selected="false">Tổng quan về khoá học</button>
@@ -106,71 +118,9 @@
                             </div>
                         </nav>
                         <div class="tab-content course-description-start-content-tabitem" id="nav-tabContent">
-                            <!-- Lesson Description Starts Here -->
-                            <div class="tab-pane fade show active" id="nav-ldescrip" role="tabpanel"
-                                aria-labelledby="nav-ldescrip-tab">
-                                <div class="lesson-description">
-                                    <p>
-                                        <p>
-                                            Khóa học "Trở thành lập trình viên Python tương lai" cho trẻ tại Hải Phòng giúp 
-                                            học viên tiếp cận với lập trình chuyên nghiệp qua ngôn ngữ Python. 
-                                            Từ đó giúp các bạn tìm hiểu sâu hơn về những câu lệnh và sáng tạo ra những sản phẩm 
-                                            lập trình có tính ứng dụng cao.
-                                        </p>
-                                        <br>
-                                        <h5>Lập trình là gì?</h5>
-                                        <p>
-                                            Lập trình là viết các câu lệnh để đưa chỉ dẫn cho máy tính hoạt động, một chuỗi các câu lệnh được gọi là chương trình. 
-                                            Những chương trình này điều khiển mọi thứ từ điện thoại thông minh đến tên lửa vũ trụ.
-                                            <br>
-                                            Để viết một chương trình máy tính, bạn cần biến các chỉ dẫn của mình thành các câu lệnh rõ ràng, 
-                                            và phải diễn đạt bằng ngôn ngữ mà máy tính có thể hiểu được.
-                                        </p>
-                                        <br>
-                                        <h5>Vì sao học và sử dụng Python?</h5>
-                                        <p>
-                                            Python là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. 
-                                            Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.
-                                            <br>
-                                            Rất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. 
-                                            Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.
-                                            <br>
-                                            Để khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. 
-                                            Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học 
-                                            <b>“Trở thành lập trình viên Python tương lai”</b> tại Học viện công nghệ CNET. 
-                                            Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình 
-                                            đầu tiên cho tới các trò chơi do chính bạn tạo ra. 
-                                            Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.
-                                        </p>
-                                    </p>
-                                </div>
-                                <!-- Lesson Description Ends Here -->
-                            </div>
-                            <!-- Course Notes Starts Here -->
-                            <div class="tab-pane fade" id="nav-lnotes" role="tabpanel" aria-labelledby="nav-lnotes-tab">
-                                <div class="course-notes-area">
-                                    <div class="course-notes">
-                                        <div class="course-notes-item">
-                                            <h5>Nội dung khoá học</h5>
-                                            <ul class="bullet-list">
-                                                <li>Giới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số</li>
-                                                <li>Biến số, ra quyết định, Giải thuật,</li>
-                                                <li>Trò chơi dự đoán</li>
-                                                <li>Vòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách</li>
-                                                <li>Từ điển, tin tức mã hóa</li>
-                                                <li>Công cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác</li>
-                                                <li>Trò chơi dò bom, Trò chơi vợt và bóng</li>
-                                                <li>Tải Python, quản lý tập tin, Gỡ lỗi</li>
-                                                <li>Cửa sổ nào, Xem nhanh mã lệnh</li>
-                                                <li>Bảng chú giải</li>
-                                            </ul> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Course Notes Ends Here -->
-                            </div>
+                           
                             <!-- bình luận bắt đầu từ đây -->
-                            <div class="tab-pane fade" id="nav-lcomments" role="tabpanel"
+                            <div class="tab-pane fade show active" id="nav-lcomments" role="tabpanel"
                                 aria-labelledby="nav-lcomments-tab">
                                 <div class="lesson-comments">
                                     <div class="feedback-comment pt-0 ps-0 pe-0">
@@ -212,9 +162,10 @@
                                             <p>{{$c->content}}</p>
                                         </div>
                                         @endforeach
-                                        
-                                <!-- hết bình luận -->
+                                    </div>        
+                                </div>
                             </div>
+                             <!-- hết bình luận -->
                             <!-- Course Overview Starts Here -->
                             <div class="tab-pane fade" id="nav-loverview" role="tabpanel"
                                 aria-labelledby="nav-loverview-tab">
@@ -251,7 +202,7 @@
                                                             {{$course?->instructor?->name_en}}</a></h6>
                                                     <p>{{$course?->instructor?->designation}}</p>
                                                     <div class="d-flex align-items-center instructor-text-bottom">
-                                                        <div class="d-flex align-items-center ratings-icon">
+                                                        {{-- <div class="d-flex align-items-center ratings-icon">
                                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -261,7 +212,7 @@
                                                                 </path>
                                                             </svg>
                                                             <p>Đánh giá 4.9 sao</p>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="d-flex align-items-center ratings-icon">
                                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -277,7 +228,8 @@
                                                                 </path>
                                                             </svg>
 
-                                                            <p>4 khoá học</p>
+                                                            <div class="text text-center"><p> </p><p>{{$course?->instructor?->courses()->where('status', 2)->count()}}</p></div>
+                                                            <div class="text text-center"><p>Khóa học</p></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -362,14 +314,44 @@
                 </div>
                 <div class="modal-body text-center pt-0 pb-0">
                     <div class="modal-body-rating">
-                        <p>4.5 <span>(Tốt/Tuyệt)</span></p>
+                        <div id="rating">
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                            
+                            <input type="radio" id="star4half" name="rating" value="4 and a half" />
+                            <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                            
+                            <input type="radio" id="star4" name="rating" value="4" />
+                            <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                            
+                            <input type="radio" id="star3half" name="rating" value="3 and a half" />
+                            <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                            
+                            <input type="radio" id="star3" name="rating" value="3" />
+                            <label class = "full" for="star3" title="Meh - 3 stars"></label>
+                            
+                            <input type="radio" id="star2half" name="rating" value="2 and a half" />
+                            <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                            
+                            <input type="radio" id="star2" name="rating" value="2" />
+                            <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                            
+                            <input type="radio" id="star1half" name="rating" value="1 and a half" />
+                            <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                            
+                            <input type="radio" id="star1" name="rating" value="1" />
+                            <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            
+                            <input type="radio" id="starhalf" name="rating" value="half" />
+                            <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                        </div>
                         <div class="my-rating rating-icons rating-icons-modal"></div>
                     </div>
                 </div>
                 <div class="modal-footer border-0">
                     <form action="#" class="w-100">
                         <label for="messages">Tin nhắn</label>
-                        <textarea id="messages" placeholder="How is your to feeling taking these course?"
+                        <textarea id="messages" placeholder="Hãy để lại đánh giá của bạn về khóa học"
                             class="w-100"></textarea>
                         <button type="submit" class="button button-md button--primary w-100">Gửi</button>
                     </form>
@@ -393,13 +375,18 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script>
-        $(".my-rating").starRating({
-                    starSize: 30,
-                    activeColor: "#FF7A1A",
-                    hoverColor: "#FF7A1A",
-                    ratedColors: ["#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A"],
-                    starShape: "rounded",
-        });
+        function calcRate(r) {
+ const f = ~~r,//Tương tự Math.floor(r)
+ id = 'star' + f + (r % f ? 'half' : '')
+ id && (document.getElementById(id).checked = !0)
+}
+        // $(".my-rating").starRating({
+        //             starSize: 30,
+        //             activeColor: "#FF7A1A",
+        //             hoverColor: "#FF7A1A",
+        //             ratedColors: ["#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A"],
+        //             starShape: "rounded",
+        // });
 
         function show_video(e){
             let link="{{asset('uploads/courses/contents')}}/"+e
