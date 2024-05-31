@@ -182,75 +182,75 @@
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
                     <div class="row">
-                        @forelse ($popularCourses as $pc)
-                        <div class="col-xl-4 col-md-6">
-                            <div class="contentCard contentCard--course">
-                                {{-- <div class="contentCard-top">
-                                    <a href=""><img src="{{asset('uploads/courses/'.$pc->image)}}" alt="images"
-                                            class="img-fluid" /></a>
-                                </div> --}}
-                                <div class="contentCard-top">
-                                    <a href="{{route('courseDetails', ['id' => encryptor('encrypt', $pc->id)]) }}">
-                                        <img src="{{ asset('uploads/courses/'.$pc->image) }}" alt="images" class="img-fluid" />
-                                    </a>
-                                </div>
-                                <div class="contentCard-bottom">
-                                    <h5>
-                                        <a href="{{route('courseDetails', ['id' => encryptor('encrypt', $pc->id)])}}"
-                                            class="font-title--card">{{$pc->title_en}}</a>
-                                    </h5>
-                                    <div class="contentCard-info d-flex align-items-center justify-content-between">
-                                        <a href="{{route('instructorProfile', encryptor('encrypt', $pc->instructor?->id))}}"
-                                            class="contentCard-user d-flex align-items-center">
-                                            <img src="{{asset('uploads/users/'.$pc?->instructor->image)}}"
-                                                alt="client-image" class="rounded-circle" height="34" width="34" />
-                                            <p class="font-para--md">{{$pc?->instructor->name_en}}</p>
-                                        </a>
-                                        <div class="price">
-                                            <span>{{$pc->price?number_format($pc->price).'VNĐ':'Free'}}</span>
-                                            <del>{{$pc->old_price?number_format($pc->old_price). 'VNĐ':''}}</del>
+                        <div class="col-12 position-relative px-0 mx-0">
+                            <div class="eventsSlider slick-slider">
+                                @forelse ($popularCourses as $pc)
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="contentCard contentCard--course">
+                                        <div class="contentCard-top">
+                                            <a href="{{route('courseDetails', ['id' => encryptor('encrypt', $pc->id)]) }}">
+                                                <img src="{{ asset('uploads/courses/'.$pc->image) }}" alt="images" class="img-fluid" />
+                                            </a>
+                                        </div>
+                                        <div class="contentCard-bottom">
+                                            <h5>
+                                                <a href="{{route('courseDetails', ['id' => encryptor('encrypt', $pc->id)])}}"
+                                                    class="font-title--card">{{$pc->title_en}}</a>
+                                            </h5>
+                                            <div class="contentCard-info d-flex align-items-center justify-content-between">
+                                                <a href="{{route('instructorProfile', encryptor('encrypt', $pc->instructor?->id))}}"
+                                                    class="contentCard-user d-flex align-items-center">
+                                                    <img src="{{asset('uploads/users/'.$pc?->instructor->image)}}"
+                                                        alt="client-image" class="rounded-circle" height="34" width="34" />
+                                                    <p class="font-para--md">{{$pc?->instructor->name_en}}</p>
+                                                </a>
+                                                <div class="price">
+                                                    <span>{{$pc->price?number_format($pc->price).'VNĐ':'Free'}}</span>
+                                                    <del>{{$pc->old_price?number_format($pc->old_price). 'VNĐ':''}}</del>
+                                                </div>
+                                            </div>
+                                            <div class="contentCard-more">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="icon">
+                                                        <img src="{{asset('frontend/dist/images/icon/star.png')}}"
+                                                            alt="star" />
+                                                    </div>
+                                                    <span>4.5</span>
+                                                </div>
+                                                <div class="eye d-flex align-items-center">
+                                                    <div class="icon">
+                                                        <img src="{{asset('frontend/dist/images/icon/eye.png')}}"
+                                                            alt="eye" />
+                                                    </div>
+                                                    <span>24,517</span>
+                                                </div>
+                                                <div class="book d-flex align-items-center">
+                                                    <div class="icon">
+                                                        <img src="{{asset('frontend/dist/images/icon/book.png')}}"
+                                                            alt="location" />
+                                                    </div>
+                                                    <span>{{$pc->lesson?$pc->lesson:0}} Bài giảng</span>
+                                                </div>
+                                                <div class="clock d-flex align-items-center">
+                                                    <div class="icon">
+                                                        <img src="{{asset('frontend/dist/images/icon/Clock.png')}}"
+                                                            alt="clock" />
+                                                    </div>
+                                                    <span>{{$pc->duration?$pc->duration:0}} Giờ</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="contentCard-more">
-                                        <div class="d-flex align-items-center">
-                                            <div class="icon">
-                                                <img src="{{asset('frontend/dist/images/icon/star.png')}}"
-                                                    alt="star" />
-                                            </div>
-                                            <span>4.5</span>
-                                        </div>
-                                        <div class="eye d-flex align-items-center">
-                                            <div class="icon">
-                                                <img src="{{asset('frontend/dist/images/icon/eye.png')}}"
-                                                    alt="eye" />
-                                            </div>
-                                            <span>24,517</span>
-                                        </div>
-                                        <div class="book d-flex align-items-center">
-                                            <div class="icon">
-                                                <img src="{{asset('frontend/dist/images/icon/book.png')}}"
-                                                    alt="location" />
-                                            </div>
-                                            <span>{{$pc->lesson?$pc->lesson:0}} Bài giảng</span>
-                                        </div>
-                                        <div class="clock d-flex align-items-center">
-                                            <div class="icon">
-                                                <img src="{{asset('frontend/dist/images/icon/Clock.png')}}"
-                                                    alt="clock" />
-                                            </div>
-                                            <span>{{$pc->duration?$pc->duration:0}} Giờ</span>
-                                        </div>
+                                </div>
+                                @empty
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="contentCard contentCard--course">
+                                        <h3>Không có khóa học khả dụng</h3>
                                     </div>
                                 </div>
+                                @endforelse
                             </div>
                         </div>
-                        @empty
-                        <div class="col-xl-4 col-md-6">
-                            <div class="contentCard contentCard--course">
-                                <h3>Không có khóa học khả dụng</h3>
-                            </div>
-                        </div>
-                        @endforelse
                     </div>
                     <div class="row">
                         <div class="col-lg-12 text-center">
@@ -939,7 +939,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 position-relative">
-                <section id="instructor_section"><h3 class="text-center mb-40 font-title--md" >Giáo viên tiêu biểu</h3></section>
+                <section id="instructor_section"><h3 class="text-center mb-40 font-title--md" >Giáo viên </h3></section>
                 <div class="ourinstructor__wrapper mt-lg-5 mt-0">
                     <div class="ourinstructor-active">
                         @forelse ($instructor as $i)

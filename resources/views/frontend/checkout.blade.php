@@ -41,27 +41,13 @@
                                 </div>
                                 <!-- phương thức thanh toán -->
                                 <div class="mb-3">
-                                    <input type="radio" id="credit_card" name="payment_method" value="credit_card">
-                                    <label for="credit_card">Thẻ tín dụng</label>
-                                </div>
-
-                                <div class="mb-3">
-                                    <input type="radio" id="bank_transfer" name="payment_method" value="bank_transfer">
-                                    <label for="bank_transfer">Chuyển khoản ngân hàng</label>
-                                </div>
-
-                                <div class="mb-3">
-                                    <input type="radio" id="e_wallet" name="payment_method" value="e_wallet">
-                                    <label for="e_wallet">Ví điện tử</label>
-                                    <div id="e_wallet_options" style="display: none;">
-                                        <div class="ewallet-option">
-                                            <input type="radio" id="momo" name="e_wallet_provider" value="momo">
-                                            <label for="momo">Momo</label>
-                                        </div>
-                                        <div class="ewallet-option">
-                                            <input type="radio" id="vnpay" name="e_wallet_provider" value="vnpay">
-                                            <label for="vnpay">VNPay</label>
-                                        </div>
+                                    <div class="ewallet-option">
+                                        <input type="radio" id="momo" name="e_wallet_provider" value="momo">
+                                        <label for="momo">Momo</label>
+                                    </div>
+                                    <div class="ewallet-option">
+                                        <input type="radio" id="vnpay" name="e_wallet_provider" value="vnpay">
+                                        <label for="vnpay">VNPay</label>
                                     </div>
                                 </div>
                                 {{-- <button type="submit" name="redirect" class="button button-lg button--primary w-100"> Thanh toán
