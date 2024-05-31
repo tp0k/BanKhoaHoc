@@ -6,14 +6,19 @@
 <div id="slide">
     <div class="gray-box"></div>
     <div class="owl-carousel owl-theme">
+        {{-- @foreach($banners as $banner)
+            <a href="{{ route('courseDetails', encryptor('encrypt', $banner->course_id)) }}">
+                <img src="{{ asset('storage/' . $banner->image_url) }}" alt="Banner">
+            </a>
+        @endforeach --}}
         <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
         <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="">
         <picture>
-            {{-- <source class="owl-lazy" media="(min-width: 650px)" data-srcset="/images/banner/flutter.jpg"> --}}
+            
             <source class="owl-lazy" data-srcset="/images/banner/flutter.jpg">
-                {{-- <source class="owl-lazy" media="(min-width: 350px)" data-srcset="https://placehold.it/350x250&text=3-medium"> --}}
+                
             <source class="owl-lazy" data-srcset="/images/banner/flutter.jpg">
-            {{-- <img class="owl-lazy" data-src="https://placehold.it/350x250&text=3-fallback" alt=""> --}}
+            
             <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="">
         </picture>
         {{-- <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
@@ -106,7 +111,7 @@
                         </div>
                     </div>
                     <div class="browse-categories-item-text">
-                        <h6 class="font-title--card"><a href="#">{{$cat->category_name}}</a></h6>
+                        <h6 class="font-title--card"><a href="{{ route('search2Course', ['course_category_id' => $cat->id]) }}">{{$cat->category_name}}</a></h6>
                         <p>{{ $courseCount }} Khóa học</p>
                     </div>
                 </div>
