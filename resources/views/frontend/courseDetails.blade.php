@@ -2430,229 +2430,81 @@
             <div class="col-lg-12">
                 <h2 class="font-title--md text-center">Khóa học liên quan</h2>
             </div>
-            <div class="row">
-                <div class="col-12 position-relative px-0 mx-0">
-                    <div class="new__courses">
-                        <div class="contentCard contentCard--course contentCard--space">
-                            <div class="contentCard-top">
-                                <a href="#"><img src="{{asset('frontend/dist/images/courses/demo-img-01.png')}}"
-                                        alt="images" class="img-fluid" /></a>
-                            </div>
-                            <div class="contentCard-bottom">
-                                <h5>
-                                    <a href="#" class="font-title--card">Khoá học luyện thi MCSA</a>
-                                </h5>
-                                <div class="contentCard-info d-flex align-items-center justify-content-between">
-                                    <a href="instructor-profile.html"
-                                        class="contentCard-user d-flex align-items-center">
-                                        <img src="{{asset('frontend/dist/images/courses/lan.png')}}"
-                                            alt="client-image" class="rounded-circle" />
-                                        <p class="font-para--md">Lan Tô</p>
-                                    </a>
-                                    <div class="price">
-                                        <span>1200 VNĐ</span>
-                                        <del>9500 VNĐ</del>
+        </div>
+        <div class="row">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+                    <div class="row">
+                        <div class="col-12 position-relative px-0 mx-0">
+                            <div class="eventsSlider slick-slider">
+                                @forelse ($relatedCourses as $rc)
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="contentCard contentCard--course">
+                                        <div class="contentCard-top">
+                                            <a href="{{ route('courseDetails', ['id' => encryptor('encrypt', $rc->id)]) }}">
+                                                <img src="{{ asset('uploads/courses/'.$rc->image) }}" alt="images" class="img-fluid" />
+                                            </a>
+                                        </div>
+                                        <div class="contentCard-bottom">
+                                            <h5>
+                                                <a href="{{ route('courseDetails', ['id' => encryptor('encrypt', $rc->id)]) }}" class="font-title--card">{{ $rc->title_en }}</a>
+                                            </h5>
+                                            <div class="contentCard-info d-flex align-items-center justify-content-between">
+                                                <a href="{{ route('instructorProfile', encryptor('encrypt', $rc->instructor->id)) }}" class="contentCard-user d-flex align-items-center">
+                                                    <img src="{{ asset('uploads/users/'.$rc->instructor->image) }}" alt="client-image" class="rounded-circle" height="34" width="34" />
+                                                    <p class="font-para--md">{{ $rc->instructor->name_en }}</p>
+                                                </a>
+                                                <div class="price">
+                                                    <span>{{ $rc->price ? number_format($rc->price).'VNĐ' : 'Free' }}</span>
+                                                    <del>{{ $rc->old_price ? number_format($rc->old_price). 'VNĐ' : '' }}</del>
+                                                </div>
+                                            </div>
+                                            <div class="contentCard-more">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="icon">
+                                                        <img src="{{ asset('frontend/dist/images/icon/star.png') }}" alt="star" />
+                                                    </div>
+                                                    <span>4.5</span>
+                                                </div>
+                                                <div class="eye d-flex align-items-center">
+                                                    <div class="icon">
+                                                        <img src="{{ asset('frontend/dist/images/icon/eye.png') }}" alt="eye" />
+                                                    </div>
+                                                    <span>24,517</span>
+                                                </div>
+                                                <div class="book d-flex align-items-center">
+                                                    <div class="icon">
+                                                        <img src="{{ asset('frontend/dist/images/icon/book.png') }}" alt="location" />
+                                                    </div>
+                                                    <span>{{ $rc->lesson ? $rc->lesson : 0 }} Bài giảng</span>
+                                                </div>
+                                                <div class="clock d-flex align-items-center">
+                                                    <div class="icon">
+                                                        <img src="{{ asset('frontend/dist/images/icon/Clock.png') }}" alt="clock" />
+                                                    </div>
+                                                    <span>{{ $rc->duration ? $rc->duration : 0 }} Giờ</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="contentCard-more">
-                                    <div class="d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/star.png')}}"
-                                                alt="star" />
-                                        </div>
-                                        <span>4.5</span>
-                                    </div>
-                                    <div class="eye d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/eye.png')}}"
-                                                alt="eye" />
-                                        </div>
-                                        <span>24,517</span>
-                                    </div>
-                                    <div class="book d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/book.png')}}"
-                                                alt="location" />
-                                        </div>
-                                        <span>37 Bài học</span>
-                                    </div>
-                                    <div class="clock d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/Clock.png')}}"
-                                                alt="clock" />
-                                        </div>
-                                        <span>3 giờ</span>
+                                @empty
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="contentCard contentCard--course">
+                                        <h3>Không có khóa học khả dụng</h3>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="contentCard contentCard--course contentCard--space">
-                            <div class="contentCard-top">
-                                <a href="#"><img src="{{asset('frontend/dist/images/courses/demo-img-02.png')}}"
-                                        alt="images" class="img-fluid" /></a>
-                            </div>
-                            <div class="contentCard-bottom">
-                                <h5>
-                                    <a href="#" class="font-title--card">Khoá học lập trình WEB Full-Stack</a>
-                                </h5>
-                                <div class="contentCard-info d-flex align-items-center justify-content-between">
-                                    <a href="instructor-profile.html"
-                                        class="contentCard-user d-flex align-items-center">
-                                        <img src="{{asset('frontend/dist/images/courses/thao.png')}}"
-                                            alt="client-image" class="rounded-circle" />
-                                        <p class="font-para--md">Thảo Phương</p>
-                                    </a>
-                                    <div class="price">
-                                        <span>1200 VNĐ</span>
-                                        <del>9500 VNĐ</del>
-                                    </div>
-                                </div>
-                                <div class="contentCard-more">
-                                    <div class="d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/star.png')}}"
-                                                alt="star" />
-                                        </div>
-                                        <span>4.5</span>
-                                    </div>
-                                    <div class="eye d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/eye.png')}}"
-                                                alt="eye" />
-                                        </div>
-                                        <span>24,517</span>
-                                    </div>
-                                    <div class="book d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/book.png')}}"
-                                                alt="location" />
-                                        </div>
-                                        <span>37 Bài học</span>
-                                    </div>
-                                    <div class="clock d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/Clock.png')}}"
-                                                alt="clock" />
-                                        </div>
-                                        <span>3 Giờ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contentCard contentCard--course contentCard--space">
-                            <div class="contentCard-top">
-                                <a href="#"><img src="{{asset('frontend/dist/images/courses/demo-img-03.png')}}"
-                                        alt="images" class="img-fluid" /></a>
-                            </div>
-                            <div class="contentCard-bottom">
-                                <h5>
-                                    <a href="#" class="font-title--card">Khoá học luyện thi CCNA</a>
-                                </h5>
-                                <div class="contentCard-info d-flex align-items-center justify-content-between">
-                                    <a href="instructor-profile.html"
-                                        class="contentCard-user d-flex align-items-center">
-                                        <img src="{{asset('frontend/dist/images/courses/dan.png')}}"
-                                            alt="client-image" class="rounded-circle" />
-                                        <p class="font-para--md">Đan Nguyễn</p>
-                                    </a>
-                                    <div class="price">
-                                        <span>1200 VNĐ</span>
-                                        <del>9500 VNĐ</del>
-                                    </div>
-                                </div>
-                                <div class="contentCard-more">
-                                    <div class="d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/star.png')}}"
-                                                alt="star" />
-                                        </div>
-                                        <span>4.5</span>
-                                    </div>
-                                    <div class="eye d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/eye.png')}}"
-                                                alt="eye" />
-                                        </div>
-                                        <span>24,517</span>
-                                    </div>
-                                    <div class="book d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/book.png')}}"
-                                                alt="location" />
-                                        </div>
-                                        <span>37 Bài học</span>
-                                    </div>
-                                    <div class="clock d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/Clock.png')}}"
-                                                alt="clock" />
-                                        </div>
-                                        <span>3 Giờ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contentCard contentCard--course contentCard--space">
-                            <div class="contentCard-top">
-                                <a href="#"><img src="{{asset('frontend/dist/images/courses/demo-img-04.png')}}"
-                                        alt="images" class="img-fluid" /></a>
-                            </div>
-                            <div class="contentCard-bottom">
-                                <h5>
-                                    <a href="#" class="font-title--card">Khoá học Scratch</a>
-                                </h5>
-                                <div class="contentCard-info d-flex align-items-center justify-content-between">
-                                    <a href="instructor-profile.html"
-                                        class="contentCard-user d-flex align-items-center">
-                                        <img src="{{asset('frontend/dist/images/courses/7.png')}}"
-                                            alt="client-image" class="rounded-circle" />
-                                        <p class="font-para--md">Thanh Lê</p>
-                                    </a>
-                                    <div class="price">
-                                        <span>1299 VNĐ</span>
-                                        <del>9599 VNĐ</del>
-                                    </div>
-                                </div>
-                                <div class="contentCard-more">
-                                    <div class="d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/star.png')}}"
-                                                alt="star" />
-                                        </div>
-                                        <span>4.5</span>
-                                    </div>
-                                    <div class="eye d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/eye.png')}}"
-                                                alt="eye" />
-                                        </div>
-                                        <span>24,517</span>
-                                    </div>
-                                    <div class="book d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/book.png')}}"
-                                                alt="location" />
-                                        </div>
-                                        <span>37 Bài học</span>
-                                    </div>
-                                    <div class="clock d-flex align-items-center">
-                                        <div class="icon">
-                                            <img src="{{asset('frontend/dist/images/icon/Clock.png')}}"
-                                                alt="clock" />
-                                        </div>
-                                        <span>3 Giờ</span>
-                                    </div>
-                                </div>
+                                @endforelse
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
     <div class="new-course-overlay">
-        <img src="{{asset('frontend/dist/images/shape/circle5.png')}}" alt="shape" class="img-fluid shape01" />
-        <img src="{{asset('frontend/dist/images/shape/dots/dots-img-15.png')}}" alt="shape"
+        <img src="{{ asset('frontend/dist/images/shape/circle5.png') }}" alt="shape" class="img-fluid shape01" />
+        <img src="{{ asset('frontend/dist/images/shape/dots/dots-img-15.png') }}" alt="shape"
             class="img-fluid shape02" />
     </div>
 </section>
