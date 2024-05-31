@@ -76,20 +76,20 @@
 <body>
 
 <!-- Header Starts Here -->
-<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #ccc;">
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
     <div>
         <img src="{{ asset('images/logo.png') }}" alt="CNET Logo" style="height: 50px;">
-    </div>
-    <div style="text-align: center; flex-grow: 1;">
-        <h1>HÓA ĐƠN</h1>
-    </div>
-    <div style="width: 50px;"> <!-- Placeholder để logo ở giữa -->
     </div>
 </header>
     {{-- <div class="container">
         <div class="header clearfix">
             <h3 class="text-muted">HOÁ ĐƠN</h3>
         </div> --}}
+        <div style="text-align: center; flex-grow: 1;">
+            <h1>HÓA ĐƠN</h1>
+        </div>
+        <div style="width: 50px;"> <!-- Placeholder để logo ở giữa -->
+        </div>
         <div class="table-responsive">
             <div class="form-group">
                 <label>Mã đơn hàng:</label>
