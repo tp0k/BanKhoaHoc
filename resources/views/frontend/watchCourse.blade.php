@@ -78,9 +78,18 @@ h1{font-size:1.5em;margin:10px;}
                     </div>
                 </div>
                 <div class="coursedescription-header-end">
+                    @php
+                    $review = DB::table('reviews')->where('course_id',$course->id)->where('student_id',session('id'))
+                    ->first()
+                    @endphp
+                   
+                
+                    @if($review)
+                    <h5 class="button button--text" data-bs-toggle="modal" >Bạn đã đánh giá: {{ $review->rating}} sao</h5>
+                    @else
                     <!-- <a href="#" class="rating-link" data-bs-toggle="modal" data-bs-target="#ratingModal">Leave a Rating</a> -->
                     <a href="#" class="button button--text" data-bs-toggle="modal" data-bs-target="#ratingModal">Để lại xếp hạng</a>
-
+                    @endif
                     <!-- <a href="#" class="btn btn-primary regular-fill-btn">Next Lession</a> -->
                     <button class="button button--primary">Video tiếp theo</button>
                 </div>
@@ -124,7 +133,6 @@ h1{font-size:1.5em;margin:10px;}
                                 aria-labelledby="nav-lcomments-tab">
                                 <div class="lesson-comments">
                                     <div class="feedback-comment pt-0 ps-0 pe-0">
-                                        <h6 class="font-title--card">Thêm một bình luận công khai</h6>
                                         <form action="/comment" method="POST">
                                             @csrf
                                             <label for="comment">Bình luận</label>
@@ -303,7 +311,7 @@ h1{font-size:1.5em;margin:10px;}
     </div>
     <!-- Course Description Ends Here -->
 
-    <!-- Rating Modal -->
+    <!-- Đánh giá  -->
     <div class="modal fade modal--rating" id="ratingModal" tabindex="-1" aria-labelledby="ratingModal"
         aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-dialog-centered">
@@ -312,53 +320,62 @@ h1{font-size:1.5em;margin:10px;}
                     <h5 class="modal-title">Để lại đánh giá</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
+  
+                <script>
+                    window.onload = function() {
+                        var stars = document.querySelectorAll('input[type=radio][name="rating"]');
+                        var result = document.getElementById('result');
+                        stars.forEach(function(star) {
+                            star.addEventListener('mouseover', function() {
+                                result.textContent = this.nextElementSibling.title;
+                            });
+                            star.addEventListener('click', function() {
+                                result.textContent = 'Bạn chọn đánh giá: ' + this.nextElementSibling.title;
+                            });
+                        });
+                    };
+                </script>
                 <div class="modal-body text-center pt-0 pb-0">
                     <div class="modal-body-rating">
-                        <div id="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                        <form action="{{ route('saveRating') }}" method="post" id="rating">
+                            @csrf
                             
-                            <input type="radio" id="star4half" name="rating" value="4 and a half" />
-                            <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label class = "full" for="star5" title="Tuyệt"></label>
                             
                             <input type="radio" id="star4" name="rating" value="4" />
-                            <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                            
-                            <input type="radio" id="star3half" name="rating" value="3 and a half" />
-                            <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                            <label class = "full" for="star4" title="Khá tốt"></label>
+
                             
                             <input type="radio" id="star3" name="rating" value="3" />
-                            <label class = "full" for="star3" title="Meh - 3 stars"></label>
-                            
-                            <input type="radio" id="star2half" name="rating" value="2 and a half" />
-                            <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                            <label class = "full" for="star3" title="Bình thường"></label>
                             
                             <input type="radio" id="star2" name="rating" value="2" />
-                            <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                            
-                            <input type="radio" id="star1half" name="rating" value="1 and a half" />
-                            <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                            <label class = "full" for="star2" title="Không hay lắm"></label>
                             
                             <input type="radio" id="star1" name="rating" value="1" />
-                            <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            <label class = "full" for="star1" title="Tệ"></label>
+
+                            <input type="hidden" name="course_id" value="{{ $course->id }}"/>
+                            <br>
+                            <button type="submit" class="button button--primary" style = "padding: 5px 10px;
+                                font-size: 12px; margin: 10px;">Đánh giá ngay</button>
                             
-                            <input type="radio" id="starhalf" name="rating" value="half" />
-                            <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                        </div>
-                        <div class="my-rating rating-icons rating-icons-modal"></div>
+                            <br>
+
+                        </form>
+                        <div id="result"></div>
+
                     </div>
-                </div>
-                <div class="modal-footer border-0">
-                    <form action="#" class="w-100">
-                        <label for="messages">Tin nhắn</label>
-                        <textarea id="messages" placeholder="Hãy để lại đánh giá của bạn về khóa học"
-                            class="w-100"></textarea>
-                        <button type="submit" class="button button-md button--primary w-100">Gửi</button>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
 
 
 
@@ -380,13 +397,7 @@ h1{font-size:1.5em;margin:10px;}
  id = 'star' + f + (r % f ? 'half' : '')
  id && (document.getElementById(id).checked = !0)
 }
-        // $(".my-rating").starRating({
-        //             starSize: 30,
-        //             activeColor: "#FF7A1A",
-        //             hoverColor: "#FF7A1A",
-        //             ratedColors: ["#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A"],
-        //             starShape: "rounded",
-        // });
+       
 
         function show_video(e){
             let link="{{asset('uploads/courses/contents')}}/"+e

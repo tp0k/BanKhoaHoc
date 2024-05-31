@@ -32,6 +32,7 @@ use App\Http\Controllers\LessonController as lesson;
 use App\Http\Controllers\EnrollmentController as enrollment;
 use App\Http\Controllers\EventController as event;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ReviewController;
 
 /* students */
 use App\Http\Controllers\Students\AuthController as sauth;
@@ -118,6 +119,7 @@ Route::get('watchCourse/{id}', [watchCourse::class, 'watchCourse'])->name('watch
 Route::get('instructorProfile/{id}', [instructor::class, 'frontShow'])->name('instructorProfile');
 Route::get('checkout', [checkout::class, 'index'])->name('checkout');
 Route::post('checkout', [checkout::class, 'store'])->name('checkout.store');
+Route::post('/saveRating', [ReviewController::class, 'store'])->name('saveRating');
 
 // Cart
 Route::get('/cart_page', [CartController::class, 'index']);
