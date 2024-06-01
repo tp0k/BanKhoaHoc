@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Danh sách sự kiện')
+@section('title', 'Danh sách tin tức')
 
 @push('styles')
 <!-- Datatable -->
@@ -18,14 +18,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Danh sách sự kiện</h4>
+                    <h4>Danh sách tin tức</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('event.index')}}">Sự kiện</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('event.index')}}">Tất cả sự kiện</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('event.index')}}">Tin tức</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('event.index')}}">Tất cả tin tức</a></li>
                 </ol>
             </div>
         </div>
@@ -36,7 +36,7 @@
                     <div id="list-view" class="tab-pane fade active show col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Danh sách sự kiện </h4>
+                                <h4 class="card-title">Danh sách tin tức </h4>
                                 <a href="{{route('event.create')}}" class="btn btn-primary">Thêm mới</a>
                             </div>
                             <div class="card-body">
@@ -45,7 +45,7 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('Thứ tự')}}</th>
-                                                <th>{{__('Sự kiện')}}</th>
+                                                <th>{{__('Tin tức')}}</th>
                                                 <th>{{__('Chủ để')}}</th>
                                                 <th>{{__('Vị trí')}}</th>
                                                 <th>{{__('Ngày')}}</th>
@@ -55,7 +55,7 @@
                                         <tbody>
                                             @forelse ($event as $e)
                                             <tr>
-                                                <td><img src="{{asset('public/uploads/events/'.$e->image)}}"
+                                                <td><img src="{{asset('uploads/events/'.$e->image)}}"
                                                         class="w-100" height="50"></td>
                                                 <td><strong>{{$e->title}}</strong></td>
                                                 <td><strong>{{$e->topic}}</strong></td>
@@ -77,7 +77,7 @@
                                             </tr>
                                             @empty
                                             <tr>
-                                                <th colspan="6" class="text-center">Không tìm thấy sự kiện nào </th>
+                                                <th colspan="6" class="text-center">Không tìm thấy tin tức nào </th>
                                             </tr>
                                             @endforelse
                                         </tbody>

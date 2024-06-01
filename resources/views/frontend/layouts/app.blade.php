@@ -102,9 +102,7 @@ background-color: #f1f1f1;
                             <a class="nav-link" aria-current="page" href="{{route('about')}}">Về chúng tôi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Sự kiện
-                            </a>
+                            <a class="nav-link" href="{{route('events')}}">Sự kiện</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('contact')}}">Liên hệ</a>
@@ -428,7 +426,7 @@ background-color: #f1f1f1;
                         <ul>
                             <li><a href="http://127.0.0.1:8000/about">Về chúng tôi</a></li>
                             <li><a href="http://127.0.0.1:8000/searchCourse">Khoá học</a></li>
-                            <li><a href="event-search.html">Sự kiện</a></li>
+                            <li><a href="http://127.0.0.1:8000/event">Sự kiện</a></li>
                             {{-- <li><a href="http://127.0.0.1:8000/contact">Liên hệ</a></li>
                             <li><a href="#">Sự nghiệp</a></li>
                             <li><a href="#">Chứng chỉ</a></li> --}}

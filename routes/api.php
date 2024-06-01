@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/event',[event::class,'index']);
+Route::get('/events',[event::class,'index'])->name('events');
 Route::get('/event/{id}',[event::class,'single']);
 
 Route::get('/home', [home::class, 'index']);

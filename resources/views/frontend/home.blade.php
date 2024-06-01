@@ -1044,49 +1044,51 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="font-title--md">Tin tức</h3>
+                <h3 class="font-title--md">Sự kiện</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-12 position-relative px-0 mx-0">
                 <div class="eventsSlider">
-                    @forelse ($course as $c)
-                    <div class="contentCard contentCard--event contentCard--space">
-                        <div class="contentCard-top">
-                            <a href="#"><img src="{{asset('uploads/courses/'.$c->image)}}" alt="images"
-                                    class="img-fluid" /></a>
-                        </div>
-                        <div class="contentCard-bottom">
-                            <h5>
-                                <a href="{{route('courseDetails', encryptor('encrypt', $c->id))}}"
-                                    class="font-title--card">{{$c->title_en}}</a>
-                            </h5>
-                            <div class="contentCard-more">
-                                <div class="d-flex align-items-center">
-                                    <div class="icon">
-                                        <img src="{{asset('frontend/dist/images/icon/location.png')}}"
-                                            alt="location" />
+                    @forelse ($events as $event)
+                        <div class="contentCard contentCard--event contentCard--space">
+                            <div class="contentCard-top">
+                                <a href="{{ route('events') }}">
+                                    <img src="{{ asset('uploads/events/' . $event->image) }}" alt="{{ $event->title }}" class="img-fluid" />
+                                </a>
+                            </div>
+                            <div class="contentCard-bottom">
+                                <h5>
+                                    <a href="{{ route('events') }}" class="font-title--card">{{ $event->title }}</a>
+                                </h5>
+                                <div class="contentCard-more">
+                                    <div class="d-flex align-items-center">
+                                        <div class="icon">
+                                            <img src="{{ asset('frontend/dist/images/icon/location.png') }}" alt="location" />
+                                        </div>
+                                        <span>{{ $event->location }}</span>
                                     </div>
-                                    <span>Hải Phòng</span>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div class="icon">
-                                        <img src="{{asset('frontend/dist/images/icon/calendar.png')}}"
-                                            alt="calendar" />
+                                    <div class="d-flex align-items-center">
+                                        <div class="icon">
+                                            <img src="{{ asset('frontend/dist/images/icon/calendar.png') }}" alt="calendar" />
+                                        </div>
+                                        <span>{{ $event->date }}</span>
                                     </div>
-                                    <span>29/01/2024</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @empty
+                        <div class="contentCard contentCard--event contentCard--space">
+                            <h3>Không có sự kiện nào!</h3>
+                        </div>
                     @endforelse
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-12 text-center">
-                <a href="{{route('searchCourse')}}" class="button button-lg button--primary mt-lg-5 mt-5">Các thông tin khác</a>
+                <a href="{{ route('events.index') }}" class="button button-lg button--primary mt-lg-5 mt-5">Tất cả các sự kiện</a>
             </div>
         </div>
     </div>

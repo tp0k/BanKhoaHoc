@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Instructor;
@@ -15,7 +16,8 @@ class HomeController extends Controller
         $instructor = Instructor::get();
         $category = CourseCategory::get();
         $popularCourses = Course::where('tag', 'popular')->get();
-
+        $events = Event::get();
+        
         $designCategories = CourseCategory::whereIn('category_name', ['Graphics Desgin', 'Web Design', 'Video Editing'])->pluck('id')->toArray();
         $designCourses = Course::whereIn('course_category_id', $designCategories)->where('tag', 'popular')->get();
 
@@ -30,7 +32,7 @@ class HomeController extends Controller
 
         return view(
             'frontend.home',
-            compact('course', 'instructor', 'category', 'popularCourses', 'designCourses', 'developmentCourses', 'businessCourses', 'itCourses')
+            compact('course', 'instructor', 'category', 'popularCourses', 'designCourses', 'developmentCourses', 'businessCourses', 'itCourses', 'events')
         );
     }
 }

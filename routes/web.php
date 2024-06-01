@@ -33,6 +33,7 @@ use App\Http\Controllers\EnrollmentController as enrollment;
 use App\Http\Controllers\EventController as event;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\EventController;
 
 /* students */
 use App\Http\Controllers\Students\AuthController as sauth;
