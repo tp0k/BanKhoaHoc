@@ -32,5 +32,8 @@ class Student extends Model
     {
         return $this->hasMany(Comment::class);
     }
-    
+    public function watchlist()
+    {
+        return $this->hasMany(Watchlist::class);
+    }
 }

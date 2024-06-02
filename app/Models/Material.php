@@ -12,5 +12,8 @@ class Material extends Model
     {
         return $this->belongsTo(Lesson::class);
     }
-
+    public function watchlist()
+    {
+        return $this->hasMany(Watchlist::class);
+    }
 }

@@ -17,5 +17,9 @@ class Lesson extends Model
     {
         return $this->hasMany(Material::class);
     }
-
+    public function watchlist()
+    {
+        return $this->hasMany(Watchlist::class);
+        //trạng thái hoàn thành 1 video coi là 1 watchlist 
+    }
 }
