@@ -1,6 +1,11 @@
 @extends('frontend.layouts.app')
 @section('title', "Dashboard học viên")
-@section('body-attr') style="background-color: #ebebf2;" @endsection
+@section('body-attr') style="background-color: #ebebf2; " @endsection
+<style>
+    .ms-20px {
+    margin-left: 20px !important;
+}
+</style>
 
 @section('content')
 
@@ -453,8 +458,6 @@
                 {{-- Purchase History --}}
                 <div class="tab-pane fade" id="nav-purchase" role="tabpanel" aria-labelledby="nav-purchase-tab">
                     @foreach ($vpayments as $payment)
-                    {{-- @foreach ($checkout as $e)
-                    @if ($e->cart_data) --}}
                     <div class="row mb-3">
                         <div class="col-lg-12">
                             <div class="purchase-area">
@@ -476,7 +479,7 @@
                                                 </a>
                                             </div>
                                             <div class="text d-flex flex-column flex-lg-row">
-                                                <div class="text-main">
+                                                <div class="text-main ms-20px">
                                                     <h6><a href="#">{{$payment->note}}</a></h6>
                                                     <p> By <a href="#">{{$payment->code_bank}}</a></p>
                                                 </div>
