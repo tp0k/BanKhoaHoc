@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\EventShowController as eventshow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\EventController as event;
@@ -20,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/events',[event::class,'index'])->name('events');
+Route::get('/events',[event::class,'searchEvent'])->name('events');
 Route::get('/event/{id}',[event::class,'single']);
 
 Route::get('/home', [home::class, 'index']);

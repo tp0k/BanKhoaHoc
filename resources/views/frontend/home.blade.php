@@ -141,45 +141,6 @@
                     <div class="main-heading">
                         <h3 class="font-title--md">Khóa học nổi bật</h3>
                     </div>
-                    {{-- <div class="nav-button featured-popular-courses-tabs">
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active ps-0" id="pills-all-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all"
-                                    aria-selected="true">
-                                    Tất cả
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-design-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-design" type="button" role="tab" aria-controls="pills-design"
-                                    aria-selected="false">
-                                    Thiết kế đồ họa
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-dev-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-dev" type="button" role="tab" aria-controls="pills-dev"
-                                    aria-selected="false">
-                                    Lập trình
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-bus-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-bus" type="button" role="tab" aria-controls="pills-bus"
-                                    aria-selected="false">
-                                    Quản trị mạng
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link me-0" id="pills-its-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-its" type="button" role="tab" aria-controls="pills-its"
-                                    aria-selected="false">
-                                    Lập trình cho trẻ
-                                </button>
-                            </li>
-                        </ul>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -1088,7 +1049,7 @@
 
         <div class="row">
             <div class="col-lg-12 text-center">
-                <a href="{{ route('events.index') }}" class="button button-lg button--primary mt-lg-5 mt-5">Tất cả các sự kiện</a>
+                <a href="{{ route('events') }}" class="button button-lg button--primary mt-lg-5 mt-5">Tất cả các sự kiện</a>
             </div>
         </div>
     </div>
