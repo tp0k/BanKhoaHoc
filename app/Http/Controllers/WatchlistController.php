@@ -1,62 +1,34 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Watchlist;
 use Illuminate\Http\Request;
 
 class WatchlistController extends Controller
 {
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+public function store(Request $request)
+{
+    // Lấy dữ liệu từ yêu cầu
+    $student_id = $request->input('student_id');
+    $course_id = $request->input('course_id');
+    $lesson_id =$request->input('lesson_id');
+    $material_id = $request->input('material_id');
+    $completed = $request->input('completed');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    // Lưu dữ liệu vào bảng watchlists
+    DB::table('watchlists')->insert([
+        'student_id' => $student_id,
+        'course_id' => $course_id,
+        'lesson_id'=> $lesson_id,
+        'material_id' => $material_id,
+        'completed' => $completed,
+    ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Watchlist $watchlist)
-    {
-        //
-    }
+    // Trả về phản hồi cho yêu cầu AJAX
+    return response()->json(['status' => 'success']);
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Watchlist $watchlist)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Watchlist $watchlist)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Watchlist $watchlist)
-    {
-        //
-    }
 }
