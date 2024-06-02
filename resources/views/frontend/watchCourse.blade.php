@@ -261,13 +261,23 @@ h1{font-size:1.5em;margin:10px;}
                 <div class="videolist-area">
                     <div class="videolist-area-heading">
                         <h6>Nội dung khoá học</h6>
-                        <p>% hoàn thành</p>
+                        @php
+                        $completedVideoCount = DB::table('watchlists')
+                            ->where('student_id', session('id'))
+                            ->where('course_id', $course->id)
+                            ->count();
+                        $CountVideo = DB::table('materials')
+                            ->join('lessons', 'materials.lesson_id', '=', 'lessons.id')
+                            ->where('lessons.course_id', $course->id)
+                            ->count();
+                        @endphp
+                        <p>{{($completedVideoCount/$CountVideo)*100}}  % hoàn thành</p>
                     </div>
                     <div class="videolist-area-bar">
                         <span class="videolist-area-bar--progress"></span>
                     </div>
                     <div class="videolist-area-bar__wrapper">
-                        @foreach($lessons as $lesson)
+                        @foreach($lessons as $lesson) 
                         <div class="videolist-area-wizard" data-lesson-description="{{$lesson->description}}"
                             data-lesson-notes="{{$lesson->notes}}">
                             <div class="wizard-heading">
@@ -297,18 +307,31 @@ h1{font-size:1.5em;margin:10px;}
                                             <input class="form-check-input" type="checkbox" value=""
                                                 style="border-radius: 0px; margin-left: 5px;"
                                                 data-material-id="{{ $material->id }}" 
-                                                {{ optional($material->watchlist->first())->completed ? 'checked' : '' }} 
+                                                {{ optional($material->watchlist->where('student_id', session('id'))->first())->completed ? 'checked' : '' }} 
                                                 disabled/>
                                                 {{-- gán cho mỗi checkbox 1 id riêng bằng data-material-id, disabled ko cho phép tác động vào check --}}
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                             @endforeach
                         </div>
                         @endforeach
-                    </div>
-                </div>
+                        @php
+                        $quiz = \App\Models\Quiz::where('course_id', $course->id)->first();
+                        @endphp
+
+                        <div class="videolist-area-wizard">
+                            <div class="main-wizard">
+                                @if($quiz)
+                                    <a class="main-wizard-start" href="{{ route('quiz', ['quiz_id' => $quiz->id]) }}">Bài kiểm tra</a>
+                                @else
+                                    <p>Không có bài kiểm tra cho khóa học này.</p>
+                                @endif
+                            </div>
+                        </div>
+
             </div>
         </div>
     </div>
@@ -316,36 +339,44 @@ h1{font-size:1.5em;margin:10px;}
     function show_video(e,f,g,h){
             let link="{{asset('uploads/courses/contents')}}/"+e
            
+
+        if (link.endsWith('.mp4')) {    
             var video = document.getElementById('myvideo');
             video.src = link;
             video.play();
+        }else if(link.endsWith('.pdf')) { // mở trong gg docs viewer
+            var googleDocsUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(link);
+            window.open(googleDocsUrl, '_blank');
+        }else{ window.open(link, '_blank');}
+
+
+
             var isChecked = $('input[data-material-id=' + h + ']').is(':checked');
             if (isChecked) {
             return;
         }    
-            video.ontimeupdate = function() 
+        video.ontimeupdate = function() 
+        {
+            if (video.currentTime == video.duration) 
             {
-                if (video.currentTime == video.duration) 
-                {
 
-                    $.ajax({
-                                url: '{{route('watchlist')}}', 
-                                type: 'POST',
-                                data: {
-                                    _token: "{{ csrf_token() }}", // Token CSRF cho yêu cầu POST
-                                    student_id: "{{ session('id') }}",
-                                    course_id: f,
-                                    lesson_id: g,
-                                    material_id:h, 
-                                    completed: 1 // Trạng thái hoàn thành
-                                },
-                                success: function(response) {
-                                    $('input[data-material-id=' + h + ']').prop('checked', true);//chuyểntrang thái checkbox
-
-                                }
-                            });
-                }
-            };
+                $.ajax({
+                        url: '{{route('watchlist')}}', 
+                        type: 'POST',
+                        data: {
+                        _token: "{{ csrf_token() }}", // Token CSRF cho yêu cầu POST
+                        student_id: "{{ session('id') }}",
+                        course_id: f,
+                        lesson_id: g,
+                        material_id:h, 
+                        completed: 1 // Trạng thái hoàn thành
+                        },
+                    success: function(response) {
+                        $('input[data-material-id=' + h + ']').prop('checked', true);//chuyểntrang thái checkbox
+                    }
+                });
+            }
+         };
         }
     </script>
     <!-- Course Description Ends Here -->
