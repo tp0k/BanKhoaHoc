@@ -26,7 +26,7 @@
 <!-- Event Search Starts Here -->
 <section class="section event-search">
     <div class="container">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-9 mx-auto">
                 <div class="event-search-bar">
                     <form action="{{ route('searchCourse') }}" method="get">
@@ -45,7 +45,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row">
             <div class="col-12 position-relative px-0 mx-0">
                 <div class="eventsSlider">
