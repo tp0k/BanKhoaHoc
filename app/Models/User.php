@@ -51,4 +51,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
+    public function vpayments()
+    {
+        return $this->hasMany(Vpayment::class, 'user_id');
+    }
 }

@@ -152,3 +152,5 @@ Route::get('courseDetails_Admin/{id}', function ($id) {
 Route::post('/comment', [CommentController::class, 'store']);
 //ấn vào ảnh môn học ở trang chủ sẽ hiện ra các khóa học id tương ứng
 Route::get('/search2Course', [SearchCourseController::class, 'search2Course'])->name('search2Course');
+
+Route::get('events/index', [EventController::class, 'index'])->name('events.index'); 
