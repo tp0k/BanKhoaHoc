@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 31, 2024 lúc 08:34 PM
+-- Thời gian đã tạo: Th6 02, 2024 lúc 03:47 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -312,7 +312,9 @@ CREATE TABLE `lessons` (
 INSERT INTO `lessons` (`id`, `title`, `course_id`, `description`, `notes`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, '[Khóa học lập trình Python basic] - Bài 1: Giới thiệu ngôn ngữ lập trình Python', 1, 'Trong khóa học lập trình python này, chúng ta sẽ sử dụng Python 3.x. Bởi vì Python 2.x là phiên bản cũ và đã được thông báo chính thức là sẽ không còn được phát triển và hỗ trợ sau 2020.', 'Ưu điểm của Python\r\nLà một ngôn ngữ lập trình dành cho người mới bắt đầu.\r\nCú pháp đơn giản, dễ đọc, dễ hiểu và dễ học.\r\nĐa nền tảng.\r\nMiễn phí và là ngôn ngữ mã nguồn mở.\r\nLà ngôn ngữ hướng đối tượng.\r\nKho thư viện hỗ trợ phong phú và đa dạng.\r\nỨng dụng trong nhiều lĩnh vực lập trình khác nhau.\r\nCó khả năng mở rộng, tương thích với các cơ sở dữ liệu và ngôn ngữ khác.\r\nNhược điểm của Python\r\nTốc độ chậm hơn so với các ngôn ngữ C/C++ hay Java.\r\nKhông phải là ngôn ngữ tốt dành cho nền tảng mobile.\r\nPython không phải lựa chọn tốt cho các bài toán cần tối ưu bộ nhớ.\r\nPython có nhiều giới hạn khi làm việc với cơ sở dữ liệu phức tạp.\r\nPython dùng để làm gì?\r\nPhát triển web và các nền tảng cho Internet\r\nPython được sử dụng cho phát triển web theo nhiều cách khác nhau:\r\n\r\nCác framework phát triển web như Django hay Pyramid.\r\nMicro-framework như Flask hay Bottle.\r\nXây dựng CMS với Plone hay django CMS.\r\nCùng với hàng loạt các thư viện đồ sộ hỗ trợ lập trình web, web crawler,…\r\nỨng dụng trong machine learning\r\nPython là ngôn ngữ lập trình phổ biến nhất được sử dụng trong machine learning và thị giác máy tính:\r\n\r\nSciPy là một gói thư viện dành cho toán học, khoa học và kỹ thuật.\r\nPandas là một thư viện dành cho phân tích dữ liệu.\r\nscikit-learn là một thư viện dành cho machine learning\r\n…\r\nLà ngôn ngữ cho mục đích giảng dạy\r\nDo là một ngôn ngữ dễ đọc, dễ hiểu và dễ học. Python là ngôn ngữ đầu tiên mà các lập trình viên tiếp cận. Tuy nhiên, điều này có vẻ không đúng ở Việt Nam chúng ta ^^.\r\n\r\nVà rất nhiều ứng dụng trong các lĩnh vực khác (mình lười trình bày rồi nên liệt kê thôi nhé, chứ không phải ứng dụng nhỏ đâu) bao gồm:\r\n\r\nPhân tích dữ liệu (Data Analysis)\r\nTự động hóa (Automation)\r\nTest tự động (Selenium)\r\nIOT\r\n…', '2024-05-07 00:49:57', '2024-05-07 00:49:57', NULL),
 (2, '[Khóa học lập trình Python basic] - Bài 2:  Game Đấm Lá Kéo', 1, '👨‍🏫 1. Lập Trình Web cơ Bản\r\n👨‍🏫 2. Toán Logic - Toán tư duy cơ bản\r\n👨‍🏫 3. Lập Trình Python Cơ Bản đến Nâng cao\r\n👨‍🏫 4. Lập Trình Game Cơ Bản\r\n👨‍🏫 5. Lập trình Data Science - Phân tích dữ liệu Cơ Bản\r\n👨‍🏫 6. Lập Trình AI - Trí Tuệ Nhân Tạo Cơ Bản\r\n\r\nTrong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart\r\n\r\nThuật ngữ tiếng anh đã giải thích:\r\n\r\nConditional statement, assignment statement, comparison statement, assign, indentation, inconsistent, tab, space, and, variable, flowchart, logic, if, else, age, select, draw, choose, test, import, random, string, integer, built-in, function, class, concatenate, input, output, input validation, wrong input.', 'Trong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart', '2024-05-10 08:25:31', '2024-05-10 08:25:31', NULL),
-(3, '[Khóa học lập trình Scratch cơ bản] - Bài 1: Làm quen với Scratch', 3, 'Khoá học “KHỞI ĐẦU ĐAM MÊ - LẬP TRÌNH SCRATCH” tại Học viện công nghệ CNET - Hải Phòng, trực quan và sinh động sẽ trang bị cho Học viên trẻ kiến thức cơ bản về lập trình, khơi dậy niềm đam mê với công nghệ.\r\n\r\nCác hoạt động được thiết kế trên Scratch sẽ rất đơn giản và thú vị. Scratch là một trang web và ứng dụng giúp Học viên xây dựng và chia sẻ trò chơi của mình với các lập trình viên nhí khác trên toàn thế giới. Một trong những điều tuyệt vời của Scratch là Học viên không cần biết về máy tính quá nhiều. Với Scratch, Học viên chỉ cần làm các thao tác kéo-thả để lập trình và xây dựng những trò chơi của riêng mình.\r\n\r\nCó rất nhiều ngôn ngữ lập trình trên thế giới như Python, Java, C++, PHP… Tuy nhiên, Scratch là một ngôn ngữ lập trình độc nhất trên thế giới, bởi nó được thiết kế để dành riêng cho trẻ làm quen với lập trình game và ứng dụng học tập, từ các nhà nghiên cứu của Học viện công nghệ Massachusetts (MIT).\r\n\r\nScratch là ngôn ngữ lập trình được khuyên dùng cho những người mới bắt đầu, đặc biệt là trẻ em vì nó có những ưu điểm sau:\r\n\r\nThân thiện với trẻ em\r\nChỉ cần thao tác kéo-thả để lập trình mà không cần đánh mã lệnh\r\nThiết kế và chia sẻ trò chơi nhanh chóng\r\nCó thể thấy mã lập trình của các trò chơi \r\nBao gồm nhiều loại âm thanh, hình ảnh, phông nền\r\nMiễn phí - không yêu cầu chi phí bản quyền', 'THỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 8 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', '2024-05-10 09:18:50', '2024-05-10 09:18:50', NULL);
+(3, '[Khóa học lập trình Scratch cơ bản] - Bài 1: Làm quen với Scratch', 3, 'Khoá học “KHỞI ĐẦU ĐAM MÊ - LẬP TRÌNH SCRATCH” tại Học viện công nghệ CNET - Hải Phòng, trực quan và sinh động sẽ trang bị cho Học viên trẻ kiến thức cơ bản về lập trình, khơi dậy niềm đam mê với công nghệ.\r\n\r\nCác hoạt động được thiết kế trên Scratch sẽ rất đơn giản và thú vị. Scratch là một trang web và ứng dụng giúp Học viên xây dựng và chia sẻ trò chơi của mình với các lập trình viên nhí khác trên toàn thế giới. Một trong những điều tuyệt vời của Scratch là Học viên không cần biết về máy tính quá nhiều. Với Scratch, Học viên chỉ cần làm các thao tác kéo-thả để lập trình và xây dựng những trò chơi của riêng mình.\r\n\r\nCó rất nhiều ngôn ngữ lập trình trên thế giới như Python, Java, C++, PHP… Tuy nhiên, Scratch là một ngôn ngữ lập trình độc nhất trên thế giới, bởi nó được thiết kế để dành riêng cho trẻ làm quen với lập trình game và ứng dụng học tập, từ các nhà nghiên cứu của Học viện công nghệ Massachusetts (MIT).\r\n\r\nScratch là ngôn ngữ lập trình được khuyên dùng cho những người mới bắt đầu, đặc biệt là trẻ em vì nó có những ưu điểm sau:\r\n\r\nThân thiện với trẻ em\r\nChỉ cần thao tác kéo-thả để lập trình mà không cần đánh mã lệnh\r\nThiết kế và chia sẻ trò chơi nhanh chóng\r\nCó thể thấy mã lập trình của các trò chơi \r\nBao gồm nhiều loại âm thanh, hình ảnh, phông nền\r\nMiễn phí - không yêu cầu chi phí bản quyền', 'THỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 8 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', '2024-05-10 09:18:50', '2024-05-10 09:18:50', NULL),
+(4, 'Bài giảng Test 1', 5, 'Bài giảng Test 1', 'Bài giảng Test 1', '2024-06-01 09:35:25', '2024-06-01 09:35:25', NULL),
+(6, 'Bài giảng Test 2', 5, 'Bài giảng Test 2', 'Bài giảng Test 2', '2024-06-02 03:20:14', '2024-06-02 03:20:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -339,7 +341,11 @@ CREATE TABLE `materials` (
 INSERT INTO `materials` (`id`, `lesson_id`, `title`, `type`, `content`, `content_url`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (3, 1, 'Bài 1: Giới thiệu ngôn ngữ lập trình Python', 'video', '5331715356832.mp4', NULL, '2024-05-10 08:57:18', '2024-05-10 09:00:32', NULL),
 (4, 2, 'Bài 2: Game Đấm Lá Kéo', 'video', '5211715356928.mp4', NULL, '2024-05-10 09:02:08', '2024-05-10 09:02:08', NULL),
-(5, 3, 'Bài 1: Làm quen với Scratch', 'video', '1371715358138.mp4', NULL, '2024-05-10 09:22:18', '2024-05-10 09:22:18', NULL);
+(5, 3, 'Bài 1: Làm quen với Scratch', 'video', '1371715358138.mp4', NULL, '2024-05-10 09:22:18', '2024-05-10 09:22:18', NULL),
+(7, 4, 'VD1', 'video', '7551717260389.mp4', NULL, '2024-06-01 09:46:29', '2024-06-01 09:46:29', NULL),
+(8, 4, 'VD2', 'document', '8581717260498.docx', NULL, '2024-06-01 09:48:18', '2024-06-01 09:48:18', NULL),
+(9, 4, 'VD2-test1', 'video', '2341717323800.mp4', 'vd2test1', '2024-06-02 03:23:20', '2024-06-02 03:23:20', NULL),
+(10, 6, 'VD1test2', 'video', '5531717323848.mp4', NULL, '2024-06-02 03:24:08', '2024-06-02 03:24:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -409,7 +415,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (33, '2024_05_19_161309_create_carts_table', 8),
 (34, '2024_05_20_173852_create_orders_table', 8),
 (35, '2024_05_28_173638_create_comment_table', 9),
-(36, '2024_05_31_162113_update_reviews_table', 10);
+(36, '2024_05_31_162113_update_reviews_table', 10),
+(38, '2024_06_01_181707_add_completed_to_watchlists_table', 11);
 
 -- --------------------------------------------------------
 
@@ -1074,8 +1081,18 @@ CREATE TABLE `watchlists` (
   `material_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `completed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `watchlists`
+--
+
+INSERT INTO `watchlists` (`id`, `student_id`, `course_id`, `lesson_id`, `material_id`, `created_at`, `updated_at`, `deleted_at`, `completed`) VALUES
+(11, 12, 5, 4, 7, NULL, NULL, NULL, 1),
+(14, 12, 5, 4, 9, NULL, NULL, NULL, 1),
+(17, 12, 5, 6, 10, NULL, NULL, NULL, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -1372,13 +1389,13 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT cho bảng `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `materials`
 --
 ALTER TABLE `materials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `messages`
@@ -1390,7 +1407,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT cho bảng `options`
@@ -1486,7 +1503,7 @@ ALTER TABLE `vpayments`
 -- AUTO_INCREMENT cho bảng `watchlists`
 --
 ALTER TABLE `watchlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

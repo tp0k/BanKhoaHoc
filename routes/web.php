@@ -34,6 +34,7 @@ use App\Http\Controllers\EventController as event;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\WatchlistController;
 
 /* students */
 use App\Http\Controllers\Students\AuthController as sauth;
@@ -153,4 +154,6 @@ Route::post('/comment', [CommentController::class, 'store']);
 //ấn vào ảnh môn học ở trang chủ sẽ hiện ra các khóa học id tương ứng
 Route::get('/search2Course', [SearchCourseController::class, 'search2Course'])->name('search2Course');
 
-Route::get('events/index', [EventController::class, 'index'])->name('events.index'); 
+
+//watchlist
+Route::post('/update-watchlist', [WatchlistController::class,'store'])->name('watchlist');

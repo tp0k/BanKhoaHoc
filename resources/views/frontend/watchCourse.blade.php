@@ -256,12 +256,12 @@ h1{font-size:1.5em;margin:10px;}
                 </div>
             </div>
 
-            {{-- Index Course Contents --}}
+            {{-- Thanh tiến trình --}}
             <div class="col-lg-4">
                 <div class="videolist-area">
                     <div class="videolist-area-heading">
                         <h6>Nội dung khoá học</h6>
-                        <p>5% hoàn thành</p>
+                        <p>% hoàn thành</p>
                     </div>
                     <div class="videolist-area-bar">
                         <span class="videolist-area-bar--progress"></span>
@@ -277,7 +277,7 @@ h1{font-size:1.5em;margin:10px;}
                             <div class="main-wizard"
                                 data-material-title="{{$loop->parent->iteration}}.{{$loop->iteration}} {{$material->title}}">
                                 <div class="main-wizard__wrapper">
-                                    <a class="main-wizard-start" onclick="show_video('{{$material->content}}')">
+                                    <a class="main-wizard-start" onclick="show_video('{{$material->content}}', '{{$lesson->course_id}}', '{{$lesson->id}}','{{$material->id}}')">
                                         @if ($material->type=='video')
                                         <div class="main-wizard-icon">
                                             <i class="far fa-play-circle fa-lg"></i>
@@ -293,10 +293,13 @@ h1{font-size:1.5em;margin:10px;}
                                         </div>
                                     </a>
                                     <div class="main-wizard-end d-flex align-items-center">
-                                        <span>12:34</span>
-                                        <div class="form-check">
+                                        <div class="form-check" id= "check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                style="border-radius: 0px; margin-left: 5px;" />
+                                                style="border-radius: 0px; margin-left: 5px;"
+                                                data-material-id="{{ $material->id }}" 
+                                                {{ optional($material->watchlist->first())->completed ? 'checked' : '' }} 
+                                                disabled/>
+                                                {{-- gán cho mỗi checkbox 1 id riêng bằng data-material-id, disabled ko cho phép tác động vào check --}}
                                         </div>
                                     </div>
                                 </div>
@@ -309,6 +312,42 @@ h1{font-size:1.5em;margin:10px;}
             </div>
         </div>
     </div>
+    <script>
+    function show_video(e,f,g,h){
+            let link="{{asset('uploads/courses/contents')}}/"+e
+           
+            var video = document.getElementById('myvideo');
+            video.src = link;
+            video.play();
+            var isChecked = $('input[data-material-id=' + h + ']').is(':checked');
+            if (isChecked) {
+            return;
+        }    
+            video.ontimeupdate = function() 
+            {
+                if (video.currentTime == video.duration) 
+                {
+
+                    $.ajax({
+                                url: '{{route('watchlist')}}', 
+                                type: 'POST',
+                                data: {
+                                    _token: "{{ csrf_token() }}", // Token CSRF cho yêu cầu POST
+                                    student_id: "{{ session('id') }}",
+                                    course_id: f,
+                                    lesson_id: g,
+                                    material_id:h, 
+                                    completed: 1 // Trạng thái hoàn thành
+                                },
+                                success: function(response) {
+                                    $('input[data-material-id=' + h + ']').prop('checked', true);//chuyểntrang thái checkbox
+
+                                }
+                            });
+                }
+            };
+        }
+    </script>
     <!-- Course Description Ends Here -->
 
     <!-- Đánh giá  -->
@@ -393,22 +432,13 @@ h1{font-size:1.5em;margin:10px;}
 
     <script>
         function calcRate(r) {
- const f = ~~r,//Tương tự Math.floor(r)
- id = 'star' + f + (r % f ? 'half' : '')
- id && (document.getElementById(id).checked = !0)
-}
-       
+            const f = ~~r,//Tương tự Math.floor(r)
+            id = 'star' + f + (r % f ? 'half' : '')
+            id && (document.getElementById(id).checked = !0)
+            }
+    
 
-        function show_video(e){
-            let link="{{asset('uploads/courses/contents')}}/"+e
-           
-            var video = document.getElementById('myvideo');
-                        video.src = link;
-                        video.play();
-        }
-    </script>
 
-    <script>
         $(document).ready(function() {
         $('.videolist-area-wizard').on('click', function() {
             // Get lesson and material details
