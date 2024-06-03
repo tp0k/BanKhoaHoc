@@ -7,6 +7,7 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\Quiz;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
@@ -122,19 +123,59 @@ class QuestionController extends Controller
     return view('frontend.quizz', ['questions' => $randomQuestions]);
 }
 
-
-    public function checkAnswer(Request $request)
-    {
-        $userAnswer = $request->input('answer');
-        $correctAnswer = $request->input('correct_answer');
-
-        if ($userAnswer === $correctAnswer) {
-            // Đáp án đúng
-            // Xử lý điểm số ở đây
-        } else {
-            // Đáp án sai
+public function saveAnswers(Request $request)
+{
+    $answers = $request->input('answers');
+    foreach ($answers as $answer) {
+            DB::table('answers')->insert([
+                'student_id' => $answer['student_id'],
+                'question_id' => $answer['question_id'],
+                'answer' => $answer['answer'],
+            ]);
         }
 
-        // Hiển thị kết quả cho người dùng
+    return response()->json(['message' => 'Câu trả lời đã được lưu!']);
+}
+
+
+public function checkQuiz(Request $request)
+{
+    $studentId = $request->input('student_id');
+    $quizId = $request->input('quiz_id');
+
+    // Kiểm tra xem người dùng đã từng làm bài kiểm tra này chưa
+    $existingAnswers = DB::table('answers')
+        ->join('questions', 'answers.question_id', '=', 'questions.id')
+        ->where('answers.student_id', $studentId)
+        ->where('questions.quiz_id', $quizId)
+        ->count();
+
+    if ($existingAnswers > 0) {
+        // Người dùng đã từng làm bài kiểm tra này
+        // Lấy câu hỏi và số câu trả lời đúng
+        $questions = DB::table('questions')
+            ->where('quiz_id', $quizId)
+            ->get();
+
+        $correctCount = DB::table('answers')
+            ->join('questions', 'answers.question_id', '=', 'questions.id')
+            ->where('answers.student_id', $studentId)
+            ->where('questions.quiz_id', $quizId)
+            ->whereColumn('answers.answer', 'questions.correct_answer')
+            ->count();
+
+        return response()->json([
+            'done' => true,
+            'questions' => $questions,
+            'correct_count' => $correctCount,
+        ]);
+    } else {
+        // Người dùng chưa từng làm bài kiểm tra này
+        return response()->json([
+            'done' => false,
+        ]);
     }
+}
+
+
 }
