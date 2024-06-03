@@ -1014,13 +1014,13 @@
                     @forelse ($events as $event)
                         <div class="contentCard contentCard--event contentCard--space">
                             <div class="contentCard-top">
-                                <a href="{{route}}">
+                                <a href="{{ route('eventDetail', ['id' => $event->id]) }}">
                                     <img src="{{ asset('uploads/events/' . $event->image) }}" alt="{{ $event->title }}" class="img-fluid" />
                                 </a>
                             </div>
                             <div class="contentCard-bottom">
                                 <h5>
-                                    <a href="" class="font-title--card">{{ $event->title }}</a>
+                                    <a href="{{ route('eventDetail', ['id' => $event->id]) }}" class="font-title--card">{{ $event->title }}</a>
                                 </h5>
                                 <div class="contentCard-more">
                                     <div class="d-flex align-items-center">
