@@ -6,12 +6,11 @@
 <div id="slide">
     <div class="gray-box"></div>
     <div class="owl-carousel owl-theme">
-        {{-- @foreach($banners as $banner)
-            <a href="{{ route('courseDetails', encryptor('encrypt', $banner->course_id)) }}">
-                <img src="{{ asset('storage/' . $banner->image_url) }}" alt="Banner">
-            </a>
-        @endforeach --}}
-        <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
+        @foreach($banners as $banner)
+            <img class="owl-lazy" data-src="{{ asset('banners/' . $banner->image) }}" 
+            alt="{{ $banner->title_banner }}">
+        @endforeach
+        {{-- <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
         <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="">
         <picture>
             
@@ -20,15 +19,7 @@
             <source class="owl-lazy" data-srcset="/images/banner/flutter.jpg">
             
             <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="">
-        </picture>
-        {{-- <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
-        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=5" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=6" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=7" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=8" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x400&text=9" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x400&text=10" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x450&text=11" alt=""> --}}
+        </picture> --}}
     </div>
 </div>
 
@@ -1014,13 +1005,13 @@
                     @forelse ($events as $event)
                         <div class="contentCard contentCard--event contentCard--space">
                             <div class="contentCard-top">
-                                <a href="{{ route('events') }}">
+                                <a href="{{ route('eventDetail', ['id' => $event->id]) }}">
                                     <img src="{{ asset('uploads/events/' . $event->image) }}" alt="{{ $event->title }}" class="img-fluid" />
                                 </a>
                             </div>
                             <div class="contentCard-bottom">
                                 <h5>
-                                    <a href="{{ route('events') }}" class="font-title--card">{{ $event->title }}</a>
+                                    <a href="{{ route('eventDetail', ['id' => $event->id]) }}" class="font-title--card">{{ $event->title }}</a>
                                 </h5>
                                 <div class="contentCard-more">
                                     <div class="d-flex align-items-center">
@@ -1033,7 +1024,7 @@
                                         <div class="icon">
                                             <img src="{{ asset('frontend/dist/images/icon/calendar.png') }}" alt="calendar" />
                                         </div>
-                                        <span>{{ $event->date }}</span>
+                                        <span>{{ date('d/m/Y', strtotime($event->date)) }}</span>
                                     </div>
                                 </div>
                             </div>

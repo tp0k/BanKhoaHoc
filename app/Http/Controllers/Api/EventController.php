@@ -59,9 +59,15 @@ class EventController extends Controller
         return view('frontend/searchEvent', compact('eventSearch'));
     }
 
-    public function eventDetail($id)
+    public function eventDetails(Request $request, $id)
     {
+        // Sử dụng biến $id ở đây để lấy chi tiết của sự kiện
         $eventDetail = Event::find($id);
-        return view('frontend/eventDetails', compact('eventDetail'));
+        // dd($eventDetail);
+        // dd($eventDetail);
+        // Xử lý dữ liệu hoặc trả về view
+        return view('frontend/eventDetails', compact('eventDetail','id'));
     }
+
+
 }

@@ -243,9 +243,14 @@
                             <span class="nav-text">Tuyển sinh</span>
                         </a>
                     </li>
+                    <li><a class="" href="{{route('admin.banner.index')}}" aria-expanded="false">
+                        <i class="las la-bullseye"></i>
+                        <span class="nav-text">Banners</span>
+                    </a>
+                </li>
                     <li><a class="" href="{{route('event.index')}}" aria-expanded="false">
                             <i class="las la-icons"></i>
-                            <span class="nav-text">Tin tức</span>
+                            <span class="nav-text">Sự kiện</span>
                         </a>
                     </li>
                     <li><a class="" href="{{route('coupon.index')}}" aria-expanded="false">

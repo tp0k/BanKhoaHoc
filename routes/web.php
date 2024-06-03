@@ -35,6 +35,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\WatchlistController;
+use App\Http\Controllers\BannerController;
 
 /* students */
 use App\Http\Controllers\Students\AuthController as sauth;
@@ -164,3 +165,15 @@ Route::get('/quiz/{quiz_id}', [question::class, 'showRandomQuestions'])->name('q
 Route::post('/saveanswers', [question::class, 'saveAnswers'])->name('saveanswers');
 Route::post('/checkquiz', [question::class, 'checkQuiz'])->name('checkquiz');
 
+
+//banners
+Route::get('banners', [HomeController::class, 'showBanners'])->name('banners');
+// Routes for Banner management in admin panel
+Route::prefix('admin')->group(function () {
+    Route::get('banners', [BannerController::class, 'index'])->name('admin.banner.index');
+    Route::get('banners/create', [BannerController::class, 'create'])->name('admin.banner.create');
+    Route::post('banners', [BannerController::class, 'store'])->name('admin.banner.store');
+    Route::get('banners/{banner}/edit', [BannerController::class, 'edit'])->name('admin.banner.edit');
+    Route::put('banners/{banner}', [BannerController::class, 'update'])->name('admin.banner.update');
+    Route::delete('banners/{banner}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
+});

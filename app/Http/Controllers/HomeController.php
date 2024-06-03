@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Instructor;
 use App\Models\CourseCategory;
+use App\Models\Banner;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        
         $course = Course::get();
         $instructor = Instructor::get();
         $category = CourseCategory::get();
@@ -30,9 +32,17 @@ class HomeController extends Controller
         $itCategories = CourseCategory::whereIn('category_name', ['Hardware', 'Network Technology', 'Software & Security', 'Operating System & Server', '2D Animation', '3D Animation'])->pluck('id')->toArray();
         $itCourses = Course::whereIn('course_category_id', $itCategories)->where('tag', 'popular')->get();
 
+        // Lấy dữ liệu banner
+        $banners = Banner::all();
         return view(
             'frontend.home',
-            compact('course', 'instructor', 'category', 'popularCourses', 'designCourses', 'developmentCourses', 'businessCourses', 'itCourses', 'events')
+            compact('course', 'instructor', 'category', 'popularCourses', 'designCourses', 'developmentCourses', 'businessCourses', 'itCourses','events','banners')
+            
         );
+    }
+    public function showBanners()
+    {
+        $banners = Banner::all();
+        return view('frontend.home', compact('banners','events'));
     }
 }
