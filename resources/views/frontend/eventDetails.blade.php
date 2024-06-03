@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="course-overview-main-item mb-0">
                                     <h6 class="font-title--card">Diễn ra ngày</h6>
-                                    <p class="mb-2 font-para--lg">{{$eventDetail->date}}</p>
+                                    <p class="mb-2 font-para--lg">{{ date('d/m/Y', strtotime($eventDetail->date)) }}</p>
                                 </div>
                             </div>
                         </div>

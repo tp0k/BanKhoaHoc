@@ -53,7 +53,7 @@
                                         <div class="icon">
                                             <img src="{{ asset('frontend/dist/images/icon/calendar.png') }}" alt="calendar" />
                                         </div>
-                                        <span>{{ $event->date }}</span>
+                                        <span>{{ date('d/m/Y', strtotime($eventDetail->date)) }}</span>
                                     </div>
                                 </div>
                             </div>
