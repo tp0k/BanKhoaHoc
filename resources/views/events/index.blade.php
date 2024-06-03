@@ -4,6 +4,7 @@
 
 @section('content')
 <!-- Breadcrumb Starts Here -->
+<div class="gray-box"></div>
 <div class="event-sub-section event-sub-section--spaceY eventsearch-sub-section">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -21,8 +22,10 @@
 <!-- Breadcrumb Ends Here -->
 
 <!-- Event Search Starts Here -->
+
 <section class="section event-search">
     <div class="container">
+        
         <div class="row event-search-content">
             @forelse ($events as $event)
             <div class="col-md-6 mb-4">

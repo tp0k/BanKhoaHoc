@@ -6,12 +6,11 @@
 <div id="slide">
     <div class="gray-box"></div>
     <div class="owl-carousel owl-theme">
-        {{-- @foreach($banners as $banner)
-            <a href="{{ route('courseDetails', encryptor('encrypt', $banner->course_id)) }}">
-                <img src="{{ asset('storage/' . $banner->image_url) }}" alt="Banner">
-            </a>
-        @endforeach --}}
-        <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
+        @foreach($banners as $banner)
+            <img class="owl-lazy" data-src="{{ asset('banners/' . $banner->image) }}" 
+            alt="{{ $banner->title_banner }}">
+        @endforeach
+        {{-- <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
         <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="">
         <picture>
             
@@ -20,15 +19,7 @@
             <source class="owl-lazy" data-srcset="/images/banner/flutter.jpg">
             
             <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="">
-        </picture>
-        {{-- <img class="owl-lazy" data-src="/images/banner/flutter.jpg" alt="First slide">
-        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=5" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=6" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=7" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x250&text=8" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x400&text=9" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x400&text=10" alt="">
-        <img class="owl-lazy" data-src="https://placehold.it/350x450&text=11" alt=""> --}}
+        </picture> --}}
     </div>
 </div>
 
