@@ -85,7 +85,7 @@
 <script>
 
 // Kiểm tra xem đã từng làm bài này chưa
-$(document).ready(function() {
+function checkQuiz() {
     var url = window.location.pathname;
     var quizId = url.split('/')[2];
     $.ajax({
@@ -98,7 +98,7 @@ $(document).ready(function() {
         },
         success: function(response) {
     if (response.done) {
-        let resultsHTML = '<strong>Bạn đã từng làm bài kiểm tra này! </strong>';
+        let resultsHTML = '<strong>Bạn đã làm bài kiểm tra này! </strong>';
         resultsHTML += `<strong>Số câu trả lời đúng: ${response.correct_count}</strong>`;
         resultsHTML += `<h2>Đáp án đúng</h2>`;
         response.questions.forEach(function(question) {
@@ -121,15 +121,17 @@ $(document).ready(function() {
     } else {
         $('#quiz-form').show();// nếu chưa làm thì hiện form
     }
-        },
+    },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);
         }
     });
-
-
+}
+$(document).ready(function() {
+    checkQuiz();
+});
 //lưu câu trả lời
-    $('#quiz-form').on('submit', function(e) {
+$('#quiz-form').on('submit', function(e) {
         e.preventDefault();
 
         var answers = [];
@@ -153,13 +155,15 @@ $(document).ready(function() {
             },
             success: function(response) {
                 console.log(response);
+                $('#quiz-form').hide();
+                checkQuiz();
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
             }
         });
     });
-});
+
 </script>
 
 </body>
