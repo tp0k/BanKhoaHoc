@@ -90,8 +90,6 @@ h1{font-size:1.5em;margin:10px;}
                     <!-- <a href="#" class="rating-link" data-bs-toggle="modal" data-bs-target="#ratingModal">Leave a Rating</a> -->
                     <a href="#" class="button button--text" data-bs-toggle="modal" data-bs-target="#ratingModal">Để lại xếp hạng</a>
                     @endif
-                    <!-- <a href="#" class="btn btn-primary regular-fill-btn">Next Lession</a> -->
-                    <button class="button button--primary">Video tiếp theo</button>
                 </div>
             </div>
         </div>
@@ -271,10 +269,7 @@ h1{font-size:1.5em;margin:10px;}
                             ->where('lessons.course_id', $course->id)
                             ->count();
                         @endphp
-                        <p>{{($completedVideoCount/$CountVideo)*100}}  % hoàn thành</p>
-                    </div>
-                    <div class="videolist-area-bar">
-                        <span class="videolist-area-bar--progress"></span>
+                        <p>{{$completedVideoCount/$CountVideo*100}}  % hoàn thành</p> 
                     </div>
                     <div class="videolist-area-bar__wrapper">
                         @foreach($lessons as $lesson) 
@@ -287,13 +282,14 @@ h1{font-size:1.5em;margin:10px;}
                             <div class="main-wizard"
                                 data-material-title="{{$loop->parent->iteration}}.{{$loop->iteration}} {{$material->title}}">
                                 <div class="main-wizard__wrapper">
-                                    <a class="main-wizard-start" onclick="show_video('{{$material->content}}', '{{$lesson->course_id}}', '{{$lesson->id}}','{{$material->id}}')">
+                                    <a class="main-wizard-start document" onclick="show_video('{{$material->content}}', '{{$lesson->course_id}}', '{{$lesson->id}}','{{$material->id}}')" 
+                                        data-course-id="{{$lesson->course_id}}" data-lesson-id="{{$lesson->id}}">
                                         @if ($material->type=='video')
                                         <div class="main-wizard-icon">
                                             <i class="far fa-play-circle fa-lg"></i>
                                         </div>
                                         @else
-                                        <div class="main-wizard-icon">
+                                        <div class="main-wizard-icon ">
                                             <i class="far fa-file fa-lg text-success"></i>
                                         </div>
                                         @endif
@@ -320,15 +316,15 @@ h1{font-size:1.5em;margin:10px;}
                         @endforeach
                         @php
                         $quiz = \App\Models\Quiz::where('course_id', $course->id)->first();
+                        
                         @endphp
 
                         <div class="videolist-area-wizard">
                             <div class="main-wizard">
                                 @if($quiz)
-                                    <a class="main-wizard-start" href="{{ route('quiz', ['quiz_id' => $quiz->id]) }}">Bài kiểm tra</a>
-                                @else
-                                    <p>Không có bài kiểm tra cho khóa học này.</p>
-                                @endif
+                                    <a class="main-wizard-start"  href="{{ route('quiz', ['quiz_id' => $quiz->id]) }}">Bài kiểm tra</a>
+                                
+                                    @endif
                             </div>
                         </div>
 
@@ -336,10 +332,28 @@ h1{font-size:1.5em;margin:10px;}
         </div>
     </div>
     <script>
-    function show_video(e,f,g,h){
+    function show_video(e,f,g,h)
+    {
             let link="{{asset('uploads/courses/contents')}}/"+e
-           
+         // Kiểm tra xem tất cả các checkbox trước checkbox hiện tại đã được tick chưa
+            var allPreviousChecked = true;
+            $('input[type=checkbox]').each(function() {
+                if ($(this).data('material-id') == h) {
+                    return false;
+                }
+                if (!$(this).is(':checked')) {
+                    allPreviousChecked = false;
+                    return false; 
+                }
+            });
 
+            // Nếu có checkbox nào chưa được kiểm tra
+            if (!allPreviousChecked) {
+                alert('Bạn cần hoàn thành tất cả bài học trước đó trước khi xem bài học này.');
+                return;
+            }  
+
+        //////////////////////////
         if (link.endsWith('.mp4')) {    
             var video = document.getElementById('myvideo');
             video.src = link;
@@ -347,15 +361,52 @@ h1{font-size:1.5em;margin:10px;}
         }else if(link.endsWith('.pdf')) { // mở trong gg docs viewer
             var googleDocsUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(link);
             window.open(googleDocsUrl, '_blank');
-        }else{ window.open(link, '_blank');}
-
-
-
             var isChecked = $('input[data-material-id=' + h + ']').is(':checked');
-            if (isChecked) {
+             if (!isChecked) {
+                $.ajax({
+                        url: '{{route('watchlist')}}', 
+                        type: 'POST',
+                        data: {
+                        _token: "{{ csrf_token() }}", // Token CSRF cho yêu cầu POST
+                        student_id: "{{ session('id') }}",
+                        course_id: f,
+                        lesson_id: g,
+                        material_id:h, 
+                        completed: 1 // Trạng thái hoàn thành
+                        },
+                    success: function(response) {
+                        $('input[data-material-id=' + h + ']').prop('checked', true);//chuyểntrang thái checkbox
+                    }
+                });}
+        }else{ window.open(link, '_blank');
+                var isChecked = $('input[data-material-id=' + h + ']').is(':checked');
+                if (!isChecked) {
+                    $.ajax({
+                        url: '{{route('watchlist')}}', 
+                        type: 'POST',
+                        data: {
+                        _token: "{{ csrf_token() }}", // Token CSRF cho yêu cầu POST
+                        student_id: "{{ session('id') }}",
+                        course_id: f,
+                        lesson_id: g,
+                        material_id:h, 
+                        completed: 1 // Trạng thái hoàn thành
+                        },
+                    success: function(response) {
+                        $('input[data-material-id=' + h + ']').prop('checked', true);//chuyểntrang thái checkbox
+                    }
+                });
+        }}
+
+
+
+        var isChecked = $('input[data-material-id=' + h + ']').is(':checked');
+        if (isChecked) {
             return;
-        }    
-        video.ontimeupdate = function() 
+        }  
+        
+        
+        video.ontimeupdate = function() //hàm kiểm tra thời gian chạy video, xem hết thì tick
         {
             if (video.currentTime == video.duration) 
             {
@@ -376,8 +427,9 @@ h1{font-size:1.5em;margin:10px;}
                     }
                 });
             }
-         };
-        }
+        };
+
+    }
     </script>
     <!-- Course Description Ends Here -->
 
@@ -442,11 +494,6 @@ h1{font-size:1.5em;margin:10px;}
             </div>
         </div>
     </div>
-
-
-
-
-
 
 
     <script src="{{asset('frontend/src/js/jquery.min.js')}}"></script>
