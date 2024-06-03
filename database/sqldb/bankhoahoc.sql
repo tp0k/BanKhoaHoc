@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 02, 2024 lúc 03:47 PM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Thời gian đã tạo: Th6 03, 2024 lúc 12:00 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,6 +36,31 @@ CREATE TABLE `answers` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `banners`
+--
+
+CREATE TABLE `banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title_banner` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `events_id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `banners`
+--
+
+INSERT INTO `banners` (`id`, `title_banner`, `description`, `events_id`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Banner 1', 'đây là banner 1', 1, '6901717408761.jpg', '2024-06-03 02:59:21', '2024-06-03 02:59:21', NULL),
+(2, 'Banner 2', 'đây là banner 2', 1, '9431717408780.jpg', '2024-06-03 02:59:40', '2024-06-03 02:59:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -416,7 +441,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (34, '2024_05_20_173852_create_orders_table', 8),
 (35, '2024_05_28_173638_create_comment_table', 9),
 (36, '2024_05_31_162113_update_reviews_table', 10),
-(38, '2024_06_01_181707_add_completed_to_watchlists_table', 11);
+(38, '2024_06_01_181707_add_completed_to_watchlists_table', 11),
+(39, '2024_06_03_095351_create_banners_table', 12);
 
 -- --------------------------------------------------------
 
@@ -1107,6 +1133,13 @@ ALTER TABLE `answers`
   ADD KEY `answers_question_id_index` (`question_id`);
 
 --
+-- Chỉ mục cho bảng `banners`
+--
+ALTER TABLE `banners`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `banners_events_id_foreign` (`events_id`);
+
+--
 -- Chỉ mục cho bảng `checkouts`
 --
 ALTER TABLE `checkouts`
@@ -1332,6 +1365,12 @@ ALTER TABLE `answers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `banners`
+--
+ALTER TABLE `banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT cho bảng `checkouts`
 --
 ALTER TABLE `checkouts`
@@ -1407,7 +1446,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `options`
@@ -1515,6 +1554,12 @@ ALTER TABLE `watchlists`
 ALTER TABLE `answers`
   ADD CONSTRAINT `answers_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `answers_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `banners`
+--
+ALTER TABLE `banners`
+  ADD CONSTRAINT `banners_events_id_foreign` FOREIGN KEY (`events_id`) REFERENCES `events` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `comments`
