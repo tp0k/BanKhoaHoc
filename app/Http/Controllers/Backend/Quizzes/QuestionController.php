@@ -114,4 +114,27 @@ class QuestionController extends Controller
             return redirect()->back();
         }
     }
+
+
+    public function showRandomQuestions($quiz_id)
+{
+    $randomQuestions = Question::where('quiz_id', $quiz_id)->inRandomOrder()->take(5)->get();
+    return view('frontend.quizz', ['questions' => $randomQuestions]);
+}
+
+
+    public function checkAnswer(Request $request)
+    {
+        $userAnswer = $request->input('answer');
+        $correctAnswer = $request->input('correct_answer');
+
+        if ($userAnswer === $correctAnswer) {
+            // Đáp án đúng
+            // Xử lý điểm số ở đây
+        } else {
+            // Đáp án sai
+        }
+
+        // Hiển thị kết quả cho người dùng
+    }
 }

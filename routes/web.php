@@ -157,3 +157,8 @@ Route::get('/search2Course', [SearchCourseController::class, 'search2Course'])->
 
 //watchlist
 Route::post('/update-watchlist', [WatchlistController::class,'store'])->name('watchlist');
+
+
+//quizz
+Route::get('/quiz/{quiz_id}', [question::class, 'showRandomQuestions'])->name('quiz');
+Route::post('/check-answer', [question::class, 'checkAnswer'])->name('check-answer');
