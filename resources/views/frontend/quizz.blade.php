@@ -23,6 +23,9 @@
             color: #008080; /* Màu xanh cổ vịt */
             text-align: center; /* Căn giữa */
         }
+        h2 {
+            color: #008080; /* Màu xanh cổ vịt */
+        }
         form {
             margin-top: 20px;
         }
@@ -49,24 +52,115 @@
             background-color: #6dc629;
         }
     </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{{asset('frontend/fontawesome-free-5.15.4-web/css/all.min.css')}}">
+
 </head>
 <body>
     <div class="container">
+        <div class="topic-info-arrow">
+            <a href="{{URL::previous()}}">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+        </div>
         <h1>Bài kiểm tra</h1>
-        <form action="{{ route('check-answer') }}" method="post">
-            @csrf
-            @foreach ($questions as $question)
-                <div class="question">
-                    <strong>{{ $question->content }}</strong>
-                    <div class="option"><input type="radio" name="option[{{ $question->id }}]" value="A"> {{ $question->option_a }}</div>
-                    <div class="option"><input type="radio" name="option[{{ $question->id }}]" value="B"> {{ $question->option_b }}</div>
-                    <div class="option"><input type="radio" name="option[{{ $question->id }}]" value="C"> {{ $question->option_c }}</div>
-                    <div class="option"><input type="radio" name="option[{{ $question->id }}]" value="D"> {{ $question->option_d }}</div>
-                    <input type="hidden" name="correct_answer[{{ $question->id }}]" value="{{ $question->correct_answer }}">
-                </div>
-            @endforeach
-            <button type="submit">Nộp bài</button>
-        </form>
+        <form id="quiz-form" method="POST" style="display: none;">
+        @csrf
+        @foreach ($questions as $question)
+        <div class="question" data-question-id="{{ $question->id }}">
+            <strong>{{ $question->content }}</strong>
+                <div class="option"><input type="radio" name="option[{{ $question->id }}]" value="a"> {{ $question->option_a }}</div>
+                <div class="option"><input type="radio" name="option[{{ $question->id }}]" value="a"> {{ $question->option_b }}</div>
+                <div class="option"><input type="radio" name="option[{{ $question->id }}]" value="c"> {{ $question->option_c }}</div>
+                <div class="option"><input type="radio" name="option[{{ $question->id }}]" value="d"> {{ $question->option_d }}</div>
+                <input type="hidden" name="correct_answer[{{ $question->id }}]" value="{{ $question->correct_answer }}">
+            </div>
+        @endforeach
+        <button type="submit">Nộp bài</button>
+    </form>
+    <div id="results"></div>
     </div>
+    
+    
+<script>
+
+// Kiểm tra xem đã từng làm bài này chưa
+$(document).ready(function() {
+    var url = window.location.pathname;
+    var quizId = url.split('/')[2];
+    $.ajax({
+        url: '{{route('checkquiz')}}', 
+        method: 'POST',
+        data: {
+            _token: $('input[name=_token]').val(),
+            student_id: "{{ session('id') }}", 
+            quiz_id: quizId
+        },
+        success: function(response) {
+    if (response.done) {
+        let resultsHTML = '<strong>Bạn đã từng làm bài kiểm tra này! </strong>';
+        resultsHTML += `<strong>Số câu trả lời đúng: ${response.correct_count}</strong>`;
+        resultsHTML += `<h2>Đáp án đúng</h2>`;
+        response.questions.forEach(function(question) {
+            let questionHTML = `
+                <div class="question" data-question-id="${question.id}">
+                    <strong>${question.content}</strong>`;
+            ['a', 'b', 'c', 'd'].forEach(function(option) {
+                let correctClass = question.correct_answer === option ? 'correct-answer' : '';
+                let check = question.correct_answer === option ? 'checked' : '';
+                questionHTML += `
+                    <div class="option ${correctClass}">
+                        <input type="radio" name="option[${question.id}]" value="${option}" ${check} disabled> ${question['option_' + option.toLowerCase()]}
+                    </div>`;
+            });
+            questionHTML += '</div>';
+            resultsHTML += questionHTML;
+        });
+        
+        $('#results').html(resultsHTML);
+    } else {
+        $('#quiz-form').show();// nếu chưa làm thì hiện form
+    }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
+
+
+//lưu câu trả lời
+    $('#quiz-form').on('submit', function(e) {
+        e.preventDefault();
+
+        var answers = [];
+        $('.question').each(function() {
+            var question_id = $(this).data('question-id');
+            var answer = $(this).find('input[type=radio]:checked').val();
+
+            answers.push({
+                student_id: "{{ session('id') }}", 
+                question_id: question_id,
+                answer: answer
+            });
+        });
+
+        $.ajax({
+            url: '{{route('saveanswers')}}', 
+            method: 'POST',
+            data: {
+                _token: $('input[name=_token]').val(),
+                answers: answers
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

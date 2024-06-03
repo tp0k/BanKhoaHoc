@@ -161,4 +161,6 @@ Route::post('/update-watchlist', [WatchlistController::class,'store'])->name('wa
 
 //quizz
 Route::get('/quiz/{quiz_id}', [question::class, 'showRandomQuestions'])->name('quiz');
-Route::post('/check-answer', [question::class, 'checkAnswer'])->name('check-answer');
+Route::post('/saveanswers', [question::class, 'saveAnswers'])->name('saveanswers');
+Route::post('/checkquiz', [question::class, 'checkQuiz'])->name('checkquiz');
+
