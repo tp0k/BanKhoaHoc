@@ -8,9 +8,8 @@
 
 @section('content')
 <!-- Breadcrumb Starts Here -->
-<div class="gray-box"></div>
 <div class="event-sub-section event-sub-section--spaceY eventsearch-sub-section">
-    
+    {{-- <div class="gray-box"></div> --}}
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent p-0 mb-0">
@@ -53,7 +52,7 @@
                                         <div class="icon">
                                             <img src="{{ asset('frontend/dist/images/icon/calendar.png') }}" alt="calendar" />
                                         </div>
-                                        <span>{{ date('d/m/Y', strtotime($eventDetail->date)) }}</span>
+                                        <span>{{ date('d/m/Y', strtotime($event->date)) }}</span>
                                     </div>
                                 </div>
                             </div>
