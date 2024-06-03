@@ -7,6 +7,7 @@
     <div class="gray-box"></div>
     <div class="owl-carousel owl-theme">
         @foreach($banners as $banner)
+        <a href="{{ asset('api/event/' .$banner->events_id) }}">
             <img class="owl-lazy" data-src="{{ asset('banners/' . $banner->image) }}" 
             alt="{{ $banner->title_banner }}">
         @endforeach
