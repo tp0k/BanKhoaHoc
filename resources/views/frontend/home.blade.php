@@ -2,7 +2,32 @@
 @section('title', 'Trang chủ')
 @section('footer-class', 'footer--two')
 
-@section('content')
+<style>
+    .browse-categories__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+/* .browse-categories-item {
+    width: 200px; 
+    margin: 10px; 
+}
+
+.browse-categories-item img {
+    max-width: 100%; 
+    height: auto; 
+} */
+
+.browse-categories-item-text {
+    text-align: center; 
+    /* overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;  */
+}
+</style>
+
+
 <div id="slide">
     <div class="gray-box"></div>
     <div class="owl-carousel owl-theme">
@@ -83,6 +108,8 @@
     </div>
 </section>  --}}
 
+@section('content')
+
 <!-- Browse Categories Starts Here -->
 <section class="section browse-categories">
     <div class="container">
@@ -94,7 +121,7 @@
                 // Fetch the count of courses for each category
                 $courseCount = $cat->course()->count();
                 @endphp
-                <div class="browse-categories-item default-item-one mb-2">
+                <div class="browse-categories-item default-item-one mb-2 mt-4 mt-lg-0">
                     <div class="browse-categories-item-icon">
                         <div class="categories-one default-categories">
                             <a href="{{ route('search2Course', ['course_category_id' => $cat->id]) }}">
@@ -1014,18 +1041,21 @@
                                 <h5>
                                     <a href="{{ route('eventDetail', ['id' => $event->id]) }}" class="font-title--card">{{ $event->title }}</a>
                                 </h5>
+                                <h6>
+                                    <a href="{{ route('eventDetail', ['id' => $event->id]) }}" class="font-title--card">{!! $event->description !!}</a>
+                                </h6>
                                 <div class="contentCard-more">
                                     <div class="d-flex align-items-center">
-                                        <div class="icon">
+                                        {{-- <div class="icon">
                                             <img src="{{ asset('frontend/dist/images/icon/location.png') }}" alt="location" />
-                                        </div>
-                                        <span>{{ $event->location }}</span>
+                                        </div> --}}
+                                        {{-- <span>{!! $event->description !!}</span> --}}
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <div class="icon">
                                             <img src="{{ asset('frontend/dist/images/icon/calendar.png') }}" alt="calendar" />
                                         </div>
-                                        <span>{{ date('d/m/Y', strtotime($event->date)) }}</span>
+                                        <span>{{ date('d/m/Y', strtotime($event->created_at)) }}</span>
                                     </div>
                                 </div>
                             </div>
