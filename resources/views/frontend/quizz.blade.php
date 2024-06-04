@@ -58,11 +58,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="topic-info-arrow">
-            <a href="{{URL::previous()}}">
-                <i class="fas fa-chevron-left"></i>
-            </a>
-        </div>
         <h1>Bài kiểm tra</h1>
         <form id="quiz-form" method="POST" style="display: none;">
         @csrf
