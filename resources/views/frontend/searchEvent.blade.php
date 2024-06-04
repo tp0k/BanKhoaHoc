@@ -8,8 +8,9 @@
 
 @section('content')
 <!-- Breadcrumb Starts Here -->
+<div class="gray-box"></div>
 <div class="event-sub-section event-sub-section--spaceY eventsearch-sub-section">
-    {{-- <div class="gray-box"></div> --}}
+    
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent p-0 mb-0">
@@ -26,6 +27,7 @@
 <!-- Breadcrumb Ends Here -->
 <!-- Event Search Starts Here -->
 <section class="section event-search">
+    
     <div class="container">
         <div class="row">
             <div class="col-12 position-relative px-0 mx-0">

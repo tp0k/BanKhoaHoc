@@ -40,7 +40,7 @@ class DashboardController extends Controller
             if ($CountVideo > 0) {
                 $completionPercentage = ($completedVideoCount / $CountVideo) * 100;
                 
-                if ($completionPercentage >= 100) {
+                if ($completionPercentage == 100) {
                     $completedCourses[] = $course;
                 } else {
                     $course->completionPercentage = $completionPercentage;

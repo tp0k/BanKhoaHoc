@@ -159,16 +159,16 @@
                                                 alt="client-image" class="rounded-circle" height="34" width="34" />
                                             <p class="font-para--md">{{$a->course?->instructor?->name_en}}</p>
                                         </a>
-                                        <div class="contentCard-course--status d-flex align-items-center">
+                                        {{-- <div class="contentCard-course--status d-flex align-items-center">
                                             <span class="percentage">43%</span>
                                             <p>Kết thúc</p>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <a class="button button-md button--primary-outline w-100 my-3"
                                         href="{{route('watchCourse', encryptor('encrypt', $a->course?->id))}}">Vào học ngay</a>
-                                    <div class="contentCard-watch--progress">
+                                    {{-- <div class="contentCard-watch--progress">
                                         <span class="percentage" style="width: 43%;"></span>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
