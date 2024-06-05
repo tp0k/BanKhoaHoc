@@ -676,7 +676,7 @@
                 <h2 class="font-title--md">Lắng nghe và chia sẻ</h2>
             </div>
         </div>
-        <div class="testimonial testimonial--one testimonial__slider--one">
+        <div class="testimonial testimonial--one testimonial__slider--one browse-categories__wrapper">
             <div class="testimonial__item">
                 <p>
                     “Cô Thảo lớp Python cơ bản dạy có hệ thống, truyền đạt cho học sinh nhiều kiến thức. Bài giảng của cô sinh động, rất dễ hiểu. “

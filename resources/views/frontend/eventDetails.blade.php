@@ -39,7 +39,7 @@
             <div class="col-lg-8">
                 <div class="course-overview">
                     <!-- Thumbnails -->
-                    <div class="course-overview-image">
+                    {{-- <div class="course-overview-image">
                         <img src="{{asset('uploads/events/'.$eventDetail->image)}}" alt="img" />
                             <svg width="23" height="27" viewBox="0 0 23 27" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@
                                     fill="#1089FF"></path>
                             </svg>
                         </a>
-                    </div>
+                    </div> --}}
                     {{-- Tabs --}}
                     <ul class="nav course-overview-nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -62,30 +62,12 @@
                         <div class="tab-pane fade show active" id="pills-courseoverview" role="tabpanel"
                             aria-labelledby="pills-courseoverview-tab">
                             <div class="row course-overview-main mt-4">
-                                <div class="course-overview-main-item">
-                                    <h6 class="font-title--card">Mô tả</h6>
-                                    <p class="mb-3 font-para--lg">{{$eventDetail->description}}</p>
-                                </div>
+                                
                                 <div class="course-overview-main-item mb-0">
-                                    <h6 class="font-title--card">Nhà tài trợ</h6>
-                                    <p class="mb-2 font-para--lg">{{$eventDetail->hosted_by}}</p>
+                                    {{-- <h6 class="font-title--card"></h6> --}}
+                                    <p class="mb-2 font-para--lg">{!! $eventDetail->content !!}</p>
                                 </div>
-                                <div class="course-overview-main-item">
-                                    <h6 class="font-title--card">Nơi diễn ra</h6>
-                                    <p class="mb-2 font-para--lg">{{$eventDetail->location}}</p>
-                                </div>
-                                <div class="course-overview-main-item">
-                                    <h6 class="font-title--card">Chủ đề</h6>
-                                    <p class="mb-2 font-para--lg">{{$eventDetail->topic}}</p>
-                                </div>
-                                <div class="course-overview-main-item mb-0">
-                                    <h6 class="font-title--card">Mục tiêu sự kiện</h6>
-                                    <p class="mb-2 font-para--lg">{{$eventDetail->goal}}</p>
-                                </div>
-                                <div class="course-overview-main-item mb-0">
-                                    <h6 class="font-title--card">Diễn ra ngày</h6>
-                                    <p class="mb-2 font-para--lg">{{ date('d/m/Y', strtotime($eventDetail->date)) }}</p>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

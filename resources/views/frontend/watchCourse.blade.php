@@ -321,8 +321,13 @@ h1{font-size:1.5em;margin:10px;}
 
                         <div class="videolist-area-wizard">
                             <div class="main-wizard">
+                                @if(isset($quiz) && $quiz !== null)
+
                                 <a class="main-wizard-start" id="quiz1" style="display: {{ $quiz && $completedVideoCount/$CountVideo == 1 ? 'block' : 'none' }}"
                                      href="{{ route('quiz', ['quiz_id' => $quiz->id]) }}">Bài kiểm tra</a>
+                                     @else
+    <p>Không có bài kiểm tra</p>
+@endif
                             </div>
                         </div>
 

@@ -31,11 +31,11 @@ class EventController extends Controller
             $event = new Event;
             $event->title = $request->title;
             $event->description = $request->description;
-            $event->location = $request->location;
-            $event->topic = $request->topic;
-            $event->goal = $request->goal;
-            $event->hosted_by = $request->hosted_by;
-            $event->date = $request->date;
+            $event->content = $request->content;
+            // $event->topic = $request->topic;
+            // $event->goal = $request->goal;
+            // $event->hosted_by = $request->hosted_by;
+            // $event->date = $request->date;
             if ($request->hasFile('image')) {
                 $imageName = rand(999, 111) . time() . '.' . $request->image->extension();
                 $request->image->move(public_path('uploads/events'), $imageName);
@@ -80,11 +80,11 @@ class EventController extends Controller
             $event = Event::findOrFail($id);
             $event->title = $request->title;
             $event->description = $request->description;
-            $event->location = $request->location;
-            $event->topic = $request->topic;
-            $event->goal = $request->goal;
-            $event->hosted_by = $request->hosted_by;
-            $event->date = $request->date;
+            $event->content = $request->content;
+            // $event->topic = $request->topic;
+            // $event->goal = $request->goal;
+            // $event->hosted_by = $request->hosted_by;
+            // $event->date = $request->date;
             if ($request->hasFile('image')) {
                 $imageName = rand(999, 111) . time() . '.' . $request->image->extension();
                 $request->image->move(public_path('uploads/events'), $imageName);
