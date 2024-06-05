@@ -102,14 +102,17 @@
             <div class="col-lg-8">
                 <div class="event-search-results">
                     <div class="event-search-results-heading">
-                        <div class="nice-select" tabindex="0">
+                        {{-- <div class="nice-select" tabindex="0">
                             <span class="current">Tất cả</span>
                             <ul class="list">
-                                <li data-value="Nothing" data-display="category" class="option selected focus">
+                                <li data-value="Nothing" data-display=" Mới nhất" class="option selected focus">
+                                    Tất cả
+                                </li>
+                                <li data-value="Nothing" data-display=" Mới nhất" class="option selected focus">
                                 Mới nhất
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <p>{{$course->count()}} Kết quả tìm kiếm.</p>
                         <button class="button button-lg button--primary button--primary-filter d-lg-none" id="filter">
                             <span>

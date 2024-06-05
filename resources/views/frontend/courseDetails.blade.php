@@ -123,7 +123,7 @@
                         </a>
                     </div>
     {{-- Tabs --}}
-                    <ul class="nav course-overview-nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <ul class="nav course-overview-nav nav-pills mb-3" style="display: flex;white-space: nowrap;width: 100%;" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active font-para--lg" id="pills-courseoverview-tab"
                                 data-bs-toggle="pill" data-bs-target="#pills-courseoverview" type="button" role="tab"
