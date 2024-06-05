@@ -3,8 +3,8 @@
 
 @push('styles')
 <!-- Pick date -->
-<link rel="stylesheet" href="{{asset('vendor/pickadate/themes/default.css')}}">
-<link rel="stylesheet" href="{{asset('vendor/pickadate/themes/default.date.css')}}">
+<link rel="stylesheet" href="{{ asset('vendor/pickadate/themes/default.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/pickadate/themes/default.date.css') }}">
 @endpush
 
 @section('content')
@@ -24,8 +24,8 @@
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('admin.banner.index')}}">Banners</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Trang chủ</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route('admin.banner.index') }}">Banners</a></li>
                     <li class="breadcrumb-item active"><a href="javascript:void(0);">Sửa Banner</a></li>
                 </ol>
             </div>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.banner.update', $banner->id) }}" method="post"
-                            enctype="multipart/form-data">
+                              enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
@@ -47,21 +47,29 @@
                                     <div class="form-group">
                                         <label class="form-label">Tên Banner</label>
                                         <input type="text" class="form-control" name="title"
-                                            value="{{ old('title', $banner->title) }}">
+                                               value="{{ old('title', $banner->title) }}">
                                     </div>
                                     @if($errors->has('title'))
-                                    <span class="text-danger">{{ $errors->first('title') }}</span>
+                                        <span class="text-danger">{{ $errors->first('title') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label class="form-label">Trạng thái</label>
-                                        <select class="form-control" name="status">
-                                            <option value="1" @if(old('status', $banner->status) == 1) selected @endif>Kích hoạt</option>
-                                            <option value="0" @if(old('status', $banner->status) == 0) selected @endif>Chưa kích hoạt</option>
+                                        <label class="form-label">Sự kiện</label>
+                                        <select name="events_id" class="form-control">
+                                            @foreach ($events as $event)
+                                                <option value="{{ $event->id }}" {{ $banner->events_id == $event->id ? 'selected' : '' }}>
+                                                    {{ $event->title }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
-                                </div> --}}
+                                    @if($errors->has('events_id'))
+                                        <span class="text-danger">{{ $errors->first('events_id') }}</span>
+                                    @endif
+                                </div>
+
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <label class="form-label">Ảnh</label>
                                     <div class="form-group fallback w-100">
@@ -89,10 +97,10 @@
 
 @push('scripts')
 <!-- pickdate -->
-<script src="{{asset('vendor/pickadate/picker.js')}}"></script>
-<script src="{{asset('vendor/pickadate/picker.time.js')}}"></script>
-<script src="{{asset('vendor/pickadate/picker.date.js')}}"></script>
+<script src="{{ asset('vendor/pickadate/picker.js') }}"></script>
+<script src="{{ asset('vendor/pickadate/picker.time.js') }}"></script>
+<script src="{{ asset('vendor/pickadate/picker.date.js') }}"></script>
 
 <!-- Pickdate -->
-<script src="{{asset('js/plugins-init/pickadate-init.js')}}"></script>
+<script src="{{ asset('js/plugins-init/pickadate-init.js') }}"></script>
 @endpush

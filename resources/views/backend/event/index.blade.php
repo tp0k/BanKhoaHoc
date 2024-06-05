@@ -45,10 +45,10 @@
                                         <thead>
                                             <tr>
                                                 <th>{{__('Thứ tự')}}</th>
-                                                <th>{{__('Tin tức')}}</th>
-                                                <th>{{__('Chủ để')}}</th>
-                                                <th>{{__('Vị trí')}}</th>
-                                                <th>{{__('Ngày')}}</th>
+                                                <th>{{__('Tiêu đề')}}</th>
+                                                <th>{{__('Mô tả ngắn')}}</th>
+                                                {{-- <th>{{__('Nội dung')}}</th> --}}
+                                                {{-- <th>{{__('Ngày')}}</th> --}}
                                                 <th>{{__('Kích hoạt')}}</th>
                                             </tr>
                                         </thead>
@@ -58,8 +58,8 @@
                                                 <td><img src="{{asset('uploads/events/'.$e->image)}}"
                                                         class="w-100" height="50"></td>
                                                 <td><strong>{{$e->title}}</strong></td>
-                                                <td><strong>{{$e->topic}}</strong></td>
-                                                <td>{{$e->location}}</td>
+                                                <td><strong>{{$e->description}}</strong></td>
+                                                {{-- <td>{{$e->location}}</td> --}}
                                                 <td>{{ \Carbon\Carbon::parse($e->date)->format('j F, Y, l') }}</td>
                                                 <td>
                                                     <a href="{{route('event.edit', $e->id)}}"
@@ -89,7 +89,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <!--**********************************

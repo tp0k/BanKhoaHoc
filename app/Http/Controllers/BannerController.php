@@ -6,16 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\Event;
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
-use App\Http\Requests\Backend\banners\AddNewRequest;
-use App\Http\Requests\Backend\banners\UpdateRequest;
 use Exception;
-use File;
-use Illuminate\Support\Facades\Auth; 
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Contracts\Encryption\DecryptException;
-
 class BannerController extends Controller
 {
 
@@ -24,16 +15,6 @@ class BannerController extends Controller
         $banners = Banner::get();
         return view('backend.banners.index', compact('banners'));
     }
-        // $events = Event::all();
-     
-    /**
-     * Show a list of all of the application's users.
-     */
-    
-    
-        // $users = DB::table('banners')->get();
- 
-        // return view('backend.banners.index', ['users' => $users]);
     
     public function create()
     {
@@ -65,50 +46,47 @@ class BannerController extends Controller
         return redirect()->back()->withInput()->with('error', 'Please try again');
     }
 }
-    public function edit(Banner $banner)
+    public function edit($id)
     {
-        return view('backend.banners.edit', compact('banner'));
+        $banner = Banner::findOrFail($id);
+    $events = Event::all(); // Truy vấn tất cả các sự kiện để cung cấp cho view
+    return view('backend.banners.edit', compact('banner', 'events'));
     }
-    // public function edit($id)
-    // {
-    //     $courseCategory = CourseCategory::get();
-    //     $instructor = Instructor::get();
-    //     $course = Course::findOrFail(encryptor('decrypt', $id));
-    //     return view('backend.course.courses.edit', compact('courseCategory', 'instructor', 'course'));
-    // }
 
     public function update(Request $request, $id)
 {
     try {
-        $decryptedId = Crypt::decryptString($id);  // Sử dụng lớp Crypt để giải mã
-        $banner = Banner::findOrFail($decryptedId);
-        
-        // Cập nhật các trường khác
+        $banner = Banner::findOrFail($id); // Tìm banner thay vì event
         $banner->title_banner = $request->title_banner;
-        $banner->events_id = $request->events_id;
         $banner->description = $request->description;
-
+        $banner->events_id = $request->events_id;
+        
         if ($request->hasFile('image')) {
-            $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
-            $request->image->move(public_path('banners'), $imageName);
+            $imageName = rand(999, 111) . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('uploads/banners'), $imageName); // Sửa đường dẫn upload ảnh
             $banner->image = $imageName;
         }
-
-        if ($banner->save())
-            return redirect()->route('admin.banner.index')->with('success', 'Data Saved');
-        else
-            return redirect()->back()->withInput()->with('error', 'Please try again');
-    } catch (DecryptException $e) {
-        return redirect()->back()->withInput()->with('error', 'Invalid ID');
+        
+        if ($banner->save()) {
+            $this->notice::success('Lưu dữ liệu!');
+            return redirect()->route('admin.banner.index');
+        } else {
+            $this->notice::error('Vui lòng thử lại!');
+            return redirect()->back()->withInput();
+        }
     } catch (Exception $e) {
-        return redirect()->back()->withInput()->with('error', 'Please try again');
+        dd($e);
+        $this->notice::error('Vui lòng thử lại!');
+        return redirect()->back()->withInput();
     }
 }
-    public function destroy(Banner $banner)
+    public function destroy($id)
     {
-        $banner->delete();
+    $data = Banner::findOrFail($id);
+        if ($data->delete()) {
+            $this->notice::error('Xoá dữ liệu!');
+            return redirect()->back();
+        }
 
-        return redirect()->route('admin.banner.index');
-    }
-
+}
 }

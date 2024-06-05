@@ -323,11 +323,8 @@ h1{font-size:1.5em;margin:10px;}
 
                         <div class="videolist-area-wizard">
                             <div class="main-wizard">
-                                @if($quiz)
                                 <a class="main-wizard-start" id="quiz1" style="display: {{ $quiz && $completedVideoCount/$CountVideo == 1 ? 'block' : 'none' }}"
                                      href="{{ route('quiz', ['quiz_id' => $quiz->id]) }}">Bài kiểm tra</a>
-                                
-                                @endif
                             </div>
                         </div>
 

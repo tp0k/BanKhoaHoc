@@ -11,18 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->string('location')->nullable();
-            $table->string('image')->nullable();
-            $table->text('topic')->nullable();
-            $table->text('goal')->nullable();
-            $table->string('hosted_by')->nullable();
-            $table->date('date')->nullable();
-            $table->timestamps(); // Created at and Updated at columns
-            $table->softDeletes(); // Deleted at column for soft deletes
+        Schema::table('events', function (Blueprint $table) {
+            $table->text('content')->nullable();
+
+        // Xóa các cột không cần thiết
+        $table->dropColumn(['location', 'topic', 'goal', 'hosted_by', 'date']);
         });
     }
 

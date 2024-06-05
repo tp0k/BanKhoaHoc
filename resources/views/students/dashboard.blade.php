@@ -214,12 +214,18 @@
                 {{-- Active Courses --}}
 <div class="tab-pane fade" id="nav-activecourses" role="tabpanel" aria-labelledby="nav-activecourses-tab">
     <div class="row">
-        @forelse($enrollment as $a)
+        @php
+            $hasincompleteCourses = false;
+        @endphp
+                    @forelse($enrollment as $a)
             @php
                 $course = $incompleteCourses->firstWhere('id', $a->course_id);
             @endphp
 
             @if($course)
+            @php
+                $hasincompleteCourses = true;
+            @endphp
                 <div class="col-lg-4 col-md-6 col-md-6 mb-4">
                     <div class="contentCard contentCard--watch-course">
                         <div class="contentCard-top">
@@ -256,6 +262,15 @@
                 </div>
             </div>
         @endforelse
+        @if(!$hasincompleteCourses)
+            <!-- Nếu không có khóa học nào hoàn thành được hiển thị -->
+            <div class="col-12 py-5">
+                <div class="col-md-6 col-12 mx-auto text-center">
+                    <h5 class="font-title--sm">Bạn chưa đăng ký khóa học nào...</h5>
+                    <p class="my-4 font-para--lg">Danh sách khóa học của bạn trống!</p>
+                </div>
+            </div>
+        @endif
     
                     <div class="col-lg-12 mt-lg-5">
                         <div class="pagination justify-content-center pb-0">
