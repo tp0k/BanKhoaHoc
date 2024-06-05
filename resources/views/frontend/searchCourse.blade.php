@@ -103,14 +103,11 @@
                 <div class="event-search-results">
                     <div class="event-search-results-heading">
                         <div class="nice-select" tabindex="0">
-                            <span class="current">Xem nhiều nhất</span>
+                            <span class="current">Tất cả</span>
                             <ul class="list">
                                 <li data-value="Nothing" data-display="category" class="option selected focus">
-                                Không có gì
+                                Mới nhất
                                 </li>
-                                <li data-value="1" class="option">Một số tùy chọn</li>
-                                <li data-value="2" class="option">Một lựa chọn khác</li>
-                                <li data-value="4" class="option"></li>
                             </ul>
                         </div>
                         <p>{{$course->count()}} Kết quả tìm kiếm.</p>

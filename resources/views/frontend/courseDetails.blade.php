@@ -216,7 +216,7 @@
                                                             ->where('lessons.course_id', $course->id)
                                                             ->first();
                                                         @endphp
-                                                        <a href="{{ asset('uploads/courses/contents/'.$video1->content)}}">
+                                                        <a href="{{ $video1 ? asset('uploads/courses/contents/'.$video1->content) : 'none' }}">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                                 stroke="currentColor" stroke-width="2"
@@ -226,7 +226,8 @@
                                                                 <polygon points="10 8 16 12 10 16 10 8"></polygon>
                                                             </svg>
                                                         </a>
-                                                        <a href="{{ asset('uploads/courses/contents/'.$video1->content)}}">{{$video1->title??"không có video miễn phí"}}</a>
+                                                        <a href="{{ $video1 ? asset('uploads/courses/contents/'.$video1->content) : 'none' }}">
+                                                            {{$video1->title??"không có video miễn phí"}}</a>
                                                     </p>
                                                 </div>
                                             </div>
