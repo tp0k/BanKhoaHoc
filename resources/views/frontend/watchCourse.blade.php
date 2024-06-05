@@ -57,11 +57,11 @@ h1{font-size:1.5em;margin:10px;}
                         <img src="{{asset('images\logo.png')}}" alt="Logo" class="img-fluid" />
                     </a>
                     <div class="topic-info">
-                        <div class="topic-info-arrow">
+                        {{-- <div class="topic-info-arrow">
                             <a href="{{URL::previous()}}">
                                 <i class="fas fa-chevron-left"></i>
                             </a>
-                        </div>
+                        </div> --}}
                         <div class="topic-info-text">
                             <h6 class="font-title--xs"><a href="{{route('courseDetails', encryptor('encrypt', $course->id))}}">{{$course->title_en}}</a></h6>
                             <div class="lesson-hours">
@@ -143,6 +143,8 @@ h1{font-size:1.5em;margin:10px;}
                                     $comment = DB::table('comments')->where('course_id',$course->id)
                                     ->join('students', 'comments.student_id', '=', 'students.id')
                                     ->orderBy('comments.created_at', 'desc')
+                                    ->select('comments.*','students.*','comments.created_at as comments_created_at')//đổi tên cột created của comments
+
                                     ->get()
                                     @endphp
 
@@ -161,7 +163,7 @@ h1{font-size:1.5em;margin:10px;}
                                                     <div class="text">
                                                         <h6>
                                                             <a href="#">{{$c->name_en}}</a></h6>
-                                                        <p>{{$c->created_at}}</p>
+                                                        <p>{{$c->comments_created_at}}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -321,8 +323,11 @@ h1{font-size:1.5em;margin:10px;}
 
                         <div class="videolist-area-wizard">
                             <div class="main-wizard">
+                                @if($quiz)
                                 <a class="main-wizard-start" id="quiz1" style="display: {{ $quiz && $completedVideoCount/$CountVideo == 1 ? 'block' : 'none' }}"
                                      href="{{ route('quiz', ['quiz_id' => $quiz->id]) }}">Bài kiểm tra</a>
+                                
+                                @endif
                             </div>
                         </div>
 
