@@ -97,15 +97,15 @@
 <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <script src="{{ asset('ckfinder/ckfinder.js') }}"></script>
 <script>
-    // function initCKEditor(elementId) {
-    //     CKEDITOR.replace(elementId, {
-    //         filebrowserBrowseUrl: "{{ asset('ckfinder/ckfinder.html') }}",
-    //         filebrowserImageBrowseUrl: "{{ asset('ckfinder/ckfinder.html?type=Images') }}",
-    //         filebrowserUploadUrl: "{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}",
-    //         filebrowserImageUploadUrl: "{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}"
-    //     });
-    // }
-    // initCKEditor('content');
-    CKEDITOR.replace('content');
+    function initCKEditor(elementId) {
+        CKEDITOR.replace(elementId, {
+            filebrowserBrowseUrl: "{{ asset('ckfinder/ckfinder.html') }}",
+            filebrowserImageBrowseUrl: "{{ asset('ckfinder/ckfinder.html?type=Images') }}",
+            filebrowserUploadUrl: "{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}",
+            filebrowserImageUploadUrl: "{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}"
+        });
+    }
+    initCKEditor('content');
+    // CKEDITOR.replace('content');
 </script>
 @endpush
