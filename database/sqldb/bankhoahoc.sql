@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 05, 2024 lúc 05:33 PM
+-- Thời gian đã tạo: Th6 05, 2024 lúc 10:42 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -37,6 +37,14 @@ CREATE TABLE `answers` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `answers`
+--
+
+INSERT INTO `answers` (`id`, `student_id`, `question_id`, `answer`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 11, 14, 'd', NULL, NULL, NULL),
+(2, 11, 13, 'a', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -59,7 +67,9 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `title_banner`, `description`, `events_id`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(3, NULL, NULL, 2, '7041717589867.jpg', '2024-06-05 05:17:47', '2024-06-05 05:43:06', '2024-06-05 05:43:06');
+(5, NULL, NULL, 3, '4331717620036.jpg', '2024-06-05 10:26:27', '2024-06-05 13:40:59', '2024-06-05 13:40:59'),
+(6, 'Banner 2', 'Banner 2', 3, '3691717608443.jpg', '2024-06-05 10:27:23', '2024-06-05 10:27:23', NULL),
+(7, 'Banner 1', 'Banner 1', 3, '3571717620092.jpg', '2024-06-05 13:41:32', '2024-06-05 13:41:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -243,7 +253,8 @@ CREATE TABLE `enrollments` (
 INSERT INTO `enrollments` (`id`, `student_id`, `payment_id`, `course_id`, `enrollment_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (13, 11, 446, '5', '2024-05-26 10:33:00', NULL, NULL, NULL),
 (19, 12, 452, '1', '2024-05-29 05:31:00', NULL, NULL, NULL),
-(20, 12, 454, '5', '2024-05-29 05:34:00', NULL, NULL, NULL);
+(20, 12, 454, '5', '2024-05-29 05:34:00', NULL, NULL, NULL),
+(21, 11, 457, '1', '2024-06-06 00:08:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -267,7 +278,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`, `deleted_at`, `content`) VALUES
-(2, 'Tin tức 1', 'Tin tức 1', '9501717589835.jpg', '2024-06-05 05:17:15', '2024-06-05 05:17:15', NULL, '<p>Tin tức 1</p>');
+(3, 'Tin Tức 2', 'Tin Tức 2', '7481717608308.jpg', '2024-06-05 08:52:27', '2024-06-05 10:25:08', NULL, '<h2><strong>Python l&agrave; g&igrave;</strong></h2>\r\n\r\n<p>Đầu ti&ecirc;n, Python l&agrave; g&igrave;? Python l&agrave;&nbsp;<a href=\"https://glints.com/vn/blog/ngon-ngu-lap-trinh-bac-cao/\" target=\"_blank\">ng&ocirc;n ngữ lập tr&igrave;nh m&aacute;y t&iacute;nh bậc cao</a>&nbsp;thường được sử dụng để x&acirc;y dựng trang web v&agrave; phần mềm, tự động h&oacute;a c&aacute;c t&aacute;c vụ v&agrave; tiến h&agrave;nh&nbsp;<a href=\"https://glints.com/vn/blog/ky-nang-phan-tich-du-lieu/\" target=\"_blank\">ph&acirc;n t&iacute;ch dữ liệu</a>. Python l&agrave; ng&ocirc;n ngữ c&oacute; mục đ&iacute;ch chung, nghĩa l&agrave; n&oacute; c&oacute; thể được sử dụng để tạo nhiều chương tr&igrave;nh kh&aacute;c nhau v&agrave; kh&ocirc;ng chuy&ecirc;n biệt cho bất kỳ vấn đề cụ thể n&agrave;o.&nbsp;</p>'),
+(4, 'Tổng hợp những tính năng mới mẻ trong Python 3.12', 'Python 3.12', '2451717611475.png', '2024-06-05 11:17:56', '2024-06-05 11:17:56', NULL, '<p>Python 3.12 beta 1 vừa được ph&aacute;t h&agrave;nh c&aacute;ch đ&acirc;y kh&ocirc;ng l&acirc;u. C&aacute;c developer được khuyến kh&iacute;ch l&agrave; n&ecirc;n d&ugrave;ng thử phi&ecirc;n bản mới n&agrave;y tr&ecirc;n non-production code, vừa để x&aacute;c minh rằng c&aacute;c program của bạn hoạt động tốt tr&ecirc;n phi&ecirc;n bản n&agrave;y, vừa để biết liệu code c&oacute; được hưởng lợi từ c&aacute;c bộ t&iacute;nh năng mới v&agrave; cải tiến hiệu suất trong phi&ecirc;n bản mới nhất n&agrave;y hay kh&ocirc;ng.&nbsp;</p>\r\n\r\n<p>Dưới đ&acirc;y l&agrave; t&oacute;m tắt c&aacute;c t&iacute;nh năng mới quan trọng nhất trong Python 3.12 v&agrave; &yacute; nghĩa của ch&uacute;ng đối với c&aacute;c lập tr&igrave;nh vi&ecirc;n Python.&nbsp;</p>\r\n\r\n<p><img alt=\"python\" src=\"/events1/images/python.png\" style=\"height:450px; width:800px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>1. Th&ocirc;ng b&aacute;o về lỗi tốt hơn</strong></h3>\r\n\r\n<p>C&aacute;c th&ocirc;ng b&aacute;o về lỗi ng&agrave;y c&agrave;ng tối ưu (cho biết ch&iacute;nh x&aacute;c d&ograve;ng gặp lỗi) v&agrave; chi tiết hơn (gợi &yacute; nguy&ecirc;n do gặp lỗi). B&ecirc;n cạnh đ&oacute;, Python 3.12 c&ograve;n mang đến những cải tiến bổ sung:&nbsp;</p>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Đề xuất module bị thiếu, bao gồm c&aacute;c module từ standard library</p>\r\n	</li>\r\n	<li>\r\n	<p>Đề xuất lỗi tốt hơn cho lỗi c&uacute; ph&aacute;p phổ biến khi nhập; v&iacute; dụ:&nbsp;<code>import p from m</code>&nbsp;trả về lỗi gợi &yacute; l&agrave;&nbsp;<code>from m import p</code>.</p>\r\n	</li>\r\n</ul>\r\n\r\n<h3><strong>2. Hỗ trợ cho Linux perf profiler</strong></h3>\r\n\r\n<p>C&ocirc;ng cụ Linux profiler&nbsp;<code>perf&nbsp;</code>đ&atilde; c&oacute; thể hoạt động tr&ecirc;n Python, nhưng n&oacute; chỉ trả th&ocirc;ng tin về những g&igrave; đang xảy ra ở cấp độ C trong thời gian chạy Python. Th&ocirc;ng tin function về chương tr&igrave;nh Python thực tế sẽ kh&ocirc;ng được hiển thị.</p>\r\n\r\n<p>Python 3.12 k&iacute;ch hoạt chế độ opt-in cho ph&eacute;p&nbsp;<code>perf</code><code>&nbsp;</code>thu thập data chi tiết về c&aacute;c chương tr&igrave;nh Python. Chế độ opt - in c&oacute; thể được thực hiện ở cấp độ m&ocirc;i trường hoặc b&ecirc;n trong chương tr&igrave;nh Python c&oacute; function&nbsp;<code>sys.activate_stack_trampoline</code>.</p>\r\n\r\n<p><img alt=\"ảnh \" src=\"/events1/images/chicago.png\" style=\"height:425px; width:800px\" /></p>\r\n\r\n<h3><strong>3. Gi&aacute;m s&aacute;t debug/profile nhanh hơn</strong></h3>\r\n\r\n<p>Chạy profiler hay đ&iacute;nh k&egrave;m tr&igrave;nh debug v&agrave;o chương tr&igrave;nh Python sẽ cho bạn biết khả năng hiển thị v&agrave; th&ocirc;ng tin chi tiết về hoạt động của chương tr&igrave;nh đ&oacute;. Tuy nhi&ecirc;n việc n&agrave;y sẽ đi k&egrave;m với một chi ph&iacute; hiệu suất. Dẫn đến việc c&aacute;c chương tr&igrave;nh chạy chậm hơn.</p>\r\n\r\n<p>V&igrave; thế Pep 669 đ&atilde; cung cấp c&aacute;c hook cho c&aacute;c event code object m&agrave; profiler v&agrave; tr&igrave;nh debug c&oacute; thể đ&iacute;nh k&egrave;m v&agrave;o, chẳng hạn như điểm bắt đầu hoặc điểm kết th&uacute;c của một function, gi&uacute;p giảm bớt được chi ph&iacute; v&agrave; kh&ocirc;ng l&agrave;m ảnh hưởng nhiều đến hiệu suất chương tr&igrave;nh.</p>\r\n\r\n<h3><strong>4. Cải tiến typing</strong></h3>\r\n\r\n<p><strong><em>TypedDict</em></strong></p>\r\n\r\n<p>Trong Python 3.12, bạn c&oacute; thể sử dụng&nbsp;<code>TypedDict</code>&nbsp;l&agrave;m source của c&aacute;c type để gợi &yacute; c&aacute;c kwargs (đối số từ kh&oacute;a) được sử dụng trong một function. Unpack variadic generic được sử dụng cho việc n&agrave;y từng được giới thiệu trong phi&ecirc;n bản 3.11. Đ&acirc;y l&agrave; một v&iacute; dụ:</p>\r\n\r\n<pre>\r\n<code>class Movie(TypedDict):\r\n    name: str\r\n    year: int\r\n\r\ndef foo(**kwargs: Unpack[Movie]) -&gt; None: ...</code>\r\n\r\n</pre>\r\n\r\n<p>Tại đ&acirc;y,&nbsp;<code>foo&nbsp;</code>c&oacute; thể nhận kwargs của &ldquo;names&rdquo; v&agrave; &ldquo;type&rdquo; ph&ugrave; hợp với nội dung của&nbsp;Movie&mdash;&nbsp;<code>name:str</code>&nbsp;v&agrave;&nbsp;<code>year:int</code>.&nbsp;Việc n&agrave;y gi&uacute;p &iacute;ch trong việc type-hinting functions c&aacute;c đối số chỉ từ kh&oacute;a t&ugrave;y chọn m&agrave; kh&ocirc;ng c&oacute; gi&aacute; trị mặc định.</p>\r\n\r\n<p><strong><em>Type parameter syntax</em></strong></p>\r\n\r\n<p>Type parameter syntax r&otilde; r&agrave;ng hơn trong việc chỉ định c&aacute;c type trong một class, function hoặc type alias. Đ&acirc;y l&agrave; một v&iacute; dụ lấy từ PEP:</p>\r\n\r\n<pre>\r\n<code># the old method \r\n\r\nfrom typing import TypeVar\r\n\r\n_T = TypeVar(&quot;_T&quot;)\r\n\r\ndef func(a: _T, b: _T) -&gt; _T:\r\n    ...\r\n\r\n# the new type parameter method\r\n\r\ndef func[T](a: T, b: T) -&gt; T:\r\n    ...</code></pre>\r\n\r\n<p>Với phương ph&aacute;p mới, người ta kh&ocirc;ng cần nhập tệp&nbsp;<code>TypeVar</code>. M&agrave; c&oacute; thể sử dụng c&uacute; ph&aacute;p&nbsp;<code>func[T</code>&nbsp;để chỉ ra c&aacute;c type references. Cũng c&oacute; thể chỉ định type bounds, chẳng hạn như liệu một type nhất định c&oacute; phải l&agrave; một trong một nh&oacute;m c&aacute;c type hay kh&ocirc;ng, mặc d&ugrave; ch&uacute;ng kh&ocirc;ng phải l&agrave; generic type. V&iacute; dụ như&nbsp;<code>func[T: (str,int)]</code>.</p>\r\n\r\n<h3><strong>5. Cải tiến hiệu suất</strong></h3>\r\n\r\n<p>Tuy những cải tiến n&agrave;y kh&ocirc;ng qu&aacute; ấn tượng nhưng cũng c&oacute; một v&agrave;i điểm đ&aacute;ng ch&uacute; &yacute; sau:</p>\r\n\r\n<p><strong><em>Comprehension inlining</em></strong></p>\r\n\r\n<p>Một c&uacute; ph&aacute;p cho ph&eacute;p bạn nhanh ch&oacute;ng tạo list, dictionaries v&agrave; set, hiện ch&uacute;ng c&oacute; thể được tạo bằng &quot;inline&quot; thay v&igrave; object temporary. Theo đ&oacute;, kiểm tra speedup c&oacute; thể đạt đến khoảng 11% đối với trường hợp trong real-world v&agrave; nhanh gấp đ&ocirc;i đối với micro-benchmark.</p>\r\n\r\n<p><strong><em>Immortal objects</em></strong></p>\r\n\r\n<p>Mọi object trong Python đều c&oacute; số lượng tham chiếu theo d&otilde;i số lần c&aacute;c object kh&aacute;c tham chiếu đến n&oacute;, bao gồm c&aacute;c object t&iacute;ch hợp sẵn như None. PEP 683 cho ph&eacute;p c&aacute;c object được coi l&agrave; &quot;immortal&quot;, để ch&uacute;ng kh&ocirc;ng bao giờ bị thay đổi số lượng tham chiếu.</p>\r\n\r\n<p>Về l&acirc;u d&agrave;i c&aacute;c immortal object sẽ v&ocirc; c&ugrave;ng hữu &iacute;ch. N&oacute; l&agrave;m cho việc triển khai thay đổi multicore scaling trở n&ecirc;n dễ d&agrave;ng hơn v&agrave; triển khai c&aacute;c optimizations kh&aacute;c (như tr&aacute;nh copy-on-write ) m&agrave; trước đ&acirc;y rất kh&oacute; thực hiện.</p>\r\n\r\n<p><strong><em>Size object nhỏ hơn</em></strong></p>\r\n\r\n<p>Với c&aacute;c phi&ecirc;n bản Python trước đ&oacute;, size ti&ecirc;u chuẩn của một object l&agrave; 208 byte. C&aacute;c object đ&atilde; được t&aacute;i cấu tr&uacute;c nhiều lần trong một số phi&ecirc;n bản Python gần đ&acirc;y nhất để l&agrave;m cho ch&uacute;ng nhỏ hơn, điều n&agrave;y kh&ocirc;ng chỉ cho ph&eacute;p nhiều object live trong bộ nhớ m&agrave; c&ograve;n gi&uacute;p định vị bộ đệm. Kể từ Python 3.12, size ti&ecirc;u chuẩn của một object hiện l&agrave; 96 byte&mdash;&iacute;t hơn một nửa so với trước đ&acirc;y.</p>\r\n\r\n<p><strong><em>Subinterpreters</em></strong></p>\r\n\r\n<p>Một t&iacute;nh năng đ&atilde; được chờ đợi từ l&acirc;u của Python l&agrave; subinterpreters &mdash; khả năng c&oacute; nhiều phi&ecirc;n bản interpreter, mỗi phi&ecirc;n bản c&oacute; GIL ri&ecirc;ng, chạy song song trong một quy tr&igrave;nh Python. Đ&acirc;y sẽ l&agrave; một bước tiến lớn hướng tới t&iacute;nh parallelism trong Python.</p>\r\n\r\n<p>Tuy nhi&ecirc;n, phi&ecirc;n bản 3.12 chỉ bao gồm c&aacute;c th&agrave;nh phần trong CPython. Vẫn chưa c&oacute; giao diện người d&ugrave;ng cuối cho c&aacute;c subinterpreters. Một library module ti&ecirc;u chuẩn, interpreters, đ&atilde; được thiết kế để thực hiện việc n&agrave;y, dự kiến n&oacute; ​​sẽ xuất hiện trong Python 3.13.</p>\r\n\r\n<h3><strong>6. Một v&agrave;i thay đổi bổ sung</strong></h3>\r\n\r\n<p><strong><em>Unstable API</em></strong></p>\r\n\r\n<p>Đ&acirc;y l&agrave; một bộ API được đ&aacute;nh dấu cụ thể l&agrave; c&oacute; khả năng thay đổi giữa c&aacute;c phi&ecirc;n bản. N&oacute; được sử dụng bởi c&aacute;c c&ocirc;ng cụ cấp thấp như tr&igrave;nh debug hoặc tr&igrave;nh bi&ecirc;n dịch JIT.</p>\r\n\r\n<p><strong><em>Ngừng sử dụng v&agrave; x&oacute;a library standard</em></strong></p>\r\n\r\n<p>Với phi&ecirc;n bản 3.11, một số module library standard đ&atilde; lỗi thời từ l&acirc;u đ&atilde; bị gắn flag để x&oacute;a kể từ Python 3.12 v&agrave; 3.13. Trong phi&ecirc;n bản 3.12, một trong những lần x&oacute;a lớn nhất l&agrave; distutils, m&agrave; từ l&acirc;u đ&atilde; được setuptools. C&aacute;c module kh&aacute;c bị loại bỏ trong phi&ecirc;n bản n&agrave;y asynchat, asyncore(cả hai đều được thay thế bằng asyncio) v&agrave; smtpd.</p>\r\n\r\n<p><em><strong>Garbage collection</strong></em></p>\r\n\r\n<p>Cơ chế Garbage Collection của Python từng c&oacute; thể chạy bất cứ khi n&agrave;o một object được ph&acirc;n bổ. Kể từ Python 3.12, GC chỉ chạy tr&ecirc;n cơ chế &quot;eval breaker&quot; trong v&ograve;ng lặp bytecode của Python&mdash;nghĩa l&agrave;, giữa việc thực thi bytecode n&agrave;y v&agrave; bytecode kh&aacute;c. N&oacute; cũng chạy bất cứ khi n&agrave;o cơ chế kiểm tra xử l&yacute; t&iacute;n hiệu của CPython được gọi.&nbsp;</p>');
 
 -- --------------------------------------------------------
 
@@ -814,8 +826,8 @@ INSERT INTO `questions` (`id`, `quiz_id`, `content`, `option_a`, `option_b`, `op
 (8, 1, 'Trong Python, lệnh x = 5 có ý nghĩa gì?', 'Khai báo một biến có tên là x và gán giá trị là 5.', 'So sánh giá trị của biến x với 5.', 'Thực hiện phép tính 5 * x.', 'In ra giá trị của biến x.', 'a', 'multiple_choice', '2024-05-25 21:46:45', '2024-05-25 21:46:45', NULL),
 (9, 1, 'Đâu là cách đúng để khai báo một tuple trong Python?', 'tuple = (1, 2, 3)', 'tuple = [1, 2, 3]', 'tuple = {1, 2, 3}', 'tuple = \"1, 2, 3\"', 'a', 'multiple_choice', '2024-05-25 21:47:17', '2024-05-25 21:47:17', NULL),
 (10, 1, 'Trong Python, hàm len() được sử dụng để làm gì?', 'Lấy độ dài của một chuỗi (string) hoặc danh sách (list).', 'Chuyển đổi một chuỗi (string) thành chữ thường.', 'Lấy phần nguyên của một số.', 'Thực hiện phép tính lên hai số.', 'a', 'multiple_choice', '2024-05-25 21:58:34', '2024-05-25 21:58:34', NULL),
-(11, 2, 'Trong Python, phép toán 2 ** 3 trả về kết quả là bao nhiêu?', '8', '6', '5', '9', 'a', 'multiple_choice', '2024-05-25 21:59:15', '2024-05-25 21:59:15', NULL),
-(12, 2, 'Trong Python, để lấy giá trị của phần tử thứ hai từ danh sách my_list, bạn sử dụng cú pháp nào?', 'my_list[2]', 'my_list(2)', 'my_list[1]', 'my_list.get(2)', 'c', 'multiple_choice', '2024-05-25 22:00:24', '2024-05-25 22:00:24', NULL);
+(13, 7, 'Bạn Lan đã sửa file này chưa?', 'Chưa', 'Rồi', 'Rồi nhưng quên up', 'Không xác định', 'a', 'multiple_choice', '2024-06-05 09:26:33', '2024-06-05 09:26:33', NULL),
+(14, 7, 'abc', '1', '2', '3', '4', 'a', 'multiple_choice', '2024-06-05 09:28:18', '2024-06-05 09:28:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -838,10 +850,7 @@ CREATE TABLE `quizzes` (
 
 INSERT INTO `quizzes` (`id`, `course_id`, `title`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 1, 'Bài tập 1', '2024-05-25 21:23:55', '2024-05-25 21:47:39', NULL),
-(2, 1, 'Bài tập 2', '2024-05-25 21:47:50', '2024-05-25 21:47:50', NULL),
-(3, 1, 'Bài tập 3', '2024-05-25 21:48:01', '2024-05-25 21:48:01', NULL),
-(4, 1, 'Bài tập 4', '2024-05-25 21:48:12', '2024-05-25 21:48:12', NULL),
-(6, 1, 'Bài tập 5', '2024-05-25 21:48:40', '2024-05-25 21:48:40', NULL);
+(7, 5, 'Test', '2024-06-05 09:25:12', '2024-06-05 09:25:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -997,7 +1006,11 @@ INSERT INTO `transactions` (`id`, `payment_method`, `tst_user_id`, `tst_total_am
 (451, 'e_wallet', 12, 1800000, 'vnpay', '2024-05-25 21:14:52', NULL),
 (452, 'e_wallet', 12, 1800000, 'vnpay', '2024-05-28 15:29:03', NULL),
 (453, 'e_wallet', 12, 4400000, 'vnpay', '2024-05-28 15:33:29', NULL),
-(454, 'e_wallet', 12, 4400000, 'vnpay', '2024-05-28 15:33:48', NULL);
+(454, 'e_wallet', 12, 4400000, 'vnpay', '2024-05-28 15:33:48', NULL),
+(455, NULL, 11, 1800000, NULL, '2024-06-05 10:06:17', NULL),
+(456, NULL, 11, 1800000, NULL, '2024-06-05 10:06:34', NULL),
+(457, NULL, 11, 6200000, NULL, '2024-06-05 10:07:55', NULL),
+(458, NULL, 11, 4400000, NULL, '2024-06-05 10:39:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -1086,7 +1099,8 @@ INSERT INTO `vpayments` (`id`, `transaction_id`, `user_id`, `course_ids`, `amoun
 (141, 450, 12, '5', 4400000, '5199', 'test', '00', '14429964', 'NCB', '2024-05-26 11:01:00', NULL, NULL),
 (142, 451, 12, '1', 1800000, '372', 'python', '00', '14429974', 'NCB', '2024-05-26 11:15:00', NULL, NULL),
 (143, 452, 12, '1', 1800000, '167', 'mua khóa học python học sinh 2', '00', '14434145', 'NCB', '2024-05-29 05:31:00', NULL, NULL),
-(144, 454, 12, '5', 4400000, '642', 'mua khóa t2', '00', '14434146', 'NCB', '2024-05-29 05:34:00', NULL, NULL);
+(144, 454, 12, '5', 4400000, '642', 'mua khóa t2', '00', '14434146', 'NCB', '2024-05-29 05:34:00', NULL, NULL),
+(145, 457, 11, '1,4', 6200000, '902', 'dele jenny', '00', '14445655', 'NCB', '2024-06-06 00:08:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1361,13 +1375,13 @@ ALTER TABLE `watchlists`
 -- AUTO_INCREMENT cho bảng `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `checkouts`
@@ -1409,13 +1423,13 @@ ALTER TABLE `discussions`
 -- AUTO_INCREMENT cho bảng `enrollments`
 --
 ALTER TABLE `enrollments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `instructors`
@@ -1487,13 +1501,13 @@ ALTER TABLE `progress`
 -- AUTO_INCREMENT cho bảng `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `reviews`
@@ -1523,7 +1537,7 @@ ALTER TABLE `subscriptions`
 -- AUTO_INCREMENT cho bảng `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=455;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=459;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -1535,7 +1549,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `vpayments`
 --
 ALTER TABLE `vpayments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT cho bảng `watchlists`
