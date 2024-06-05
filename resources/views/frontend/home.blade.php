@@ -221,7 +221,7 @@
                                                         <img src="{{asset('frontend/dist/images/icon/Clock.png')}}"
                                                             alt="clock" />
                                                     </div>
-                                                    <span>{{$pc->duration?$pc->duration:0}} Giờ</span>
+                                                    <span>{{$pc->duration?$pc->duration:0}} Tháng </span>
                                                 </div>
                                             </div>
                                         </div>

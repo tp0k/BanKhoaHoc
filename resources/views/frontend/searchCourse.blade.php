@@ -193,7 +193,7 @@
                                         <div class="icon">
                                             <img src="{{asset('frontend/dist/images/icon/Clock.png')}}" alt="clock" />
                                         </div>
-                                        <span>{{$c->duration}} giờ</span>
+                                        <span>{{$c->duration}} Tháng</span>
                                     </div>
                                 </div>
                             </div>
