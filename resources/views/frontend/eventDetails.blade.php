@@ -6,6 +6,25 @@
 <link rel="stylesheet" href="{{asset('frontend/src/scss/vendors/plugin/css/star-rating-svg.css')}}" />
 @endpush
 
+<style>
+    .center-item {
+    display: block;
+    text-align: center;
+}
+    .course-overview-main1 {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.course-overview-main-item1 {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+</style>
 @section('content')
 <!-- Breadcrumb Starts Here -->
 <section class="section event-sub-section">
@@ -18,17 +37,17 @@
                 <li class="breadcrumb-item">
                     <a href="events" class="fs-6 text-secondary">Sự kiện</a>
                 </li>
-                <li class="breadcrumb-item fs-6 text-secondary d-none d-lg-inline-block" aria-current="page">
+                <li class="breadcrumb-item fs-6 text-secondary d-none d-lg-inline-block center-item" aria-current="page">
                     {{ $eventDetail->title }}
                 </li>
             </ol>
         </nav>
-        <div class="row event-sub-section-main">
-            <div class="col-lg-8">
+        <div class="row event-sub-section-main center-item">
+            {{-- <div class="col-lg-8"> --}}
                 <h3 class="font-title--sm">
                     {{ $eventDetail->title }}
                 </h3>
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 </section>
@@ -36,7 +55,7 @@
 <section class="section event-info">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            {{-- <div class="col-lg-8"> --}}
                 <div class="course-overview">
                     <!-- Thumbnails -->
                     {{-- <div class="course-overview-image">
@@ -50,29 +69,35 @@
                         </a>
                     </div> --}}
                     {{-- Tabs --}}
-                    <ul class="nav course-overview-nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    {{-- <ul class="nav course-overview-nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active font-para--lg" id="pills-courseoverview-tab"
                                 data-bs-toggle="pill" data-bs-target="#pills-courseoverview" type="button" role="tab"
                                 aria-controls="pills-courseoverview" aria-selected="true">
                                 Thông tin sự kiện
                             </button>
-                        </li>
+                        </li> --}}
                     <div class="tab-content course-overview-content" id="pills-tabContentTwo">
                         <div class="tab-pane fade show active" id="pills-courseoverview" role="tabpanel"
                             aria-labelledby="pills-courseoverview-tab">
-                            <div class="row course-overview-main mt-4">
+                            <div class="row course-overview-main1">
                                 
-                                <div class="course-overview-main-item mb-0">
-                                    {{-- <h6 class="font-title--card"></h6> --}}
+                                <div class="course-overview-main-item1">
                                     <p class="mb-2 font-para--lg">{!! $eventDetail->content !!}</p>
                                 </div>
                                 
                             </div>
                         </div>
                     </div>
+                    {{-- <div class="container-fluid">
+                        <div class="row course-overview-main">
+                            <div class="course-overview-main-item">
+                                <p class="mb-2 font-para--lg">{!! $eventDetail->content !!}</p>
+                            </div>
+                        </div>
+                    </div> --}}
                 </div>
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 </section>
