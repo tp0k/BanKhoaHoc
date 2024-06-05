@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 03, 2024 lúc 12:00 PM
+-- Thời gian đã tạo: Th6 05, 2024 lúc 05:33 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -59,8 +59,7 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `title_banner`, `description`, `events_id`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Banner 1', 'đây là banner 1', 1, '6901717408761.jpg', '2024-06-03 02:59:21', '2024-06-03 02:59:21', NULL),
-(2, 'Banner 2', 'đây là banner 2', 1, '9431717408780.jpg', '2024-06-03 02:59:40', '2024-06-03 02:59:40', NULL);
+(3, NULL, NULL, 2, '7041717589867.jpg', '2024-06-05 05:17:47', '2024-06-05 05:43:06', '2024-06-05 05:43:06');
 
 -- --------------------------------------------------------
 
@@ -256,23 +255,19 @@ CREATE TABLE `events` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `location` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `topic` text DEFAULT NULL,
-  `goal` text DEFAULT NULL,
-  `hosted_by` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `content` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `description`, `location`, `image`, `topic`, `goal`, `hosted_by`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Trải nghiệm khoá học scratch', 'Đây là sự kiện diễn ra thường niên với mục đích mang đến nhưng trải nghiệm tuyệt vời giúp các con hiểu hơn về công nghệ và yêu thích công nghệ hơn.', 'Aeon mall Lê Chân Hải Phòng', '5951716654395.jpg', 'Chào hè 2024', 'Mang đến nhưng trải nghiệm tuyệt vời giúp các con hiểu hơn về công nghệ và yêu thích công nghệ hơn', 'Học viên công nghệ Cnet', '2024-05-20', '2024-05-03 21:08:08', '2024-05-25 09:26:35', NULL);
+INSERT INTO `events` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`, `deleted_at`, `content`) VALUES
+(2, 'Tin tức 1', 'Tin tức 1', '9501717589835.jpg', '2024-06-05 05:17:15', '2024-06-05 05:17:15', NULL, '<p>Tin tức 1</p>');
 
 -- --------------------------------------------------------
 
@@ -431,7 +426,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2024_04_24_185831_create_watchlists_table', 1),
 (25, '2024_04_24_185926_add_tag_to_courses_table', 1),
 (26, '2024_04_24_190001_add_column_to_user_table', 2),
-(27, '2024_04_24_190036_create_events_table', 2),
 (28, '2024_05_12_173448_create_vnpay_payment_table', 3),
 (29, '2024_05_13_165325_create_vnpay_payment_table', 4),
 (30, '2024_05_14_182125_create_vpayment_table', 5),
@@ -442,7 +436,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (35, '2024_05_28_173638_create_comment_table', 9),
 (36, '2024_05_31_162113_update_reviews_table', 10),
 (38, '2024_06_01_181707_add_completed_to_watchlists_table', 11),
-(39, '2024_06_03_095351_create_banners_table', 12);
+(39, '2024_06_03_095351_create_banners_table', 12),
+(40, '2024_04_24_190036_create_events_table', 13);
 
 -- --------------------------------------------------------
 
@@ -1118,7 +1113,11 @@ CREATE TABLE `watchlists` (
 INSERT INTO `watchlists` (`id`, `student_id`, `course_id`, `lesson_id`, `material_id`, `created_at`, `updated_at`, `deleted_at`, `completed`) VALUES
 (11, 12, 5, 4, 7, NULL, NULL, NULL, 1),
 (14, 12, 5, 4, 9, NULL, NULL, NULL, 1),
-(17, 12, 5, 6, 10, NULL, NULL, NULL, 1);
+(17, 12, 5, 6, 10, NULL, NULL, NULL, 1),
+(18, 11, 5, 4, 7, NULL, NULL, NULL, 1),
+(19, 11, 5, 4, 8, NULL, NULL, NULL, 1),
+(20, 11, 5, 4, 9, NULL, NULL, NULL, 1),
+(21, 11, 5, 6, 10, NULL, NULL, NULL, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -1368,7 +1367,7 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `checkouts`
@@ -1416,7 +1415,7 @@ ALTER TABLE `enrollments`
 -- AUTO_INCREMENT cho bảng `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `instructors`
@@ -1446,7 +1445,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT cho bảng `options`
@@ -1542,7 +1541,7 @@ ALTER TABLE `vpayments`
 -- AUTO_INCREMENT cho bảng `watchlists`
 --
 ALTER TABLE `watchlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
