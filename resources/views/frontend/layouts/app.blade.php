@@ -107,9 +107,9 @@ background-color: #f1f1f1;
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('contact')}}">Liên hệ</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{route('dashboard')}}">Bảng tin</a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="d-flex align-items-center justify-content-between rightContent">
                         <form class="header__Search-form" id="searchForm" action="{{ route('searchCourse') }}" method="get">
@@ -159,7 +159,7 @@ background-color: #f1f1f1;
                             </a>
                             <div class="dropdown-content" style="position: relative; z-index: 9999;">
                                 <a href="{{route('student_profile')}}">Thông tin học viên</a>
-                                <a href="{{route('studentdashboard')}}">Bảng tin học viên</a>
+                                <a href="{{route('studentdashboard')}}">Khóa học của bạn</a>
                                 <a href="{{route('studentlogOut')}}" class="text-danger">Đăng xuất</a>
                             </div>
                         </div>
