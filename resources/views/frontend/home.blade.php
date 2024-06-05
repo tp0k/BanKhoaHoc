@@ -70,44 +70,6 @@
 @endpush
 
 
-<!-- Banner Starts Here -->
- {{-- <section class="main-banner" style="background-image: url({{asset('frontend/dist/images/banner/banner.jpg')}});">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 mb-lg-0 order-2 order-lg-0 d-flex align-items-center">
-                <div class="banner-two-start">
-                    <h1 class="font-title--lg">Học đi đôi với hành.</h1>
-                    <p>
-                        Ước mơ mà không phấn đấu thì chỉ là hư cấu.
-                    </p> 
-                    <form>
-                        <div class="banner-input">
-                            <div class="main-input">
-                                <input type="text" placeholder="Bạn muốn học gì..." />
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-search">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                            </div>
-                            <div class="search-button">
-                                <button class="button button-lg button--primary">Tìm kiếm</button>
-                            </div>
-                        </div>
-                   </form>
-                </div>
-            </div>
-            <div class="col-lg-5 order-1 order-lg-0">
-                <div class="main-banner-end">
-                    <img src="{{asset('frontend/dist/images/banner/banner-image-01.png')}}" alt="image"
-                        class="img-fluid" width="515" height="700"/>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>  --}}
-
 @section('content')
 
 <!-- Browse Categories Starts Here -->
@@ -156,11 +118,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="featured-popular-courses-heading d-flex align-content-center justify-content-between">
-                    <div class="main-heading">
-                        <h3 class="font-title--md">Khóa học nổi bật</h3>
-                    </div>
-                </div>
+                        <h2 class="font-title--md text-center">Khóa học nổi bật</h2>                  
             </div>
         </div>
         <div class="row">
@@ -528,7 +486,7 @@
     </div>
 </section>
 
-{{-- Why You'll Learn With Eduguard --}}
+{{--  --}}
 <section class="section feature section section--bg-offwhite-one">
     <div class="container">
         <h2 class="font-title--md text-center">Tại sao bạn nên đặt niềm tin ở CNET?</h2>
@@ -603,70 +561,7 @@
     </div>
 </section>
 
-<!--  Learning Rules Starts Here -->
-{{-- <section class="section learning-rules">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 order-2 order-lg-0">
-                <div class="learning-rules-starts">
-                    <h2 class="font-title--md">
-                        Bạn còn chần chừ gì nữa? <br class="d-none d-md-block" />
-                        Cùng bắt đầu nào!
-                    </h2>
-                    <div class="learning-rules__wrapper">
-                        <div class="learning-rules-item">
-                            <div class="item-number"><span>01.</span></div>
-                            <div class="item-text">
-                                <h6>Xây dựng con đường học vấn của bạn.</h6>
-                                <p>
-                                    Học với những lộ trình hợp lý do CNET dày công xây dựng.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="learning-rules-item">
-                            <div class="item-number"><span>02.</span></div>
-                            <div class="item-text">
-                                <h6>Tìm thấy phương pháp học tốt nhất.</h6>
-                                <p>
-                                    Học bằng bất cứ phương pháp nào, miễn là nó hiệu quả với bạn.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="learning-rules-item">
-                            <div class="item-number"><span>03.</span></div>
-                            <div class="item-text">
-                                <h6>Trở thành chuyên gia trong lĩnh vực của bạn.</h6>
-                                <p>
-                                    Và gặt hái vô số thành công!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="http://127.0.0.1:8000/searchCourse" class="button button-lg button--primary">Bắt đầu học</a>
-                </div>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-0">
-                <div class="learning-rules-ends">
-                    <img src="{{asset('frontend/dist/images/hero/hero-img-01.jpg')}}" alt="img"
-                        class="img-fluid rounded"/>
-                    <div class="learning-rules-ends-circle">
-                        <img src="{{asset('frontend/dist/images/shape/l03.png')}}" alt="shape"
-                            class="img-fluid" />
-                    </div>
-                    <div class="earning-rules-ends-shape">
-                        <img src="{{asset('frontend/dist/images/shape/l04.png')}}" alt="shape"
-                            class="img-fluid shape-1" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="learning-rules-shape">
-        <img src="{{asset('frontend/dist/images/shape/dots/dots-img-16.png')}}" alt="shape"
-            class="img-fluid shape-01" />
-        <img src="{{asset('frontend/dist/images/shape/l02.png')}}" alt="shape" class="img-fluid shape-02" />
-    </div>
-</section> --}}
+
 
 <!--  About Services Starts Here -->
 <section class="section about-services section section--bg-offgradient">
@@ -1087,7 +982,7 @@
             <div class="col-lg-6">
                 <div class="main-become-instructor-item me-12">
                     <div class="main-image">
-                        <img src="{{asset('frontend/dist/images/event/image01.png')}}" alt="image"
+                        <img src="{{asset('frontend/dist/images/event/anh1.jpg')}}" alt="image"
                             class="img-fluid" />
                     </div>
                     <div class="main-text">
@@ -1104,7 +999,7 @@
             <div class="col-lg-6">
                 <div class="main-become-instructor-item ms-12 mb-0">
                     <div class="main-image">
-                        <img src="{{asset('frontend/dist/images/event/image02.png')}}" alt="image"
+                        <img src="{{asset('frontend/dist/images/event/anh2.jpg')}}" alt="image"
                             class="img-fluid" />
                     </div>
                     <div class="main-text">
