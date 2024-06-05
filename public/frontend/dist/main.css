@@ -30705,7 +30705,7 @@ body {
   width: 14px;
   height: 14px;
   color: #ff7a1a;
-  fill: #ff7a1a;
+  /* fill: #ff7a1a; */
 }
 
 .rating-number p {
