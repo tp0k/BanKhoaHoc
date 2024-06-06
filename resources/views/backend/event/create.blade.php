@@ -66,7 +66,7 @@
                                 <input type="file" class="form-control" name="image">
                             </div>
                             <div class="form-group text-right">
-                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                <button type="submit" class="btn btn-primary" onclick="return validateForm()">Lưu</button>
                                 <button type="button" class="btn btn-light">Huỷ</button>
                             </div>
                         </form>
@@ -107,5 +107,15 @@
     }
     initCKEditor('content');
     // CKEDITOR.replace('content');
+</script>
+<script>
+    function validateForm() {
+        var title = document.getElementsByName("title")[0].value.trim();
+        if (title === '') {
+            alert('Tiêu đề không được để trống');
+            return false;
+        }
+        return true;
+    }
 </script>
 @endpush
