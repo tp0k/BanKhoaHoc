@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Sự kiện')
+@section('title', 'tin tức')
 @section('body-attr') style="background-color: #ebebf2;" @endsection
 
 @section('content')
