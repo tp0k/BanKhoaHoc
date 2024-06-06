@@ -66,8 +66,7 @@
                                                 <td>{{$m->title}}</td>
                                                 <td>{{$m->lesson?->title}}</td>
                                                 <td>
-                                                    {{ $m->type == 'video' ? __('Video') : ($m->type == 'document' ?
-                                                    __('Document') ) }}
+                                                    {{ $m->type == 'video' ? __('Video') : ($m->type == 'document' ? __('Document') : '') }}
                                                 </td>
                                                 <td>
                                                     <embed
