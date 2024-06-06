@@ -54,7 +54,7 @@
                                         <div class="icon">
                                             <img src="{{ asset('frontend/dist/images/icon/calendar.png') }}" alt="calendar" />
                                         </div>
-                                        <span>{{ date('d/m/Y', strtotime($event->date)) }}</span>
+                                        <span>{{ date('d/m/Y', strtotime($event->created_at)) }}</span>
                                     </div>
                                 </div>
                             </div>
