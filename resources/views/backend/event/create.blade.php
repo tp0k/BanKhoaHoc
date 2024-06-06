@@ -62,7 +62,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Ảnh</label>
+                                <label class="form-label">Ảnh thumbnail</label>
                                 <input type="file" class="form-control" name="image">
                             </div>
                             <div class="form-group text-right">
