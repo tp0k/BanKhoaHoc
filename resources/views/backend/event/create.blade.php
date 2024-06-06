@@ -56,7 +56,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Nội dung chính</label>
-                                <textarea name="content" class="form-control">{{old('content')}}"></textarea>
+                                <textarea name="content" class="form-control">{{old('content')}}</textarea>
                                 @if($errors->has('content'))
                                     <span class="text-danger"> {{$errors->first('content')}}</span>
                                 @endif
