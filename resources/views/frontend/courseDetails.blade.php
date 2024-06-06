@@ -300,8 +300,9 @@
                                             </div>
                                             <div class="instructor-text">
                                                 <h6 class="font-title--xs mb-0">
-                                                    <a
-                                                        href="{{route('instructorProfile', encryptor('encrypt', $course->instructor->id))}}">{{$course->instructor?->name_en}}</a>
+                                                    <a href="{{ route('instructorProfile', encryptor('encrypt', $course->instructor->id)) }}" tabindex="0">
+                                                        {{$course->instructor?->name_en}}
+                                                    </a>
                                                 </h6>
                                                 <p class="font-para--md">
                                                     {{($course->instructor?->designation)?$course->instructor?->designation:' '}}</p>
