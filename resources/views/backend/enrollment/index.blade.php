@@ -45,7 +45,7 @@
                                                 <th>{{__('Tên học viên')}}</th>
                                                 <th>{{__('Tên khoá học')}}</th>
                                                 <th>{{__('Ảnh khoá học')}}</th>
-                                                <th>{{__('Hiệu lực')}}</th>
+                                                <th>{{__('Đã thanh toán')}}</th>
                                                 <th>{{__('Ngày đăng ký')}}</th>
                                                 <th>{{__('Hành động')}}</th>
                                             </tr>
