@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 06, 2024 lúc 08:55 PM
+-- Thời gian đã tạo: Th6 07, 2024 lúc 01:40 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -74,19 +74,24 @@ INSERT INTO `banners` (`id`, `title_banner`, `description`, `events_id`, `image`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `checkouts`
+-- Cấu trúc bảng cho bảng `cart_items`
 --
 
-CREATE TABLE `checkouts` (
+CREATE TABLE `cart_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `cart_data` longtext NOT NULL,
-  `student_id` bigint(20) NOT NULL,
-  `txnid` varchar(255) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 active, 0 inactive',
+  `course_id` bigint(20) UNSIGNED NOT NULL,
+  `student_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cart_items`
+--
+
+INSERT INTO `cart_items` (`id`, `course_id`, `student_id`, `created_at`, `updated_at`) VALUES
+(10, 3, 11, '2024-06-06 15:26:02', '2024-06-06 15:26:02'),
+(11, 4, 11, '2024-06-06 15:26:16', '2024-06-06 15:26:16');
 
 -- --------------------------------------------------------
 
@@ -151,7 +156,7 @@ CREATE TABLE `courses` (
   `description_en` text DEFAULT NULL,
   `course_category_id` bigint(20) UNSIGNED NOT NULL,
   `instructor_id` bigint(20) UNSIGNED NOT NULL,
-  `type` enum('free','paid','subscription') NOT NULL DEFAULT 'paid',
+  `type` enum('free','paid') NOT NULL DEFAULT 'paid',
   `price` decimal(10,2) DEFAULT 0.00,
   `old_price` decimal(10,2) DEFAULT NULL,
   `start_from` timestamp NULL DEFAULT NULL,
@@ -178,7 +183,7 @@ INSERT INTO `courses` (`id`, `title_en`, `description_en`, `course_category_id`,
 (1, 'Khoá học lập trình Python basic', 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', 2, 2, 'paid', 1800000.00, 4000000.00, NULL, 2, 8, '> 14 tuổi', 'beginner', '1', '9621715357011.png', '8331715334658.jpg', 'https://www.youtube.com/watch?v=oFgg7K2tpfk', 2, '2024-05-07 00:32:02', '2024-05-10 10:35:37', NULL, 'popular'),
 (3, 'Khởi đầu đam mê - lập trình Scratch', 'Session 1: Tổng quan về Scratch\r\n\r\nSession 2: Giới thiệu một số nhóm lệnh Scratch cơ bản\r\n\r\nSession 3: Khối nếu-thì, biến số và truyền nhận tin\r\n\r\nSession 4: Trò chơi săn khủng long và bước nhảy không gian\r\n\r\nSession 5: Trò chơi hứng táo\r\n\r\nSession 6: Xây dựng trò chơi Flappy Bird\r\n\r\nSession 7: Xây dựng trò chơi đua xe\r\n\r\nSession 8: Dự án - Trò chơi bảo vệ biển đảo\r\n\r\nTất cả các hoạt động Học viên đều được hướng dẫn chi tiết từng bước. Mỗi chủ điểm đều có hình ảnh minh họa. Mục tiêu của khóa học không chỉ là hướng dẫn, mà còn là đưa ra thử thách giúp Học viên thể hiện khả năng sáng tạo và thiết kế trò chơi - ứng dụng của chính mình.', 1, 6, 'paid', 1800000.00, 4000000.00, NULL, 1, 8, '8 - 13 tuổi', 'beginner', NULL, '2801715357794.png', '6771715357794.png', 'https://www.youtube.com/watch?v=47yIB4nPTLI', 2, '2024-05-10 09:15:55', '2024-05-10 09:28:05', NULL, 'popular'),
 (4, 'Khoá học lập trình web fullstack', 'Khoá học lập trình web fullstack dành cho các bạn đã có chút nền tảng về lập trình, định hướng tay ngang sang lập trình web thì khoá học này là dành cho bạn!', 3, 4, 'paid', 4400000.00, 9000000.00, NULL, 3, 24, 'đã có chút nền tảng về lập trình', 'advanced', NULL, '3061716054820.jpg', '2981716054821.jpg', 'https://www.youtube.com/watch?v=T1BpaUpLzzA', 2, '2024-05-18 10:53:41', '2024-05-25 21:22:42', NULL, 'upcoming'),
-(5, 'Khóa học lập trình mobile app', 'KHÓA HỌC LẬP TRÌNH MOBILE APP dành cho tất cả các bạn muốn học từ căn bản đến nâng cao để trở thành một lập trình viên mobile app với nền tảng công cụ Flutter của Google.\r\nFlutter là gì? Nó có ưu điểm vượt trội ra sao để làm một ứng dụng mobile?\r\n\r\nFlutter được phát triển nhằm giải quyết bài toán thường gặp trong mobile là Fast Development và Native Performance. Nếu như React Native chỉ đảm bảo Fast Development và code native thuần chỉ đảm bảo Native Performance thì Flutter làm được cả 2 điều trên.\r\nLà một bộ SDK đa nền tảng, các ứng dụng Flutter có thể hoạt động trên cả iOS và Android. Nó như một thủ thuật khôn khéo để tương thích được với framework UI trên cả hai hệ điều hành này. Các ứng dụng này không biên dịch trực tiếp với các ứng dụng native của Android và iOS.\r\nBẠN SẼ HỌC ĐƯỢC GÌ?\r\n\r\nNắm vững kiến thức lập trình Flutter từ cơ bản đến nâng cao.\r\nThực hành lập trình ứng dụng Flutter như hướng dẫn trong khóa học.\r\nHọc viên có thể tự làm project cá nhân, ứng tuyển công việc thực tập, lập trình viên Flutter sau khi học xong.\r\nHọc viên có thể tự làm app bằng Flutter để đưa lên kho ứng dụng CHPlay Android, AppStore iOS.\r\nNỘI DUNG: Khóa học lập trình mobile app Flutter trang bị cho Học viên đầy đủ kiến thức, kỹ năng để có thể lập trình tạo ra một mobile app hoàn chỉnh. Bao gồm các buổi học sau:\r\n\r\nBuổi 1 - Setup flutter; Giới thiệu Flutter, Dart\r\nBuổi 2 - Lập trình Dart cơ bản - Null Safety, từ khóa late\r\nBuổi 3 - Functions with Named Parameters, Optinal Parameters\r\nBuổi 4 - StatelessWidget, StatefulWidget; một số UI cơ bản\r\nBuổi 5 - UI cơ bản trong Flutter (tiếp) - Flexible, Expanded, Stack, TextField\r\nBuổi 6 - Navigator, Routes - Chuyển màn hình\r\nBuổi 7 - Ôn tập Flutter Widget, ListView\r\nBuổi 8 - Flexible, Expanded, Stack Widget\r\nBuổi 9 - Future, async, await; Call http requests; Làm app Chat bằng Flutter và Socket.io\r\nBuổi 10 - Thực hành code UI flow cơ bản (Order List)\r\nBuổi 11 - BuildContext và InheritedWidget, Drawer Menu\r\nBuổi 12 & 13 - State management, Provider, BLoc pattern\r\nBuổi 14 - BLoC pattern cơ bản và ứng dụng\r\nBuổi 15 - SharedPreference , SQLite Database trong Flutter\r\nBuổi 16 - Thực hành tích hợp SQLite trong app Flutter\r\n\r\nVà các buổi học thực hành, làm bài tập lớn, làm đồ án kết thúc khóa.\r\n\r\nHọc kết hợp lý thuyết với thực hành ngay tại lớp. Kết thúc khóa học, Học viên làm đồ án tốt nghiệp và đăng ký tài khoản upload đồ án lên kho ứng dụng mobile.', 4, 5, 'subscription', 4400000.00, 10000000.00, NULL, 3, 16, 'KHÓA HỌC PHÙ HỢP VỚI AI?\r\n\r\nKhóa học được xây dựng từ cơ bản nhất đến nâng cao, cho phép cả những bạn chưa biết gì về lập trình có thể tiếp cận học tập. Tuy nhiên, để thuận lợi nhất, bạn cần có kiến thức cơ bản về Công nghệ thông tin, kỹ năng sử dụng máy tính, và một chiếc laptop đủ tốt.\r\n\r\nSinh viên ngành Công nghệ thông tin muốn học nâng cao kỹ năng lập trình mobile app\r\nCác bạn đang học hay vừa tốt nghiệp PTTH muốn tìm hiểu định hướng nghề nghiệp\r\nNgười đã đi làm muốn mở rộng kiến thức, kỹ năng, hay chuyển đổi nghề nghiệp', 'advanced', NULL, '2301716653958.jpg', '6731716653958.jpg', 'https://youtu.be/Hadc-GBPsmY?si=AfEeZQCpFYT0cw-v', 2, '2024-05-25 09:19:18', '2024-05-25 21:22:25', NULL, 'popular');
+(5, 'Khóa học lập trình mobile app', 'KHÓA HỌC LẬP TRÌNH MOBILE APP dành cho tất cả các bạn muốn học từ căn bản đến nâng cao để trở thành một lập trình viên mobile app với nền tảng công cụ Flutter của Google.\r\nFlutter là gì? Nó có ưu điểm vượt trội ra sao để làm một ứng dụng mobile?\r\n\r\nFlutter được phát triển nhằm giải quyết bài toán thường gặp trong mobile là Fast Development và Native Performance. Nếu như React Native chỉ đảm bảo Fast Development và code native thuần chỉ đảm bảo Native Performance thì Flutter làm được cả 2 điều trên.\r\nLà một bộ SDK đa nền tảng, các ứng dụng Flutter có thể hoạt động trên cả iOS và Android. Nó như một thủ thuật khôn khéo để tương thích được với framework UI trên cả hai hệ điều hành này. Các ứng dụng này không biên dịch trực tiếp với các ứng dụng native của Android và iOS.\r\nBẠN SẼ HỌC ĐƯỢC GÌ?\r\n\r\nNắm vững kiến thức lập trình Flutter từ cơ bản đến nâng cao.\r\nThực hành lập trình ứng dụng Flutter như hướng dẫn trong khóa học.\r\nHọc viên có thể tự làm project cá nhân, ứng tuyển công việc thực tập, lập trình viên Flutter sau khi học xong.\r\nHọc viên có thể tự làm app bằng Flutter để đưa lên kho ứng dụng CHPlay Android, AppStore iOS.\r\nNỘI DUNG: Khóa học lập trình mobile app Flutter trang bị cho Học viên đầy đủ kiến thức, kỹ năng để có thể lập trình tạo ra một mobile app hoàn chỉnh. Bao gồm các buổi học sau:\r\n\r\nBuổi 1 - Setup flutter; Giới thiệu Flutter, Dart\r\nBuổi 2 - Lập trình Dart cơ bản - Null Safety, từ khóa late\r\nBuổi 3 - Functions with Named Parameters, Optinal Parameters\r\nBuổi 4 - StatelessWidget, StatefulWidget; một số UI cơ bản\r\nBuổi 5 - UI cơ bản trong Flutter (tiếp) - Flexible, Expanded, Stack, TextField\r\nBuổi 6 - Navigator, Routes - Chuyển màn hình\r\nBuổi 7 - Ôn tập Flutter Widget, ListView\r\nBuổi 8 - Flexible, Expanded, Stack Widget\r\nBuổi 9 - Future, async, await; Call http requests; Làm app Chat bằng Flutter và Socket.io\r\nBuổi 10 - Thực hành code UI flow cơ bản (Order List)\r\nBuổi 11 - BuildContext và InheritedWidget, Drawer Menu\r\nBuổi 12 & 13 - State management, Provider, BLoc pattern\r\nBuổi 14 - BLoC pattern cơ bản và ứng dụng\r\nBuổi 15 - SharedPreference , SQLite Database trong Flutter\r\nBuổi 16 - Thực hành tích hợp SQLite trong app Flutter\r\n\r\nVà các buổi học thực hành, làm bài tập lớn, làm đồ án kết thúc khóa.\r\n\r\nHọc kết hợp lý thuyết với thực hành ngay tại lớp. Kết thúc khóa học, Học viên làm đồ án tốt nghiệp và đăng ký tài khoản upload đồ án lên kho ứng dụng mobile.', 4, 5, '', 4400000.00, 10000000.00, NULL, 3, 16, 'KHÓA HỌC PHÙ HỢP VỚI AI?\r\n\r\nKhóa học được xây dựng từ cơ bản nhất đến nâng cao, cho phép cả những bạn chưa biết gì về lập trình có thể tiếp cận học tập. Tuy nhiên, để thuận lợi nhất, bạn cần có kiến thức cơ bản về Công nghệ thông tin, kỹ năng sử dụng máy tính, và một chiếc laptop đủ tốt.\r\n\r\nSinh viên ngành Công nghệ thông tin muốn học nâng cao kỹ năng lập trình mobile app\r\nCác bạn đang học hay vừa tốt nghiệp PTTH muốn tìm hiểu định hướng nghề nghiệp\r\nNgười đã đi làm muốn mở rộng kiến thức, kỹ năng, hay chuyển đổi nghề nghiệp', 'advanced', NULL, '2301716653958.jpg', '6731716653958.jpg', 'https://youtu.be/Hadc-GBPsmY?si=AfEeZQCpFYT0cw-v', 2, '2024-05-25 09:19:18', '2024-05-25 21:22:25', NULL, 'popular');
 
 -- --------------------------------------------------------
 
@@ -417,7 +422,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (46, '2024_06_06_161835_delete_payments_table', 18),
 (47, '2024_06_06_161853_delete_progress_table', 19),
 (48, '2024_06_06_161925_delete_subscriptions_table', 20),
-(53, '2024_04_24_185802_create_checkouts_table', 21);
+(53, '2024_04_24_185802_create_checkouts_table', 21),
+(54, '2024_06_06_190813_create_cart_items_table', 22);
 
 -- --------------------------------------------------------
 
@@ -702,7 +708,7 @@ CREATE TABLE `questions` (
   `option_c` varchar(255) DEFAULT NULL,
   `option_d` varchar(255) DEFAULT NULL,
   `correct_answer` varchar(255) DEFAULT NULL,
-  `type` enum('multiple_choice','true_false','short_answer') NOT NULL,
+  `type` enum('multiple_choice') NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1024,10 +1030,12 @@ ALTER TABLE `banners`
   ADD KEY `banners_events_id_foreign` (`events_id`);
 
 --
--- Chỉ mục cho bảng `checkouts`
+-- Chỉ mục cho bảng `cart_items`
 --
-ALTER TABLE `checkouts`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `cart_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cart_items_course_id_foreign` (`course_id`),
+  ADD KEY `cart_items_student_id_foreign` (`student_id`);
 
 --
 -- Chỉ mục cho bảng `comments`
@@ -1201,10 +1209,10 @@ ALTER TABLE `banners`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `checkouts`
+-- AUTO_INCREMENT cho bảng `cart_items`
 --
-ALTER TABLE `checkouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cart_items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -1234,7 +1242,7 @@ ALTER TABLE `course_categories`
 -- AUTO_INCREMENT cho bảng `enrollments`
 --
 ALTER TABLE `enrollments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `events`
@@ -1264,7 +1272,7 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
@@ -1312,7 +1320,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT cho bảng `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=459;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=461;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -1324,7 +1332,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `vpayments`
 --
 ALTER TABLE `vpayments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT cho bảng `watchlists`
@@ -1348,6 +1356,13 @@ ALTER TABLE `answers`
 --
 ALTER TABLE `banners`
   ADD CONSTRAINT `banners_events_id_foreign` FOREIGN KEY (`events_id`) REFERENCES `events` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `cart_items`
+--
+ALTER TABLE `cart_items`
+  ADD CONSTRAINT `cart_items_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `cart_items_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `comments`
