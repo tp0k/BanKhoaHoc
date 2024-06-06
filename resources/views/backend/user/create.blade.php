@@ -38,7 +38,7 @@
                         <form action="{{route('user.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Tên</label>
                                         <input type="text" class="form-control" name="userName_en"
@@ -47,14 +47,8 @@
                                     @if($errors->has('userName_en'))
                                     <span class="text-danger"> {{ $errors->first('userName_en') }}</span>
                                     @endif
-                                </div> --}}
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Họ và tên</label>
-                                        <input type="text" class="form-control" name="userName_bn"
-                                            value="{{old('userName_bn')}}">
-                                    </div>
                                 </div>
+                                
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Số điện thoại</label>
@@ -65,16 +59,7 @@
                                     <span class="text-danger"> {{ $errors->first('contactNumber_en') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Số điện thoại</label>
-                                        <input type="tel" class="form-control" name="contactNumber_bn"
-                                            value="{{old('contactNumber_bn')}}">
-                                    </div>
-                                    @if($errors->has('contactNumber_bn'))
-                                    <span class="text-danger"> {{ $errors->first('contactNumber_bn') }}</span>
-                                    @endif
-                                </div> --}}
+                                
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Email</label>

@@ -78,9 +78,7 @@
                                             <option value="document" @if(old('materialType', $material->type)=='document' ) Đã chọn
                                                 @endif>Tài liệu
                                             </option>
-                                            <option value="quiz" @if(old('materialType', $material->type)
-                                                =='quiz' )
-                                                Đã chọn @endif>Câu hỏi</option>
+                                            
                                         </select>
                                     </div>
                                     @if($errors->has('materialType'))

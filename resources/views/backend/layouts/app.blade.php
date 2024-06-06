@@ -278,16 +278,7 @@
                             <li><a href="{{route('review.index')}}"><i class="las la-star"></i>Đánh giá</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="las la-comment"></i>
-                            <span class="nav-text">Diễn đàn</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{route('discussion.index')}}"><i class="las la-comment-alt"></i>Thảo luận</a>
-                            </li>
-                            <li><a href="{{route('message.index')}}"><i class="las la-envelope"></i>Messages</a></li>
-                        </ul>
-                    </li>
+                    
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="las la-money-check"></i>
                             <span class="nav-text">Thanh toán</span>

@@ -9,7 +9,8 @@ use App\Models\Course;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
 use App\Models\Vpayment;
-use DB;
+use Illuminate\Support\Facades\DB;
+
 
 class DashboardController extends Controller
 {
@@ -20,7 +21,7 @@ class DashboardController extends Controller
         $student_info = Student::find(currentUserId());
         $enrollment = Enrollment::where('student_id', currentUserId())->get();
         $courses = Course::get();
-        $checkout = Checkout::where('student_id', currentUserId())->get();
+        // $checkout = Checkout::where('student_id', currentUserId())->get();
     
         $completedCourses = collect();
         $incompleteCourses = collect();
@@ -52,7 +53,7 @@ class DashboardController extends Controller
             }
         }
 
-        return view('students.dashboard', compact('student_info', 'enrollment', 'course', 'checkout', 'vpayments', 'completedCourses', 'incompleteCourses'));
+        return view('students.dashboard', compact('student_info', 'enrollment', 'course',  'vpayments', 'completedCourses', 'incompleteCourses'));
     }
 
         // $purchaseHistory = Enrollment::with(['course', 'checkout'])->orderBy('enrollment_date', 'desc')->get();

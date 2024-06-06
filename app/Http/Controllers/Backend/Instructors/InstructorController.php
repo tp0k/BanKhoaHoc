@@ -10,8 +10,9 @@ use App\Http\Requests\Backend\Instructors\UpdateRequest;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Exception;
-use File;
-use DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
+
 
 class InstructorController extends Controller
 {
@@ -39,9 +40,7 @@ class InstructorController extends Controller
             DB::beginTransaction();
             $instructor = new Instructor;
             $instructor->name_en = $request->fullName_en;
-            $instructor->name_bn = $request->fullName_bn;
             $instructor->contact_en = $request->contactNumber_en;
-            $instructor->contact_bn = $request->contactNumber_bn;
             $instructor->email = $request->emailAddress;
             $instructor->role_id = $request->roleId;
             $instructor->bio = $request->bio;
@@ -49,7 +48,6 @@ class InstructorController extends Controller
             $instructor->title = $request->title;
             $instructor->status = $request->status;
             $instructor->password = Hash::make($request->password);
-            $instructor->language = 'en';
             $instructor->access_block = $request->access_block;
             if ($request->hasFile('image')) {
                 $imageName = (Role::find($request->roleId)->name) . '_' .  $request->fullName_en . '_' . rand(999, 111) .  '.' . $request->image->extension();
@@ -115,9 +113,7 @@ class InstructorController extends Controller
         try {
             $instructor = Instructor::findOrFail(encryptor('decrypt', $id));
             $instructor->name_en = $request->fullName_en;
-            $instructor->name_bn = $request->fullName_bn;
             $instructor->contact_en = $request->contactNumber_en;
-            $instructor->contact_bn = $request->contactNumber_bn;
             $instructor->email = $request->emailAddress;
             $instructor->role_id = $request->roleId;
             $instructor->bio = $request->bio;
@@ -125,7 +121,6 @@ class InstructorController extends Controller
             $instructor->title = $request->title;
             $instructor->status = $request->status;
             $instructor->password = Hash::make($request->password);
-            $instructor->language = 'en';
             $instructor->access_block = $request->access_block;
             if ($request->hasFile('image')) {
                 $imageName = (Role::find($request->roleId)->name) . '_' .  $request->fullName_en . '_' . rand(999, 111) .  '.' . $request->image->extension();

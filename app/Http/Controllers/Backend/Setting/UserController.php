@@ -50,12 +50,9 @@ class UserController extends Controller
         try {
             $data = new User();
             $data->name_en = $request->userName_en;
-            $data->name_bn = $request->userName_bn;
             $data->email = $request->emailAddress;
             $data->contact_en = $request->contactNumber_en;
-            $data->contact_bn = $request->contactNumber_bn;
             $data->role_id = $request->roleId;
-            $data->language = 'en';
             $data->full_access = $request->fullAccess;
             $data->status = $request->status;
             $data->password = Hash::make($request->password);
@@ -106,12 +103,9 @@ class UserController extends Controller
         try {
             $data = User::findOrFail(encryptor('decrypt', $id));
             $data->name_en = $request->userName_en;
-            $data->name_bn = $request->userName_bn;
             $data->email = $request->emailAddress;
             $data->contact_en = $request->contactNumber_en;
-            $data->contact_bn = $request->contactNumber_bn;
             $data->role_id = $request->roleId;
-            $data->language = 'en';
             $data->full_access = $request->fullAccess;
             $data->status = $request->status;
 

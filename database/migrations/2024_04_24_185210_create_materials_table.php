@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('lesson_id')->index();
             $table->string('title', 255)->nullable(false);
-            $table->enum('type', ['video', 'document', 'quiz'])->nullable(false);
+            $table->enum('type', ['video', 'document'])->nullable(false);
             $table->string('content')->nullable();
             $table->text('content_url')->nullable();
             $table->timestamps();

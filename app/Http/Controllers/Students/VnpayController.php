@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Students;
 use Auth;
-use DB;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
@@ -51,23 +52,23 @@ class VnpayController extends Controller
                 //
                 $shopping = $cart->content(); // Lấy nội dung giỏ hàng
                 
-                foreach ($shopping as $key => $course){
+                // foreach ($shopping as $key => $course){
                     
-                    //Lưu chi tiết đơn hàng
-                    Order::insert([
-                        'od_transacsion_id' => $transactionID,
-                        'od_product_id' => $course->id,
-                        // 'od_sale' => $item->option->sale,
-                        'od_price' => $course->price,
-                    ]);
+                //     //Lưu chi tiết đơn hàng
+                //     Order::insert([
+                //         'od_transacsion_id' => $transactionID,
+                //         'od_product_id' => $course->id,
+                //         // 'od_sale' => $item->option->sale,
+                //         'od_price' => $course->price,
+                //     ]);
                     
-                    //Tăng pay (số lượt mua)
-                    // \DB::table('course')
-                    // ->where('id', $item->id)
-                    // ->increment("course_pay");
-                }
+                //     //Tăng pay (số lượt mua)
+                //     // \DB::table('course')
+                //     // ->where('id', $item->id)
+                //     // ->increment("course_pay");
+                // }
             }
-            \Session::flash('toastr',[
+            Session::flash('toastr',[
                 'type' => 'success',
                 'message' => 'Đăng ký thành công!'
             ]);
@@ -146,7 +147,7 @@ class VnpayController extends Controller
         
         // dd($request->toArray());
         if(session()->has('info_custormer') && $request->vnp_ResponseCode == ('00')){
-            \DB::beginTransaction();
+            DB::beginTransaction();
             
             try{
                 $vnpayData = $request->all();
@@ -197,7 +198,7 @@ class VnpayController extends Controller
                     $enrollmentController->store($transactionID, $courseIDs, $data['tst_user_id'], $p_time);        
                 }
                 
-                \Session::flash('toastr', [
+                Session::flash('toastr', [
                     'type' => 'success',
                     'message' => 'Đăng ký thành công!'
                 ]);
@@ -212,7 +213,7 @@ class VnpayController extends Controller
 
             } 
             catch (Exception $exception) {
-                \Session::flash('toastr', [
+                Session::flash('toastr', [
                     'type' => 'error',
                     'message' => 'Đã xảy ra lỗi không thể thanh toán: ' . $exception->getMessage()
                 ]);

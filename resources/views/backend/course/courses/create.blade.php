@@ -48,13 +48,7 @@
                                     <span class="text-danger"> {{ $errors->first('courseTitle_en') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Tiêu đề</label>
-                                        <input type="text" class="form-control" name="courseTitle_bn"
-                                            value="{{old('courseTitle_bn')}}">
-                                    </div>
-                                </div> --}}
+                               
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Mô tả</label>
@@ -64,16 +58,7 @@
                                     <span class="text-danger"> {{ $errors->first('courseDescription_en') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Mô tả</label>
-                                        <textarea class="form-control" name="courseDescription_bn"
-                                            value="{{old('courseDescription_bn')}}"></textarea>
-                                    </div>
-                                    @if($errors->has('courseDescription_bn'))
-                                    <span class="text-danger"> {{ $errors->first('courseDescription_bn') }}</span>
-                                    @endif
-                                </div> --}}
+                                
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Thể loại</label>
@@ -114,8 +99,7 @@
                                             </option>
                                             <option value="paid" @if(old('courseType')=='paid' ) selected @endif>Trả phí
                                             </option>
-                                            <option value="subscription" @if(old('courseType')=='subscription' )
-                                                selected @endif>Dựa trên đăng ký</option>
+                                           
                                         </select>
                                     </div>
                                 </div>
@@ -154,16 +138,7 @@
                                     <span class="text-danger"> {{ $errors->first('courseOldPrice') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Giá</label>
-                                        <input type="number" class="form-control" name="subscription_price"
-                                            value="{{old('subscription_price')}}">
-                                    </div>
-                                    @if($errors->has('subscription_price'))
-                                    <span class="text-danger"> {{ $errors->first('subscription_price') }}</span>
-                                    @endif
-                                </div> --}}
+                                
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Bắt đầu từ</label>

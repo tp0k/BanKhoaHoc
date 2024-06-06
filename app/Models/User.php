@@ -42,15 +42,7 @@ class User extends Authenticatable
         $this->belongsTo(Instructor::class);
     }
 
-    public function discussion()
-    {
-        return $this->hasMany(Discussion::class);
-    }
-
-    public function message()
-    {
-        return $this->hasMany(Message::class);
-    }
+  
     public function vpayments()
     {
         return $this->hasMany(Vpayment::class, 'user_id');

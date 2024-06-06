@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name_en');
-            $table->string('name_bn')->nullable();
             $table->string('contact_en')->nullable();
-            $table->string('contact_bn')->nullable();
             $table->string('email')->unique();
             $table->date('date_of_birth')->nullable();
             $table->enum('gender', ['male', 'female', 'other'])->nullable();
@@ -26,12 +24,9 @@ return new class extends Migration
             $table->string('nationality')->default('Việt Nam')->nullable();
             $table->text('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('state')->nullable();
-            $table->string('postcode')->nullable();
             $table->string('country')->nullable();
             $table->boolean('status')->default(1)->comment('1 active, 0 inactive');
             $table->string('password');
-            $table->string('language')->default('Vi');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

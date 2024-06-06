@@ -75,8 +75,7 @@
                                             <option value="document" @if(old('materialType')=='document' ) selected
                                                 @endif>Văn bản
                                             </option>
-                                            <option value="quiz" @if(old('materialType')=='quiz' ) selected @endif>Câu hỏi
-                                            </option>
+                                           
                                         </select>
                                     </div>
                                 </div>
