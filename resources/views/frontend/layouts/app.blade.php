@@ -88,8 +88,8 @@ background-color: #f1f1f1;
         }
 
         .zalo-icon {
-            width: 60px; /* Kích thước của biểu tượng Zalo */
-            height: 60px; /* Kích thước của biểu tượng Zalo */
+            width: 55px; /* Kích thước của biểu tượng Zalo */
+            height: 55px; /* Kích thước của biểu tượng Zalo */
         }
     </style>
     @stack('styles')
@@ -192,7 +192,7 @@ background-color: #f1f1f1;
 <div class ="buttonuptotop">
                 <!-- Nút chat Zalo -->
                 <a href="https://zalo.me/0981970235" target="_blank" class="zalo-chat-button">
-                    <img src="images/zalo_icon.png" alt="Chat với chúng tôi trên Zalo" class="zalo-icon">
+                    <img src="/images/zalo_icon.png" alt="Chat với chúng tôi trên Zalo" class="zalo-icon">
                 </a>
 
                 {{-- <!-- Đoạn mã script để tích hợp Telegram Web Widget -->
