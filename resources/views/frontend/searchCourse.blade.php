@@ -146,7 +146,7 @@
                 {{-- Courses --}}
                 <div class="row event-search-content">
                     @forelse ($course as $c)
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-4 course-item">
                         <div class="contentCard contentCard--course">
                             <div class="contentCard-top">
                                 <a href="{{route('courseDetails', encryptor('encrypt', $c->id))}}">
@@ -210,27 +210,26 @@
                     </div>
                     @endforelse
                 </div>
-
+                
                 <div class="pagination-group mt-lg-5 mt-2">
-                    <a href="#" class="p_prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828"
-                            viewBox="0 0 9.414 16.828">
+                    <a href="#" class="p_prev" onclick="changePage(currentPage - 1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828" viewBox="0 0 9.414 16.828">
                             <path data-name="Icon feather-chevron-left" d="M20.5,23l-7-7,7-7"
                                 transform="translate(-12.5 -7.586)" fill="none" stroke="#1a2224" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2"></path>
                         </svg>
                     </a>
-                    <a href="#!1" class="cdp_i active">01</a>
-                    <a href="#!2" class="cdp_i">02</a>
-                    <a href="#!3" class="cdp_i">03</a>
-
-                    <a href="#!+1" class="p_next">
+                    <a href="#" class="cdp_i active" onclick="changePage(1)">01</a>
+                    <a href="#" class="cdp_i" onclick="changePage(2)">02</a>
+                    <a href="#" class="cdp_i" onclick="changePage(3)">03</a>
+                    <a href="#" class="p_next" onclick="changePage(currentPage + 1)">
                         <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.5 1L8.5 8L1.5 15" stroke="#35343E" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round"></path>
                         </svg>
                     </a>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -254,7 +253,33 @@
             cross.addEventListener("click", function () {
                 let sidebar = document.querySelector(".filter-sidebar");
                 sidebar.classList.remove("active");
-            });
+            });            
 </script>
+<script>
+    const itemsPerPage = 4;
+    let currentPage = 1;
+    const items = document.querySelectorAll('.course-item');
+    const totalPages = Math.ceil(items.length / itemsPerPage);
+
+    function showPage(page) {
+        currentPage = page;
+        items.forEach((item, index) => {
+            item.style.display = (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) ? 'block' : 'none';
+        });
+        document.querySelectorAll('.cdp_i').forEach((link, index) => {
+            link.classList.toggle('active', index + 1 === page);
+        });
+    }
+
+    function changePage(page) {
+        if (page > 0 && page <= totalPages) {
+            showPage(page);
+        }
+    }
+
+    // Initialize the first page
+    showPage(1);
+</script>
+
 
 @endpush

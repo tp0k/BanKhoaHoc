@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
+<<<<<<< HEAD
 -- Thời gian đã tạo: Th6 07, 2024 lúc 01:40 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
+=======
+-- Thời gian đã tạo: Th6 08, 2024 lúc 06:22 AM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
+>>>>>>> 62d0d68d7e59fdadb45adc232df9283e29e1118d
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -153,22 +159,27 @@ INSERT INTO `coupons` (`id`, `code`, `discount`, `valid_from`, `valid_until`, `c
 CREATE TABLE `courses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title_en` varchar(255) NOT NULL,
+  `title_bn` varchar(255) DEFAULT NULL,
   `description_en` text DEFAULT NULL,
+  `description_bn` text DEFAULT NULL,
   `course_category_id` bigint(20) UNSIGNED NOT NULL,
   `instructor_id` bigint(20) UNSIGNED NOT NULL,
   `type` enum('free','paid') NOT NULL DEFAULT 'paid',
   `price` decimal(10,2) DEFAULT 0.00,
   `old_price` decimal(10,2) DEFAULT NULL,
+  `subscription_price` decimal(10,2) DEFAULT NULL,
   `start_from` timestamp NULL DEFAULT NULL,
   `duration` int(11) DEFAULT NULL,
   `lesson` int(11) DEFAULT NULL,
   `prerequisites_en` text DEFAULT NULL,
+  `prerequisites_bn` text DEFAULT NULL,
   `difficulty` enum('beginner','intermediate','advanced') DEFAULT NULL,
   `course_code` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `thumbnail_image` varchar(255) DEFAULT NULL,
   `thumbnail_video` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 pending, 1 inactive, 2 active',
+  `language` varchar(255) NOT NULL DEFAULT 'en',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -179,11 +190,20 @@ CREATE TABLE `courses` (
 -- Đang đổ dữ liệu cho bảng `courses`
 --
 
+<<<<<<< HEAD
 INSERT INTO `courses` (`id`, `title_en`, `description_en`, `course_category_id`, `instructor_id`, `type`, `price`, `old_price`, `start_from`, `duration`, `lesson`, `prerequisites_en`, `difficulty`, `course_code`, `image`, `thumbnail_image`, `thumbnail_video`, `status`, `created_at`, `updated_at`, `deleted_at`, `tag`) VALUES
 (1, 'Khoá học lập trình Python basic', 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', 2, 2, 'paid', 1800000.00, 4000000.00, NULL, 2, 8, '> 14 tuổi', 'beginner', '1', '9621715357011.png', '8331715334658.jpg', 'https://www.youtube.com/watch?v=oFgg7K2tpfk', 2, '2024-05-07 00:32:02', '2024-05-10 10:35:37', NULL, 'popular'),
 (3, 'Khởi đầu đam mê - lập trình Scratch', 'Session 1: Tổng quan về Scratch\r\n\r\nSession 2: Giới thiệu một số nhóm lệnh Scratch cơ bản\r\n\r\nSession 3: Khối nếu-thì, biến số và truyền nhận tin\r\n\r\nSession 4: Trò chơi săn khủng long và bước nhảy không gian\r\n\r\nSession 5: Trò chơi hứng táo\r\n\r\nSession 6: Xây dựng trò chơi Flappy Bird\r\n\r\nSession 7: Xây dựng trò chơi đua xe\r\n\r\nSession 8: Dự án - Trò chơi bảo vệ biển đảo\r\n\r\nTất cả các hoạt động Học viên đều được hướng dẫn chi tiết từng bước. Mỗi chủ điểm đều có hình ảnh minh họa. Mục tiêu của khóa học không chỉ là hướng dẫn, mà còn là đưa ra thử thách giúp Học viên thể hiện khả năng sáng tạo và thiết kế trò chơi - ứng dụng của chính mình.', 1, 6, 'paid', 1800000.00, 4000000.00, NULL, 1, 8, '8 - 13 tuổi', 'beginner', NULL, '2801715357794.png', '6771715357794.png', 'https://www.youtube.com/watch?v=47yIB4nPTLI', 2, '2024-05-10 09:15:55', '2024-05-10 09:28:05', NULL, 'popular'),
 (4, 'Khoá học lập trình web fullstack', 'Khoá học lập trình web fullstack dành cho các bạn đã có chút nền tảng về lập trình, định hướng tay ngang sang lập trình web thì khoá học này là dành cho bạn!', 3, 4, 'paid', 4400000.00, 9000000.00, NULL, 3, 24, 'đã có chút nền tảng về lập trình', 'advanced', NULL, '3061716054820.jpg', '2981716054821.jpg', 'https://www.youtube.com/watch?v=T1BpaUpLzzA', 2, '2024-05-18 10:53:41', '2024-05-25 21:22:42', NULL, 'upcoming'),
 (5, 'Khóa học lập trình mobile app', 'KHÓA HỌC LẬP TRÌNH MOBILE APP dành cho tất cả các bạn muốn học từ căn bản đến nâng cao để trở thành một lập trình viên mobile app với nền tảng công cụ Flutter của Google.\r\nFlutter là gì? Nó có ưu điểm vượt trội ra sao để làm một ứng dụng mobile?\r\n\r\nFlutter được phát triển nhằm giải quyết bài toán thường gặp trong mobile là Fast Development và Native Performance. Nếu như React Native chỉ đảm bảo Fast Development và code native thuần chỉ đảm bảo Native Performance thì Flutter làm được cả 2 điều trên.\r\nLà một bộ SDK đa nền tảng, các ứng dụng Flutter có thể hoạt động trên cả iOS và Android. Nó như một thủ thuật khôn khéo để tương thích được với framework UI trên cả hai hệ điều hành này. Các ứng dụng này không biên dịch trực tiếp với các ứng dụng native của Android và iOS.\r\nBẠN SẼ HỌC ĐƯỢC GÌ?\r\n\r\nNắm vững kiến thức lập trình Flutter từ cơ bản đến nâng cao.\r\nThực hành lập trình ứng dụng Flutter như hướng dẫn trong khóa học.\r\nHọc viên có thể tự làm project cá nhân, ứng tuyển công việc thực tập, lập trình viên Flutter sau khi học xong.\r\nHọc viên có thể tự làm app bằng Flutter để đưa lên kho ứng dụng CHPlay Android, AppStore iOS.\r\nNỘI DUNG: Khóa học lập trình mobile app Flutter trang bị cho Học viên đầy đủ kiến thức, kỹ năng để có thể lập trình tạo ra một mobile app hoàn chỉnh. Bao gồm các buổi học sau:\r\n\r\nBuổi 1 - Setup flutter; Giới thiệu Flutter, Dart\r\nBuổi 2 - Lập trình Dart cơ bản - Null Safety, từ khóa late\r\nBuổi 3 - Functions with Named Parameters, Optinal Parameters\r\nBuổi 4 - StatelessWidget, StatefulWidget; một số UI cơ bản\r\nBuổi 5 - UI cơ bản trong Flutter (tiếp) - Flexible, Expanded, Stack, TextField\r\nBuổi 6 - Navigator, Routes - Chuyển màn hình\r\nBuổi 7 - Ôn tập Flutter Widget, ListView\r\nBuổi 8 - Flexible, Expanded, Stack Widget\r\nBuổi 9 - Future, async, await; Call http requests; Làm app Chat bằng Flutter và Socket.io\r\nBuổi 10 - Thực hành code UI flow cơ bản (Order List)\r\nBuổi 11 - BuildContext và InheritedWidget, Drawer Menu\r\nBuổi 12 & 13 - State management, Provider, BLoc pattern\r\nBuổi 14 - BLoC pattern cơ bản và ứng dụng\r\nBuổi 15 - SharedPreference , SQLite Database trong Flutter\r\nBuổi 16 - Thực hành tích hợp SQLite trong app Flutter\r\n\r\nVà các buổi học thực hành, làm bài tập lớn, làm đồ án kết thúc khóa.\r\n\r\nHọc kết hợp lý thuyết với thực hành ngay tại lớp. Kết thúc khóa học, Học viên làm đồ án tốt nghiệp và đăng ký tài khoản upload đồ án lên kho ứng dụng mobile.', 4, 5, '', 4400000.00, 10000000.00, NULL, 3, 16, 'KHÓA HỌC PHÙ HỢP VỚI AI?\r\n\r\nKhóa học được xây dựng từ cơ bản nhất đến nâng cao, cho phép cả những bạn chưa biết gì về lập trình có thể tiếp cận học tập. Tuy nhiên, để thuận lợi nhất, bạn cần có kiến thức cơ bản về Công nghệ thông tin, kỹ năng sử dụng máy tính, và một chiếc laptop đủ tốt.\r\n\r\nSinh viên ngành Công nghệ thông tin muốn học nâng cao kỹ năng lập trình mobile app\r\nCác bạn đang học hay vừa tốt nghiệp PTTH muốn tìm hiểu định hướng nghề nghiệp\r\nNgười đã đi làm muốn mở rộng kiến thức, kỹ năng, hay chuyển đổi nghề nghiệp', 'advanced', NULL, '2301716653958.jpg', '6731716653958.jpg', 'https://youtu.be/Hadc-GBPsmY?si=AfEeZQCpFYT0cw-v', 2, '2024-05-25 09:19:18', '2024-05-25 21:22:25', NULL, 'popular');
+=======
+INSERT INTO `courses` (`id`, `title_en`, `title_bn`, `description_en`, `description_bn`, `course_category_id`, `instructor_id`, `type`, `price`, `old_price`, `subscription_price`, `start_from`, `duration`, `lesson`, `prerequisites_en`, `prerequisites_bn`, `difficulty`, `course_code`, `image`, `thumbnail_image`, `thumbnail_video`, `status`, `language`, `created_at`, `updated_at`, `deleted_at`, `tag`) VALUES
+(1, 'Khoá học lập trình Python basic', NULL, 'Vì sao học và sử dụng Python?\r\n\r\nPython là một trong những ngôn ngữ lập trình phổ biến nhất và rất súc tích. Bạn có thể tạo chương trình làm được rất nhiều việc mà không cần gõ nhiều mã lệnh.\r\n\r\nRất nhiều các công ty, tổ chức lớn như Google, NASA, Youtube sử dụng Python để lập trình. Bạn cũng có thể dùng nó để điều khiển các thiết bị máy móc phục vụ nhu cầu và sở thích.\r\n\r\nĐể khởi đầu, bạn cần một máy tính xách tay (hoặc máy tính để bàn) để chạy Python. Mọi thông tin sẽ được Giảng viên hướng dẫn trong khóa học “Trở thành lập trình viên Python tương lai” tại Học viện công nghệ CNET. Khóa học sẽ chỉ cho bạn cách sử dụng Python trong nhiều loại dự án, từ viết chương trình đầu tiên cho tới các trò chơi do chính bạn tạo ra. Mọi kiến thức được chia thành các bước ngắn, dễ thực hành.\r\n\r\nNỘI DUNG KHÓA HỌC\r\n\r\nGiới thiệu chung: Lập trình là gì, bắt đầu làm quen với Python, Bài tập chơi cùng con số\r\nBiến số, ra quyết định, Giải thuật,\r\nTrò chơi dự đoán\r\nVòng lặp for, lệnh tắt cho bảng cửu chương, Sử dụng danh sách\r\nTừ điển, tin tức mã hóa\r\nCông cụ vẽ Turtle, đừng bấm nút, vẽ một kiệt tác\r\nTrò chơi dò bom, Trò chơi vợt và bóng\r\nTải Python, quản lý tập tin, Gỡ lỗi\r\nCửa sổ nào, Xem nhanh mã lệnh\r\nBảng chú giải\r\nTHỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 08 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', NULL, 2, 2, 'paid', 1800000.00, 4000000.00, NULL, NULL, 2, 8, '> 14 tuổi', NULL, 'beginner', '1', '9621715357011.png', '8331715334658.jpg', 'https://www.youtube.com/watch?v=oFgg7K2tpfk', 2, 'en', '2024-05-07 00:32:02', '2024-05-10 10:35:37', NULL, 'popular'),
+(3, 'Khởi đầu đam mê - lập trình Scratch', NULL, 'Session 1: Tổng quan về Scratch\r\n\r\nSession 2: Giới thiệu một số nhóm lệnh Scratch cơ bản\r\n\r\nSession 3: Khối nếu-thì, biến số và truyền nhận tin\r\n\r\nSession 4: Trò chơi săn khủng long và bước nhảy không gian\r\n\r\nSession 5: Trò chơi hứng táo\r\n\r\nSession 6: Xây dựng trò chơi Flappy Bird\r\n\r\nSession 7: Xây dựng trò chơi đua xe\r\n\r\nSession 8: Dự án - Trò chơi bảo vệ biển đảo\r\n\r\nTất cả các hoạt động Học viên đều được hướng dẫn chi tiết từng bước. Mỗi chủ điểm đều có hình ảnh minh họa. Mục tiêu của khóa học không chỉ là hướng dẫn, mà còn là đưa ra thử thách giúp Học viên thể hiện khả năng sáng tạo và thiết kế trò chơi - ứng dụng của chính mình.', NULL, 1, 6, 'paid', 1800000.00, 4000000.00, NULL, NULL, 1, 8, '8 - 13 tuổi', NULL, 'beginner', NULL, '2801715357794.png', '6771715357794.png', 'https://www.youtube.com/watch?v=47yIB4nPTLI', 2, 'en', '2024-05-10 09:15:55', '2024-05-10 09:28:05', NULL, 'popular'),
+(4, 'Khoá học lập trình web fullstack', NULL, 'Khoá học lập trình web fullstack dành cho các bạn đã có chút nền tảng về lập trình, định hướng tay ngang sang lập trình web thì khoá học này là dành cho bạn!', NULL, 3, 4, 'paid', 4400000.00, 9000000.00, NULL, NULL, 3, 24, 'đã có chút nền tảng về lập trình', NULL, 'advanced', NULL, '3061716054820.jpg', '2981716054821.jpg', 'https://www.youtube.com/watch?v=T1BpaUpLzzA', 2, 'en', '2024-05-18 10:53:41', '2024-05-25 21:22:42', NULL, 'upcoming'),
+(5, 'Khóa học lập trình mobile app', NULL, 'KHÓA HỌC LẬP TRÌNH MOBILE APP dành cho tất cả các bạn muốn học từ căn bản đến nâng cao để trở thành một lập trình viên mobile app với nền tảng công cụ Flutter của Google.\r\nFlutter là gì? Nó có ưu điểm vượt trội ra sao để làm một ứng dụng mobile?\r\n\r\nFlutter được phát triển nhằm giải quyết bài toán thường gặp trong mobile là Fast Development và Native Performance. Nếu như React Native chỉ đảm bảo Fast Development và code native thuần chỉ đảm bảo Native Performance thì Flutter làm được cả 2 điều trên.\r\nLà một bộ SDK đa nền tảng, các ứng dụng Flutter có thể hoạt động trên cả iOS và Android. Nó như một thủ thuật khôn khéo để tương thích được với framework UI trên cả hai hệ điều hành này. Các ứng dụng này không biên dịch trực tiếp với các ứng dụng native của Android và iOS.\r\nBẠN SẼ HỌC ĐƯỢC GÌ?\r\n\r\nNắm vững kiến thức lập trình Flutter từ cơ bản đến nâng cao.\r\nThực hành lập trình ứng dụng Flutter như hướng dẫn trong khóa học.\r\nHọc viên có thể tự làm project cá nhân, ứng tuyển công việc thực tập, lập trình viên Flutter sau khi học xong.\r\nHọc viên có thể tự làm app bằng Flutter để đưa lên kho ứng dụng CHPlay Android, AppStore iOS.\r\nNỘI DUNG: Khóa học lập trình mobile app Flutter trang bị cho Học viên đầy đủ kiến thức, kỹ năng để có thể lập trình tạo ra một mobile app hoàn chỉnh. Bao gồm các buổi học sau:\r\n\r\nBuổi 1 - Setup flutter; Giới thiệu Flutter, Dart\r\nBuổi 2 - Lập trình Dart cơ bản - Null Safety, từ khóa late\r\nBuổi 3 - Functions with Named Parameters, Optinal Parameters\r\nBuổi 4 - StatelessWidget, StatefulWidget; một số UI cơ bản\r\nBuổi 5 - UI cơ bản trong Flutter (tiếp) - Flexible, Expanded, Stack, TextField\r\nBuổi 6 - Navigator, Routes - Chuyển màn hình\r\nBuổi 7 - Ôn tập Flutter Widget, ListView\r\nBuổi 8 - Flexible, Expanded, Stack Widget\r\nBuổi 9 - Future, async, await; Call http requests; Làm app Chat bằng Flutter và Socket.io\r\nBuổi 10 - Thực hành code UI flow cơ bản (Order List)\r\nBuổi 11 - BuildContext và InheritedWidget, Drawer Menu\r\nBuổi 12 & 13 - State management, Provider, BLoc pattern\r\nBuổi 14 - BLoC pattern cơ bản và ứng dụng\r\nBuổi 15 - SharedPreference , SQLite Database trong Flutter\r\nBuổi 16 - Thực hành tích hợp SQLite trong app Flutter\r\n\r\nVà các buổi học thực hành, làm bài tập lớn, làm đồ án kết thúc khóa.\r\n\r\nHọc kết hợp lý thuyết với thực hành ngay tại lớp. Kết thúc khóa học, Học viên làm đồ án tốt nghiệp và đăng ký tài khoản upload đồ án lên kho ứng dụng mobile.', NULL, 4, 5, 'subscription', 4400000.00, 10000000.00, NULL, NULL, 3, 16, 'KHÓA HỌC PHÙ HỢP VỚI AI?\r\n\r\nKhóa học được xây dựng từ cơ bản nhất đến nâng cao, cho phép cả những bạn chưa biết gì về lập trình có thể tiếp cận học tập. Tuy nhiên, để thuận lợi nhất, bạn cần có kiến thức cơ bản về Công nghệ thông tin, kỹ năng sử dụng máy tính, và một chiếc laptop đủ tốt.\r\n\r\nSinh viên ngành Công nghệ thông tin muốn học nâng cao kỹ năng lập trình mobile app\r\nCác bạn đang học hay vừa tốt nghiệp PTTH muốn tìm hiểu định hướng nghề nghiệp\r\nNgười đã đi làm muốn mở rộng kiến thức, kỹ năng, hay chuyển đổi nghề nghiệp', NULL, 'advanced', NULL, '2301716653958.jpg', '6731716653958.jpg', 'https://youtu.be/Hadc-GBPsmY?si=AfEeZQCpFYT0cw-v', 2, 'en', '2024-05-25 09:19:18', '2024-05-25 21:22:25', NULL, 'popular'),
+(6, 'Khóa học CCNA online', NULL, 'Khóa học CCNA online', NULL, 5, 3, 'paid', 1500000.00, 2000000.00, NULL, NULL, 2, 2, NULL, NULL, 'beginner', '11005', '9041717784749.jpg', '5731717784749.jpg', 'https://www.youtube.com/watch?v=wz7uga1RcWQ&t=1s', 2, 'en', '2024-06-07 10:38:12', '2024-06-07 11:25:49', NULL, 'popular');
+>>>>>>> 62d0d68d7e59fdadb45adc232df9283e29e1118d
 
 -- --------------------------------------------------------
 
@@ -211,6 +231,23 @@ INSERT INTO `course_categories` (`id`, `category_name`, `category_status`, `cate
 (3, 'Khoá học lập trình web-fullstack', 0, '6641714983492.png', '2024-05-06 01:18:12', '2024-05-07 01:03:21', NULL),
 (4, 'Lập trình mobile app Flutter', 1, '7951714983640.png', '2024-05-06 01:20:40', '2024-05-06 01:21:09', NULL),
 (5, 'Quản trị hệ thống MCSA 2019', 0, '8601714983838.png', '2024-05-06 01:23:58', '2024-05-06 01:23:58', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `discussions`
+--
+
+CREATE TABLE `discussions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `course_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -273,7 +310,9 @@ INSERT INTO `events` (`id`, `title`, `description`, `image`, `created_at`, `upda
 CREATE TABLE `instructors` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name_en` varchar(255) NOT NULL,
+  `name_bn` varchar(255) DEFAULT NULL,
   `contact_en` varchar(255) NOT NULL,
+  `contact_bn` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
   `bio` text DEFAULT NULL,
@@ -282,6 +321,7 @@ CREATE TABLE `instructors` (
   `image` varchar(255) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 active, 0 inactive',
   `password` varchar(255) NOT NULL,
+  `language` varchar(255) NOT NULL DEFAULT 'en',
   `access_block` text DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -293,13 +333,12 @@ CREATE TABLE `instructors` (
 -- Đang đổ dữ liệu cho bảng `instructors`
 --
 
-INSERT INTO `instructors` (`id`, `name_en`, `contact_en`, `email`, `role_id`, `bio`, `title`, `designation`, `image`, `status`, `password`, `access_block`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'GS.TS Lê Hoài Bắc', '0985642133', 'giangvien1@gmail.com', 3, 'hiện là Trưởng bộ môn Khoa học máy tính. Ông đã lấy được bằng tiến sĩ. Thạc sĩ Công nghệ thông tin, Đại học Khoa học Tự nhiên TP.HCM (HCMUS), ĐHQG-HCM năm 1999. Ông được phong hàm Giáo sư năm 2019. Ông đã đảm nhận nhiều dự án, dự án NAFOSTED của Sở Khoa học & Công nghệ Thành phố Hồ Chí Minh và các dự án của Đại học Quốc gia Thành phố Hồ Chí Minh (ĐHQG-HCM). Ông là tác giả của nhiều bài báo và bài báo khoa học trên các tạp chí quốc tế.', NULL, NULL, 'Giảng viên_GS.TS Lê Hoài Bắc_679.jpg', 1, '$2y$12$rksKv8h6f1vjORKYZ1oxn.u5OoeyneI5CPSkh4surjjurUv5amI3O', NULL, NULL, '2024-05-06 21:38:48', '2024-05-06 21:38:48', NULL),
-(3, 'PGS.TS Vũ Hải Quân', '0956432175', 'giangvien@gmail.com', 3, 'hiện là Giám đốc Đại học Quốc gia TP.HCM (ĐHQG TP.HCM). Vào tháng 2 năm 2005, ông lấy bằng Tiến sĩ. từ Đại học Trento, Ý. Tháng 10 năm 2018, PGS. GS.TS Vũ Hải Quân được Đại học Công nghệ Auckland (AUT) vinh danh danh hiệu Giáo sư danh dự. Ngoài ra, ông còn thực hiện nhiều dự án phần mềm và là tác giả của một số bài báo và bài báo khoa học trên các tạp chí quốc tế.', 'Giảng viên', 'Giảng viên luyện CCNA', 'Giảng viên_PGS.TS Vũ Hải Quân_581.png', 1, '$2y$12$wmSddqdzhSJb0rlQl64Kk.exbPLbgnNqOswYT3K54Wk1fuo.7Wj0S', NULL, NULL, '2024-05-07 00:02:34', '2024-05-07 00:02:34', NULL),
-(4, 'PGS.TS Hồ Bảo Quốc', '0965321475', 'giangvien2@gmail.com', 3, 'hiện là Giảng viên bộ môn Hệ thống thông tin, Khoa Công nghệ thông tin, Trường Đại học Khoa học Tự nhiên TP.HCM (HCMUS). Ông đã lấy được bằng tiến sĩ. Tiến sĩ Khoa học Máy tính tại Đại học Joseph Fourier, Pháp, năm 2004. Ông được phong hàm Phó Giáo sư năm 2015. Ông đã thực hiện nhiều dự án nghiên cứu khoa học và là tác giả của một số bài báo và bài báo khoa học trên các tạp chí quốc tế.', NULL, 'Giảng viên luyện CCNA', 'Giảng viên_PGS.TS Hồ Bảo Quốc_332.jpg', 1, '$2y$12$CLbMzg7eX7gCxt0rXPukTe/GPTIPIDvYdOR93xrWiuMIMRVODyPvO', NULL, NULL, '2024-05-07 00:03:58', '2024-05-07 00:03:58', NULL),
-(5, 'TS. Nguyễn Hải Minh', '0965321456', 'giangvien3@gmail.com', 3, 'hiện đang công tác tại Khoa Khoa học Máy tính. Cô đã lấy được bằng tiến sĩ. Tiến sĩ Khoa học Thông tin của Viện Khoa học và Công nghệ Tiên tiến Nhật Bản (JAIST) năm 2013.', NULL, 'Giảng viên luyện MCSA 2019', 'Giảng viên_TS. Nguyễn Hải Minh_257.jpg', 1, '$2y$12$l3fbKoMll5Je0phGhQBGHeb.QCSd4aDHaYluji.By4PhImGIYskVK', NULL, NULL, '2024-05-07 00:06:33', '2024-05-07 00:06:33', NULL),
-(6, 'Tạ Thị Phương Thảo', '0965482137', 'giangvien4@gmail.com', 3, 'Thạc sỹ công nghệ thông tin, tốt nghiệp đại học DePaul Mỹ năm 2024.', NULL, 'Thực tập sinh', 'Giảng viên_Tạ Thị Phương Thảo_369.jpg', 0, '$2y$12$7BtRGXVlc.d8GZW9QI0gzuFn5u6TuoXUSN8Ah7mVt8kuHtdMI4Nv.', NULL, NULL, '2024-05-07 00:10:19', '2024-05-07 00:10:19', NULL),
-(7, 'Baifern Pimchanock', '0999999999', 'lan@gmail.com', 3, 'Cựu trưởng nhóm nghiên cứu Thiên văn học trường THPT Riverdale (Mỹ), hiện đang học tập và nghiên cứu tại ĐH Havard', 'GV đến từ Thái Lan', 'GV Scratch', 'Giảng viên_Baifern Pimchanock_575.webp', 1, '$2y$12$/8V5FBqDuq4jlALGjc27BODd.uQInsqHk57bqesD4Ae6Tpyq/37Y.', NULL, NULL, '2024-06-06 11:51:17', '2024-06-06 11:51:17', NULL);
+INSERT INTO `instructors` (`id`, `name_en`, `name_bn`, `contact_en`, `contact_bn`, `email`, `role_id`, `bio`, `title`, `designation`, `image`, `status`, `password`, `language`, `access_block`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(2, 'GS.TS Lê Hoài Bắc', NULL, '0985642133', NULL, 'giangvien1@gmail.com', 3, 'hiện là Trưởng bộ môn Khoa học máy tính. Ông đã lấy được bằng tiến sĩ. Thạc sĩ Công nghệ thông tin, Đại học Khoa học Tự nhiên TP.HCM (HCMUS), ĐHQG-HCM năm 1999. Ông được phong hàm Giáo sư năm 2019. Ông đã đảm nhận nhiều dự án, dự án NAFOSTED của Sở Khoa học & Công nghệ Thành phố Hồ Chí Minh và các dự án của Đại học Quốc gia Thành phố Hồ Chí Minh (ĐHQG-HCM). Ông là tác giả của nhiều bài báo và bài báo khoa học trên các tạp chí quốc tế.', NULL, NULL, 'Giảng viên_GS.TS Lê Hoài Bắc_679.jpg', 1, '$2y$12$rksKv8h6f1vjORKYZ1oxn.u5OoeyneI5CPSkh4surjjurUv5amI3O', 'en', NULL, NULL, '2024-05-06 21:38:48', '2024-05-06 21:38:48', NULL),
+(3, 'PGS.TS Vũ Hải Quân', NULL, '0956432175', NULL, 'giangvien@gmail.com', 3, 'hiện là Giám đốc Đại học Quốc gia TP.HCM (ĐHQG TP.HCM). Vào tháng 2 năm 2005, ông lấy bằng Tiến sĩ. từ Đại học Trento, Ý. Tháng 10 năm 2018, PGS. GS.TS Vũ Hải Quân được Đại học Công nghệ Auckland (AUT) vinh danh danh hiệu Giáo sư danh dự. Ngoài ra, ông còn thực hiện nhiều dự án phần mềm và là tác giả của một số bài báo và bài báo khoa học trên các tạp chí quốc tế.', 'Giảng viên', 'Giảng viên luyện CCNA', 'Giảng viên_PGS.TS Vũ Hải Quân_581.png', 1, '$2y$12$wmSddqdzhSJb0rlQl64Kk.exbPLbgnNqOswYT3K54Wk1fuo.7Wj0S', 'en', NULL, NULL, '2024-05-07 00:02:34', '2024-05-07 00:02:34', NULL),
+(4, 'PGS.TS Hồ Bảo Quốc', NULL, '0965321475', NULL, 'giangvien2@gmail.com', 3, 'hiện là Giảng viên bộ môn Hệ thống thông tin, Khoa Công nghệ thông tin, Trường Đại học Khoa học Tự nhiên TP.HCM (HCMUS). Ông đã lấy được bằng tiến sĩ. Tiến sĩ Khoa học Máy tính tại Đại học Joseph Fourier, Pháp, năm 2004. Ông được phong hàm Phó Giáo sư năm 2015. Ông đã thực hiện nhiều dự án nghiên cứu khoa học và là tác giả của một số bài báo và bài báo khoa học trên các tạp chí quốc tế.', NULL, 'Giảng viên luyện CCNA', 'Giảng viên_PGS.TS Hồ Bảo Quốc_332.jpg', 1, '$2y$12$CLbMzg7eX7gCxt0rXPukTe/GPTIPIDvYdOR93xrWiuMIMRVODyPvO', 'en', NULL, NULL, '2024-05-07 00:03:58', '2024-05-07 00:03:58', NULL),
+(5, 'TS. Nguyễn Hải Minh', NULL, '0965321456', NULL, 'giangvien3@gmail.com', 3, 'hiện đang công tác tại Khoa Khoa học Máy tính. Cô đã lấy được bằng tiến sĩ. Tiến sĩ Khoa học Thông tin của Viện Khoa học và Công nghệ Tiên tiến Nhật Bản (JAIST) năm 2013.', NULL, 'Giảng viên luyện MCSA 2019', 'Giảng viên_TS. Nguyễn Hải Minh_257.jpg', 1, '$2y$12$l3fbKoMll5Je0phGhQBGHeb.QCSd4aDHaYluji.By4PhImGIYskVK', 'en', NULL, NULL, '2024-05-07 00:06:33', '2024-05-07 00:06:33', NULL),
+(6, 'Tạ Thị Phương Thảo', NULL, '0965482137', NULL, 'giangvien4@gmail.com', 3, 'Thạc sỹ công nghệ thông tin, tốt nghiệp đại học DePaul Mỹ năm 2024.', NULL, 'Thực tập sinh', 'Giảng viên_Tạ Thị Phương Thảo_369.jpg', 0, '$2y$12$7BtRGXVlc.d8GZW9QI0gzuFn5u6TuoXUSN8Ah7mVt8kuHtdMI4Nv.', 'en', NULL, NULL, '2024-05-07 00:10:19', '2024-05-07 00:10:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -323,11 +362,12 @@ CREATE TABLE `lessons` (
 --
 
 INSERT INTO `lessons` (`id`, `title`, `course_id`, `description`, `notes`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Giới thiệu ngôn ngữ lập trình Python', 1, 'Trong khóa học lập trình python này, chúng ta sẽ sử dụng Python 3.x. Bởi vì Python 2.x là phiên bản cũ và đã được thông báo chính thức là sẽ không còn được phát triển và hỗ trợ sau 2020.', 'Ưu điểm của Python\r\nLà một ngôn ngữ lập trình dành cho người mới bắt đầu.\r\nCú pháp đơn giản, dễ đọc, dễ hiểu và dễ học.\r\nĐa nền tảng.\r\nMiễn phí và là ngôn ngữ mã nguồn mở.\r\nLà ngôn ngữ hướng đối tượng.\r\nKho thư viện hỗ trợ phong phú và đa dạng.\r\nỨng dụng trong nhiều lĩnh vực lập trình khác nhau.\r\nCó khả năng mở rộng, tương thích với các cơ sở dữ liệu và ngôn ngữ khác.\r\nNhược điểm của Python\r\nTốc độ chậm hơn so với các ngôn ngữ C/C++ hay Java.\r\nKhông phải là ngôn ngữ tốt dành cho nền tảng mobile.\r\nPython không phải lựa chọn tốt cho các bài toán cần tối ưu bộ nhớ.\r\nPython có nhiều giới hạn khi làm việc với cơ sở dữ liệu phức tạp.\r\nPython dùng để làm gì?\r\nPhát triển web và các nền tảng cho Internet\r\nPython được sử dụng cho phát triển web theo nhiều cách khác nhau:\r\n\r\nCác framework phát triển web như Django hay Pyramid.\r\nMicro-framework như Flask hay Bottle.\r\nXây dựng CMS với Plone hay django CMS.\r\nCùng với hàng loạt các thư viện đồ sộ hỗ trợ lập trình web, web crawler,…\r\nỨng dụng trong machine learning\r\nPython là ngôn ngữ lập trình phổ biến nhất được sử dụng trong machine learning và thị giác máy tính:\r\n\r\nSciPy là một gói thư viện dành cho toán học, khoa học và kỹ thuật.\r\nPandas là một thư viện dành cho phân tích dữ liệu.\r\nscikit-learn là một thư viện dành cho machine learning\r\n…\r\nLà ngôn ngữ cho mục đích giảng dạy\r\nDo là một ngôn ngữ dễ đọc, dễ hiểu và dễ học. Python là ngôn ngữ đầu tiên mà các lập trình viên tiếp cận. Tuy nhiên, điều này có vẻ không đúng ở Việt Nam chúng ta ^^.\r\n\r\nVà rất nhiều ứng dụng trong các lĩnh vực khác (mình lười trình bày rồi nên liệt kê thôi nhé, chứ không phải ứng dụng nhỏ đâu) bao gồm:\r\n\r\nPhân tích dữ liệu (Data Analysis)\r\nTự động hóa (Automation)\r\nTest tự động (Selenium)\r\nIOT\r\n…', '2024-05-07 00:49:57', '2024-05-07 00:49:57', NULL),
-(2, 'Game Đấm Lá Kéo', 1, '👨‍🏫 1. Lập Trình Web cơ Bản\r\n👨‍🏫 2. Toán Logic - Toán tư duy cơ bản\r\n👨‍🏫 3. Lập Trình Python Cơ Bản đến Nâng cao\r\n👨‍🏫 4. Lập Trình Game Cơ Bản\r\n👨‍🏫 5. Lập trình Data Science - Phân tích dữ liệu Cơ Bản\r\n👨‍🏫 6. Lập Trình AI - Trí Tuệ Nhân Tạo Cơ Bản\r\n\r\nTrong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart\r\n\r\nThuật ngữ tiếng anh đã giải thích:\r\n\r\nConditional statement, assignment statement, comparison statement, assign, indentation, inconsistent, tab, space, and, variable, flowchart, logic, if, else, age, select, draw, choose, test, import, random, string, integer, built-in, function, class, concatenate, input, output, input validation, wrong input.', 'Trong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart', '2024-05-10 08:25:31', '2024-05-10 08:25:31', NULL),
+(1, '[Khóa học lập trình Python basic] - Bài 1: Giới thiệu ngôn ngữ lập trình Python', 1, 'Trong khóa học lập trình python này, chúng ta sẽ sử dụng Python 3.x. Bởi vì Python 2.x là phiên bản cũ và đã được thông báo chính thức là sẽ không còn được phát triển và hỗ trợ sau 2020.', 'Ưu điểm của Python\r\nLà một ngôn ngữ lập trình dành cho người mới bắt đầu.\r\nCú pháp đơn giản, dễ đọc, dễ hiểu và dễ học.\r\nĐa nền tảng.\r\nMiễn phí và là ngôn ngữ mã nguồn mở.\r\nLà ngôn ngữ hướng đối tượng.\r\nKho thư viện hỗ trợ phong phú và đa dạng.\r\nỨng dụng trong nhiều lĩnh vực lập trình khác nhau.\r\nCó khả năng mở rộng, tương thích với các cơ sở dữ liệu và ngôn ngữ khác.\r\nNhược điểm của Python\r\nTốc độ chậm hơn so với các ngôn ngữ C/C++ hay Java.\r\nKhông phải là ngôn ngữ tốt dành cho nền tảng mobile.\r\nPython không phải lựa chọn tốt cho các bài toán cần tối ưu bộ nhớ.\r\nPython có nhiều giới hạn khi làm việc với cơ sở dữ liệu phức tạp.\r\nPython dùng để làm gì?\r\nPhát triển web và các nền tảng cho Internet\r\nPython được sử dụng cho phát triển web theo nhiều cách khác nhau:\r\n\r\nCác framework phát triển web như Django hay Pyramid.\r\nMicro-framework như Flask hay Bottle.\r\nXây dựng CMS với Plone hay django CMS.\r\nCùng với hàng loạt các thư viện đồ sộ hỗ trợ lập trình web, web crawler,…\r\nỨng dụng trong machine learning\r\nPython là ngôn ngữ lập trình phổ biến nhất được sử dụng trong machine learning và thị giác máy tính:\r\n\r\nSciPy là một gói thư viện dành cho toán học, khoa học và kỹ thuật.\r\nPandas là một thư viện dành cho phân tích dữ liệu.\r\nscikit-learn là một thư viện dành cho machine learning\r\n…\r\nLà ngôn ngữ cho mục đích giảng dạy\r\nDo là một ngôn ngữ dễ đọc, dễ hiểu và dễ học. Python là ngôn ngữ đầu tiên mà các lập trình viên tiếp cận. Tuy nhiên, điều này có vẻ không đúng ở Việt Nam chúng ta ^^.\r\n\r\nVà rất nhiều ứng dụng trong các lĩnh vực khác (mình lười trình bày rồi nên liệt kê thôi nhé, chứ không phải ứng dụng nhỏ đâu) bao gồm:\r\n\r\nPhân tích dữ liệu (Data Analysis)\r\nTự động hóa (Automation)\r\nTest tự động (Selenium)\r\nIOT\r\n…', '2024-05-07 00:49:57', '2024-05-07 00:49:57', NULL),
+(2, '[Khóa học lập trình Python basic] - Bài 2:  Game Đấm Lá Kéo', 1, '👨‍🏫 1. Lập Trình Web cơ Bản\r\n👨‍🏫 2. Toán Logic - Toán tư duy cơ bản\r\n👨‍🏫 3. Lập Trình Python Cơ Bản đến Nâng cao\r\n👨‍🏫 4. Lập Trình Game Cơ Bản\r\n👨‍🏫 5. Lập trình Data Science - Phân tích dữ liệu Cơ Bản\r\n👨‍🏫 6. Lập Trình AI - Trí Tuệ Nhân Tạo Cơ Bản\r\n\r\nTrong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart\r\n\r\nThuật ngữ tiếng anh đã giải thích:\r\n\r\nConditional statement, assignment statement, comparison statement, assign, indentation, inconsistent, tab, space, and, variable, flowchart, logic, if, else, age, select, draw, choose, test, import, random, string, integer, built-in, function, class, concatenate, input, output, input validation, wrong input.', 'Trong Clip này mình sẽ hướng dẫn các bạn:\r\n_ Cách dùng if else elif\r\n_ Cách lồng ghép các if else\r\n_ Cách sửa lỗi thụt đầu dòng trong python\r\n_ Cùng bạn làm game Đấm Lá Kéo với máy tính\r\n_ Cùng nhau làm Game hiệu quả hơn\r\n_ Cùng làm và giải thích hình vẽ flowchart', '2024-05-10 08:25:31', '2024-05-10 08:25:31', NULL),
 (3, '[Khóa học lập trình Scratch cơ bản] - Bài 1: Làm quen với Scratch', 3, 'Khoá học “KHỞI ĐẦU ĐAM MÊ - LẬP TRÌNH SCRATCH” tại Học viện công nghệ CNET - Hải Phòng, trực quan và sinh động sẽ trang bị cho Học viên trẻ kiến thức cơ bản về lập trình, khơi dậy niềm đam mê với công nghệ.\r\n\r\nCác hoạt động được thiết kế trên Scratch sẽ rất đơn giản và thú vị. Scratch là một trang web và ứng dụng giúp Học viên xây dựng và chia sẻ trò chơi của mình với các lập trình viên nhí khác trên toàn thế giới. Một trong những điều tuyệt vời của Scratch là Học viên không cần biết về máy tính quá nhiều. Với Scratch, Học viên chỉ cần làm các thao tác kéo-thả để lập trình và xây dựng những trò chơi của riêng mình.\r\n\r\nCó rất nhiều ngôn ngữ lập trình trên thế giới như Python, Java, C++, PHP… Tuy nhiên, Scratch là một ngôn ngữ lập trình độc nhất trên thế giới, bởi nó được thiết kế để dành riêng cho trẻ làm quen với lập trình game và ứng dụng học tập, từ các nhà nghiên cứu của Học viện công nghệ Massachusetts (MIT).\r\n\r\nScratch là ngôn ngữ lập trình được khuyên dùng cho những người mới bắt đầu, đặc biệt là trẻ em vì nó có những ưu điểm sau:\r\n\r\nThân thiện với trẻ em\r\nChỉ cần thao tác kéo-thả để lập trình mà không cần đánh mã lệnh\r\nThiết kế và chia sẻ trò chơi nhanh chóng\r\nCó thể thấy mã lập trình của các trò chơi \r\nBao gồm nhiều loại âm thanh, hình ảnh, phông nền\r\nMiễn phí - không yêu cầu chi phí bản quyền', 'THỜI LƯỢNG:\r\n\r\nHọc 02 buổi/tuần, mỗi buổi 02 tiếng (Học viên chọn 1 trong 3 ba ca sáng, chiều, tối và chọn ngày học)\r\nTổng thời lượng: 8 buổi (kéo dài 01 tháng)\r\nSố học viên tối đa: 10 học viên/lớp', '2024-05-10 09:18:50', '2024-05-10 09:18:50', NULL),
 (4, 'Bài giảng Test 1', 5, 'Bài giảng Test 1', 'Bài giảng Test 1', '2024-06-01 09:35:25', '2024-06-01 09:35:25', NULL),
-(6, 'Bài giảng Test 2', 5, 'Bài giảng Test 2', 'Bài giảng Test 2', '2024-06-02 03:20:14', '2024-06-02 03:20:14', NULL);
+(6, 'Bài giảng Test 2', 5, 'Bài giảng Test 2', 'Bài giảng Test 2', '2024-06-02 03:20:14', '2024-06-02 03:20:14', NULL),
+(7, '[Tự học CCNA] Bài 1: Các thành phần cơ bản của hệ thống mạng', 6, 'CCNA', NULL, '2024-06-07 10:40:02', '2024-06-07 10:40:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -339,7 +379,7 @@ CREATE TABLE `materials` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `lesson_id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
-  `type` enum('video','document') NOT NULL,
+  `type` enum('video','document','quiz') NOT NULL,
   `content` varchar(255) DEFAULT NULL,
   `content_url` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -359,7 +399,23 @@ INSERT INTO `materials` (`id`, `lesson_id`, `title`, `type`, `content`, `content
 (8, 4, 'VD2', 'document', '8581717260498.docx', NULL, '2024-06-01 09:48:18', '2024-06-01 09:48:18', NULL),
 (9, 4, 'VD2-test1', 'video', '2341717323800.mp4', 'vd2test1', '2024-06-02 03:23:20', '2024-06-02 03:23:20', NULL),
 (10, 6, 'VD1test2', 'video', '5531717323848.mp4', NULL, '2024-06-02 03:24:08', '2024-06-02 03:24:08', NULL),
-(11, 2, 'Tài liệu game đấm lá kéo', 'document', '8131717629745.pdf', NULL, '2024-06-05 16:22:25', '2024-06-05 16:22:25', NULL);
+(11, 7, '[Tự học CCNA] Bài 1: Các thành phần cơ bản của hệ thống mạng', 'video', '5151717784791.mp4', NULL, '2024-06-07 10:41:10', '2024-06-07 11:26:31', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sender_id` bigint(20) UNSIGNED NOT NULL,
+  `receiver_id` bigint(20) UNSIGNED NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -400,6 +456,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2024_04_24_185643_create_discussions_table', 1),
 (21, '2024_04_24_185715_create_messages_table', 1),
 (22, '2024_04_24_185738_create_coupons_table', 1),
+(23, '2024_04_24_185802_create_checkouts_table', 1),
 (24, '2024_04_24_185831_create_watchlists_table', 1),
 (25, '2024_04_24_185926_add_tag_to_courses_table', 1),
 (26, '2024_04_24_190001_add_column_to_user_table', 2),
@@ -414,6 +471,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (36, '2024_05_31_162113_update_reviews_table', 10),
 (38, '2024_06_01_181707_add_completed_to_watchlists_table', 11),
 (39, '2024_06_03_095351_create_banners_table', 12),
+<<<<<<< HEAD
 (40, '2024_04_24_190036_create_events_table', 13),
 (42, '2024_06_06_161711_delete_discussions_table', 14),
 (43, '2024_06_06_161733_delete_messages_table', 15),
@@ -424,6 +482,61 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (48, '2024_06_06_161925_delete_subscriptions_table', 20),
 (53, '2024_04_24_185802_create_checkouts_table', 21),
 (54, '2024_06_06_190813_create_cart_items_table', 22);
+=======
+(40, '2024_04_24_190036_create_events_table', 13);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `options`
+--
+
+CREATE TABLE `options` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `question_id` bigint(20) UNSIGNED NOT NULL,
+  `option_text` varchar(255) NOT NULL,
+  `is_correct` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `od_transacsion_id` varchar(255) NOT NULL,
+  `od_course_id` varchar(255) NOT NULL,
+  `od_price` decimal(8,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `student_id` bigint(20) DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
+  `currency_code` varchar(255) DEFAULT NULL,
+  `od_price` decimal(10,2) DEFAULT NULL,
+  `currency_value` decimal(10,2) DEFAULT NULL,
+  `method` varchar(255) DEFAULT NULL,
+  `txnid` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 pending, 1 successfull, 2 fail',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+>>>>>>> 62d0d68d7e59fdadb45adc232df9283e29e1118d
 
 -- --------------------------------------------------------
 
@@ -444,91 +557,6 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `role_id`, `name`, `created_at`, `updated_at`) VALUES
-(51, 2, 'user.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(52, 2, 'user.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(53, 2, 'user.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(54, 2, 'user.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(55, 2, 'user.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(56, 2, 'student.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(57, 2, 'student.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(58, 2, 'student.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(59, 2, 'student.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(60, 2, 'student.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(61, 2, 'instructor.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(62, 2, 'instructor.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(63, 2, 'instructor.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(64, 2, 'instructor.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(65, 2, 'instructor.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(66, 2, 'courseCategory.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(67, 2, 'courseCategory.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(68, 2, 'courseCategory.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(69, 2, 'courseCategory.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(70, 2, 'courseCategory.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(71, 2, 'course.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(72, 2, 'course.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(73, 2, 'course.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(74, 2, 'course.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(75, 2, 'course.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(76, 2, 'material.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(77, 2, 'material.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(78, 2, 'material.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(79, 2, 'material.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(80, 2, 'material.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(81, 2, 'lesson.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(82, 2, 'lesson.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(83, 2, 'lesson.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(84, 2, 'lesson.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(85, 2, 'lesson.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(86, 2, 'event.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(87, 2, 'event.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(88, 2, 'event.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(89, 2, 'event.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(90, 2, 'event.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(91, 2, 'quiz.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(92, 2, 'quiz.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(93, 2, 'quiz.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(94, 2, 'quiz.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(95, 2, 'quiz.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(96, 2, 'question.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(97, 2, 'question.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(98, 2, 'question.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(99, 2, 'question.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(100, 2, 'question.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(101, 2, 'option.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(102, 2, 'option.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(103, 2, 'option.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(104, 2, 'option.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(105, 2, 'option.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(106, 2, 'answer.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(107, 2, 'answer.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(108, 2, 'answer.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(109, 2, 'answer.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(110, 2, 'answer.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(111, 2, 'review.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(112, 2, 'review.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(113, 2, 'review.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(114, 2, 'review.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(115, 2, 'review.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(116, 2, 'discussion.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(117, 2, 'discussion.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(118, 2, 'discussion.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(119, 2, 'discussion.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(120, 2, 'discussion.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(121, 2, 'message.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(122, 2, 'message.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(123, 2, 'message.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(124, 2, 'message.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(125, 2, 'message.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(126, 2, 'coupon.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(127, 2, 'coupon.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(128, 2, 'coupon.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(129, 2, 'coupon.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(130, 2, 'coupon.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(131, 2, 'enrollment.index', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(132, 2, 'enrollment.create', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(133, 2, 'enrollment.show', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(134, 2, 'enrollment.edit', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
-(135, 2, 'enrollment.destroy', '2024-05-06 23:44:05', '2024-05-06 23:44:05'),
 (136, 1, 'user.index', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
 (137, 1, 'user.create', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
 (138, 1, 'user.show', '2024-05-06 23:44:58', '2024-05-06 23:44:58'),
@@ -672,7 +700,81 @@ INSERT INTO `permissions` (`id`, `role_id`, `name`, `created_at`, `updated_at`) 
 (325, 3, 'discussion.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
 (326, 3, 'message.index', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
 (327, 3, 'message.create', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
-(328, 3, 'message.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46');
+(328, 3, 'message.show', '2024-05-12 10:01:46', '2024-05-12 10:01:46'),
+(329, 2, 'user.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(330, 2, 'user.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(331, 2, 'user.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(332, 2, 'user.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(333, 2, 'user.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(334, 2, 'student.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(335, 2, 'student.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(336, 2, 'student.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(337, 2, 'student.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(338, 2, 'student.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(339, 2, 'instructor.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(340, 2, 'instructor.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(341, 2, 'instructor.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(342, 2, 'instructor.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(343, 2, 'instructor.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(344, 2, 'courseCategory.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(345, 2, 'courseCategory.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(346, 2, 'courseCategory.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(347, 2, 'courseCategory.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(348, 2, 'courseCategory.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(349, 2, 'course.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(350, 2, 'course.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(351, 2, 'course.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(352, 2, 'course.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(353, 2, 'course.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(354, 2, 'material.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(355, 2, 'material.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(356, 2, 'material.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(357, 2, 'material.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(358, 2, 'material.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(359, 2, 'lesson.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(360, 2, 'lesson.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(361, 2, 'lesson.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(362, 2, 'lesson.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(363, 2, 'lesson.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(364, 2, 'event.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(365, 2, 'event.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(366, 2, 'event.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(367, 2, 'event.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(368, 2, 'event.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(369, 2, 'quiz.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(370, 2, 'quiz.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(371, 2, 'quiz.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(372, 2, 'quiz.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(373, 2, 'quiz.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(374, 2, 'question.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(375, 2, 'question.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(376, 2, 'question.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(377, 2, 'question.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(378, 2, 'question.destroy', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(379, 2, 'answer.index', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(380, 2, 'answer.create', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(381, 2, 'answer.show', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(382, 2, 'answer.edit', '2024-06-07 11:06:46', '2024-06-07 11:06:46'),
+(383, 2, 'answer.destroy', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(384, 2, 'review.index', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(385, 2, 'review.create', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(386, 2, 'review.show', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(387, 2, 'review.edit', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(388, 2, 'review.destroy', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(389, 2, 'coupon.index', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(390, 2, 'coupon.create', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(391, 2, 'coupon.show', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(392, 2, 'coupon.edit', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(393, 2, 'coupon.destroy', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(394, 2, 'enrollment.index', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(395, 2, 'enrollment.create', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(396, 2, 'enrollment.show', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(397, 2, 'enrollment.edit', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(398, 2, 'enrollment.destroy', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(399, 2, 'admin.banner', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(400, 2, 'admin.banner', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(401, 2, 'admin.banner', '2024-06-07 11:06:47', '2024-06-07 11:06:47'),
+(402, 2, 'admin.banner', '2024-06-07 11:06:47', '2024-06-07 11:06:47');
 
 -- --------------------------------------------------------
 
@@ -691,6 +793,25 @@ CREATE TABLE `personal_access_tokens` (
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `progress`
+--
+
+CREATE TABLE `progress` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `student_id` bigint(20) UNSIGNED NOT NULL,
+  `course_id` bigint(20) UNSIGNED NOT NULL,
+  `progress_percentage` int(11) NOT NULL DEFAULT 0,
+  `completed` tinyint(1) NOT NULL DEFAULT 0,
+  `last_viewed_material_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `last_viewed_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -799,7 +920,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `identity`, `created_at`, `updated_at`) VALUES
 (1, 'Super Admin', 'superadmin', '2024-04-24 12:02:14', NULL),
-(2, 'Nhân viên', 'Staff', '2024-04-24 12:02:14', '2024-06-05 16:30:42'),
+(2, 'Admin', 'admin', '2024-04-24 12:02:14', NULL),
 (3, 'Giảng viên', 'instructor', '2024-04-24 12:02:14', '2024-05-04 23:47:45'),
 (4, 'Học viên', 'student', '2024-04-24 12:02:14', '2024-05-06 09:29:04');
 
@@ -812,7 +933,9 @@ INSERT INTO `roles` (`id`, `name`, `identity`, `created_at`, `updated_at`) VALUE
 CREATE TABLE `students` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name_en` varchar(255) NOT NULL,
+  `name_bn` varchar(255) DEFAULT NULL,
   `contact_en` varchar(255) DEFAULT NULL,
+  `contact_bn` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `date_of_birth` date DEFAULT NULL,
   `gender` enum('male','female','other') DEFAULT NULL,
@@ -822,9 +945,12 @@ CREATE TABLE `students` (
   `nationality` varchar(255) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `postcode` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 active, 0 inactive',
   `password` varchar(255) NOT NULL,
+  `language` varchar(255) NOT NULL DEFAULT 'en',
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -835,9 +961,28 @@ CREATE TABLE `students` (
 -- Đang đổ dữ liệu cho bảng `students`
 --
 
-INSERT INTO `students` (`id`, `name_en`, `contact_en`, `email`, `date_of_birth`, `gender`, `image`, `bio`, `profession`, `nationality`, `address`, `city`, `country`, `status`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(11, 'Học sinh', '0987654321', 'hocsinh@gmail.com', '2007-06-25', NULL, '3861715070453.jpg', 'Học chuyên Tin tại chuyên Trần Phú', 'học sinh', 'Hải Phòng', NULL, NULL, NULL, 1, '$2y$12$RYOKrXbLgbk.vPRwmStHK.zXUky0FJ/pvFify6TQqFfmVO.Wjw1zG', NULL, '2024-05-07 01:27:09', '2024-05-07 01:28:46', NULL),
-(12, 'Học sinh 2', '0986543217', 'hocsinh2@gmail.com', '2007-06-05', NULL, '5741715327921.png', 'Có nhu cầu học lập trình để chuẩn bị vào đại học', 'học sinh', 'Hà Nội', NULL, NULL, NULL, 1, '$2y$12$H9L2/vZ6TooSQJsK5QQkuuQ0lEgQKaz2JrEk6jUwpo8kNWVPDEDny', NULL, '2024-05-10 00:56:29', '2024-05-10 00:59:24', NULL);
+INSERT INTO `students` (`id`, `name_en`, `name_bn`, `contact_en`, `contact_bn`, `email`, `date_of_birth`, `gender`, `image`, `bio`, `profession`, `nationality`, `address`, `city`, `state`, `postcode`, `country`, `status`, `password`, `language`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(11, 'Học sinh', NULL, '0987654321', NULL, 'hocsinh@gmail.com', '2007-06-25', NULL, '3861715070453.jpg', 'Học chuyên Tin tại chuyên Trần Phú', 'học sinh', 'Hải Phòng', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$RYOKrXbLgbk.vPRwmStHK.zXUky0FJ/pvFify6TQqFfmVO.Wjw1zG', 'en', NULL, '2024-05-07 01:27:09', '2024-05-07 01:28:46', NULL),
+(12, 'Học sinh 2', NULL, '0986543217', NULL, 'hocsinh2@gmail.com', '2007-06-05', NULL, '5741715327921.png', 'Có nhu cầu học lập trình để chuẩn bị vào đại học', 'học sinh', 'Hà Nội', NULL, NULL, NULL, NULL, NULL, 1, '$2y$12$H9L2/vZ6TooSQJsK5QQkuuQ0lEgQKaz2JrEk6jUwpo8kNWVPDEDny', 'en', NULL, '2024-05-10 00:56:29', '2024-05-10 00:59:24', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `subscriptions`
+--
+
+CREATE TABLE `subscriptions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `student_id` bigint(20) UNSIGNED NOT NULL,
+  `course_id` bigint(20) UNSIGNED NOT NULL,
+  `plan` enum('monthly','yearly') NOT NULL,
+  `start_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `end_date` timestamp NULL DEFAULT NULL,
+  `status` enum('active','canceled','expired') NOT NULL DEFAULT 'active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -900,10 +1045,13 @@ INSERT INTO `transactions` (`id`, `payment_method`, `tst_user_id`, `tst_total_am
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name_en` varchar(255) NOT NULL,
+  `name_bn` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `contact_en` varchar(255) NOT NULL,
+  `contact_bn` varchar(255) DEFAULT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
   `password` varchar(255) NOT NULL,
+  `language` varchar(255) NOT NULL DEFAULT 'en',
   `image` varchar(255) DEFAULT NULL,
   `full_access` tinyint(1) NOT NULL DEFAULT 0 COMMENT '1=>yes, 0=>no',
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1=>active 2=>inactive',
@@ -918,15 +1066,14 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `name_en`, `email`, `contact_en`, `role_id`, `password`, `image`, `full_access`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `instructor_id`) VALUES
-(1, 'SuperAdmin', 'superadmin@gmail.com', '0981234566', 1, '$2y$12$IM6zyqGfzCsvAahk8yecvOPcY1XxfN6vEYceANddVZcg.RxE.TOYa', '8791714876437.jpg', 1, 1, NULL, '2024-05-03 07:51:40', '2024-05-04 19:33:57', NULL, NULL),
-(3, 'admin1', 'admin1@gmail.com', '0976548934', 2, '$2y$12$N4BCsafhXJBA5gJ36xUo7.sTJGjPmeGk.Sj7nwd4Aqfet7veej3DK', '9301715013147.png', 0, 1, NULL, '2024-05-04 23:51:59', '2024-05-06 09:37:10', NULL, NULL),
-(5, 'GS.TS Lê Hoài Bắc', 'giangvien1@gmail.com', '0985642133', 3, '$2y$12$oN5Eavk285Na1hmW2A8X9uCpEKHhbyFDzWYe0xfF.4prJcy.DikKG', 'Giảng viên_GS.TS Lê Hoài Bắc_679.jpg', 0, 1, NULL, '2024-05-06 21:38:49', '2024-05-06 21:38:49', NULL, 2),
-(6, 'PGS.TS Vũ Hải Quân', 'giangvien@gmail.com', '0956432175', 3, '$2y$12$XS82WMk5ot9HFBTjv9/.qOUqsPl9Pw2aGzf1ZGHOjHOQRu1wxHwly', 'Giảng viên_PGS.TS Vũ Hải Quân_581.png', 0, 1, NULL, '2024-05-07 00:02:34', '2024-05-07 00:02:34', NULL, 3),
-(7, 'PGS.TS Hồ Bảo Quốc', 'giangvien2@gmail.com', '0965321475', 3, '$2y$12$Ad6aB2dr1S0iGaBsKrh65OE0ojpz5QnkfFd3Dkw1eJBqUnyGqX34q', 'Giảng viên_PGS.TS Hồ Bảo Quốc_332.jpg', 0, 1, NULL, '2024-05-07 00:03:59', '2024-05-07 00:03:59', NULL, 4),
-(8, 'TS. Nguyễn Hải Minh', 'giangvien3@gmail.com', '0965321456', 3, '$2y$12$RYTIbZfAD1q6U30HtPDHbuHV4adXZgiioeJ.ILAV2z6OBLIOCz.Ma', 'Giảng viên_TS. Nguyễn Hải Minh_257.jpg', 0, 1, NULL, '2024-05-07 00:06:33', '2024-05-07 00:06:33', NULL, 5),
-(9, 'Tạ Thị Phương Thảo', 'giangvien4@gmail.com', '0965482137', 3, '$2y$12$jEj.HiBvScHtrznxBqyNcO3g2WQ46oDutukVleMPmy82gA71u4dzC', 'Giảng viên_Tạ Thị Phương Thảo_369.jpg', 0, 0, NULL, '2024-05-07 00:10:19', '2024-05-07 00:10:19', NULL, 6),
-(10, 'Baifern Pimchanock', 'lan@gmail.com', '0999999999', 3, '$2y$12$fEqT/sPA85ppgVCQ1STnCOIRkLRCgAt0Agne7y8rJKxmBz2xfQvPy', 'Giảng viên_Baifern Pimchanock_575.webp', 0, 1, NULL, '2024-06-06 11:51:18', '2024-06-06 11:51:18', NULL, 7);
+INSERT INTO `users` (`id`, `name_en`, `name_bn`, `email`, `contact_en`, `contact_bn`, `role_id`, `password`, `language`, `image`, `full_access`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `instructor_id`) VALUES
+(1, 'SuperAdmin', NULL, 'superadmin@gmail.com', '0981234566', NULL, 1, '$2y$12$IM6zyqGfzCsvAahk8yecvOPcY1XxfN6vEYceANddVZcg.RxE.TOYa', 'en', '8791714876437.jpg', 1, 1, NULL, '2024-05-03 07:51:40', '2024-05-04 19:33:57', NULL, NULL),
+(3, 'admin1', 'Admin1', 'admin1@gmail.com', '0976548934', '0976548934', 2, '$2y$12$N4BCsafhXJBA5gJ36xUo7.sTJGjPmeGk.Sj7nwd4Aqfet7veej3DK', 'en', '9301715013147.png', 0, 1, NULL, '2024-05-04 23:51:59', '2024-05-06 09:37:10', NULL, NULL),
+(5, 'GS.TS Lê Hoài Bắc', NULL, 'giangvien1@gmail.com', '0985642133', NULL, 3, '$2y$12$oN5Eavk285Na1hmW2A8X9uCpEKHhbyFDzWYe0xfF.4prJcy.DikKG', 'en', 'Giảng viên_GS.TS Lê Hoài Bắc_679.jpg', 0, 1, NULL, '2024-05-06 21:38:49', '2024-05-06 21:38:49', NULL, 2),
+(6, 'PGS.TS Vũ Hải Quân', NULL, 'giangvien@gmail.com', '0956432175', NULL, 3, '$2y$12$XS82WMk5ot9HFBTjv9/.qOUqsPl9Pw2aGzf1ZGHOjHOQRu1wxHwly', 'en', 'Giảng viên_PGS.TS Vũ Hải Quân_581.png', 0, 1, NULL, '2024-05-07 00:02:34', '2024-05-07 00:02:34', NULL, 3),
+(7, 'PGS.TS Hồ Bảo Quốc', NULL, 'giangvien2@gmail.com', '0965321475', NULL, 3, '$2y$12$Ad6aB2dr1S0iGaBsKrh65OE0ojpz5QnkfFd3Dkw1eJBqUnyGqX34q', 'en', 'Giảng viên_PGS.TS Hồ Bảo Quốc_332.jpg', 0, 1, NULL, '2024-05-07 00:03:59', '2024-05-07 00:03:59', NULL, 4),
+(8, 'TS. Nguyễn Hải Minh', NULL, 'giangvien3@gmail.com', '0965321456', NULL, 3, '$2y$12$RYTIbZfAD1q6U30HtPDHbuHV4adXZgiioeJ.ILAV2z6OBLIOCz.Ma', 'en', 'Giảng viên_TS. Nguyễn Hải Minh_257.jpg', 0, 1, NULL, '2024-05-07 00:06:33', '2024-05-07 00:06:33', NULL, 5),
+(9, 'Tạ Thị Phương Thảo', NULL, 'giangvien4@gmail.com', '0965482137', NULL, 3, '$2y$12$jEj.HiBvScHtrznxBqyNcO3g2WQ46oDutukVleMPmy82gA71u4dzC', 'en', 'Giảng viên_Tạ Thị Phương Thảo_369.jpg', 0, 0, NULL, '2024-05-07 00:10:19', '2024-05-07 00:10:19', NULL, 6);
 
 -- --------------------------------------------------------
 
@@ -1066,6 +1213,14 @@ ALTER TABLE `course_categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `discussions`
+--
+ALTER TABLE `discussions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `discussions_user_id_index` (`user_id`),
+  ADD KEY `discussions_course_id_index` (`course_id`);
+
+--
 -- Chỉ mục cho bảng `enrollments`
 --
 ALTER TABLE `enrollments`
@@ -1086,6 +1241,7 @@ ALTER TABLE `instructors`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `instructors_contact_en_unique` (`contact_en`),
   ADD UNIQUE KEY `instructors_email_unique` (`email`),
+  ADD UNIQUE KEY `instructors_contact_bn_unique` (`contact_bn`),
   ADD KEY `instructors_role_id_index` (`role_id`);
 
 --
@@ -1103,9 +1259,36 @@ ALTER TABLE `materials`
   ADD KEY `materials_lesson_id_index` (`lesson_id`);
 
 --
+-- Chỉ mục cho bảng `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `messages_sender_id_index` (`sender_id`),
+  ADD KEY `messages_receiver_id_index` (`receiver_id`);
+
+--
 -- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `options`
+--
+ALTER TABLE `options`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `options_question_id_index` (`question_id`);
+
+--
+-- Chỉ mục cho bảng `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `payments`
+--
+ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1122,6 +1305,15 @@ ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Chỉ mục cho bảng `progress`
+--
+ALTER TABLE `progress`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `progress_student_id_index` (`student_id`),
+  ADD KEY `progress_course_id_index` (`course_id`),
+  ADD KEY `progress_last_viewed_material_id_index` (`last_viewed_material_id`);
 
 --
 -- Chỉ mục cho bảng `questions`
@@ -1161,6 +1353,14 @@ ALTER TABLE `students`
   ADD UNIQUE KEY `students_email_unique` (`email`);
 
 --
+-- Chỉ mục cho bảng `subscriptions`
+--
+ALTER TABLE `subscriptions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subscriptions_student_id_index` (`student_id`),
+  ADD KEY `subscriptions_course_id_index` (`course_id`);
+
+--
 -- Chỉ mục cho bảng `transactions`
 --
 ALTER TABLE `transactions`
@@ -1173,6 +1373,7 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`),
   ADD UNIQUE KEY `users_contact_en_unique` (`contact_en`),
+  ADD UNIQUE KEY `users_contact_bn_unique` (`contact_bn`),
   ADD KEY `users_role_id_index` (`role_id`),
   ADD KEY `users_instructor_id_index` (`instructor_id`);
 
@@ -1211,8 +1412,13 @@ ALTER TABLE `banners`
 --
 -- AUTO_INCREMENT cho bảng `cart_items`
 --
+<<<<<<< HEAD
 ALTER TABLE `cart_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+=======
+ALTER TABLE `checkouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+>>>>>>> 62d0d68d7e59fdadb45adc232df9283e29e1118d
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -1230,13 +1436,19 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT cho bảng `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `course_categories`
 --
 ALTER TABLE `course_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `discussions`
+--
+ALTER TABLE `discussions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `enrollments`
@@ -1254,13 +1466,13 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT cho bảng `instructors`
 --
 ALTER TABLE `instructors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `materials`
@@ -1269,21 +1481,55 @@ ALTER TABLE `materials`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT cho bảng `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
+<<<<<<< HEAD
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+=======
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT cho bảng `options`
+--
+ALTER TABLE `options`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+>>>>>>> 62d0d68d7e59fdadb45adc232df9283e29e1118d
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=403;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `progress`
+--
+ALTER TABLE `progress`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1317,6 +1563,12 @@ ALTER TABLE `students`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT cho bảng `subscriptions`
+--
+ALTER TABLE `subscriptions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `transactions`
 --
 ALTER TABLE `transactions`
@@ -1326,7 +1578,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `vpayments`
@@ -1378,6 +1630,13 @@ ALTER TABLE `courses`
   ADD CONSTRAINT `courses_instructor_id_foreign` FOREIGN KEY (`instructor_id`) REFERENCES `instructors` (`id`) ON DELETE CASCADE;
 
 --
+-- Các ràng buộc cho bảng `discussions`
+--
+ALTER TABLE `discussions`
+  ADD CONSTRAINT `discussions_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `discussions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
 -- Các ràng buộc cho bảng `enrollments`
 --
 ALTER TABLE `enrollments`
@@ -1402,10 +1661,31 @@ ALTER TABLE `materials`
   ADD CONSTRAINT `materials_lesson_id_foreign` FOREIGN KEY (`lesson_id`) REFERENCES `lessons` (`id`) ON DELETE CASCADE;
 
 --
+-- Các ràng buộc cho bảng `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_receiver_id_foreign` FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `messages_sender_id_foreign` FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `options`
+--
+ALTER TABLE `options`
+  ADD CONSTRAINT `options_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE;
+
+--
 -- Các ràng buộc cho bảng `permissions`
 --
 ALTER TABLE `permissions`
   ADD CONSTRAINT `permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `progress`
+--
+ALTER TABLE `progress`
+  ADD CONSTRAINT `progress_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `progress_last_viewed_material_id_foreign` FOREIGN KEY (`last_viewed_material_id`) REFERENCES `materials` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `progress_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `questions`
@@ -1425,6 +1705,13 @@ ALTER TABLE `quizzes`
 ALTER TABLE `reviews`
   ADD CONSTRAINT `reviews_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `reviews_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `subscriptions`
+--
+ALTER TABLE `subscriptions`
+  ADD CONSTRAINT `subscriptions_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `subscriptions_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `users`
