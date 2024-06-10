@@ -66,8 +66,8 @@
                                             <tr>
                                                 <td>{{$q->quiz?->title}}</td>
                                                 <td>
-                                                    {{ $q->type == 'multiple_choice' ? __('Multiple Choice') }}
-                                                </td>
+                                                    {{ $q->type == 'multiple_choice' ? __('Multiple Choice') : '' }}
+                                                </td>                                                
                                                 <td>{{$q->content}}</td>
                                                 <td>{{$q->option_a}}</td>
                                                 <td>{{$q->option_b}}</td>
