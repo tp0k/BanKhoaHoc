@@ -87,9 +87,26 @@ class CourseController extends Controller
      * Display the specified resource.
      */
 
-     public function show($id)
+     public function show(Request $request, $id)
     {
-    // 
+        $course = Course::findOrFail(encryptor('decrypt', $id));
+        $user_id = currentUserId();
+        $courseCategoryId = $course->course_category_id;
+        // Gọi phương thức relatedCourses để lấy danh sách các khóa học liên quan
+        $relatedCourses = $this->relatedCourses($courseCategoryId, $course->id);
+
+        // Truyền biến sang cả hai view
+        return view('backend.course.courses.courseDetails', compact('course', 'relatedCourses', 'courseCategoryId')); 
+    }
+    public function relatedCourses($courseCategoryId, $currentCourseId)
+    {
+        // Lấy danh sách các khoá học liên quan dựa trên course_category_id của khóa học đang hiển thị
+        $relatedCourses = Course::where('course_category_id', $courseCategoryId)
+                                ->where('id', '!=', $currentCourseId) // Loại trừ khóa học đang hiển thị
+                                // ->limit(5) // Giới hạn số lượng khóa học liên quan
+                                ->get();
+
+        return $relatedCourses;
     }
     
     public function frontShow($id)

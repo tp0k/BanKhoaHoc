@@ -144,6 +144,7 @@ Route::get('courseDetails_Admin/{id}', function ($id) {
     $course = \App\Models\Course::findOrFail($id);
     return view('backend.course.courses.courseDetails', compact('course'));
 })->name('courseDetails_Admin');
+Route::get('courseDetails_Admin/{id}', [CourseController::class, 'Show'])->middleware('checkauth')->name('courseDetails_Admin');
 //comment
 Route::post('/comment', [CommentController::class, 'store']);
 //ấn vào ảnh môn học ở trang chủ sẽ hiện ra các khóa học id tương ứng
