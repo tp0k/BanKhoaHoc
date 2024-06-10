@@ -4,12 +4,37 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{asset('frontend/src/scss/vendors/plugin/css/jquery-ui.css')}}" />
+<style>
+    .pagination-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pagination-links a {
+        margin: 0 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #35343E;
+        /* border: 1px solid #35343E; */
+        border-radius: 5px;
+    }
+
+    .pagination-links a.active {
+        background-color: #35343E;
+        color: white;
+    }
+
+    .pagination-links a:hover {
+        background-color: #ebebf2;
+        color: #35343E;
+    }
+</style>
 @endpush
 
 @section('content')
 <!-- Breadcrumb Starts Here -->
 <div class="event-sub-section event-sub-section--spaceY eventsearch-sub-section">
-    {{-- <div class="gray-box"></div> --}}
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent p-0 mb-0">
@@ -102,17 +127,6 @@
             <div class="col-lg-8">
                 <div class="event-search-results">
                     <div class="event-search-results-heading">
-                        {{-- <div class="nice-select" tabindex="0">
-                            <span class="current">Tất cả</span>
-                            <ul class="list">
-                                <li data-value="Nothing" data-display=" Mới nhất" class="option selected focus">
-                                    Tất cả
-                                </li>
-                                <li data-value="Nothing" data-display=" Mới nhất" class="option selected focus">
-                                Mới nhất
-                                </li>
-                            </ul>
-                        </div> --}}
                         <p>{{$course->count()}} Kết quả tìm kiếm.</p>
                         <button class="button button-lg button--primary button--primary-filter d-lg-none" id="filter">
                             <span>
@@ -210,7 +224,6 @@
                     </div>
                     @endforelse
                 </div>
-                
                 <div class="pagination-group mt-lg-5 mt-2">
                     <a href="#" class="p_prev" onclick="changePage(currentPage - 1)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828" viewBox="0 0 9.414 16.828">
@@ -219,9 +232,7 @@
                                 stroke-linejoin="round" stroke-width="2"></path>
                         </svg>
                     </a>
-                    <a href="#" class="cdp_i active" onclick="changePage(1)">01</a>
-                    <a href="#" class="cdp_i" onclick="changePage(2)">02</a>
-                    <a href="#" class="cdp_i" onclick="changePage(3)">03</a>
+                    <div id="pagination-links" class="pagination-links"></div>
                     <a href="#" class="p_next" onclick="changePage(currentPage + 1)">
                         <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.5 1L8.5 8L1.5 15" stroke="#35343E" stroke-width="2" stroke-linecap="round"
@@ -237,23 +248,22 @@
 
 @endsection
 
-
 @push('scripts')
 <script src="{{asset('frontend/src/scss/vendors/plugin/js/price_range_script.js')}}"></script>
 <script src="{{asset('frontend/src/scss/vendors/plugin/js/jquery-ui.min.js')}}"></script>
 <script>
     const filterBtn = document.querySelector("#filter");
-            const cross = document.querySelector(".filter--cross");
+    const cross = document.querySelector(".filter--cross");
 
-            filterBtn.addEventListener("click", function () {
-                let sidebar = document.querySelector(".filter-sidebar");
-                sidebar.classList.toggle("active");
-            });
+    filterBtn.addEventListener("click", function () {
+        let sidebar = document.querySelector(".filter-sidebar");
+        sidebar.classList.toggle("active");
+    });
 
-            cross.addEventListener("click", function () {
-                let sidebar = document.querySelector(".filter-sidebar");
-                sidebar.classList.remove("active");
-            });            
+    cross.addEventListener("click", function () {
+        let sidebar = document.querySelector(".filter-sidebar");
+        sidebar.classList.remove("active");
+    });            
 </script>
 <script>
     const itemsPerPage = 4;
@@ -266,9 +276,7 @@
         items.forEach((item, index) => {
             item.style.display = (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) ? 'block' : 'none';
         });
-        document.querySelectorAll('.cdp_i').forEach((link, index) => {
-            link.classList.toggle('active', index + 1 === page);
-        });
+        renderPaginationLinks();
     }
 
     function changePage(page) {
@@ -277,9 +285,26 @@
         }
     }
 
+    function renderPaginationLinks() {
+        const paginationLinks = document.getElementById('pagination-links');
+        paginationLinks.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            const link = document.createElement('a');
+            link.href = '#';
+            link.classList.add('cdp_i');
+            if (i === currentPage) {
+                link.classList.add('active');
+            }
+            link.textContent = ('0' + i).slice(-2); // Ensure two-digit formatting
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                changePage(i);
+            });
+            paginationLinks.appendChild(link);
+        }
+    }
+
     // Initialize the first page
     showPage(1);
 </script>
-
-
 @endpush
