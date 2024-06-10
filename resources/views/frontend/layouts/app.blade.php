@@ -147,17 +147,16 @@ background-color: #f1f1f1;
                                 <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
                                 <div class="overlay-content">
                                      
-                                        <input type="text" placeholder="Tìm kiếm khóa học.." name="keywordf" />
-                                        <button type="submit" onclick= "search">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="#ffff" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-search">
-                                                <circle cx="11" cy="11" r="8"></circle>
-                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                            </svg>
-                                        </button> 
-                                    
+                                    <input type="text" placeholder="Tìm kiếm khóa học.." name="keywordf" />
+                                    <button type="submit" onclick= "search">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="#ffff" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-search">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                    </button> 
                                 </div>
                             </div>
                         </form>
@@ -189,36 +188,36 @@ background-color: #f1f1f1;
                         @endif
                     </div>
                 </div>
-<div class ="buttonuptotop">
+                <div class ="buttonuptotop">
                 <!-- Nút chat Zalo -->
-                <a href="https://zalo.me/0981970235" target="_blank" class="zalo-chat-button">
-                    <img src="/images/zalo_icon.png" alt="Chat với chúng tôi trên Zalo" class="zalo-icon">
-                </a>
+                    <a href="https://zalo.me/0981970235" target="_blank" class="zalo-chat-button">
+                        <img src="/images/zalo_icon.png" alt="Chat với chúng tôi trên Zalo" class="zalo-icon">
+                    </a>
 
-                {{-- <!-- Đoạn mã script để tích hợp Telegram Web Widget -->
-                <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="ChatWithCnetBot" data-size="large" data-radius="10" data-auth-url="https://example.com/auth/telegram" data-request-access="write"></script> --}}
-                
-                <button id="myBtn" title="Lên đầu trang">
-                    <img src='/images/lendautrang.png' title='lên đầu trang' width='60px'/>
-                </button>
-                <script>
-                window.onscroll = function() {scrollFunction()};
-                function scrollFunction() {
-                 
-                if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-                document.getElementById("myBtn").style.display = "block";
-                } else {
-                document.getElementById("myBtn").style.display = "none";
-                }
-                }
-                 
-                document.getElementById('myBtn').addEventListener("click", function(){
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-                });
+                    {{-- <!-- Đoạn mã script để tích hợp Telegram Web Widget -->
+                    <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="ChatWithCnetBot" data-size="large" data-radius="10" data-auth-url="https://example.com/auth/telegram" data-request-access="write"></script> --}}
+                    
+                    <button id="myBtn" title="Lên đầu trang">
+                        <img src='/images/lendautrang.png' title='lên đầu trang' width='60px'/>
+                    </button>
+                    <script>
+                    window.onscroll = function() {scrollFunction()};
+                    function scrollFunction() {
+                    
+                    if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                    document.getElementById("myBtn").style.display = "block";
+                    } else {
+                    document.getElementById("myBtn").style.display = "none";
+                    }
+                    }
+                    
+                    document.getElementById('myBtn').addEventListener("click", function(){
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                    });
 
-                </script>    
-</div>
+                    </script>    
+                </div>
 
                 {{-- Mobile Navbar --}}
                 <div class="navbar-mobile">

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title', 'Chi tiết sự kiện')
-@section('body-attr') style="background-color: #ebebf2;" @endsection
+@section('body-attr') style="background-color: #F5FFFA;" @endsection
 
 @push('styles')
 <link rel="stylesheet" href="{{asset('frontend/src/scss/vendors/plugin/css/star-rating-svg.css')}}" />
