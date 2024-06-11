@@ -6,13 +6,17 @@
 <link rel="stylesheet" href="{{asset('frontend/src/scss/vendors/plugin/css/jquery-ui.css')}}" />
 <style>
     .section.event-search .container {
-        max-width: 1200px; 
+        max-width: 1250px; 
         margin: 0 auto;
     }
 
     .section.event-search .jumbotron-wrapper {
         max-width: 80%; /* Giới hạn chiều rộng của jumbotron */
         margin: 0 auto 30px auto; /* Thêm khoảng cách dưới */
+    }
+    .section.event-search .events-wrapper {
+        max-width: 980px; /* Giới hạn chiều rộng của phần sự kiện */
+        margin: 0 auto; /* Căn giữa */
     }
 
     .section.event-search .jumbotron {
@@ -73,10 +77,17 @@
     .section.event-search .jumbotron .col-md-6 {
         max-width: 1200px; 
     }
-    /* .section.event-search .events-wrapper {
-        max-width: 800px; 
-        margin: 0 auto; 
-    } */
+
+    /* Add this to ensure cards are displayed inline */
+    .section.event-search .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px; /* Khoảng cách giữa các cột */
+    }
+
+    .section.event-search .col-md-6 {
+        flex: 1;
+    }
 </style>
 @endpush
 
@@ -88,42 +99,41 @@
     @endphp
     <div class="container">
         <div class="jumbotron-wrapper">
-    <div class="jumbotron p-3 p-md-5 text-white rounded">
-        <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic">{{ $latestEvent->title ?? 'Không có sự kiện' }}</h1>
-            <p class="lead my-3">{{ $latestEvent->description ?? 'Không có mô tả.' }}</p>
-            <p class="lead mb-0"><a href="{{ route('eventDetail', ['id' => $latestEvent->id ?? '#']) }}" class="text-white font-weight-bold">Tiếp tục đọc...</a></p>
-            {{-- <img class="card-img-right flex-auto d-none d-md-block" src="{{ asset('uploads/events/' . $latestEvent->image) }}" alt="{{ $latestEvent->title }}"> --}}
+            <div class="jumbotron p-3 p-md-5 text-white rounded">
+                <div class="col-md-6 px-0">
+                    <h1 class="display-4 font-italic">{{ $latestEvent->title ?? 'Không có sự kiện' }}</h1>
+                    <p class="lead my-3">{{ $latestEvent->description ?? 'Không có mô tả.' }}</p>
+                    <p class="lead mb-0"><a href="{{ route('eventDetail', ['id' => $latestEvent->id ?? '#']) }}" class="text-white font-weight-bold">Tiếp tục đọc...</a></p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-{{-- <div class="events-wrapper"> --}}
-    <div class="row mb-2">
-        @forelse ($eventSearch as $event)
-        <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <h3 class="mb-0">
-                        <a href="{{ route('eventDetail', ['id' => $event->id]) }}" class="text-dark">{{ $event->title }}</a>
-                    </h3>
-                    <div class="mb-1 text-muted">{{ date('d/m/Y', strtotime($event->created_at)) }}</div>
-                    <p class="card-text mb-auto">
-                        <a href="{{ route('eventDetail', ['id' => $event->id]) }}" class="text-dark">{{ $event->description }}</a>
-                    </p>
-                    <a href="{{ route('eventDetail', ['id' => $event->id]) }}">Tiếp tục đọc</a>
+    <div class="events-wrapper">
+        <div class="row mb-2">
+            @forelse ($eventSearch as $event)
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <h3 class="mb-0">
+                            <a href="{{ route('eventDetail', ['id' => $event->id]) }}" class="text-dark">{{ $event->title }}</a>
+                        </h3>
+                        <div class="mb-1 text-muted">{{ date('d/m/Y', strtotime($event->created_at)) }}</div>
+                        <p class="card-text mb-auto">
+                            <a href="{{ route('eventDetail', ['id' => $event->id]) }}" class="text-dark">{{ $event->description }}</a>
+                        </p>
+                        <a href="{{ route('eventDetail', ['id' => $event->id]) }}">Tiếp tục đọc</a>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" src="{{ asset('uploads/events/' . $event->image) }}" alt="{{ $event->title }}">
                 </div>
-                <img class="card-img-right flex-auto d-none d-md-block" src="{{ asset('uploads/events/' . $event->image) }}" alt="{{ $event->title }}">
             </div>
-        </div>
-    {{-- </div>     --}}
-        @empty
-        <div class="col-12">
-            <div class="contentCard contentCard--event contentCard--space">
-                <h3>Không có sự kiện nào!</h3>
+            @empty
+            <div class="col-12">
+                <div class="contentCard contentCard--event contentCard--space">
+                    <h3>Không có sự kiện nào!</h3>
+                </div>
             </div>
+            @endforelse
         </div>
-        @endforelse
     </div>
 </section>
 @endsection
