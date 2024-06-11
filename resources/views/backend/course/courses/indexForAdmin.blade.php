@@ -20,9 +20,9 @@
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Trang chủ</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('course.index')}}">Giáo viên</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('course.index')}}">Tất cả khoá học</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('course.index')}}">Khoá học</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('course.index')}}">Môn học</a></li>
                 </ol>
             </div>
         </div>
