@@ -4,6 +4,7 @@
 @push('styles')
 <!-- Datatable -->
 <link href="{{asset('vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('icons/css2/line-awesome.min.css')}}">
 @endpush
 
 @section('content')
@@ -53,7 +54,7 @@
                                         <tbody>
                                             @forelse ($course as $d)
                                             <tr>
-                                                <td><img class="img fluid" width="100" src="{{asset('public/uploads/courses/'.$d->image)}}" alt="">
+                                                <td><img class="img fluid" width="100" src="{{asset('uploads/courses/'.$d->image)}}" alt="">
                                             </td>
                                                 <td><strong>{{$d->title_en}}</strong></td>
                                                 <td><strong>{{$d->instructor?->name_en}}</strong></td>

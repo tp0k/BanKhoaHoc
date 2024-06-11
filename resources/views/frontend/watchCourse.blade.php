@@ -271,7 +271,10 @@ h1{font-size:1.5em;margin:10px;}
                                     ->where('lessons.course_id', $course->id)
                                     ->count();
                                 @endphp
-                                <p id="completionPer">{{$completedVideoCount/$CountVideo*100}}  % hoàn thành</p>
+                                <p id="completionPer">
+                                    {{ $CountVideo > 0 ? ($completedVideoCount/$CountVideo*100) : 0 }} % hoàn thành
+                                </p>
+                                  
                             </div>
                             <div class="videolist-area-bar__wrapper">
                                 @foreach($lessons as $lesson) 
