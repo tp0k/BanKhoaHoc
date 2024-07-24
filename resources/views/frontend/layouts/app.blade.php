@@ -392,9 +392,9 @@ background-color: #f1f1f1;
                     <div class="footer__list">
                         <h6>Danh mục</h6>
                         <ul>
-                            <li><a href="http://127.0.0.1:8000/about">Về chúng tôi</a></li>
-                            <li><a href="http://127.0.0.1:8000/searchCourse">Khoá học</a></li>
-                            <li><a href="http://127.0.0.1:8000/event">Sự kiện</a></li>
+                            <li><a href="{{route('about')}}">Về chúng tôi</a></li>
+                            <li><a href="{{route('searchCourse')}}">Khoá học</a></li>
+                            <li><a href="{{route('events')}}">Sự kiện</a></li>
                             
                         </ul>
                     </div>

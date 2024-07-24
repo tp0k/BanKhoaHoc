@@ -15,16 +15,15 @@ class DashboardController extends Controller
     {
         // $user = User::get(); // collection của các đối tượng user
         $user = User::first(); // User là đối tượng
-        if (fullAccess()){
+        Log::info('User role_id: ' . $user->role_id); // Thêm dòng này để log giá trị role_id của user
+        
+        if (fullAccess()) {
             return view('backend.adminDashboard');
-        }elseif ($user->role == 'instructor'){
-            return view('backend.instructorDashboard'); 
-        }else
+        } elseif ($user && $user->role_id == '3') { // Đảm bảo $user không phải là null
+            return view('backend.instructorDashboard');
+        } else {
             return view('backend.dashboard');
-
-        // // $user = User::get();
-        // if($user->role = 'instructor') 
-        //     return view('backend.instructorDashboard');
+        }
     }
 
     public function dashboard()

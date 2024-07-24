@@ -3,7 +3,9 @@
     $firstPart = isset($appNameParts[0]) ? $appNameParts[0] : ''; // Lấy phần đầu tiên của chuỗi
     $secondPart = isset($appNameParts[1]) ? $appNameParts[1] : ''; // Lấy phần thứ hai của chuỗi
 @endphp
-
+@push('styles')
+    <link rel="stylesheet" href="{{asset('icons/css/line-awesome.min.css')}}"/>
+@endpush
 <!DOCTYPE html>
 <html lang="{{str_replace('_','_', app()->getLocale())}}">
 
@@ -19,7 +21,7 @@
     <link rel="stylesheet" href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/style1.css')}}">
     {{-- <link href="{{asset('icons/css/line-awesome.min.css')}}" rel="stylesheet"> --}}
-
+    
     @stack('styles')
 
 </head>
@@ -286,7 +288,6 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{route('fee.index')}}"><i class="las la-money-bill"></i>Thống kê học phí</a></li>
-                            <li><a href="javascript:void()"><i class="lab la-gg-circle"></i>Phí đăng ký</a></li>
                             <li><a href="{{route('coupon.index')}}"><i class="las la-tags"></i>Mã giảm giá</a></li>
                         </ul>
                     </li>

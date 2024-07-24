@@ -39,7 +39,7 @@
                     <div class="widget-stat card bg-secondary overflow-hidden">
                         <div class="card-header pb-3">
                             <h3 class="card-title text-white">Tổng khoá học</h3>
-                            <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i>{{ $totalCourses }}</h5>
+                            <h5 class="text-white mb-0"><i class="fa fa-caret-up"></i> {{ $totalCourses }}</h5>
                         </div>
                         {{-- <div class="card-body p-0 mt-2">
                             <div class="px-4"><span class="bar1"

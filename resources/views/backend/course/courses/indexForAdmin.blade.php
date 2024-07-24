@@ -4,7 +4,6 @@
 @push('styles')
 <!-- Datatable -->
 <link href="{{asset('vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
-<link rel="stylesheet" href="{{asset('icons/css2/line-awesome.min.css')}}">
 @endpush
 
 @section('content')
